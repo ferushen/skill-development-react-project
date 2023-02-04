@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
-import { useTheme } from './theme/useTheme';
-import { classNames as cn } from './helpers/classNames/classNames';
 
-import { MainPageAsync as MainPage } from './pages/MainPage/MainPage.async';
-import { AboutPageAsync as AboutPage } from './pages/AboutPage/AboutPage.async';
+import { useTheme } from './providers/ThemeProvider';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
+
+import { MainPageAsync as MainPage } from 'pages/MainPage/ui/MainPage.async';
+import { AboutPageAsync as AboutPage } from 'pages/AboutPage/ui/AboutPage.async';
 
 import './styles/index.scss';
 
