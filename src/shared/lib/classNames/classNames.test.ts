@@ -44,4 +44,15 @@ describe('classNames', () => {
 		const expected = '';
 		expect(classNames('')).toBe(expected);
 	});
+
+	test('with undefined mods', () => {
+		const expected = 'someClass modeClassOne';
+		expect(
+			classNames(
+				'someClass',
+				{ modeClassOne: true, modeClassTwo: false, modeClassTree: undefined },
+				[]
+			)
+		).toBe(expected);
+	});
 });

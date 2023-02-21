@@ -1,3 +1,5 @@
+// На данный момент не используется
+
 export enum AppRoutes {
 	MAIN = 'main',
 	ABOUT = 'about',
