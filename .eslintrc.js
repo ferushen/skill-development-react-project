@@ -29,7 +29,13 @@ module.exports = {
 				caughtErrorsIgnorePattern: '^_',
 			},
 		],
-		'i18next/no-literal-string': 'error',
+		'i18next/no-literal-string': [
+			'error',
+			{
+				mode: 'jsx-only',
+				'jsx-attributes': { exclude: ['data-testid', 'to'] },
+			},
+		],
 		indent: ['error', 'tab', { SwitchCase: 1 }],
 		'linebreak-style': ['error', 'windows'],
 		'no-unused-vars': ['off'],

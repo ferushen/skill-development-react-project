@@ -8,7 +8,12 @@ export default {
 	coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
 	moduleDirectories: ['node_modules'],
 	moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+	moduleNameMapper: {
+		'\\.(s?css)$': 'identity-obj-proxy',
+	},
+	modulePaths: ['<rootDir>src'],
 	rootDir: '../../',
+	setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 	testEnvironment: 'jsdom',
 	testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
 	// testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
