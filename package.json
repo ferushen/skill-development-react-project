@@ -103,7 +103,8 @@
 		"react-router-dom": "6.2.1"
 	},
 	"resolutions": {
-		"@storybook/react/webpack": "^5"
+		"@storybook/react/webpack": "^5",
+		"webpack@5/enhanced-resolve": "5.10.0"
 	},
 	"overrides": {
 		"enhanced-resolve": "5.10.0"
