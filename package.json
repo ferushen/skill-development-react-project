@@ -105,6 +105,9 @@
 	"resolutions": {
 		"@storybook/react/webpack": "^5"
 	},
+	"overrides": {
+		"enhanced-resolve": "5.10.0"
+	},
 	"loki": {
 		"configurations": {
 			"chrome.laptop": {
