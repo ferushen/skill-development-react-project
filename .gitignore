@@ -1,5 +1,6 @@
 /build
+/storybook-static
 node_modules
-.vscode
 package-lock.json
+.vscode
 .vscode/settings.json
