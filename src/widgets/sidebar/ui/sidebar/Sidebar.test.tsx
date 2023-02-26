@@ -13,7 +13,7 @@ describe('Sidebar', () => {
 
 	test('Test render with renderWithTranslation', () => {
 		renderWithTranslation(<Sidebar />);
-		const toggleBtn = screen.getByTestId('sidebat-toggle');
+		const toggleBtn = screen.getByTestId('sidebar-toggle');
 		expect(screen.getByTestId('sidebar')).toBeInTheDocument();
 		fireEvent.click(toggleBtn);
 		expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');

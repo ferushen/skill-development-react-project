@@ -24,15 +24,17 @@ export function buildPlugins({
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
 		}),
-		new BundleAnalyzerPlugin({
-			analyzerMode: analyze ? 'server' : 'disabled',
-			openAnalyzer: false,
-		}),
 	].filter(Boolean);
 
 	if (isDev) {
 		plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
 		/*plugins.push(new webpack.HotModuleReplacementPlugin());*/
+		plugins.push(
+			new BundleAnalyzerPlugin({
+				analyzerMode: analyze ? 'server' : 'disabled',
+				openAnalyzer: false,
+			})
+		);
 	}
 
 	return plugins;

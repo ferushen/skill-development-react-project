@@ -31,7 +31,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 				onClick={onToggle}
 				className={cls.button}
 			>
-				{'!'}
+				{'!!!!!!'}
 			</button>
 		</div>
 	);

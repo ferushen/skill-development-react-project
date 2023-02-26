@@ -3,7 +3,7 @@ import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/themeContex
 
 const defaultValue = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 
-export const ThemeProvider: FC = ({ children }) => {
+const ThemeProvider: FC = ({ children }) => {
 	const [theme, setTheme] = useState<Theme>(defaultValue);
 
 	const defaultProps = useMemo(() => ({
@@ -17,3 +17,5 @@ export const ThemeProvider: FC = ({ children }) => {
 		</ThemeContext.Provider>
 	);
 };
+
+export default ThemeProvider;
