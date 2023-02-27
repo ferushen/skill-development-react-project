@@ -12,7 +12,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
 	};
 
 	config.resolve?.modules?.push(paths.src); // для работы с абсолютными путями
-	config.resolve?.extensions?.push('ts', 'tsx'); // т.к. используем TS
+	config.resolve?.extensions?.push('.ts', '.tsx'); // т.к. используем TS
 
 	if (config.module?.rules) {
 		config.module.rules = config.module?.rules?.map(
