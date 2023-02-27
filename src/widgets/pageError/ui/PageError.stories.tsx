@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import { Theme } from 'app/providers/themeProvider/lib/themeContext';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { PageError } from './PageError';
 
