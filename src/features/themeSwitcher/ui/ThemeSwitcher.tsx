@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
-import { Theme } from 'app/providers/themeProvider/lib/themeContext';
-import { useTheme } from 'app/providers/themeProvider/lib/useTheme';
+import { Theme, useTheme } from 'app/providers/themeProvider';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { Button, ThemeButton } from 'shared/ui/button/Button';
