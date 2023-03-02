@@ -1,6 +1,11 @@
 :root {
 	--font-family-main: Consolas, 'Times New Roman', Serif;
 
+	/* styles for S-size */
+	--font-size-s: 8px;
+	--font-line-s: 16px;
+	--font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
 	/* styles for M-size */
 	--font-size-m: 16px;
 	--font-line-m: 24px;
@@ -10,6 +15,11 @@
 	--font-size-l: 24px;
 	--font-line-l: 32px;
 	--font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+	/* styles for XL-size */
+	--font-size-xl: 32px;
+	--font-line-xl: 40px;
+	--font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
 	/* SIZES */
 	/* Navbar */
