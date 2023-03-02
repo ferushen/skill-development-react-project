@@ -32,27 +32,6 @@ OutlineLight.args = {
 	theme: ButtonTheme.OUTLINE
 };
 
-export const OutlineLightSizeM = Template.bind({});
-OutlineLightSizeM.args = {
-	children: 'text',
-	size: ButtonSize.M,
-	theme: ButtonTheme.OUTLINE
-};
-
-export const OutlineLightSizeL = Template.bind({});
-OutlineLightSizeL.args = {
-	children: 'text',
-	size: ButtonSize.L,
-	theme: ButtonTheme.OUTLINE
-};
-
-export const OutlineLightSizeXL = Template.bind({});
-OutlineLightSizeXL.args = {
-	children: 'text',
-	size: ButtonSize.XL,
-	theme: ButtonTheme.OUTLINE
-};
-
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
 	children: 'text',
