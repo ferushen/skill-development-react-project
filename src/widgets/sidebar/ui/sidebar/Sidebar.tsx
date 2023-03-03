@@ -6,8 +6,8 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'features/themeSwitcher';
 import { LangSwitcher } from 'features/langSwitcher/ui/LangSwitcher';
 import { AppLink, Button } from 'shared/ui';
-import { AppLinkTheme } from 'shared/ui/appLink/AppLink';
-import { ButtonSize, ButtonTheme } from 'shared/ui/button/Button';
+import { AppLinkVariant } from 'shared/ui/appLink/AppLink';
+import { ButtonSize, ButtonVariant } from 'shared/ui/button/Button';
 
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
@@ -35,7 +35,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 				data-testid='sidebar-toggle'
 				onClick={onToggle}
 				className={cls.collapseBtn}
-				theme={ButtonTheme.BACKGROUND_INVERTED}
+				variant={ButtonVariant.BACKGROUND_INVERTED}
 				size={ButtonSize.MW}
 			>
 				{collapsed ? '>>>' : '<<<'}
@@ -45,7 +45,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
 					<AppLink
 						to={RoutePath[AppRoutes.MAIN]}
-						theme={AppLinkTheme.INVERTED}
+						variant={AppLinkVariant.INVERTED}
 						className={cls.item}
 					>
 						<MainIcon className={cls.icon} />
@@ -56,7 +56,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
 					<AppLink
 						to={RoutePath[AppRoutes.ABOUT]}
-						theme={AppLinkTheme.INVERTED}
+						variant={AppLinkVariant.INVERTED}
 						className={cls.item}
 					>
 						<AboutIcon className={cls.icon} />

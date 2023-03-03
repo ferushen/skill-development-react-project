@@ -6,18 +6,18 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
 /* 
-const appLinkThemeVariants = ['primary', 'secondary'] as const;
-type AppLinkTheme = (typeof appLinkThemeVariants)[number]; 
+const AppLinkVariantVariants = ['primary', 'secondary'] as const;
+type AppLinkVariant = (typeof AppLinkVariantVariants)[number]; 
 */
 
-export enum AppLinkTheme {
-    PRIMARY = 'primary',
-    INVERTED = 'inverted',
+export enum AppLinkVariant {
+	PRIMARY = 'primary',
+	INVERTED = 'inverted',
 }
 
 interface AppLinkProps extends LinkProps {
-    className?: string;
-    theme?: AppLinkTheme;
+	className?: string;
+	variant?: AppLinkVariant;
 }
 
 export const AppLink: FC<AppLinkProps> = (props) => {
@@ -25,14 +25,14 @@ export const AppLink: FC<AppLinkProps> = (props) => {
 		to,
 		className,
 		children,
-		theme = AppLinkTheme.PRIMARY,
+		variant = AppLinkVariant.PRIMARY,
 		...otherProps
 	} = props;
 
 	return (
 		<Link
 			to={to}
-			className={cn(cls.appLink, {}, [className, cls[theme]])}
+			className={cn(cls.appLink, {}, [className, cls[variant]])}
 			{...otherProps}
 		>
 			{children}

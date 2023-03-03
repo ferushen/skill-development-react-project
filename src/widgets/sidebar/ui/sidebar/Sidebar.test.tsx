@@ -1,13 +1,16 @@
 /* eslint-disable i18next/no-literal-string */
 import { fireEvent, screen } from '@testing-library/react';
-import { withTranslation } from 'react-i18next';
+// import { withTranslation } from 'react-i18next';
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
 import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {
 	test('Test render withTranslation', () => {
+		componentRender(<Sidebar />);
+		/*		
 		const SidebarWithTranslation = withTranslation()(Sidebar);
-		componentRender(<SidebarWithTranslation />);
+		renderWithTranslation(<SidebarWithTranslation />);
+		*/
 		expect(screen.getByTestId('sidebar')).toBeInTheDocument();
 	});
 

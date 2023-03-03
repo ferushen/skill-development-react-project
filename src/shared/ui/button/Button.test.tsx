@@ -1,6 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import { render, screen } from '@testing-library/react';
-import { Button, ButtonTheme } from './Button';
+import { Button, ButtonVariant } from './Button';
 
 describe('Button', () => {
 	test('test render', () => {
@@ -8,7 +8,7 @@ describe('Button', () => {
 		expect(screen.getByText('test')).toBeInTheDocument();
 	});
 	test('test classNames', () => {
-		render(<Button theme={ButtonTheme.CLEAR}>test</Button>);
+		render(<Button variant={ButtonVariant.CLEAR}>test</Button>);
 		expect(screen.getByText('test')).toHaveClass('clear');
 		screen.debug;
 	});

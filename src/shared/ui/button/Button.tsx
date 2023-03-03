@@ -3,7 +3,7 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import cls from './Button.module.scss';
 
-export enum ButtonTheme {
+export enum ButtonVariant {
 	CLEAR = 'clear',
 	OUTLINE = 'outline',
 	BACKGROUND = 'background',
@@ -20,7 +20,7 @@ export enum ButtonSize {
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
-	theme?: ButtonTheme;
+	variant?: ButtonVariant;
 	square?: boolean;
 	size?: ButtonSize;
 }
@@ -29,7 +29,7 @@ export const Button: FC<ButtonProps> = (props) => {
 	const {
 		className,
 		children,
-		theme,
+		variant,
 		square,
 		size,
 		...otherProps
@@ -41,7 +41,7 @@ export const Button: FC<ButtonProps> = (props) => {
 
 	const additionalClasses: string[] = [
 		className,
-		cls[theme],
+		cls[variant],
 		cls[size]
 	];
 
