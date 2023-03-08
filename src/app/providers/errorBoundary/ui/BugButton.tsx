@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from 'shared/ui';
+import { ButtonVariant } from 'shared/ui/button/Button';
 
 export const BugButton: FC = () => {
 	const [error, setError] = useState(false);
@@ -16,7 +17,7 @@ export const BugButton: FC = () => {
 	}, [error]);
 
 	return (
-		<Button onClick={throwHandler}>
+		<Button onClick={throwHandler} variant={ButtonVariant.BACKGROUND}>
 			{t('Прокинуть ошибку!')}
 		</Button >
 	);

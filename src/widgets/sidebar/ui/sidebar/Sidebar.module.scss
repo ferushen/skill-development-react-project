@@ -24,7 +24,7 @@
 .items {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	gap: 30px;
 	margin: 20px 0 0 calc(var(--sidebar-width) / 3);
 }
 
@@ -36,11 +36,17 @@
 }
 
 .icon {
+	width: 0;
+	pointer-events: none;
+	opacity: 0;
 	fill: var(--inverted-primary-color);
+	transition: opacity 0.3s;
 }
 
 .link {
+	text-decoration: none;
 	opacity: 1;
+	word-spacing: 2%;
 	transition: opacity 0.6s, transform 0.6s;
 }
 
@@ -65,6 +71,12 @@
 
 	.item {
 		gap: 0;
+	}
+
+	.icon {
+		width: auto;
+		pointer-events: all;
+		opacity: 1;
 	}
 
 	.link {

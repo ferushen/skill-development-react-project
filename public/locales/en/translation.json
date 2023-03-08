@@ -1,13 +1,15 @@
 {
-	"O нас": "About",
-	"Главная": "Home",
-	"Главная страница": "Главная страница",
-	"Непредвиденная ошибка": "Unexpected error",
-	"О нас": "О нас",
-	"Обновить страницу": "Refresh the page",
-	"Прокинуть ошибку!": "Throw Error!",
-	"Смена языка": "Русский",
-	"Смена языка сокр": "RU",
-	"Страница не найдена": "Page not found",
-	"привет нуб!": "hi noob!"
+  "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, esse. Illum iure necessitatibus est enim blanditiis. Mollitia cupiditate ex reiciendis dolore impedit incidunt, maiores modi dolores vero repudiandae, temporibus expedita?",
+  "modal": "modal",
+  "Войти": "Login",
+  "Главная": "Home",
+  "Главная страница": "Главная страница",
+  "Непредвиденная ошибка": "Unexpected error",
+  "О нас": "About",
+  "Обновить страницу": "Refresh the page",
+  "Прокинуть ошибку!": "Throw Error!",
+  "Смена языка": "Русский",
+  "Смена языка сокр": "RU",
+  "Страница не найдена": "Page not found",
+  "привет нуб!": "hi noob!"
 }

@@ -61,7 +61,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 					>
 						<AboutIcon className={cls.icon} />
 						<span className={cls.link}>
-							{t('O нас')}
+							{t('О нас')}
 						</span>
 					</AppLink>
 

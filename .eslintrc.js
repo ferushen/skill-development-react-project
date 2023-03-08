@@ -27,8 +27,12 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: ['react', '@typescript-eslint', 'i18next'],
+	plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
 	rules: {
+		// отвечает за правильное написание хуков
+		'react-hooks/rules-of-hooks': 'error',
+		// отвечает за массивы зависимостей в хуках
+		'react-hooks/exhaustive-deps': 'error',
 		'@typescript-eslint/ban-ts-comment': [
 			'warn',
 			{

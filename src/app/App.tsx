@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import { Suspense } from 'react';
 import { AppRouter } from 'app/providers/router';
 
@@ -6,8 +7,6 @@ import { useTheme } from './providers/themeProvider';
 
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/sidebar';
-
-import './styles/index.scss';
 
 const App = () => {
 	const { theme } = useTheme();
@@ -26,3 +25,9 @@ const App = () => {
 };
 
 export default App;
+
+/* 
+
+
+
+*/
