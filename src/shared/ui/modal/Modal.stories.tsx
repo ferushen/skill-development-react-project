@@ -1,3 +1,4 @@
+/* cSpell:disable */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/themeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
@@ -5,7 +6,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Modal } from './Modal';
 
 export default {
-	title: 'shared/Button',
+	title: 'shared/Modal',
 	component: Modal,
 	argTypes: {
 		backgroundColor: { control: 'color' },

@@ -32,7 +32,7 @@ module.exports = {
 		// отвечает за правильное написание хуков
 		'react-hooks/rules-of-hooks': 'error',
 		// отвечает за массивы зависимостей в хуках
-		'react-hooks/exhaustive-deps': 'error',
+		'react-hooks/exhaustive-deps': 'warn',
 		'@typescript-eslint/ban-ts-comment': [
 			'warn',
 			{

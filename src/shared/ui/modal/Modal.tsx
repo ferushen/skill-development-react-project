@@ -1,5 +1,6 @@
 import { FC, ReactNode, useCallback, useEffect } from 'react';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
+
 import { Portal } from 'shared/ui//portal/Portal';
 
 import cls from './Modal.module.scss';
@@ -62,9 +63,9 @@ export const Modal: FC<ModalProps> = (props) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isOpen]);
 
-	if (!isOpen) {
-		return null;
-	}
+	/*	if (!isOpen) {
+			return null;
+		}*/
 
 	return (
 		<Portal>

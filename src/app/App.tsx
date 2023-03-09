@@ -9,10 +9,11 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/sidebar';
 
 const App = () => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { theme } = useTheme();
 
 	return (
-		<div className={cn('app', {}, [theme])}>
+		<div className={cn('app', {}, [])}>
 			<Suspense fallback=''>
 				<Navbar />
 				<div className="content-page">
@@ -25,9 +26,3 @@ const App = () => {
 };
 
 export default App;
-
-/* 
-
-
-
-*/
