@@ -13,6 +13,7 @@ export function useTheme(): UseThemeResult {
 		if (theme) {
 			document.body.classList.remove(theme);
 		}
+
 		const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
 
 		setTheme(newTheme);
