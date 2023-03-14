@@ -5,7 +5,7 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { Button } from 'shared/ui/button/Button';
 import { ButtonVariant } from 'shared/ui/button/Button';
-import { Modal } from 'shared/ui/modal/Modal';
+import { LoginModal } from 'features/authByUsername';
 
 import cls from './Navbar.module.scss';
 
@@ -18,22 +18,24 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 	const { t } = useTranslation();
 	const [isAuthModal, setIsAuthModal] = useState(false);
 
-	const onToggleModal = useCallback(() => {
-		setIsAuthModal(prev => !prev);
+	const onCloseModal = useCallback(() => {
+		setIsAuthModal(false);
+	}, []);
+
+	const onShowModal = useCallback(() => {
+		setIsAuthModal(true);
 	}, []);
 
 	return (
 		<div className={cn(cls.navbar, {}, [className])}>
 			<BugButton />
 			<Button
-				onClick={onToggleModal}
+				onClick={onShowModal}
 				variant={ButtonVariant.CLEAR_INVERTED}
 			>
 				{t('Войти')}
 			</Button>
-			<Modal isOpen={isAuthModal} onClose={onToggleModal}>
-				{t('lorem')}
-			</Modal>
+			<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
 		</div>
 	);
 };

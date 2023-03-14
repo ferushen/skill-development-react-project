@@ -7,7 +7,7 @@
 	z-index: -1;
 	pointer-events: none;
 	opacity: 0;
-	transition: opacity 0.3s, z-index 0.3s;
+	transition: opacity 0.3s, z-index 0s;
 }
 
 .overlay {
@@ -36,7 +36,6 @@
 	z-index: var(--modal-z-index);
 	pointer-events: auto;
 	opacity: 1;
-	transition: opacity 0.3s, z-index 0s;
 
 	.content {
 		transform: scale(1);

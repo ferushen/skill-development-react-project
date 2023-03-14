@@ -1,5 +1,6 @@
-import { FC, ReactNode, useCallback, useEffect } from 'react';
+import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { useMount } from 'shared/lib/hooks/useMount/useMount';
 
 import { Portal } from 'shared/ui//portal/Portal';
 
@@ -10,16 +11,18 @@ interface ModalProps {
 	children?: ReactNode;
 	isOpen?: boolean;
 	onClose?: () => void;
+	lazy?: boolean;
 }
 
-// const ANIMATION_DELAY = 195;
+const ANIMATION_DELAY = 300;
 
 export const Modal: FC<ModalProps> = (props) => {
 	const {
 		className,
 		children,
 		isOpen,
-		onClose
+		onClose,
+		lazy
 	} = props;
 
 	// состояние для отслеживания момента закрытия модалки
@@ -27,21 +30,19 @@ export const Modal: FC<ModalProps> = (props) => {
 	// референс для хранения таймера для навешивания стилей на модалку при закрытии
 	// const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
+	const [isMounted, setIsMounted] = useState(false);
+	const { mounted } = useMount({ opened: isOpen, delay: ANIMATION_DELAY });
+
 	const modalMods: Record<string, boolean> = {
 		[cls.opened]: isOpen,
 		/*[cls.isClosing]: !isOpen*/
 	};
 
-	const closeHandler = useCallback(() => {
-		if (onClose) {
-			onClose();
+	useEffect(() => {
+		if (isOpen) {
+			setIsMounted(true);
 		}
-	}, [onClose]);
-
-	// обработчик клика на контентной части модалки для предотвращения ее закрытия
-	const onContentClick = (e: React.MouseEvent) => {
-		e.stopPropagation();
-	};
+	}, [isOpen]);
 
 	useEffect(() => {
 		const onKeyDown = (e: KeyboardEvent) => {
@@ -63,9 +64,20 @@ export const Modal: FC<ModalProps> = (props) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isOpen]);
 
-	/*	if (!isOpen) {
-			return null;
-		}*/
+	const closeHandler = useCallback(() => {
+		if (onClose) {
+			onClose();
+		}
+	}, [onClose]);
+
+	// обработчик клика на контентной части модалки для предотвращения ее закрытия
+	const onContentClick = (e: React.MouseEvent) => {
+		e.stopPropagation();
+	};
+
+	if (lazy && !isMounted) {
+		return null;
+	}
 
 	return (
 		<Portal>
