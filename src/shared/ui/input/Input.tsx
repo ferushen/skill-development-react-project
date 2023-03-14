@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
+import { InputHTMLAttributes, memo } from 'react';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import cls from './Input.module.scss';
@@ -9,7 +9,6 @@ interface InputProps extends HTMLInputProps {
 	className?: string;
 	value?: string;
 	onChange?: (value: string) => void;
-	autofocus?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -18,17 +17,8 @@ export const Input = memo((props: InputProps) => {
 		value,
 		onChange,
 		type = 'text',
-		autofocus,
 		...otherProps
 	} = props;
-
-	const ref = useRef<HTMLInputElement>();
-
-	useEffect(() => {
-		if (autofocus) {
-			ref?.current?.focus();
-		}
-	}, [autofocus]);
 
 	const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e.target.value);
@@ -39,7 +29,6 @@ export const Input = memo((props: InputProps) => {
 		<div className={cn(cls.inputWrapper, {}, [className])}>
 			<input
 				{...otherProps}
-				ref={ref}
 				type={type}
 				value={value}
 				onChange={onChangeHandler}

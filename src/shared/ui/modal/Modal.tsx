@@ -1,4 +1,4 @@
-import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
+import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { useMount } from 'shared/lib/hooks/useMount/useMount';
 
@@ -30,19 +30,36 @@ export const Modal: FC<ModalProps> = (props) => {
 	// референс для хранения таймера для навешивания стилей на модалку при закрытии
 	// const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-	const [isMounted, setIsMounted] = useState(false);
+	/*const [isMounted, setIsMounted] = useState(false);*/
+	const [isOpening, setIsOpening] = useState(false);
+	const timerOpeningRef = useRef<ReturnType<typeof setTimeout>>();
 	const { mounted } = useMount({ opened: isOpen, delay: ANIMATION_DELAY });
 
 	const modalMods: Record<string, boolean> = {
-		[cls.opened]: isOpen,
+		[cls.opened]: isOpening,
 		/*[cls.isClosing]: !isOpen*/
 	};
 
 	useEffect(() => {
 		if (isOpen) {
-			setIsMounted(true);
+			timerOpeningRef.current = setTimeout(() => {
+				setIsOpening(true);
+			});
+		}
+
+		return () => {
+			clearTimeout(timerOpeningRef.current);
+			setIsOpening(false);
+		};
+	}, [isOpen]);
+
+	/*	
+	useEffect(() => {
+		if (isOpen) {
+			setIsMounted(isOpen);
 		}
 	}, [isOpen]);
+	*/
 
 	useEffect(() => {
 		const onKeyDown = (e: KeyboardEvent) => {
@@ -75,7 +92,7 @@ export const Modal: FC<ModalProps> = (props) => {
 		e.stopPropagation();
 	};
 
-	if (lazy && !isMounted) {
+	if (lazy && !mounted) {
 		return null;
 	}
 

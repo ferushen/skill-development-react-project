@@ -12,7 +12,6 @@ interface LoginModalProps {
 
 export const LoginModal: FC<LoginModalProps> = (props) => {
 	const {
-		className,
 		isOpen,
 		onClose
 	} = props;

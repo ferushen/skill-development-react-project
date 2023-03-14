@@ -26,11 +26,11 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
 		<div className={cn(cls.loginForm, {}, [className])}>
 			<div className={cls.inputsWrapper}>
 				<Input
-					autofocus
 					className={cls.input}
 					value={value}
 					onChange={onChange}
 					placeholder={t('Введите логин')}
+					autoFocus={true}
 				/>
 				<Input
 					className={cls.input}
