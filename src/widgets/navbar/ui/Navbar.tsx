@@ -25,8 +25,6 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
 	const isAuthorize = Boolean(authData);
 
-
-
 	console.log('Navbar authData', authData, 'isAuthModal', isAuthModal);
 	const onCloseModal = useCallback(() => {
 		setIsAuthModal(false);
@@ -45,12 +43,6 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 			setIsAuthModal(false);
 		}
 	}, [isAuthorize, isAuthModal]);
-
-	/*	
-	const onSuccess = useCallback(() => {
-		setIsAuthModal(false);
-	}, []);
-	*/
 
 	if (authData) {
 		return (
