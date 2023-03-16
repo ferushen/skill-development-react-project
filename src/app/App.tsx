@@ -1,16 +1,20 @@
 /* eslint-disable i18next/no-literal-string */
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { AppRouter } from 'app/providers/router';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'entities/user';
 
 import { classNames as cn } from 'shared/lib/classNames/classNames';
-import { useTheme } from './providers/themeProvider';
 
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/sidebar';
 
 const App = () => {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const { theme } = useTheme();
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(userActions.initAuthData());
+	}, [dispatch]);
 
 	return (
 		<div className={cn('app', {}, [])}>

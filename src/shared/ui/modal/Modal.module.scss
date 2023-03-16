@@ -22,7 +22,6 @@
 }
 
 .content {
-	max-width: 60%;
 	padding: 20px;
 
 	background-color: var(--bg-color);
@@ -39,11 +38,5 @@
 
 	.content {
 		transform: scale(1);
-	}
-}
-
-.isClosing {
-	.content {
-		pointer-events: none;
 	}
 }

@@ -87,3 +87,10 @@ MaxWidth.args = {
 	size: ButtonSize.MW,
 	variant: ButtonVariant.BACKGROUND_INVERTED
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+	children: 'click me',
+	variant: ButtonVariant.OUTLINE,
+	disabled: true
+};

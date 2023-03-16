@@ -28,7 +28,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
 				nextLng = 'ru';
 				break;
 			default:
-				throw new Error('Не найдена языковая схема');
+				throw new Error(t('Не найдена языковая схема'));
 		}
 
 		document.documentElement.lang = nextLng;
@@ -42,7 +42,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
 			className={cn(cls.langSwitcher, {}, [className])}
 			variant={ButtonVariant.CLEAR}
 		>
-			{t(short ? 'Смена языка сокр' : 'Смена языка')}
+			{short ? t('Смена языка сокр') : t('Смена языка')}
 		</Button>
 	);
 };

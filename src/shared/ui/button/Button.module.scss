@@ -2,6 +2,7 @@
 	padding: 8px 12px;
 	color: var(--primary-color);
 	cursor: pointer;
+	border: 1px solid black;
 	border-radius: 10px;
 }
 
@@ -81,4 +82,8 @@
 	height: var(--font-line-xl);
 	font-size: var(--font-size-xl);
 	border-radius: calc(var(--font-line-xl) / 6);
+}
+
+.disabled {
+	opacity: 0.5;
 }

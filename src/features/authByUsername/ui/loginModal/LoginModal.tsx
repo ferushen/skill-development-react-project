@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { Modal } from 'shared/ui/modal/Modal';
 import { LoginForm } from '../loginForm/LoginForm';

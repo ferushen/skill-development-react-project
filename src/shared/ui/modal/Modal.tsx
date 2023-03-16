@@ -1,6 +1,6 @@
 import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
-import { useMount } from 'shared/lib/hooks/useMount/useMount';
+// import { useMount } from 'shared/lib/hooks/useMount/useMount';
 
 import { Portal } from 'shared/ui//portal/Portal';
 
@@ -25,20 +25,48 @@ export const Modal: FC<ModalProps> = (props) => {
 		lazy
 	} = props;
 
+
 	// состояние для отслеживания момента закрытия модалки
 	// const [isClosing, setIsClosing] = useState(false);
 	// референс для хранения таймера для навешивания стилей на модалку при закрытии
 	// const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-	/*const [isMounted, setIsMounted] = useState(false);*/
+	const [isMounted, setIsMounted] = useState(false);
 	const [isOpening, setIsOpening] = useState(false);
+	const timerClosingRef = useRef<ReturnType<typeof setTimeout>>();
 	const timerOpeningRef = useRef<ReturnType<typeof setTimeout>>();
-	const { mounted } = useMount({ opened: isOpen, delay: ANIMATION_DELAY });
+	// const { mounted } = useMount({ opened: isOpen, delay: ANIMATION_DELAY });
+	console.log('isOpen', isOpen, 'isMounted', isMounted, 'isOpening', isOpening);
 
 	const modalMods: Record<string, boolean> = {
 		[cls.opened]: isOpening,
 		/*[cls.isClosing]: !isOpen*/
 	};
+
+	const closeHandler = useCallback(() => {
+		if (onClose) {
+			onClose();
+		}
+	}, [onClose]);
+
+	// обработчик клика на контентной части модалки для предотвращения ее закрытия
+	const onContentClick = (e: React.MouseEvent) => {
+		e.stopPropagation();
+	};
+
+	useEffect(() => {
+		if (isOpen && !isMounted) {
+			setIsMounted(true);
+		} else if (!isOpen && isMounted) {
+			timerClosingRef.current = setTimeout(() => {
+				setIsMounted(false);
+			}, ANIMATION_DELAY);
+		}
+
+		return () => {
+			clearTimeout(timerClosingRef.current);
+		};
+	}, [isOpen, isMounted]);
 
 	useEffect(() => {
 		if (isOpen) {
@@ -52,14 +80,6 @@ export const Modal: FC<ModalProps> = (props) => {
 			setIsOpening(false);
 		};
 	}, [isOpen]);
-
-	/*	
-	useEffect(() => {
-		if (isOpen) {
-			setIsMounted(isOpen);
-		}
-	}, [isOpen]);
-	*/
 
 	useEffect(() => {
 		const onKeyDown = (e: KeyboardEvent) => {
@@ -81,18 +101,7 @@ export const Modal: FC<ModalProps> = (props) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isOpen]);
 
-	const closeHandler = useCallback(() => {
-		if (onClose) {
-			onClose();
-		}
-	}, [onClose]);
-
-	// обработчик клика на контентной части модалки для предотвращения ее закрытия
-	const onContentClick = (e: React.MouseEvent) => {
-		e.stopPropagation();
-	};
-
-	if (lazy && !mounted) {
+	if (lazy && !isMounted) {
 		return null;
 	}
 

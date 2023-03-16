@@ -1,9 +1,15 @@
 .loginForm {
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 34px;
 	align-items: center;
-	width: 280px;
+	width: 364px;
+}
+
+.error {
+	position: absolute;
+	transform: translateY(180%);
 }
 
 .inputsWrapper {
