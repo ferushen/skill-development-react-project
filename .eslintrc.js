@@ -52,7 +52,7 @@ module.exports = {
 			{
 				mode: 'jsx-only',
 				'jsx-attributes': {
-					exclude: ['data-testid', 'to'],
+					exclude: ['data-testid', 'to', 'name'],
 				},
 			},
 		],

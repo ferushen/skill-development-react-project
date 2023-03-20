@@ -1,15 +1,15 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { ReduxStoreWithManager } from 'app/providers/storeProvider';
+import { useDispatch, useSelector } from 'react-redux';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 
 import { Button } from 'shared/ui';
 import { ButtonVariant } from 'shared/ui/button/Button';
@@ -18,22 +18,25 @@ import { Text, TextVariant } from 'shared/ui/text/Text';
 
 import cls from './LoginForm.module.scss';
 
-
 export interface LoginFormProps {
 	className?: string;
 }
 
+const initialReducers: ReducersList = {
+	loginForm: loginReducer
+};
+
 const LoginForm = memo((props: LoginFormProps) => {
 	const { className } = props;
 	const { t } = useTranslation();
+
 	const dispatch = useDispatch();
-	const store = useStore() as ReduxStoreWithManager;
 	const username = useSelector(getLoginUsername);
 	const password = useSelector(getLoginPassword);
 	const isLoading = useSelector(getLoginIsLoading);
 	const error = useSelector(getLoginError);
 
-	// для колбэков, которые передаем в качестве пропсом, используем useCallback, чтобы не изменялась ссылка
+	// колбэки, которые передаются в качестве пропсов, оборачиваем useCallback, чтобы не изменялась ссылка
 	const onChangeUsername = useCallback((value: string) => {
 		dispatch(loginActions.setUserName(value));
 	}, [dispatch]);
@@ -46,45 +49,36 @@ const LoginForm = memo((props: LoginFormProps) => {
 		dispatch(loginByUsername({ username, password }));
 	}, [dispatch, password, username]);
 
-	useEffect(() => {
-		store.reducerManager.add('loginForm', loginReducer);
-		dispatch({ type: '@INIT loginForm reducer' });
-
-		return () => {
-			store.reducerManager.remove('loginForm');
-			dispatch({ type: '@DESTROY loginForm reducer' });
-		};
-		// eslint-disable-next-line
-	}, []);
-
 	return (
-		<div className={cn(cls.loginForm, {}, [className])}>
-			<Text title={t('Форма авторизации')} />
-			{error && <Text className={cls.error} text={t('Вы ввели неверный логин или пароль')} variant={TextVariant.Error} />}
-			<div className={cls.inputsWrapper}>
-				<Input
-					value={username}
-					onChange={onChangeUsername}
-					className={cls.input}
-					placeholder={t('Введите логин')}
-					autoFocus={true}
-				/>
-				<Input
-					value={password}
-					onChange={onChangePassword}
-					className={cls.input}
-					placeholder={t('Введите пароль')}
-				/>
+		<DynamicModuleLoader reducers={initialReducers}>
+			<div className={cn(cls.loginForm, {}, [className])}>
+				<Text title={t('Форма авторизации')} />
+				{error && <Text className={cls.error} text={t('Вы ввели неверный логин или пароль')} variant={TextVariant.Error} />}
+				<div className={cls.inputsWrapper}>
+					<Input
+						value={username}
+						onChange={onChangeUsername}
+						className={cls.input}
+						placeholder={t('Введите логин')}
+						autoFocus={true}
+					/>
+					<Input
+						value={password}
+						onChange={onChangePassword}
+						className={cls.input}
+						placeholder={t('Введите пароль')}
+					/>
+				</div>
+				<Button
+					onClick={onLoginClick}
+					className={cls.loginBtn}
+					variant={ButtonVariant.OUTLINE}
+					disabled={isLoading}
+				>
+					{t('Войти')}
+				</Button>
 			</div>
-			<Button
-				onClick={onLoginClick}
-				className={cls.loginBtn}
-				variant={ButtonVariant.OUTLINE}
-				disabled={isLoading}
-			>
-				{t('Войти')}
-			</Button>
-		</div>
+		</DynamicModuleLoader>
 	);
 });
 
