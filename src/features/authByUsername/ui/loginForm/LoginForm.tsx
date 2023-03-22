@@ -38,7 +38,7 @@ const LoginForm = memo((props: LoginFormProps) => {
 
 	// колбэки, которые передаются в качестве пропсов, оборачиваем useCallback, чтобы не изменялась ссылка
 	const onChangeUsername = useCallback((value: string) => {
-		dispatch(loginActions.setUserName(value));
+		dispatch(loginActions.setUsername(value));
 	}, [dispatch]);
 
 	const onChangePassword = useCallback((value: string) => {

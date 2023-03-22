@@ -26,3 +26,11 @@ export function useTheme(): UseThemeResult {
 
 	return { theme, toggleTheme };
 }
+
+/* 
+При первоначальной загрузке страницы в body нет класса app-light-theme. 
+Он накидывается только при вызове хука useTheme. 
+А вызывается он нажатием на кнопку смены темы. 
+Я решил этот баг добавлением useEffect в useTheme, и в нём кидаю класс темы на body. 
+И при каждом изменении темы этот useEffect вызывается.
+*/
