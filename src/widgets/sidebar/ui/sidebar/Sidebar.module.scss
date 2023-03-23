@@ -24,30 +24,11 @@
 .items {
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
-	margin: 20px 0 0 calc(var(--sidebar-width) / 3);
-}
-
-.item {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-	max-height: var(--font-line-m);
-}
-
-.icon {
-	width: 0;
-	pointer-events: none;
-	opacity: 0;
-	fill: var(--inverted-primary-color);
-	transition: opacity 0.3s;
-}
-
-.link {
-	text-decoration: none;
-	opacity: 1;
-	word-spacing: 2%;
-	transition: opacity 0.6s, transform 0.6s;
+	gap: 20px;
+	width: fit-content;
+	margin-top: 20px;
+	margin-left: calc(var(--sidebar-width) / 3);
+	transition: margin 0.3s;
 }
 
 .switchers {
@@ -65,26 +46,7 @@
 	width: var(--sidebar-width-collapsed);
 
 	.items {
-		align-items: center;
 		margin-left: 0;
-	}
-
-	.item {
-		gap: 0;
-	}
-
-	.icon {
-		width: auto;
-		pointer-events: all;
-		opacity: 1;
-	}
-
-	.link {
-		width: 0;
-		white-space: nowrap;
-		opacity: 0;
-		transition: opacity 0.4s, transform 1s;
-		transform: translateX(-150px);
 	}
 
 	.switchers {

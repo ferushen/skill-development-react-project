@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import cls from './Text.module.scss';
@@ -14,7 +15,13 @@ interface TextProps {
 	variant?: TextVariant;
 }
 
-export const Text = ({ className, title, text, variant = TextVariant.Primary }: TextProps) => {
+export const Text = memo((props: TextProps) => {
+	const {
+		className,
+		title,
+		text,
+		variant = TextVariant.Primary
+	} = props;
 
 	return (
 		<div className={cn('', {}, [className, cls[variant]])}>
@@ -22,4 +29,4 @@ export const Text = ({ className, title, text, variant = TextVariant.Primary }: 
 			{text && <p className={cls.text}>{text}</p>}
 		</div>
 	);
-};
+});

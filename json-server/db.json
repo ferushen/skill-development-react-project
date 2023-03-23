@@ -5,5 +5,15 @@
 			"username": "admin",
 			"password": "123"
 		}
-	]
+	],
+	"profile": {
+		"firstname": "Николай",
+		"lastname": "Никола",
+		"age": "25",
+		"currency": "RUB",
+		"country": "Russia",
+		"city": "Saint-Petersburg",
+		"username": "SnowOrWeak",
+		"avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673296839_gas-kvas-com-p-risunki-iz-tik-toka-anime-1.png"
+	}
 }

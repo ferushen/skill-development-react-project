@@ -1,11 +1,11 @@
 // На данный момент не используется
 
-export enum AppRoutes {
+enum AppRoutes {
 	MAIN = 'main',
 	ABOUT = 'about',
 }
 
-export const RoutePath: Record<AppRoutes, string> = {
+const RoutePath: Record<AppRoutes, string> = {
 	[AppRoutes.MAIN]: '/',
 	[AppRoutes.ABOUT]: '/about',
 };
