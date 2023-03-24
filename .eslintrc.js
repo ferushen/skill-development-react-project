@@ -5,7 +5,6 @@ module.exports = {
 		node: true,
 		/*jest: true*/
 	},
-
 	extends: [
 		'prettier',
 		'eslint:recommended',
@@ -14,6 +13,10 @@ module.exports = {
 		'plugin:react/jsx-runtime',
 		'plugin:storybook/recommended',
 	],
+	globals: {
+		__IS_DEV__: true,
+		__API__: true,
+	},
 	overrides: [
 		{
 			files: ['**/src/**/*.test.{ts,tsx}'],

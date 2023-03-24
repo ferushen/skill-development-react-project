@@ -4,6 +4,7 @@ export interface BuildEnv {
 	mode: BuildMode;
 	port: number;
 	analyze: boolean;
+	apiUrl: string;
 }
 
 export interface BuildPaths {
@@ -19,4 +20,5 @@ export interface BuildOptions {
 	isDev: boolean; // данное поле для удобства
 	port: number; // для webpack-dev-server
 	analyze: boolean; // для webpack-bundle-analyzer
+	apiUrl: string; // используется для axios api
 }
