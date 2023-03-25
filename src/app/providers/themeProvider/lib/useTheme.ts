@@ -16,7 +16,7 @@ export function useTheme(): UseThemeResult {
 
 		const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
 
-		setTheme(newTheme);
+		setTheme?.(newTheme);
 
 		// вешаем на body класс с css-переменными выбранной темы приложения
 		document.body.classList.add(newTheme);
@@ -24,7 +24,7 @@ export function useTheme(): UseThemeResult {
 		localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
 	};
 
-	return { theme, toggleTheme };
+	return { theme: theme || Theme.LIGHT, toggleTheme };
 }
 
 /* 

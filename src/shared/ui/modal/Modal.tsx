@@ -1,5 +1,5 @@
-import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { FC, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 // import { useMount } from 'shared/lib/hooks/useMount/useMount';
 
 import { Portal } from 'shared/ui//portal/Portal';
@@ -25,7 +25,6 @@ export const Modal: FC<ModalProps> = (props) => {
 		lazy
 	} = props;
 
-
 	// состояние для отслеживания момента закрытия модалки
 	// const [isClosing, setIsClosing] = useState(false);
 	// референс для хранения таймера для навешивания стилей на модалку при закрытии
@@ -33,12 +32,12 @@ export const Modal: FC<ModalProps> = (props) => {
 
 	const [isMounted, setIsMounted] = useState(false);
 	const [isOpening, setIsOpening] = useState(false);
-	const timerClosingRef = useRef<ReturnType<typeof setTimeout>>();
-	const timerOpeningRef = useRef<ReturnType<typeof setTimeout>>();
+	const timerClosingRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+	const timerOpeningRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 	// const { mounted } = useMount({ opened: isOpen, delay: ANIMATION_DELAY });
 	console.log('isOpen', isOpen, 'isMounted', isMounted, 'isOpening', isOpening);
 
-	const modalMods: Record<string, boolean> = {
+	const modalMods: Mods = {
 		[cls.opened]: isOpening,
 		/*[cls.isClosing]: !isOpen*/
 	};

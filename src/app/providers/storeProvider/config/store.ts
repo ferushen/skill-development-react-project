@@ -1,4 +1,9 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+	CombinedState,
+	configureStore,
+	Reducer,
+	ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
 import { counterReducer } from 'entities/counter';
@@ -22,7 +27,7 @@ export function createReduxStore(
 
 	const store = configureStore({
 		// использование (добавление) Reducer Manager
-		reducer: reducerManager.reduce,
+		reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
 		// __IS_DEV__ отключает dev-tools в продакшене
 		devTools: __IS_DEV__,
 		preloadedState: initialState,

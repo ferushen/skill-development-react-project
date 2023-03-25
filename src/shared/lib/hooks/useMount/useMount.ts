@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 interface useMountProps {
 	opened: boolean;
@@ -7,7 +7,7 @@ interface useMountProps {
 
 export const useMount = ({ opened, delay = 300 }: useMountProps) => {
 	const [mounted, setMounted] = useState(false);
-	const timer = useRef<ReturnType<typeof setTimeout>>();
+	const timer = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 	console.log(`useMount:start opened:${opened}; mounted:${mounted}`);
 	//console.log(`useMount:end opened:${opened}; mounted:${mounted}`);
 
@@ -23,6 +23,7 @@ export const useMount = ({ opened, delay = 300 }: useMountProps) => {
 		return () => {
 			clearTimeout(timer.current);
 		};
+		// eslint-disable-next-line
 	}, [opened]);
 
 	return { mounted };

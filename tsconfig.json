@@ -12,6 +12,7 @@
 
 		// неявное использование any
 		"noImplicitAny": true,
+		"strict": true,
 		"strictBindCallApply": true,
 
 		"outDir": "./dist/",
