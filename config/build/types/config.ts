@@ -21,4 +21,5 @@ export interface BuildOptions {
 	port: number; // для webpack-dev-server
 	analyze: boolean; // для webpack-bundle-analyzer
 	apiUrl: string; // используется для axios api
+	project: 'frontend' | 'storybook' | 'jest';
 }

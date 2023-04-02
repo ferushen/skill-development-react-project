@@ -1,5 +1,7 @@
+import { getUserAuthData } from 'entities/user';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkVariant } from 'shared/ui/appLink/AppLink';
 import { SidebarItemType } from 'widgets/sidebar/model/items';
@@ -18,9 +20,15 @@ export const SidebarItem: FC<SidebarItemProps> = (props) => {
 	} = props;
 	const { t } = useTranslation();
 
+	const isAuth = useSelector(getUserAuthData);
+
 	const mods = {
 		[cls.collapsed]: collapsed
 	};
+
+	if (item.authOnly && !isAuth) {
+		return null;
+	}
 
 	return (
 		<AppLink

@@ -7,11 +7,13 @@ export const fetchProfileData = createAsyncThunk<
 	void,
 	ThunkConfig<string>
 >('profile/fetchProfileData', async (_, thunkAPI) => {
+	const { extra } = thunkAPI;
+
 	try {
-		const response = await thunkAPI.extra.api.get<Profile>('/profile');
+		const response = await extra.api.get<Profile>('/profile');
 
 		if (!response.data) {
-			throw new Error();
+			throw new Error('Не удалось загрузить данные с сервера');
 		}
 
 		return response.data;

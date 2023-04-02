@@ -1,16 +1,44 @@
 .inputWrapper {
-	width: 90%;
+	display: flex;
+	align-items: center;
+}
+
+.label {
+	padding: 4px;
+	text-align: center;
+	border: 1px solid var(--primary-color);
+	border-radius: 8px;
 }
 
 .input {
-	width: 100%;
 	padding: 4px 6px;
 	color: var(--inverted-bg-color);
 	background-color: transparent;
 	border: none;
-	border-bottom: 1px solid var(--inverted-bg-color);
 
 	&:focus {
 		outline: none;
 	}
+}
+
+.readonly {
+	.input {
+		background-color: var(--bg-color);
+		border: none;
+	}
+}
+
+.outlineRounded {
+	width: 240px;
+	padding: 8px;
+	border: 1px solid var(--primary-color);
+	border-radius: 8px;
+
+	&:focus {
+		box-shadow: -1px 1px 8px var(--primary-color);
+	}
+}
+
+.outlineDashed {
+	border: 1px dashed var(--inverted-bg-color);
 }

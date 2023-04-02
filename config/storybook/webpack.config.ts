@@ -15,7 +15,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
 	config.resolve?.extensions?.push('.ts', '.tsx'); // т.к. используем TS
 
 	if (config.module?.rules) {
-		config.module.rules = config.module?.rules?.map(
+		config.module.rules = config.module.rules.map(
 			(rule: webpack.RuleSetRule | '...') => {
 				if (rule !== '...' && /svg/.test(rule.test as string)) {
 					return { ...rule, exclude: /\.svg$/i };
@@ -37,8 +37,19 @@ export default ({ config }: { config: webpack.Configuration }) => {
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(true),
 			__API__: JSON.stringify(''),
+			__PROJECT__: JSON.stringify('storybook'),
 		})
 	);
 
 	return config;
 };
+
+// альтернативная типизация
+/* 
+const rules = config.module!.rules as RuleSetRule[]
+config.module!.rules = rules.map((rule) => (
+/svg/.test(rule.test as string)
+? {...rule, exclude: /\.svg$/i}
+: rule
+))
+*/

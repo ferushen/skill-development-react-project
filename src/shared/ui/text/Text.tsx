@@ -8,23 +8,37 @@ export enum TextVariant {
 	Error = 'error'
 }
 
+export enum TextAlign {
+	Center = 'center',
+	Left = 'left',
+	Right = 'right'
+}
+
 interface TextProps {
 	className?: string;
+	variant?: TextVariant;
+	align?: TextAlign;
 	title?: string;
 	text?: string;
-	variant?: TextVariant;
 }
 
 export const Text = memo((props: TextProps) => {
 	const {
 		className,
+		variant = TextVariant.Primary,
+		align = TextAlign.Left,
 		title,
 		text,
-		variant = TextVariant.Primary
 	} = props;
 
+	const additionalClasses = [
+		className,
+		cls[variant],
+		cls[align],
+	];
+
 	return (
-		<div className={cn('', {}, [className, cls[variant]])}>
+		<div className={cn('', {}, additionalClasses)}>
 			{title && <p className={cls.title}>{title}</p>}
 			{text && <p className={cls.text}>{text}</p>}
 		</div>

@@ -1,0 +1,38 @@
+.wrapper {
+	display: flex;
+}
+
+.label {
+	padding: 4px;
+	text-align: center;
+	border: 1px solid var(--primary-color);
+	border-radius: 8px;
+}
+
+.select {
+	max-width: fit-content;
+	padding: 2px;
+	color: var(--primary-color);
+	text-decoration: underline;
+	cursor: pointer;
+	background-color: transparent;
+	border: 1px solid var(--primary-color);
+	outline: none;
+}
+
+.select:not([multiple]) {
+	padding-right: 15px;
+}
+
+.readonly {
+	.select {
+		cursor: auto;
+		border: none;
+		appearance: none;
+	}
+}
+
+.option {
+	color: var(--inverted-primary-color);
+	background-color: var(--inverted-bg-color);
+}

@@ -35,7 +35,7 @@ export const Modal: FC<ModalProps> = (props) => {
 	const timerClosingRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 	const timerOpeningRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 	// const { mounted } = useMount({ opened: isOpen, delay: ANIMATION_DELAY });
-	console.log('isOpen', isOpen, 'isMounted', isMounted, 'isOpening', isOpening);
+	//console.log('isOpen', isOpen, 'isMounted', isMounted, 'isOpening', isOpening);
 
 	const modalMods: Mods = {
 		[cls.opened]: isOpening,

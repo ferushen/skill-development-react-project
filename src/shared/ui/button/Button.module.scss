@@ -24,6 +24,12 @@
 	border: 1px solid var(--primary-color);
 }
 
+.outline_red {
+	color: var(--red-light);
+	background-color: transparent;
+	border: 1px solid var(--red-dark);
+}
+
 .background {
 	color: var(--primary-color);
 	background-color: var(--bg-color);
@@ -34,6 +40,11 @@
 	color: var(--inverted-primary-color);
 	background-color: var(--inverted-bg-color);
 	border: none;
+}
+
+.size_s {
+	font-size: var(--font-size-s);
+	border-radius: calc(var(--font-line-m) / 4);
 }
 
 .size_m {
@@ -64,6 +75,12 @@
 	border-radius: calc(var(--font-line-m) / 6);
 }
 
+.square.size_s {
+	width: var(--font-line-s);
+	height: var(--font-line-s);
+	font-size: var(--font-size-s);
+}
+
 .square.size_m {
 	width: var(--font-line-m);
 	height: var(--font-line-m);
@@ -85,5 +102,6 @@
 }
 
 .disabled {
+	cursor: auto;
 	opacity: 0.5;
 }

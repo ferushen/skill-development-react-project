@@ -8,7 +8,6 @@ interface ThemeProviderProps {
 }
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ initialTheme, children }) => {
-	// console.log(`now in ThemeProvider, defaultValue=${defaultValue}, initialTheme=${initialTheme}`);
 	const [theme, setTheme] = useState<Theme>(initialTheme || defaultValue);
 
 	const defaultProps = useMemo(() => ({
@@ -18,6 +17,10 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ initialTheme, children }) => {
 
 	useEffect(() => {
 		document.body.classList.add(theme);
+		return () => {
+			document.body.classList.remove(theme);
+		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

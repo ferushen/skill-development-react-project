@@ -3,21 +3,50 @@
 	border: 1px solid var(--inverted-bg-color);
 }
 
+.loading,
+.error {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 300px;
+}
+
+.editing {
+	border: 1px solid var(--inverted-secondary-color);
+}
+
+.avatarWrapper {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-bottom: 20px;
+	border: 1px solid var(--primary-color);
+	border-radius: 8px;
+}
+
 .content {
 	display: flex;
+	align-items: column;
+	justify-content: center;
 }
 
 .data {
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
-	width: 90%;
+	width: 370px;
 }
 
-.sidebar {
-	height: 100%;
+.inputWrapper {
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	gap: 10px;
+	align-items: center;
 }
 
-.editBtn {
-	flex-grow: 1;
+.select {
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	gap: 10px;
+	align-items: center;
 }

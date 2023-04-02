@@ -2,7 +2,8 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData, userActions } from 'entities/user';
 
 import { BugButton } from 'app/providers/errorBoundary';
@@ -19,7 +20,7 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
 	const { t } = useTranslation();
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const [isAuthModal, setIsAuthModal] = useState(false);
 	const authData = useSelector(getUserAuthData);
 

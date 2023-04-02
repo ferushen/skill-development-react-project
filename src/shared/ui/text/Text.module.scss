@@ -8,6 +8,18 @@
 	color: var(--secondary-color);
 }
 
+.center {
+	text-align: center;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
 .error {
 	.title {
 		color: var(--red-dark);

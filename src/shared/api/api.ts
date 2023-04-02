@@ -12,6 +12,6 @@ export const $api = axios.create({
 	baseURL: __API__,
 	headers: {
 		// заголовок для получения данных АВТОРИЗОВАННЫМИ пользователями
-		authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY),
+		authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY) || '',
 	},
 });

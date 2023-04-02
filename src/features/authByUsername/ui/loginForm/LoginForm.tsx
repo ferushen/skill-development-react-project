@@ -14,7 +14,7 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 
 import { Button } from 'shared/ui';
 import { ButtonVariant } from 'shared/ui/button/Button';
-import { Input } from 'shared/ui/input/Input';
+import { Input, InputVariant } from 'shared/ui/input/Input';
 import { Text, TextVariant } from 'shared/ui/text/Text';
 
 import cls from './LoginForm.module.scss';
@@ -63,16 +63,16 @@ const LoginForm = memo((props: LoginFormProps) => {
 				<div className={cls.inputsWrapper}>
 					<Input
 						value={username}
-						onChange={onChangeUsername}
-						className={cls.input}
+						variant={InputVariant.OutlineRounded}
 						placeholder={t('Введите логин')}
 						autoFocus={true}
+						onChange={onChangeUsername}
 					/>
 					<Input
 						value={password}
-						onChange={onChangePassword}
-						className={cls.input}
+						variant={InputVariant.OutlineRounded}
 						placeholder={t('Введите пароль')}
+						onChange={onChangePassword}
 					/>
 				</div>
 				<Button
