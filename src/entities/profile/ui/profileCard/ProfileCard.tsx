@@ -75,8 +75,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 				<Text
 					variant={TextVariant.Error}
 					align={TextAlign.Center}
-					title={t('Произошла ошибка при загрузке пользователя')}
-					text={t('Попробуйте обновить страницу')}
+					title={t('error_while_loading')}
+					text={t('try_refreshing_the_page')}
 				/>
 			</div>
 		);
@@ -88,14 +88,14 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 				<div className={cls.data}>
 					{data?.avatar && (
 						<div className={cls.avatarWrapper}>
-							<Avatar src={data?.avatar} alt={t('аватар')} />
+							<Avatar src={data?.avatar} alt={t('avatar')} />
 						</div>
 					)}
 					<Input
 						className={cls.inputWrapper}
 						variant={InputVariant.OutlineDashed}
-						label={t('Никнейм')}
-						placeholder={t('Введите ваш никнейм')}
+						label={t('nickname')}
+						placeholder={t('enter_your_nickname')}
 						value={data?.username}
 						readonly={readonly}
 						onChange={onChangeUsername}
@@ -103,8 +103,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					<Input
 						className={cls.inputWrapper}
 						variant={InputVariant.OutlineDashed}
-						label={t('Имя')}
-						placeholder={t('Введите ваше имя')}
+						label={t('firstname')}
+						placeholder={t('enter_your_firstname')}
 						value={data?.firstname}
 						readonly={readonly}
 						onChange={onChangeFirstname}
@@ -112,8 +112,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					<Input
 						className={cls.inputWrapper}
 						variant={InputVariant.OutlineDashed}
-						label={t('Фамилия')}
-						placeholder={t('Введите вашу фамилию')}
+						label={t('lastname')}
+						placeholder={t('enter_your_last_name')}
 						value={data?.lastname}
 						readonly={readonly}
 						onChange={onChangeLastname}
@@ -121,8 +121,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					<Input
 						className={cls.inputWrapper}
 						variant={InputVariant.OutlineDashed}
-						label={t('Возраст')}
-						placeholder={t('Введите ваш возраст')}
+						label={t('age')}
+						placeholder={t('enter_your_age')}
 						value={data?.age}
 						readonly={readonly}
 						onChange={onChangeAge}
@@ -130,8 +130,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					<Input
 						className={cls.inputWrapper}
 						variant={InputVariant.OutlineDashed}
-						label={t('Город')}
-						placeholder={t('Введите ваш город')}
+						label={t('city')}
+						placeholder={t('enter_your_city')}
 						value={data?.city}
 						readonly={readonly}
 						onChange={onChangeCity}
@@ -139,8 +139,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					<Input
 						className={cls.inputWrapper}
 						variant={InputVariant.OutlineDashed}
-						label={t('Ссылка на аватар')}
-						placeholder={t('Укажите ссылку')}
+						label={t('link_to_avatar')}
+						placeholder={t('provide_link')}
 						value={data?.avatar}
 						readonly={readonly}
 						onChange={onChangeAvatar}

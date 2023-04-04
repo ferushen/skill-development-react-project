@@ -16,8 +16,9 @@ export const LangSwitcher = memo((props: LangSwitcherProps) => {
 	const { t, i18n } = useTranslation();
 	const { className, short } = props;
 
-	const toggle = () => {
+	const toggle = async () => {
 		const currentLng = i18n.language;
+		console.log(currentLng);
 		let nextLng: string | null = null;
 
 		switch (currentLng) {
@@ -28,7 +29,7 @@ export const LangSwitcher = memo((props: LangSwitcherProps) => {
 				nextLng = 'ru';
 				break;
 			default:
-				throw new Error(t('Не найдена языковая схема'));
+				throw new Error(t('no_language_schema_found'));
 		}
 
 		document.documentElement.lang = nextLng;
@@ -42,7 +43,7 @@ export const LangSwitcher = memo((props: LangSwitcherProps) => {
 			className={cn(cls.langSwitcher, {}, [className])}
 			variant={ButtonVariant.CLEAR}
 		>
-			{short ? t('Смена языка сокр') : t('Смена языка')}
+			{short ? t('change_language_short') : t('change_language')}
 		</Button>
 	);
 });

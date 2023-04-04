@@ -44,26 +44,28 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 			loader: 'babel-loader',
 			options: {
 				presets: ['@babel/preset-env'],
-				plugins: [
-					[
-						'i18next-extract',
-						{
-							locales: ['ru', 'en'],
-							keyAsDefaultValue: ['ru'],
-							saveMissing: true,
-							outputPath: 'public/locales/{{locale}}/{{ns}}.json',
-						},
-					],
-				],
+				plugins: [isDev && 'react-refresh/babel'].filter(Boolean),
 			},
 		},
 	};
 
 	const typescriptLoader = {
 		test: /\.tsx?$/,
-		use: 'ts-loader',
 		exclude: /node_modules/,
+		use: 'ts-loader',
 	};
 
 	return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }
+
+/*  
+[
+	'i18next-extract',
+	{
+		locales: ['ru', 'en'],
+		keyAsDefaultValue: ['ru'],
+		saveMissing: true,
+		outputPath: 'public/locales/{{locale}}/{{ns}}.json',
+	},
+],
+*/

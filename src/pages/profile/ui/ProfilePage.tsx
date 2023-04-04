@@ -44,11 +44,11 @@ const ProfilePage = (props: ProfilePageProps) => {
 	const validateErrors = useSelector(getProfileValidateErrors);
 
 	const validateErrorsTranslates = {
-		[ValidateProfileError.IncorrectUserData]: t('Имя и фамилия обязательны'),
-		[ValidateProfileError.IncorrectAge]: t('Некорректный возраст'),
-		[ValidateProfileError.IncorrectCountry]: t('Некорректный регион'),
-		[ValidateProfileError.NoData]: t('Данные не указаны'),
-		[ValidateProfileError.ServerError]: t('При сохранении произошла ошибка на сервере'),
+		[ValidateProfileError.IncorrectUserData]: t('first_and_last_names_are_require'),
+		[ValidateProfileError.IncorrectAge]: t('invalid_age_value'),
+		[ValidateProfileError.IncorrectCountry]: t('incorrect_region_value'),
+		[ValidateProfileError.NoData]: t('no_data_specified'),
+		[ValidateProfileError.ServerError]: t('error_while_saving'),
 	};
 
 	const onChangeFirstname = useCallback((value?: string) => {

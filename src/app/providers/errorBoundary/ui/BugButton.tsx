@@ -18,7 +18,7 @@ export const BugButton: FC = () => {
 
 	return (
 		<Button onClick={throwHandler} variant={ButtonVariant.BACKGROUND}>
-			{t('Прокинуть ошибку!')}
+			{t('throw_error')}
 		</Button >
 	);
 };

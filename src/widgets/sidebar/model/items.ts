@@ -14,17 +14,17 @@ export interface SidebarItemType {
 export const SidebarItemsList: SidebarItemType[] = [
 	{
 		path: RoutePath.main,
-		text: 'Главная',
+		text: 'main_page',
 		Icon: MainIcon,
 	},
 	{
 		path: RoutePath.about,
-		text: 'О нас',
+		text: 'about_page',
 		Icon: AboutIcon,
 	},
 	{
 		path: RoutePath.profile,
-		text: 'Профиль',
+		text: 'profile_page',
 		Icon: ProfileIcon,
 		authOnly: true,
 	},

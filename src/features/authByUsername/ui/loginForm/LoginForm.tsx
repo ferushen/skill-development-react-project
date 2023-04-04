@@ -58,20 +58,20 @@ const LoginForm = memo((props: LoginFormProps) => {
 	return (
 		<DynamicModuleLoader reducers={initialReducers}>
 			<div className={cn(cls.loginForm, {}, [className])}>
-				<Text title={t('Форма авторизации')} />
-				{error && <Text className={cls.error} text={t('Вы ввели неверный логин или пароль')} variant={TextVariant.Error} />}
+				<Text title={t('login_form')} />
+				{error && <Text className={cls.error} text={t('incorrect_login_or_password')} variant={TextVariant.Error} />}
 				<div className={cls.inputsWrapper}>
 					<Input
 						value={username}
 						variant={InputVariant.OutlineRounded}
-						placeholder={t('Введите логин')}
+						placeholder={t('enter_login')}
 						autoFocus={true}
 						onChange={onChangeUsername}
 					/>
 					<Input
 						value={password}
 						variant={InputVariant.OutlineRounded}
-						placeholder={t('Введите пароль')}
+						placeholder={t('enter_password')}
 						onChange={onChangePassword}
 					/>
 				</div>
@@ -81,7 +81,7 @@ const LoginForm = memo((props: LoginFormProps) => {
 					variant={ButtonVariant.OUTLINE}
 					disabled={isLoading}
 				>
-					{t('Войти')}
+					{t('login')}
 				</Button>
 			</div>
 		</DynamicModuleLoader>

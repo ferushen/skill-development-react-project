@@ -3,10 +3,9 @@ import { useTranslation } from 'react-i18next';
 const MainPage = () => {
 	const { t } = useTranslation('main');
 
-	console.log('render main page');
 	return (
-		<div>
-			{t('Главная страница')}
+		<div style={{ color: 'black' }}>
+			{t('main_page')}
 		</div>
 	);
 };

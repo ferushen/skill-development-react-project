@@ -24,7 +24,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	const [isAuthModal, setIsAuthModal] = useState(false);
 	const authData = useSelector(getUserAuthData);
 
-	console.log('Navbar authData', authData, 'isAuthModal', isAuthModal);
 	const onCloseModal = useCallback(() => {
 		setIsAuthModal(false);
 	}, []);
@@ -45,7 +44,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 					onClick={onLogout}
 					variant={ButtonVariant.CLEAR_INVERTED}
 				>
-					{t('Выйти')}
+					{t('logout')}
 				</Button>
 			</div>
 		);
@@ -58,7 +57,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 				onClick={onShowModal}
 				variant={ButtonVariant.CLEAR_INVERTED}
 			>
-				{t('Войти')}
+				{t('login')}
 			</Button>
 			<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
 		</div>

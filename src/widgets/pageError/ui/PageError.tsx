@@ -20,9 +20,9 @@ export const PageError: FC<PageErrorProps> = ({ className }) => {
 
 	return (
 		<div className={cn(cls.pageError, {}, [className])}>
-			<p>{t('Непредвиденная ошибка')}</p>
+			<p>{t('unexpected_error')}</p>
 			<Button onClick={reloadPage} variant={ButtonVariant.OUTLINE}>
-				{t('Обновить страницу')}
+				{t('refresh_page')}
 			</Button>
 		</div>
 	);

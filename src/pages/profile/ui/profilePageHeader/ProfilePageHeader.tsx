@@ -39,7 +39,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
 	return (
 		<div className={cn(cls.profilePageHeader, {}, [className])}>
 			<div className={cls.title}>
-				<Text title={t('Профиль')} />
+				<Text title={t('profile')} />
 			</div>
 			<div className={cls.btns}>
 				{readonly
@@ -48,7 +48,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
 							className={cls.editBtn}
 							onClick={onEdit}
 						>
-							{t('Редактировать')}
+							{t('edit')}
 						</Button>
 					)
 					: (
@@ -58,13 +58,13 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
 								variant={ButtonVariant.OUTLINE_RED}
 								onClick={onCancelEdit}
 							>
-								{t('Отмена')}
+								{t('cancel')}
 							</Button>
 							<Button
 								className={cls.saveBtn}
 								onClick={onSave}
 							>
-								{t('Сохранить')}
+								{t('save')}
 							</Button>
 						</>
 					)}
