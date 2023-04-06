@@ -11,6 +11,7 @@ import { CounterSchema } from 'entities/counter';
 import { ProfileSchema } from 'entities/profile';
 import { UserSchema } from 'entities/user';
 import { LoginSchema } from 'features/authByUsername';
+import { ArticleDetailsSchema } from 'entities/article';
 
 export interface StateSchema {
 	counter: CounterSchema;
@@ -19,6 +20,7 @@ export interface StateSchema {
 	// Асинхронные редьюсеры
 	loginForm?: LoginSchema;
 	profile?: ProfileSchema;
+	articleDetails?: ArticleDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

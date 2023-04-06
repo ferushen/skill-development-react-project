@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
@@ -9,7 +9,7 @@ interface [FTName]Props {
 	children?: ReactNode;
 }
 
-export const [FTName] = (props: [FTName]Props) => {
+const [FTName] = (props: [FTName]Props) => {
 	const { className } = props;
 	const { t } = useTranslation();
 
@@ -17,9 +17,12 @@ export const [FTName] = (props: [FTName]Props) => {
 
 	return (
 		<div 
-			className={classNames(cls.[FTName | camelcase], mods, [className])}
+			className={cn(cls.[FTName | camelcase], mods, [className])}
 		>
-
+			{ /* eslint-disable-next-line */}
+			{'[FTName]'}
 		</div>
 	);
 };
+
+export default memo([FTName]);

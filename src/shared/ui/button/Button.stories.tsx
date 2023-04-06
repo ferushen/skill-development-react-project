@@ -20,6 +20,13 @@ Primary.args = {
 	children: 'btn'
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+	children: 'click me',
+	variant: ButtonVariant.OUTLINE,
+	disabled: true
+};
+
 export const Clear = Template.bind({});
 Clear.args = {
 	children: 'btn',
@@ -86,11 +93,4 @@ MaxWidth.args = {
 	children: '>>>',
 	size: ButtonSize.MW,
 	variant: ButtonVariant.BACKGROUND_INVERTED
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-	children: 'click me',
-	variant: ButtonVariant.OUTLINE,
-	disabled: true
 };

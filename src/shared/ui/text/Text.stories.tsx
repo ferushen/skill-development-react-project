@@ -1,9 +1,8 @@
-
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/themeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
-import { Text, TextVariant } from './Text';
+import { Text, TextSize, TextVariant } from './Text';
 
 export default {
 	title: 'shared/Text',
@@ -21,8 +20,22 @@ Primary.args = {
 	text: 'This test proposal is, in a way, to fill the text space of the limitless canvas of the Internet page.'
 };
 
+export const SizeS = Template.bind({});
+SizeS.args = {
+	title: 'Title for testing',
+	text: 'This test proposal is, in a way, to fill the text space of the limitless canvas of the Internet page.',
+	size: TextSize.S
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+	title: 'Title for testing',
+	text: 'This test proposal is, in a way, to fill the text space of the limitless canvas of the Internet page.',
+	size: TextSize.L
+};
+
 export const Error = Template.bind({});
-Primary.args = {
+Error.args = {
 	title: 'Title for testing',
 	text: 'This test proposal is, in a way, to fill the text space of the limitless canvas of the Internet page.',
 	variant: TextVariant.Error

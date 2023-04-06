@@ -2,6 +2,7 @@ import path from 'path';
 import webpack, { DefinePlugin } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export default ({ config }: { config: webpack.Configuration }) => {
 	const paths: BuildPaths = {
@@ -38,6 +39,17 @@ export default ({ config }: { config: webpack.Configuration }) => {
 			__IS_DEV__: JSON.stringify(true),
 			__API__: JSON.stringify(''),
 			__PROJECT__: JSON.stringify('storybook'),
+		})
+	);
+
+	config.plugins?.push(
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: path.resolve(__dirname, '..', '..', 'public', 'locales'),
+					to: 'locales',
+				},
+			],
 		})
 	);
 

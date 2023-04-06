@@ -21,7 +21,7 @@ Light.decorators = [
 	StoreDecorator({
 		user: {
 			authData: {}
-		}
+		},
 	}),
 ];
 
