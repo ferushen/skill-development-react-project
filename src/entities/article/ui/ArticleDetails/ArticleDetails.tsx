@@ -1,4 +1,4 @@
-import { memo, ReactNode, useCallback, useEffect } from 'react';
+import { memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
@@ -27,6 +27,7 @@ import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 
 import cls from './ArticleDetails.module.scss';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 
 interface ArticleDetailsProps {
 	className?: string;
@@ -42,7 +43,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 		className,
 		id,
 	} = props;
-	const { t } = useTranslation();
+	const { t } = useTranslation('article');
 
 	const dispatch = useAppDispatch();
 	const isLoading = useSelector(getArticleDetailsIsLoading);
@@ -64,11 +65,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 		}
 	}, []);
 
-	useEffect(() => {
-		if (__PROJECT__ !== 'storybook') {
-			dispatch(fetchArticleById(id));
-		}
-	}, [dispatch, id]);
+	useInitialEffect(() => {
+		dispatch(fetchArticleById(id));
+	});
 
 	let content: ReactNode;
 

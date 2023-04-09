@@ -8,6 +8,7 @@ interface AvatarProps {
 	src?: string;
 	alt?: string;
 	size?: number;
+	empty?: boolean;
 }
 
 export const Avatar: FC<AvatarProps> = (props) => {
@@ -15,10 +16,13 @@ export const Avatar: FC<AvatarProps> = (props) => {
 		className,
 		src,
 		alt = '',
-		size
+		size,
+		empty
 	} = props;
 
-	const mods: Mods = {};
+	const mods: Mods = {
+		[cls.empty]: empty
+	};
 
 	const styles = useMemo<CSSProperties>(() => ({
 		width: size || 100,

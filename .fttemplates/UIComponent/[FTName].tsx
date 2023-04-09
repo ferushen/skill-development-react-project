@@ -1,4 +1,4 @@
-import { ReactNode, memo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
@@ -6,7 +6,6 @@ import cls from './[FTName].module.scss';
 
 interface [FTName]Props {
 	className?: string;
-	children?: ReactNode;
 }
 
 export const [FTName] = memo((props: [FTName]Props) => {
@@ -16,10 +15,6 @@ export const [FTName] = memo((props: [FTName]Props) => {
 	const mods: Mods = {};
 
 	return (
-		<div 
-			className={cn(cls.[FTName | camelcase], mods, [className])}
-		>
-
-		</div>
+		<div className={cn(cls.[FTName | camelcase], mods, [className])}></div>
 	);
 });

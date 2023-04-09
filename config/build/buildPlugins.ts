@@ -28,7 +28,7 @@ export function buildPlugins({
 			__API__: JSON.stringify(apiUrl),
 			__PROJECT__: JSON.stringify(project),
 		}),
-	].filter(Boolean);
+	];
 
 	if (isDev) {
 		plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));

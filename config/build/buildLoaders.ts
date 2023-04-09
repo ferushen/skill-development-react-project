@@ -44,7 +44,31 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 			loader: 'babel-loader',
 			options: {
 				presets: ['@babel/preset-env'],
-				plugins: [isDev && 'react-refresh/babel'].filter(Boolean),
+				plugins: [
+					[
+						'i18next-extract',
+						{
+							locales: ['ru', 'en'],
+							output: {
+								about: 'locales/{{locale}}/about.json',
+								article: 'locales/{{locale}}/article.json',
+								main: 'locales/{{locale}}/main.json',
+								profile: 'locales/{{locale}}/profile.json',
+								translation: 'locales/{{locale}}/translation.json',
+							},
+							namespace: [
+								'about',
+								'article',
+								'main',
+								'profile',
+								'translations',
+							],
+							/*keyAsDefaultValue: ['ru'],*/
+							/*saveMissing: true,*/
+						},
+					],
+					[isDev && 'react-refresh/babel'].filter(Boolean),
+				],
 			},
 		},
 	};
@@ -57,15 +81,3 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
 	return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }
-
-/*  
-[
-	'i18next-extract',
-	{
-		locales: ['ru', 'en'],
-		keyAsDefaultValue: ['ru'],
-		saveMissing: true,
-		outputPath: 'public/locales/{{locale}}/{{ns}}.json',
-	},
-],
-*/
