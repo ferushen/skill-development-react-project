@@ -1,5 +1,7 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { useSelector } from 'react-redux';
@@ -43,6 +45,8 @@ const ProfilePage = (props: ProfilePageProps) => {
 	const error = useSelector(getProfileError);
 	const validateErrors = useSelector(getProfileValidateErrors);
 
+	const { id } = useParams<{ id: string }>();
+
 	const validateErrorsTranslates = {
 		[ValidateProfileError.IncorrectUserData]: t('first_and_last_names_are_require'),
 		[ValidateProfileError.IncorrectAge]: t('invalid_age_value'),
@@ -84,11 +88,11 @@ const ProfilePage = (props: ProfilePageProps) => {
 		dispatch(profileActions.updateProfile({ country }));
 	}, [dispatch]);
 
-	useEffect(() => {
-		if (__PROJECT__ !== 'storybook') {
-			dispatch(fetchProfileData());
+	useInitialEffect(() => {
+		if (id) {
+			dispatch(fetchProfileData(id));
 		}
-	}, [dispatch]);
+	});
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>

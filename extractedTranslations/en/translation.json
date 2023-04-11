@@ -11,6 +11,7 @@
   "country": "",
   "currency": "",
   "edit": "",
+  "enter_comment_text": "",
   "enter_login": "",
   "enter_password": "",
   "enter_your_age": "",
@@ -41,6 +42,7 @@
   "provide_link": "",
   "refresh_page": "",
   "save": "",
+  "send": "",
   "throw_error": "",
   "try_refreshing_the_page": "",
   "unexpected_error": ""

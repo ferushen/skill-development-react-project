@@ -5,6 +5,7 @@
 	"change_language_short": "EN",
 	"country": "Страна",
 	"currency": "Валюта",
+	"enter_comment_text": "Введите ваш комментарий",
 	"enter_login": "Введите логин",
 	"enter_password": "Введите пароль",
 	"incorrect_login_or_password": "Вы ввели неверный логин или пароль",
@@ -19,6 +20,7 @@
 	"page_not_found": "Страница не найдена",
 	"profile_page": "Профиль",
 	"refresh_page": "Обновить страницу",
+	"send": "Отправить",
 	"throw_error": "Прокинуть ошибку!",
 	"unexpected_error": "Непредвиденная ошибка"
 }

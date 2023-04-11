@@ -22,7 +22,7 @@ describe('fetchProfileData', () => {
 		// мокаем ответ от сервера
 		thunk.api.get.mockReturnValue(Promise.resolve({ data: data }));
 
-		const result = await thunk.callThunk();
+		const result = await thunk.callThunk('1');
 
 		// убеждаемся что запрос на сервер был отправлен
 		expect(thunk.api.get).toHaveBeenCalled();
@@ -38,7 +38,7 @@ describe('fetchProfileData', () => {
 
 		// мокаем ответ от сервера
 		thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-		const result = await thunk.callThunk();
+		const result = await thunk.callThunk('1');
 
 		// убеждаемся что async thunk отработал без ошибок
 		expect(result.meta.requestStatus).toBe('rejected');

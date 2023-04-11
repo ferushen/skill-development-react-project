@@ -7,6 +7,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 export enum InputVariant {
 	Primary = 'primary',
+	MaxWidth = 'maxWidth',
 	OutlineDashed = 'outlineDashed',
 	OutlineRounded = 'outlineRounded',
 }

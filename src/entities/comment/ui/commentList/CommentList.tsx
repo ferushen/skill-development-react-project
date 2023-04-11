@@ -4,9 +4,8 @@ import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
 import type { Comment } from '../../model/types/comment';
 
-import { CommentCard } from '../CommentCard/CommentCard';
+import { CommentCard } from '../commentCard/CommentCard';
 import { Text } from 'shared/ui/text/Text';
-import { Skeleton } from 'shared/ui/skeleton/Skeleton';
 
 import cls from './CommentList.module.scss';
 
@@ -28,7 +27,9 @@ export const CommentList = memo((props: CommentListProps) => {
 
 	if (isLoading) {
 		return (
-			<Skeleton width={'100%'} height={86} />
+			<div className={cn(cls.commentList, mods, [className])}>
+				<CommentCard isLoading />
+			</div>
 		);
 	}
 
@@ -39,7 +40,6 @@ export const CommentList = memo((props: CommentListProps) => {
 					<CommentCard
 						className={cls.comment}
 						comment={comment}
-						isLoading={isLoading}
 						key={comment.id}
 					/>
 				))

@@ -37,7 +37,7 @@
 		"@babel/preset-typescript": "7.16.7",
 		"@eslint/create-config": "0.4.2",
 		"@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
-		"@storybook/addon-actions": "^6.4.19",
+		"@storybook/addon-actions": "^6.5.16",
 		"@storybook/addon-essentials": "^6.4.19",
 		"@storybook/addon-interactions": "^6.4.19",
 		"@storybook/addon-links": "^6.4.19",

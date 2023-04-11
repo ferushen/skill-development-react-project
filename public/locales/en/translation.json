@@ -5,6 +5,7 @@
 	"change_language_short": "RU",
 	"country": "Country",
 	"currency": "Currency",
+	"enter_comment_text": "Enter your comment",
 	"enter_login": "Enter your login",
 	"enter_password": "Enter your password",
 	"incorrect_login_or_password": "You entered an incorrect login or password",
@@ -19,6 +20,7 @@
 	"page_not_found": "Page not found",
 	"profile_page": "Profile",
 	"refresh_page": "Refresh page",
+	"send": "Send",
 	"throw_error": "Throw error!",
 	"unexpected_error": "Unexpected error"
 }

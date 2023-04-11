@@ -3,9 +3,9 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { ThemeSwitcher } from 'features/themeSwitcher';
 import { LangSwitcher } from 'features/langSwitcher/ui/LangSwitcher';
-import { Button } from 'shared/ui';
-import { ButtonSize, ButtonVariant } from 'shared/ui/button/Button';
 import { SidebarItem } from '../sidebarItem/SidebarItem';
+import { Button, ButtonSize, ButtonVariant } from 'shared/ui/button/Button';
+
 import { SidebarItemsList } from '../../model/items';
 
 import cls from './Sidebar.module.scss';
@@ -15,7 +15,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-	const [collapsed, setCollapsed] = useState(true);
+	const [collapsed, setCollapsed] = useState(false);
 
 	const itemsList = useMemo(() => {
 		return SidebarItemsList.map(item => (

@@ -1,10 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from 'shared/ui';
-import { ButtonVariant } from 'shared/ui/button/Button';
+import { Button, ButtonVariant } from 'shared/ui/button/Button';
 
-export const BugButton: FC = () => {
+export const BugButton = () => {
 	const [error, setError] = useState(false);
 	const { t } = useTranslation();
 

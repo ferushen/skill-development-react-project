@@ -12,13 +12,11 @@ import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLo
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 
-import { Button } from 'shared/ui';
-import { ButtonVariant } from 'shared/ui/button/Button';
+import { Button, ButtonVariant } from 'shared/ui/button/Button';
 import { Input, InputVariant } from 'shared/ui/input/Input';
 import { Text, TextVariant } from 'shared/ui/text/Text';
 
 import cls from './LoginForm.module.scss';
-
 
 export interface LoginFormProps {
 	className?: string;

@@ -102,6 +102,12 @@
 			"text": "some comment 3",
 			"articleId": "1",
 			"userId": "1"
+		},
+		{
+			"text": "asd",
+			"articleId": "1",
+			"userId": "1",
+			"id": "8dEz1i5"
 		}
 	],
 	"users": [
@@ -117,17 +123,31 @@
 			"username": "user",
 			"password": "123",
 			"role": "USER",
-			"avatar": "https://dslv9ilpbe7p1.cloudfront.net/-OEv2bO51P2ZzpjfAYBH7A_store_banner_image.jpeg"
+			"avatar": "https://i.pinimg.com/474x/65/f4/73/65f473cdf040b4b0fae0610e5de49575.jpg"
 		}
 	],
-	"profile": {
-		"firstname": "Николай",
-		"lastname": "Никола",
-		"age": "25",
-		"currency": "RUB",
-		"country": "Ukraine",
-		"city": "Saint-Petersburg",
-		"username": "SnowOrWeak",
-		"avatar": "https://dslv9ilpbe7p1.cloudfront.net/-OEv2bO51P2ZzpjfAYBH7A_store_banner_image.jpeg"
-	}
+	"profile": [
+		{
+			"id": "1",
+			"firstname": "Николай",
+			"lastname": "Никола",
+			"age": "25",
+			"currency": "RUB",
+			"country": "Ukraine",
+			"city": "Kiev",
+			"username": "SnowOrWeak",
+			"avatar": "https://dslv9ilpbe7p1.cloudfront.net/-OEv2bO51P2ZzpjfAYBH7A_store_banner_image.jpeg"
+		},
+		{
+			"id": "2",
+			"firstname": "Ярик",
+			"lastname": "Ярмола",
+			"age": "18",
+			"currency": "RUB",
+			"country": "Russia",
+			"city": "Saint-Petersburg",
+			"username": "aLL_K.O._goal",
+			"avatar": "https://i.pinimg.com/474x/65/f4/73/65f473cdf040b4b0fae0610e5de49575.jpg"
+		}
+	]
 }
