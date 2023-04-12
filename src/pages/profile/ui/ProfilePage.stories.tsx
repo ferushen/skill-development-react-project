@@ -18,6 +18,7 @@ export default {
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 const data = {
+	id: '1',
 	firstname: 'Николай',
 	lastname: 'Никола',
 	age: 25,
@@ -34,6 +35,11 @@ Normal.decorators = [
 	StoreDecorator({
 		profile: {
 			data,
+		},
+		user: {
+			authData: {
+				id: '1'
+			}
 		}
 	})
 ];
@@ -44,7 +50,27 @@ Dark.decorators = [
 	StoreDecorator({
 		profile: {
 			data,
+		},
+		user: {
+			authData: {
+				id: '1'
+			}
 		}
 	}),
 	ThemeDecorator(Theme.DARK)
+];
+
+export const CantEdit = Template.bind({});
+CantEdit.args = {};
+CantEdit.decorators = [
+	StoreDecorator({
+		profile: {
+			data,
+		},
+		user: {
+			authData: {
+				id: '2'
+			}
+		}
+	})
 ];

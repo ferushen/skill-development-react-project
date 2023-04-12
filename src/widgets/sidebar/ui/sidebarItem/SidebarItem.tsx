@@ -1,10 +1,13 @@
-import { getUserAuthData } from 'entities/user';
-import { FC } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
+
+import { getUserAuthData } from 'entities/user';
+import { useSelector } from 'react-redux';
+
+import type { SidebarItemType } from '../../model/types/sidebar';
+
 import { AppLink, AppLinkVariant } from 'shared/ui/appLink/AppLink';
-import { SidebarItemType } from 'widgets/sidebar/model/items';
 
 import cls from './SidebarItem.module.scss';
 
@@ -13,7 +16,7 @@ interface SidebarItemProps {
 	collapsed?: boolean;
 }
 
-export const SidebarItem: FC<SidebarItemProps> = (props) => {
+export const SidebarItem = memo((props: SidebarItemProps) => {
 	const {
 		item,
 		collapsed
@@ -42,4 +45,4 @@ export const SidebarItem: FC<SidebarItemProps> = (props) => {
 			</span>
 		</AppLink>
 	);
-};
+});

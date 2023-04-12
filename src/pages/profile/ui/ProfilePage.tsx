@@ -95,7 +95,7 @@ const ProfilePage = (props: ProfilePageProps) => {
 	});
 
 	return (
-		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+		<DynamicModuleLoader reducers={reducers}>
 			<div className={cn('', {}, [className])}>
 				<ProfilePageHeader />
 				{validateErrors?.length && validateErrors.map(err => (
