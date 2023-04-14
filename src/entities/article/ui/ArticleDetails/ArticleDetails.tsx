@@ -1,5 +1,6 @@
 import { memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
 import { useSelector } from 'react-redux';
@@ -14,9 +15,9 @@ import {
 } from '../../model/selectors/articleDetails';
 
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleCodeBlockComponent } from '../articleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../articleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../articleTextBlockComponent/ArticleTextBlockComponent';
 
 import { Skeleton } from 'shared/ui/skeleton/Skeleton';
 import { Avatar } from 'shared/ui/avatar/Avatar';
@@ -27,7 +28,6 @@ import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 
 import cls from './ArticleDetails.module.scss';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 
 interface ArticleDetailsProps {
 	className?: string;

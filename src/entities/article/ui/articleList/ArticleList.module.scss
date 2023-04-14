@@ -1,0 +1,12 @@
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	justify-content: space-between;
+}

@@ -4,7 +4,7 @@ import { ArticleDetails } from './ArticleDetails';
 import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
 
 export default {
-	title: 'entities/ArticleDetails',
+	title: 'entities/Article/ArticleDetails',
 	component: ArticleDetails,
 	argTypes: {
 		backgroundColor: { control: 'color' },
@@ -21,6 +21,11 @@ const article: Article = {
 	views: 1022,
 	createdAt: '26.02.2022',
 	type: [ArticleType.IT],
+	user: {
+		id: '1',
+		username: 'admin',
+		avatar: 'https://dslv9ilpbe7p1.cloudfront.net/-OEv2bO51P2ZzpjfAYBH7A_store_banner_image.jpeg'
+	},
 	blocks: [
 		{
 			id: '1',

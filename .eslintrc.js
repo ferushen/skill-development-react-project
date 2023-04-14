@@ -58,6 +58,9 @@ module.exports = {
 				'jsx-attributes': {
 					exclude: ['data-testid', 'to', 'name'],
 				},
+				callees: {
+					exclude: ['join', 't'],
+				},
 			},
 		],
 		indent: [

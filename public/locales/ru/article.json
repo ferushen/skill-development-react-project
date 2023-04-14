@@ -1,5 +1,7 @@
 {
     "article_not_found": "Статья не найдена!",
+    "back_to_article_list": "Вернуться к списку",
     "comments": "Комментарии",
-    "error_while_loading_article": "Произошла ошибка при загрузке статьи"
+    "error_while_loading_article": "Произошла ошибка при загрузке статьи",
+    "read_more": "Читать далее..."
 }

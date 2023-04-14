@@ -1,5 +1,7 @@
 {
     "article_not_found": "Article not found!",
+    "back_to_article_list": "Back to article list",
     "comments": "Comments",
-    "error_while_loading_article": "An error occurred while loading the article"
+    "error_while_loading_article": "An error occurred while loading the article",
+    "read_more": "Read more..."
 }

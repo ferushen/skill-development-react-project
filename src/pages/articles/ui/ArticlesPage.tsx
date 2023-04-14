@@ -1,6 +1,7 @@
 import { memo, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+
+import { ArticleList } from 'entities/article';
 
 import cls from './ArticlesPage.module.scss';
 
@@ -11,16 +12,12 @@ interface ArticlesPageProps {
 
 const ArticlesPage = (props: ArticlesPageProps) => {
 	const { className } = props;
-	const { t } = useTranslation('article');
 
 	const mods: Mods = {};
 
 	return (
-		<div
-			className={cn(cls.articlesPage, mods, [className])}
-		>
-			{ /* eslint-disable-next-line */}
-			{'ArticlesPage'}
+		<div className={cn(cls.articlesPage, mods, [className])}>
+			<ArticleList articles={[]} />
 		</div>
 	);
 };

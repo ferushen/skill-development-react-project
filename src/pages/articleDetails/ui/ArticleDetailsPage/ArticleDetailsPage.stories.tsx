@@ -1,8 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 
-import { Article } from 'entities/article';
 import { ArticleBlockType, ArticleType } from 'entities/article/model/types/article';
+import { Article } from 'entities/article';
+
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
@@ -29,6 +30,11 @@ const article: Article = {
 	views: 1022,
 	createdAt: '26.02.2022',
 	type: [ArticleType.IT],
+	user: {
+		id: '1',
+		username: 'admin',
+		avatar: 'https://dslv9ilpbe7p1.cloudfront.net/-OEv2bO51P2ZzpjfAYBH7A_store_banner_image.jpeg'
+	},
 	blocks: [
 		{
 			id: '1',
