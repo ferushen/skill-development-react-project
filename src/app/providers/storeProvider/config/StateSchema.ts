@@ -14,17 +14,19 @@ import { LoginSchema } from 'features/authByUsername';
 import { ArticleDetailsSchema } from 'entities/article';
 import { ArticleDetailsCommentsSchema } from 'pages/articleDetails';
 import { AddCommentFormSchema } from 'features/addCommentForm';
+import { ArticlesPageSchema } from 'pages/articles';
 
 export interface StateSchema {
 	counter: CounterSchema;
 	user: UserSchema;
 
 	// Асинхронные редьюсеры
-	loginForm?: LoginSchema;
-	profile?: ProfileSchema;
+	addCommentForm?: AddCommentFormSchema;
+	articlesPage?: ArticlesPageSchema;
 	articleDetails?: ArticleDetailsSchema;
 	articleDetailsComments?: ArticleDetailsCommentsSchema;
-	addCommentForm?: AddCommentFormSchema;
+	loginForm?: LoginSchema;
+	profile?: ProfileSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
