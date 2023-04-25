@@ -17,12 +17,19 @@ interface DynamicModuleLoaderProps {
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = props => {
 	const { children, reducers, removeAfterUnmount = true } = props;
 	const dispatch = useDispatch();
+
 	const store = useStore() as ReduxStoreWithManager;
 
 	useEffect(() => {
+		const mountedReducers = store.reducerManager.getReducerMap();
+
 		Object.entries(reducers).forEach(([name, reducer]) => {
-			dispatch({ type: `@INIT ${name} reducer` });
-			store.reducerManager.add(name as StateSchemaKey, reducer);
+			const mounted = mountedReducers[name as StateSchemaKey];
+			// добавляем новый редьюсер только если его нет
+			if (!mounted) {
+				dispatch({ type: `@INIT ${name} reducer` });
+				store.reducerManager.add(name as StateSchemaKey, reducer);
+			}
 		});
 
 		return () => {

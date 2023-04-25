@@ -20,6 +20,7 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
 export const articlesPageSlice = createSlice({
 	name: 'articlesPage',
 	initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
+		_inited: false,
 		isLoading: false,
 		error: undefined,
 		ids: [],
@@ -36,6 +37,7 @@ export const articlesPageSlice = createSlice({
 			state.page = action.payload;
 		},
 		initState: (state) => {
+			state._inited = true;
 			const view = localStorage.getItem(
 				ARTICLES_VIEW_LOCALSTORAGE_KEY
 			) as ArticleView;
@@ -53,9 +55,7 @@ export const articlesPageSlice = createSlice({
 				fetchArticlesList.fulfilled,
 				(state, action: PayloadAction<Article[]>) => {
 					state.isLoading = false;
-					console.log('@fetchArticlesList', state);
 					articlesAdapter.addMany(state, action.payload);
-					console.log('@fetchArticlesList after', state);
 					state.hasMore = action.payload.length > 0;
 				}
 			)

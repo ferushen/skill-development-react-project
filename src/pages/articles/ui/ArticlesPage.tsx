@@ -5,15 +5,16 @@ import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slices/articlesPageSlice';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
-import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { getArticlesPageIsLoading, getArticlesPageView } from '../model/selectors/articlesPageSelectors';
+import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slices/articlesPageSlice';
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 
 import { ArticleList, ArticleView } from 'entities/article';
 import { ArticlesViewSwitcher } from 'features/articlesViewSwitcher';
 import { Page } from 'shared/ui/Page/Page';
 
+import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -37,23 +38,22 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
 	const onChangeView = useCallback((view: ArticleView) => {
 		dispatch(articlesPageActions.setView(view));
+		localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, view);
 	}, [dispatch]);
 
 	const onLoadNextPart = useCallback(() => {
+		// if (__PROJECT__ !== 'storybook') { }
 		dispatch(fetchNextArticlesPage());
 	}, [dispatch]);
 
 	useInitialEffect(() => {
-		dispatch(articlesPageActions.initState());
-		dispatch(fetchArticlesList({
-			page: 1,
-		}));
+		dispatch(initArticlesPage());
 	});
 
 	// TODO: добавить обработку ошибки при загрузке списка статей
 
 	return (
-		<DynamicModuleLoader reducers={reducers}>
+		<DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
 			<Page
 				className={cn(cls.articlesPage, mods, [className])}
 				onScrollEnd={onLoadNextPart}
