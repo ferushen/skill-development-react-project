@@ -23,6 +23,7 @@ import {
 import { Currency } from 'entities/currency';
 import { Country } from 'entities/country';
 
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './profilePageHeader/ProfilePageHeader';
 import { Text, TextVariant } from 'shared/ui/text/Text';
 
@@ -96,7 +97,7 @@ const ProfilePage = (props: ProfilePageProps) => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers}>
-			<div className={cn('', {}, [className])}>
+			<Page className={cn('', {}, [className])}>
 				<ProfilePageHeader />
 				{validateErrors?.length && validateErrors.map(err => (
 					<Text
@@ -119,7 +120,7 @@ const ProfilePage = (props: ProfilePageProps) => {
 					onChangeCurrency={onChangeCurrency}
 					onChangeCountry={onChangeCountry}
 				/>
-			</div>
+			</Page>
 		</DynamicModuleLoader>
 	);
 };

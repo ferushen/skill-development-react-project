@@ -18,6 +18,7 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { ArticleDetails } from 'entities/article';
 import { Button } from 'shared/ui/button/Button';
 import { CommentList } from 'entities/comment';
+import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/text/Text';
 
 import cls from './ArticleDetailsPage.module.scss';
@@ -66,7 +67,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers}>
-			<div className={cn(cls.articleDetailsPage, mods, [className])}>
+			<Page className={cn(cls.articleDetailsPage, mods, [className])}>
 				<Button onClick={onBackToList}>
 					{t('back_to_article_list')}
 				</Button>
@@ -77,7 +78,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 					comments={comments}
 					isLoading={commentsIsLoading}
 				/>
-			</div>
+			</Page>
 		</DynamicModuleLoader>
 	);
 };

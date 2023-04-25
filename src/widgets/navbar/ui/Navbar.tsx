@@ -51,7 +51,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	}
 
 	return (
-		<div className={cn(cls.navbar, {}, [className])}>
+		<header className={cn(cls.navbar, {}, [className])}>
 			<BugButton />
 			<Button
 				onClick={onShowModal}
@@ -60,6 +60,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 				{t('login')}
 			</Button>
 			<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-		</div>
+		</header>
 	);
 });

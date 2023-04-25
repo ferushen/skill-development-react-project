@@ -14,7 +14,7 @@ import cls from './ArticlesViewSwitcher.module.scss';
 interface ArticlesViewSwitcherProps {
 	className?: string;
 	activeView: ArticleView;
-	onViewClick?: (view: ArticleView) => void;
+	onClickView?: (view: ArticleView) => void;
 }
 
 const viewTypes = [
@@ -32,11 +32,11 @@ export const ArticlesViewSwitcher = memo((props: ArticlesViewSwitcherProps) => {
 	const {
 		className,
 		activeView,
-		onViewClick
+		onClickView
 	} = props;
 
 	const onClick = (newView: ArticleView) => () => {
-		onViewClick?.(newView);
+		onClickView?.(newView);
 	};
 
 	return (
