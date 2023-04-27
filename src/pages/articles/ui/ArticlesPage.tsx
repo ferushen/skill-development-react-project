@@ -12,7 +12,7 @@ import { initArticlesPage } from '../model/services/initArticlesPage/initArticle
 
 import { ArticleList, ArticleView } from 'entities/article';
 import { ArticlesViewSwitcher } from 'features/articlesViewSwitcher';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/page/Page';
 
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import cls from './ArticlesPage.module.scss';

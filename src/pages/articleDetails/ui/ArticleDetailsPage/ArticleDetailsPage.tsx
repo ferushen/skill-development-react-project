@@ -18,7 +18,7 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { ArticleDetails } from 'entities/article';
 import { Button } from 'shared/ui/button/Button';
 import { CommentList } from 'entities/comment';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/page/Page';
 import { Text } from 'shared/ui/text/Text';
 
 import cls from './ArticleDetailsPage.module.scss';

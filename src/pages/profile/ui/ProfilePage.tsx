@@ -23,7 +23,7 @@ import {
 import { Currency } from 'entities/currency';
 import { Country } from 'entities/country';
 
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/page/Page';
 import { ProfilePageHeader } from './profilePageHeader/ProfilePageHeader';
 import { Text, TextVariant } from 'shared/ui/text/Text';
 

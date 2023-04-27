@@ -14,10 +14,12 @@ import { ArticleDetailsSchema } from 'entities/article';
 import { ArticleDetailsCommentsSchema } from 'pages/articleDetails';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/articles';
+import { ScrollSaverSchema } from 'features/scrollSaver';
 
 export interface StateSchema {
 	counter: CounterSchema;
 	user: UserSchema;
+	scrollSaver: ScrollSaverSchema;
 
 	// Асинхронные редьюсеры
 	addCommentForm?: AddCommentFormSchema;
