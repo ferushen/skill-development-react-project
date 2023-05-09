@@ -1,7 +1,11 @@
 {
   "about_us": "",
   "age": "",
+  "all": "",
   "article_not_found": "",
+  "articles_not_found": "",
+  "articles_not_founded": "",
+  "ascending_order": "",
   "avatar": "",
   "back_to_article_list": "",
   "cancel": "",
@@ -11,6 +15,9 @@
   "comments": "",
   "country": "",
   "currency": "",
+  "date": "",
+  "descending_order": "",
+  "economics": "",
   "edit": "",
   "enter_comment_text": "",
   "enter_login": "",
@@ -44,8 +51,13 @@
   "read_more": "",
   "refresh_page": "",
   "save": "",
+  "science": "",
+  "search": "",
   "send": "",
+  "sort_by": "",
   "throw_error": "",
+  "title": "",
   "try_refreshing_the_page": "",
-  "unexpected_error": ""
+  "unexpected_error": "",
+  "views": ""
 }

@@ -15,6 +15,8 @@ import { ArticleDetailsCommentsSchema } from 'pages/articleDetails';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/articles';
 import { ScrollSaverSchema } from 'features/scrollSaver';
+import { ArticlesFiltersSchema } from 'features/articlesFilters';
+import { ArticleDetailsRecommendationSchema } from 'pages/articleDetails';
 
 export interface StateSchema {
 	counter: CounterSchema;
@@ -24,8 +26,10 @@ export interface StateSchema {
 	// Асинхронные редьюсеры
 	addCommentForm?: AddCommentFormSchema;
 	articlesPage?: ArticlesPageSchema;
+	articlesFilters?: ArticlesFiltersSchema;
 	articleDetails?: ArticleDetailsSchema;
 	articleDetailsComments?: ArticleDetailsCommentsSchema;
+	articleDetailsRecommendations?: ArticleDetailsRecommendationSchema;
 	loginForm?: LoginSchema;
 	profile?: ProfileSchema;
 }

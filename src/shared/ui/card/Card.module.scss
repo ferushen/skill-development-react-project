@@ -1,5 +1,23 @@
-.card {
-	padding: 15px;
+.normal {
 	background-color: var(--card-bg);
+	border: 1px solid var(--card-bg);
+}
+
+.outline {
+	border: 1px solid var(--primary-color);
+}
+
+.small {
+	padding: 2px;
+	border-radius: 6px;
+}
+
+.medium {
+	padding: 8px;
+	border-radius: 10px;
+}
+
+.large {
+	padding: 15px;
 	border-radius: 12px;
 }

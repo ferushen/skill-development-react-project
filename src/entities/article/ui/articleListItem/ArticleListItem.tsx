@@ -52,7 +52,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 			<div
 				className={cn(cls.articleListItem, mods, [className, cls[view]])}
 			>
-				<Card className={cls.card}>
+				<Card className={cls.card} size='large'>
 					<div className={cls.header}>
 						<div className={cls.titleWrapper}>
 							<Text className={cls.title} title={article.title} />
@@ -89,7 +89,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 		<div
 			className={cn(cls.articleListItem, mods, [className, cls[view]])}
 		>
-			<Card className={cls.card} onClick={onOpenArticle}>
+			<Card className={cls.card} size='large' onClick={onOpenArticle}>
 				<div className={cls.imgWrapper}>
 					<img className={cls.img} src={article.img} alt={article.title} />
 					<Text className={cls.date} text={article.createdAt} />
@@ -102,5 +102,4 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 			</Card>
 		</div>
 	);
-
 });

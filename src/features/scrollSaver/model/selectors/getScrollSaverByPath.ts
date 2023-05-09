@@ -6,5 +6,5 @@ import { getScrollSaver } from './getScrollSaver';
 export const getScrollSaverByPath = createSelector(
 	getScrollSaver, // получаем полный объект
 	(state: StateSchema, path: string) => path, // получаем путь
-	(scroll, path) => scroll[path] || 0 // получаем значение скролла
+	(scroll, path) => scroll[path] ?? 0 // получаем значение скролла
 );

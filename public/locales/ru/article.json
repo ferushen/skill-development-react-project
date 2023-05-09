@@ -1,7 +1,18 @@
 {
+    "all": "Все",
     "article_not_found": "Статья не найдена!",
+    "articles_not_founded": "Статьи не найдены!",
+    "ascending_order": "возрастанию",
     "back_to_article_list": "Вернуться к списку",
     "comments": "Комментарии",
+    "date": "дате",
+    "descending_order": "убыванию",
+    "economics": "Экономика",
     "error_while_loading_article": "Произошла ошибка при загрузке статьи",
-    "read_more": "Читать далее..."
+    "read_more": "Читать далее...",
+    "science": "Наука",
+    "search": "Поиск",
+    "sort_by": "Сортировать по",
+    "title": "названию",
+    "views": "просмотрам"
 }

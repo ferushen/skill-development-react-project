@@ -56,7 +56,7 @@ module.exports = {
 			{
 				mode: 'jsx-only',
 				'jsx-attributes': {
-					exclude: ['data-testid', 'to', 'name'],
+					exclude: ['data-testid', 'to', 'name', 'size'],
 				},
 				callees: {
 					exclude: ['join', 't'],

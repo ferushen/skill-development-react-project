@@ -53,6 +53,7 @@ export const Page = (props: PageProps) => {
 		<section
 			className={cn(cls.page, {}, [className])}
 			onScroll={onScroll}
+			ref={wrapperRef}
 		>
 			{children}
 			{onScrollEnd

@@ -72,14 +72,18 @@
 	.img {
 		width: 200px;
 		height: 200px;
-		transition: all 0.2s;
+		transition: all 0.25s;
 	}
 
 	.date {
 		position: absolute;
-		top: 0;
-		right: 0;
+		top: 50%;
+		left: 50%;
 		display: none;
+		padding: 0 4px;
+		background-color: var(--bg-color);
+		border-radius: 10px;
+		transform: translate(-50%, -50%);
 	}
 
 	.infoWrapper {
@@ -115,8 +119,9 @@
 		}
 
 		.img {
+			filter: blur(4px);
 			opacity: 0.5;
-			transform: scale(1.6) rotate(8deg);
+			transform: scale(2);
 		}
 	}
 }
