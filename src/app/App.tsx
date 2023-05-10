@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserInitialized, userActions } from 'entities/user';
 
-import { Navbar } from 'widgets/Navbar';
+import { Navbar } from 'widgets/navbar';
 import { Sidebar } from 'widgets/sidebar';
 
 const App = () => {

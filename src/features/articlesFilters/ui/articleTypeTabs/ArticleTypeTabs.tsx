@@ -4,7 +4,7 @@ import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
 import { ArticleType } from 'entities/article';
 
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+import { TabItem, Tabs } from 'shared/ui/tabs/Tabs';
 
 import cls from './ArticleTypeTabs.module.scss';
 
