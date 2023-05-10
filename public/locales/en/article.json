@@ -1,7 +1,7 @@
 {
     "all": "All",
     "article_not_found": "Article not found!",
-    "articles_not_founded": "Articles not founded",
+    "articles_not_found": "Articles not founded",
     "ascending_order": "ascending order",
     "back_to_article_list": "Back to article list",
     "comments": "Comments",
@@ -10,6 +10,7 @@
     "economics": "Economics",
     "error_while_loading_article": "An error occurred while loading the article",
     "read_more": "Read more...",
+    "recommendations": "Recommendations",
     "science": "Science",
     "search": "Search",
     "sort_by": "Sort by",

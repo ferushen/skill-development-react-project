@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 
 import type { StateSchema } from 'app/providers/storeProvider';
-import type { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
+import type { ArticleDetailsCommentsSchema } from '../types/articleDetailsComments';
 import type { Comment } from 'entities/comment';
 
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -16,7 +16,8 @@ const commentsAdapter = createEntityAdapter<Comment>({
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-	(state) => state.articleDetailsComments || commentsAdapter.getInitialState()
+	(state) =>
+		state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
 );
 
 const articleDetailsCommentsSlice = createSlice({
