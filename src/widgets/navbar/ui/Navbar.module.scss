@@ -12,11 +12,7 @@
 
 .btnsControls {
 	display: flex;
-	gap: 20px;
+	gap: 30px;
+	align-items: center;
 	justify-content: flex-end;
-}
-
-.appName {
-	width: calc(var(--sidebar-width) - 20px);
-	margin-left: 20px;
 }

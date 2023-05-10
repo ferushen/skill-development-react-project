@@ -17,8 +17,8 @@
 			"title": "Javascript news",
 			"subtitle": "Что нового в JS за 2022 год?",
 			"img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"views": 2123,
+			"createdAt": "01.11.2023",
 			"userId": "1",
 			"type": [
 				"IT"
@@ -35,12 +35,12 @@
 					]
 				},
 				{
-					"id": "4",
+					"id": "2",
 					"type": "CODE",
 					"code": "<!DOCTYPE html>\n<html>\n  <body>\n    <p id=\"hello\"></p>\n\n    <script>\n      document.getElementById(\"hello\").innerHTML = \"Hello, world!\";\n    </script>\n  </body>\n</html>;"
 				},
 				{
-					"id": "5",
+					"id": "3",
 					"type": "TEXT",
 					"title": "Заголовок этого блока",
 					"paragraphs": [
@@ -49,18 +49,18 @@
 					]
 				},
 				{
-					"id": "2",
+					"id": "4",
 					"type": "IMAGE",
 					"src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
 					"title": "Рисунок 1 - скриншот сайта"
 				},
 				{
-					"id": "3",
+					"id": "5",
 					"type": "CODE",
 					"code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
 				},
 				{
-					"id": "7",
+					"id": "6",
 					"type": "TEXT",
 					"title": "Заголовок этого блока",
 					"paragraphs": [
@@ -69,13 +69,13 @@
 					]
 				},
 				{
-					"id": "8",
+					"id": "7",
 					"type": "IMAGE",
 					"src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
 					"title": "Рисунок 1 - скриншот сайта"
 				},
 				{
-					"id": "9",
+					"id": "8",
 					"type": "TEXT",
 					"title": "Заголовок этого блока",
 					"paragraphs": [
@@ -86,14 +86,15 @@
 		},
 		{
 			"id": "2",
-			"title": "Python news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://images.hdqwalls.com/wallpapers/bthumb/python-logo-4k-i6.jpg",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "С Python не пропадешь!",
+			"subtitle": "Уроки финансовой граммотности вместе с Python",
+			"img": "https://w-dog.ru/wallpapers/13/0/350313502299336/art-voda-paren-devushka-kraski-ruka.jpg",
+			"views": 829,
+			"createdAt": "01.13.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"IT",
+				"ECONOMICS"
 			],
 			"blocks": [
 				{
@@ -159,10 +160,10 @@
 		{
 			"id": "3",
 			"title": "Kotlin news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://logowik.com/content/uploads/images/kotlin.jpg",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"subtitle": "Что нового в Kotlin за 2022 год?",
+			"img": "https://tech-camp.in/note/wp-content/uploads/2019/12/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88-2019-12-27-14.29.31.jpg",
+			"views": 611,
+			"createdAt": "01.17.2023",
 			"userId": "1",
 			"type": [
 				"IT"
@@ -230,14 +231,15 @@
 		},
 		{
 			"id": "4",
-			"title": "Python news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://images.hdqwalls.com/wallpapers/python-logo-4k-i6.jpg",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Графики на JavaScript",
+			"subtitle": "Графики в JS",
+			"img": "https://vo-smolfa.ru/pluginfile.php/12580/course/overviewfiles/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.jpg",
+			"views": 732,
+			"createdAt": "01.22.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"IT",
+				"ECONOMICS"
 			],
 			"blocks": [
 				{
@@ -255,10 +257,10 @@
 		{
 			"id": "5",
 			"title": "Kotlin news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"subtitle": "Что нового в Kotlin за 2022 год?",
+			"img": "https://tech-camp.in/note/wp-content/uploads/2019/12/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88-2019-12-27-14.29.31.jpg",
+			"views": 191,
+			"createdAt": "01.30.2023",
 			"userId": "1",
 			"type": [
 				"IT"
@@ -278,14 +280,16 @@
 		},
 		{
 			"id": "6",
-			"title": "Python news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://images.hdqwalls.com/wallpapers/python-logo-4k-i6.jpg",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Генетические алгоритмы в задачах",
+			"subtitle": "Особенности генетических алгоритмов при решении финансовых задач",
+			"img": "https://i.pinimg.com/564x/4e/82/a1/4e82a108d1d6f90ca4b9f5edfbd9c2ed.jpg",
+			"views": 6112,
+			"createdAt": "02.02.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"IT",
+				"SCIENCE",
+				"ECONOMICS"
 			],
 			"blocks": [
 				{
@@ -302,14 +306,15 @@
 		},
 		{
 			"id": "7",
-			"title": "Kotlin news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Квантовые механизмы",
+			"subtitle": "Невероятные находки при использовании квантовых механизмов",
+			"img": "https://i.pinimg.com/564x/f3/e4/d5/f3e4d5c8c6b49de7891859e46802d9b1.jpg",
+			"views": 3311,
+			"createdAt": "07.02.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"IT",
+				"SCIENCE"
 			],
 			"blocks": [
 				{
@@ -326,14 +331,14 @@
 		},
 		{
 			"id": "8",
-			"title": "Python news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://images.hdqwalls.com/wallpapers/python-logo-4k-i6.jpg",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "О чем не расскажет финансист",
+			"subtitle": "Рассказываем о том, о чем не расскажет финансист",
+			"img": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Digital_Rhetoric.jpg",
+			"views": 8376,
+			"createdAt": "10.02.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"ECONOMICS"
 			],
 			"blocks": [
 				{
@@ -350,11 +355,11 @@
 		},
 		{
 			"id": "9",
-			"title": "Kotlin news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Безумство JavaScript",
+			"subtitle": "Невероятное знакомство с невероятными паттернами JS",
+			"img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+			"views": 1251,
+			"createdAt": "13.02.2023",
 			"userId": "1",
 			"type": [
 				"IT"
@@ -374,14 +379,15 @@
 		},
 		{
 			"id": "10",
-			"title": "Python news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://images.hdqwalls.com/wallpapers/python-logo-4k-i6.jpg",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Бесконечность не предел",
+			"subtitle": "Числа с плавающей точкой с точки зрения молекулярного анализа",
+			"img": "https://gas-kvas.com/uploads/posts/2023-01/1673760034_gas-kvas-com-p-neirografiya-risunki-poshagovo-dlya-nachin-42.jpg",
+			"views": 621,
+			"createdAt": "14.02.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"IT",
+				"SCIENCE"
 			],
 			"blocks": [
 				{
@@ -398,11 +404,11 @@
 		},
 		{
 			"id": "11",
-			"title": "Kotlin news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Самые частые ошибки JS",
+			"subtitle": "Разбираем самые частые ошибки при написании кода на JS",
+			"img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+			"views": 7604,
+			"createdAt": "26.02.2023",
 			"userId": "1",
 			"type": [
 				"IT"
@@ -422,14 +428,15 @@
 		},
 		{
 			"id": "12",
-			"title": "Python news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://images.hdqwalls.com/wallpapers/python-logo-4k-i6.jpg",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Безумство рекурсивного подхода",
+			"subtitle": "Разбираем безумство рекурсивного подхода",
+			"img": "https://damion.club/uploads/posts/2022-09/1663953038_13-damion-club-p-neiroset-fon-oboi-32.jpg",
+			"views": 411,
+			"createdAt": "04.03.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"IT",
+				"SCIENCE"
 			],
 			"blocks": [
 				{
@@ -446,14 +453,16 @@
 		},
 		{
 			"id": "13",
-			"title": "Kotlin news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Майним биткоин с помощью Python",
+			"subtitle": "Разбираем как правильно майнить крипту",
+			"img": "https://i.pinimg.com/originals/47/82/2e/47822eaf25d2de480fa192be42472b34.jpg",
+			"views": 623,
+			"createdAt": "09.03.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"IT",
+				"SCIENCE",
+				"ECONOMICS"
 			],
 			"blocks": [
 				{
@@ -471,10 +480,10 @@
 		{
 			"id": "14",
 			"title": "Python news",
-			"subtitle": "Что нового в JS за 2022 год?",
+			"subtitle": "Что нового в Python за 2022 год?",
 			"img": "https://images.hdqwalls.com/wallpapers/python-logo-4k-i6.jpg",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"views": 978,
+			"createdAt": "15.03.2023",
 			"userId": "1",
 			"type": [
 				"IT"
@@ -494,14 +503,15 @@
 		},
 		{
 			"id": "15",
-			"title": "Kotlin news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Криптовалюта это вымысел",
+			"subtitle": "Разбор тонкостей связанных с криптой",
+			"img": "https://i.pinimg.com/originals/47/82/2e/47822eaf25d2de480fa192be42472b34.jpg",
+			"views": 3125,
+			"createdAt": "17.04.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"SCIENCE",
+				"ECONOMICS"
 			],
 			"blocks": [
 				{
@@ -518,14 +528,14 @@
 		},
 		{
 			"id": "16",
-			"title": "Python news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://images.hdqwalls.com/wallpapers/python-logo-4k-i6.jpg",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Как устроен человек",
+			"subtitle": "Анатомия человека",
+			"img": "https://mobimg.b-cdn.net/v3/fetch/20/20147d89eb20b574278f36b7a4663d9a.jpeg",
+			"views": 2221,
+			"createdAt": "22.04.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"SCIENCE"
 			],
 			"blocks": [
 				{
@@ -542,14 +552,14 @@
 		},
 		{
 			"id": "17",
-			"title": "Kotlin news",
-			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-			"views": 1022,
-			"createdAt": "26.02.2022",
+			"title": "Где кончается космос",
+			"subtitle": "Разбираем гипотезы о конце Вселенной",
+			"img": "https://kartinkin.net/uploads/posts/2021-07/1625159029_14-kartinkin-com-p-kosmicheskie-art-obekti-art-krasivo-15.jpg",
+			"views": 4721,
+			"createdAt": "23.04.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"SCIENCE"
 			],
 			"blocks": [
 				{

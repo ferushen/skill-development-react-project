@@ -1,6 +1,8 @@
-import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+
 import { Page } from 'widgets/page/Page';
 
 import cls from './ArticleEditPage.module.scss';
@@ -8,6 +10,8 @@ import cls from './ArticleEditPage.module.scss';
 interface ArticleEditPageProps {
 	className?: string;
 }
+
+// TODO: реализовать логику создания и редактирования статьи
 
 const ArticleEditPage = (props: ArticleEditPageProps) => {
 	const { className } = props;
@@ -28,4 +32,4 @@ const ArticleEditPage = (props: ArticleEditPageProps) => {
 	);
 };
 
-export default ArticleEditPage;
+export default memo(ArticleEditPage);

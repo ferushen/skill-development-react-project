@@ -1,16 +1,18 @@
 export type BuildMode = 'production' | 'development';
 
 export interface BuildEnv {
-	mode: BuildMode;
-	port: number;
 	analyze: boolean;
 	apiUrl: string;
+	mode: BuildMode;
+	port: number;
 }
 
 export interface BuildPaths {
-	entry: string;
 	build: string;
+	entry: string;
 	html: string;
+	locales: string; // путь до папки с переводами
+	buildLocales: string; // путь до папки с переводами для продакшена
 	src: string;
 }
 

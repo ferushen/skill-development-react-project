@@ -67,8 +67,8 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 							/*saveMissing: true,*/
 						},
 					],
-					[isDev && 'react-refresh/babel'].filter(Boolean),
-				],
+					isDev && 'react-refresh/babel',
+				].filter(Boolean),
 			},
 		},
 	};
