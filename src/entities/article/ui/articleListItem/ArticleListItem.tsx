@@ -7,7 +7,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
 
 import { AppLink } from 'shared/ui/appLink/AppLink';
-import { ArticleTextBlockComponent } from '../SarticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleTextBlockComponent } from '../articleTextBlockComponent/ArticleTextBlockComponent';
 import { Avatar } from 'shared/ui/avatar/Avatar';
 import { Button, ButtonVariant } from 'shared/ui/button/Button';
 import { Card } from 'shared/ui/card/Card';

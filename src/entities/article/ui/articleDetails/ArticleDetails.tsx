@@ -15,9 +15,9 @@ import {
 } from '../../model/selectors/articleDetails';
 
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
-import { ArticleCodeBlockComponent } from '../SarticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from '../SarticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../SarticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleCodeBlockComponent } from '../articleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../articleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../articleTextBlockComponent/ArticleTextBlockComponent';
 
 import { Skeleton } from 'shared/ui/skeleton/Skeleton';
 import { Avatar } from 'shared/ui/avatar/Avatar';

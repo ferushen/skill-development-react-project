@@ -1,4 +1,4 @@
-export { ArticleDetails } from './ui/SarticleDetails/ArticleDetails';
+export { ArticleDetails } from './ui/articleDetails/ArticleDetails';
 export { ArticleList } from './ui/articleList/ArticleList';
 export type { Article } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
