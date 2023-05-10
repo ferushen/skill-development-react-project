@@ -18,7 +18,7 @@ import { fetchArticleRecommendations } from '../../model/services/fetchArticleRe
 
 import { AddCommentForm } from 'features/addCommentForm';
 import { ArticleDetails, ArticleList } from 'entities/article';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleDetailsPageHeader } from '../articleDetailsPageHeader/ArticleDetailsPageHeader';
 import { CommentList } from 'entities/comment';
 import { Page } from 'widgets/page/Page';
 import { Text, TextSize } from 'shared/ui/text/Text';
