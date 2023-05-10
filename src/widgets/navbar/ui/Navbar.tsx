@@ -2,14 +2,18 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData, userActions } from 'entities/user';
 
+import { AppLink, AppLinkVariant } from 'shared/ui/appLink/AppLink';
 import { BugButton } from 'app/providers/errorBoundary';
 import { Button } from 'shared/ui/button/Button';
 import { ButtonVariant } from 'shared/ui/button/Button';
 import { LoginModal } from 'features/authByUsername';
+import { Text, TextVariant } from 'shared/ui/text/Text';
 
 import cls from './Navbar.module.scss';
 
@@ -21,6 +25,7 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
 	const { t } = useTranslation();
 	const dispatch = useAppDispatch();
+
 	const [isAuthModal, setIsAuthModal] = useState(false);
 	const authData = useSelector(getUserAuthData);
 
@@ -39,13 +44,27 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	if (authData) {
 		return (
 			<div className={cn(cls.navbar, {}, [className])}>
-				<BugButton />
-				<Button
-					onClick={onLogout}
-					variant={ButtonVariant.CLEAR_INVERTED}
-				>
-					{t('logout')}
-				</Button>
+				<Text
+					className={cls.appName}
+					variant={TextVariant.Inverted}
+					title={t('ferushen_app')}
+				/>
+				<div className={cls.btnsControls}>
+					<BugButton />
+					<AppLink
+						className={cls.createLink}
+						variant={AppLinkVariant.INVERTED}
+						to={RoutePath['article-create']}
+					>
+						{t('create_article')}
+					</AppLink>
+					<Button
+						onClick={onLogout}
+						variant={ButtonVariant.CLEAR_INVERTED}
+					>
+						{t('logout')}
+					</Button>
+				</div>
 			</div>
 		);
 	}

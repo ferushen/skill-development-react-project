@@ -5,6 +5,7 @@ import cls from './Text.module.scss';
 
 export enum TextVariant {
 	Primary = 'primary',
+	Inverted = 'inverted',
 	Error = 'error'
 }
 

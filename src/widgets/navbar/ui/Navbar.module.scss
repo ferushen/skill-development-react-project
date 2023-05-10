@@ -1,12 +1,22 @@
 .navbar {
 	display: flex;
-	gap: 20px;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content: space-between;
 
 	width: 100%;
 	height: var(--navbar-height);
 	padding: 20px;
 
 	background-color: var(--inverted-bg-color);
+}
+
+.btnsControls {
+	display: flex;
+	gap: 20px;
+	justify-content: flex-end;
+}
+
+.appName {
+	width: calc(var(--sidebar-width) - 20px);
+	margin-left: 20px;
 }

@@ -10,7 +10,12 @@ export const fetchArticleById = createAsyncThunk<
 	const { extra } = thunkAPI;
 
 	try {
-		const response = await extra.api.get<Article>('/articles/' + articleId);
+		const response = await extra.api.get<Article>('/articles/' + articleId, {
+			params: {
+				// бэк вернет всю информацию о пользователе
+				_expand: 'user',
+			},
+		});
 
 		if (!response.data) {
 			throw new Error();

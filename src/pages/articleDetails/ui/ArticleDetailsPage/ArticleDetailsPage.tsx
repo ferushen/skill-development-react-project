@@ -1,9 +1,7 @@
 import { memo, ReactNode, useCallback } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
-
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -20,7 +18,7 @@ import { fetchArticleRecommendations } from '../../model/services/fetchArticleRe
 
 import { AddCommentForm } from 'features/addCommentForm';
 import { ArticleDetails, ArticleList } from 'entities/article';
-import { Button } from 'shared/ui/button/Button';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { CommentList } from 'entities/comment';
 import { Page } from 'widgets/page/Page';
 import { Text, TextSize } from 'shared/ui/text/Text';
@@ -39,7 +37,6 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 	const { className } = props;
 	const { t } = useTranslation('article');
-	const navigate = useNavigate();
 	// указываем дефолтное значение для storybook
 	const { id = '1' } = useParams<{ id: string }>();
 
@@ -50,10 +47,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 	const recommendationsIsLoading = useSelector(selectArticleRecommendationsIsLoading);
 
 	const mods: Mods = {};
-
-	const onBackToList = useCallback(() => {
-		navigate(RoutePath.articles);
-	}, [navigate]);
 
 	const onCommentSend = useCallback((text: string) => {
 		dispatch(addCommentForArticle(text));
@@ -75,9 +68,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers}>
 			<Page className={cn(cls.articleDetailsPage, mods, [className])}>
-				<Button onClick={onBackToList}>
-					{t('back_to_article_list')}
-				</Button>
+				<ArticleDetailsPageHeader />
 				<ArticleDetails id={id} />
 				<Text
 					className={cls.commentTitle}
