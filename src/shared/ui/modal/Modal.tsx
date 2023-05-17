@@ -2,7 +2,7 @@ import { FC, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useSta
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 // import { useMount } from 'shared/lib/hooks/useMount/useMount';
 
-import { Portal } from 'shared/ui//portal/Portal';
+import { Portal } from 'shared/ui/portal/Portal';
 
 import cls from './Modal.module.scss';
 

@@ -10,8 +10,13 @@ const baseUrl = __IS_DEV__
 export const $api = axios.create({
 	// url на котором крутится json-server
 	baseURL: __API__,
-	headers: {
+});
+
+$api.interceptors.request.use((config) => {
+	if (config.headers) {
 		// заголовок для получения данных АВТОРИЗОВАННЫМИ пользователями
-		authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY) || '',
-	},
+		config.headers.authorization =
+			localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
+	}
+	return config;
 });

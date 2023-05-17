@@ -6,7 +6,7 @@ import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 import { useSelector } from 'react-redux';
-import { getCanEditArticle } from 'pages/articleDetails/model/selectors/article';
+import { getCanEditArticle } from '../../model/selectors/article';
 /*
 import { getArticleDetailsData } from 'entities/article';
 import { getUserAuthData } from 'entities/user';

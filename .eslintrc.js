@@ -31,7 +31,13 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+	plugins: [
+		'react',
+		'@typescript-eslint',
+		'i18next',
+		'react-hooks',
+		'correct-fsd-import-paths',
+	],
 	rules: {
 		// отвечает за правильное написание хуков
 		'react-hooks/rules-of-hooks': 'error',
@@ -81,6 +87,7 @@ module.exports = {
 		*/
 		'react/display-name': 'off',
 		semi: ['error', 'always'],
+		'correct-fsd-import-paths/type-path-checker': 2,
 	},
 	settings: {
 		react: {
