@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
 import { getUserAuthData } from 'entities/user';
 import { useSelector } from 'react-redux';
@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import type { SidebarItemType } from '../../model/types/sidebar';
 
 import { AppLink, AppLinkVariant } from 'shared/ui/appLink/AppLink';
+import { HStack } from 'shared/ui/stack';
 
 import cls from './SidebarItem.module.scss';
 
@@ -25,7 +26,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 
 	const isAuth = useSelector(getUserAuthData);
 
-	const mods = {
+	const mods: Mods = {
 		[cls.collapsed]: collapsed
 	};
 
@@ -37,13 +38,18 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 		<AppLink
 			to={item.path}
 			variant={AppLinkVariant.INVERTED}
-			className={cn(cls.item, mods)}
 		>
-			<item.Icon className={cls.icon} />
-			<span className={cls.link}>
-				{/* i18next-extract-disable-next-line */}
-				{t(item.text)}
-			</span>
+			<HStack
+				className={cn(cls.item, mods)}
+				justify={'start'}
+				gap={16}
+			>
+				<item.Icon className={cls.icon} />
+				<span className={cls.link}>
+					{/* i18next-extract-disable-next-line */}
+					{t(item.text)}
+				</span>
+			</HStack>
 		</AppLink>
 	);
 });

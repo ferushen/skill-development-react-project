@@ -1,18 +1,6 @@
 .navbar {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-
-	width: 100%;
 	height: var(--navbar-height);
 	padding: 20px;
 
 	background-color: var(--inverted-bg-color);
-}
-
-.btnsControls {
-	display: flex;
-	gap: 30px;
-	align-items: center;
-	justify-content: flex-end;
 }

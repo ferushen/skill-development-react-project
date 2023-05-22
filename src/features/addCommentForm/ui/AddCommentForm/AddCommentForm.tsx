@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -10,6 +10,7 @@ import { getAddCommentFormError, getAddCommentFormText } from '../../model/selec
 
 import { Button } from 'shared/ui/button/Button';
 import { Input, InputVariant } from 'shared/ui/input/Input';
+import { HStack } from 'shared/ui/stack';
 
 import cls from './AddCommentForm.module.scss';
 
@@ -28,9 +29,9 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
 	const dispatch = useAppDispatch();
 	const text = useSelector(getAddCommentFormText);
-	const error = useSelector(getAddCommentFormError);
 
-	const mods: Mods = {};
+	// TODO: реализовать валидацию комментария
+	const error = useSelector(getAddCommentFormError);
 
 	const onCommentTextChange = useCallback((value: string) => {
 		dispatch(addCommentFormActions.setText(value));
@@ -45,16 +46,22 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers}>
-			<div className={cn(cls.addCommentForm, mods, [className])}>
+			<HStack
+				className={cn(cls.wrapper, {}, [className])}
+				justify={'between'}
+				gap={12}
+				max
+			>
 				<Input
 					className={cls.input}
-					variant={InputVariant.MaxWidth}
+					variant={InputVariant.Poured}
+					maxWidth
 					placeholder={t('enter_comment_text')}
 					value={text}
 					onChange={onCommentTextChange}
 				/>
 				<Button onClick={onSend}>{t('send')}</Button>
-			</div>
+			</HStack>
 		</DynamicModuleLoader>
 	);
 });

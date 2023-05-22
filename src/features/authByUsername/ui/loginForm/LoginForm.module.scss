@@ -1,23 +1,12 @@
 .loginForm {
 	position: relative;
-	display: flex;
-	flex-direction: column;
-	gap: 34px;
 	align-items: center;
 	width: 380px;
 }
 
 .error {
 	position: absolute;
-	transform: translateY(180%);
-}
-
-.inputsWrapper {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	align-items: center;
-	margin-top: 10px;
+	top: 36px;
 }
 
 .loginBtn {

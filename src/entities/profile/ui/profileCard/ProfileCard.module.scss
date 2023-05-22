@@ -5,10 +5,8 @@
 
 .loading,
 .error {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	height: 300px;
+	border: 1px solid var(--bg-color);
 }
 
 .editing {
@@ -16,24 +14,12 @@
 }
 
 .avatarWrapper {
-	display: flex;
-	justify-content: center;
-	width: 100%;
 	margin-bottom: 20px;
 	border: 1px solid var(--primary-color);
 	border-radius: 8px;
 }
 
-.content {
-	display: flex;
-	align-items: column;
-	justify-content: center;
-}
-
 .data {
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
 	width: 370px;
 }
 

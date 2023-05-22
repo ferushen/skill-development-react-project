@@ -26,6 +26,7 @@ import { Country } from 'entities/country';
 import { Page } from 'widgets/page/Page';
 import { ProfilePageHeader } from './profilePageHeader/ProfilePageHeader';
 import { Text, TextVariant } from 'shared/ui/text/Text';
+import { VStack } from 'shared/ui/stack/vStack/VStack';
 
 const reducers: ReducersList = {
 	profile: profileReducer
@@ -98,28 +99,30 @@ const ProfilePage = (props: ProfilePageProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers}>
 			<Page className={cn('', {}, [className])}>
-				<ProfilePageHeader />
-				{validateErrors?.length && validateErrors.map(err => (
-					<Text
-						variant={TextVariant.Error}
-						text={validateErrorsTranslates[err]}
-						key={err}
+				<VStack gap={16} max>
+					<ProfilePageHeader />
+					{validateErrors?.length && validateErrors.map(err => (
+						<Text
+							variant={TextVariant.Error}
+							text={validateErrorsTranslates[err]}
+							key={err}
+						/>
+					))}
+					<ProfileCard
+						data={formData}
+						isLoading={isLoading}
+						readonly={readonly}
+						error={error}
+						onChangeFirstname={onChangeFirstname}
+						onChangeLastname={onChangeLastname}
+						onChangeAge={onChangeAge}
+						onChangeCity={onChangeCity}
+						onChangeUsername={onChangeUsername}
+						onChangeAvatar={onChangeAvatar}
+						onChangeCurrency={onChangeCurrency}
+						onChangeCountry={onChangeCountry}
 					/>
-				))}
-				<ProfileCard
-					data={formData}
-					isLoading={isLoading}
-					readonly={readonly}
-					error={error}
-					onChangeFirstname={onChangeFirstname}
-					onChangeLastname={onChangeLastname}
-					onChangeAge={onChangeAge}
-					onChangeCity={onChangeCity}
-					onChangeUsername={onChangeUsername}
-					onChangeAvatar={onChangeAvatar}
-					onChangeCurrency={onChangeCurrency}
-					onChangeCountry={onChangeCountry}
-				/>
+				</VStack>
 			</Page>
 		</DynamicModuleLoader>
 	);

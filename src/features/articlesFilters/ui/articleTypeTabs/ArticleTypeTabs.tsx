@@ -1,12 +1,10 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { ArticleType } from 'entities/article';
 
 import { TabItem, Tabs } from 'shared/ui/tabs/Tabs';
-
-import cls from './ArticleTypeTabs.module.scss';
 
 interface ArticleTypeTabsProps {
 	className?: string;
@@ -21,8 +19,6 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
 		onChangeTypeTab
 	} = props;
 	const { t } = useTranslation();
-
-	const mods: Mods = {};
 
 	const tabs = useMemo<TabItem<ArticleType>[]>(() => [
 		{
@@ -50,7 +46,7 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
 
 	return (
 		<Tabs
-			className={cn(cls.articleTypeTabs, mods, [className])}
+			className={cn('', {}, [className])}
 			tabs={tabs}
 			active={active}
 			/*onClickTab={onClickTab}*/

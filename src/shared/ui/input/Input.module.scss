@@ -34,6 +34,7 @@
 
 .maxWidth {
 	flex-grow: 10;
+	width: 100%;
 }
 
 .outlineRounded {
@@ -49,4 +50,11 @@
 
 .outlineDashed {
 	border: 1px dashed var(--inverted-bg-color);
+}
+
+.poured {
+	height: inherit;
+	background-color: var(--card-bg);
+	border: 1px solid var(--card-bg);
+	border-radius: 6px;
 }

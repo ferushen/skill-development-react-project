@@ -10,6 +10,7 @@ import { Loader } from 'shared/ui/loader/Loader';
 import { Avatar } from 'shared/ui/avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/currency';
 import { Country, CountrySelect } from 'entities/country';
+import { HStack, VStack } from 'shared/ui/stack';
 
 import cls from './ProfileCard.module.scss';
 
@@ -51,114 +52,123 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 		[cls.editing]: !readonly,
 	};
 
-	const additionalClassesLoading = [
+	const classesLoading = [
 		className,
 		cls.loading
 	];
 
-	const additionalClassesError = [
+	const classesError = [
 		className,
 		cls.error
 	];
 
 	if (isLoading) {
 		return (
-			<div className={cn(cls.profileCard, {}, additionalClassesLoading)}>
+			<HStack className={cn('', {}, classesLoading)} max>
 				<Loader />
-			</div>
+			</HStack>
 		);
 	}
 
 	if (error) {
 		return (
-			<div className={cn(cls.profileCard, {}, additionalClassesError)}>
+			<HStack className={cn('', {}, classesError)}>
 				<Text
 					variant={TextVariant.Error}
 					align={TextAlign.Center}
 					title={t('error_while_loading')}
 					text={t('try_refreshing_the_page')}
 				/>
-			</div>
+			</HStack>
 		);
 	}
 
 	return (
-		<div className={cn(cls.profileCard, mods, [className])}>
-			<div className={cls.content}>
-				<div className={cls.data}>
-					{data?.avatar && (
-						<div className={cls.avatarWrapper}>
-							<Avatar src={data?.avatar} alt={t('avatar')} />
-						</div>
-					)}
-					<Input
-						className={cls.inputWrapper}
-						variant={InputVariant.OutlineDashed}
-						label={t('nickname')}
-						placeholder={t('enter_your_nickname')}
-						value={data?.username}
-						readonly={readonly}
-						onChange={onChangeUsername}
-					/>
-					<Input
-						className={cls.inputWrapper}
-						variant={InputVariant.OutlineDashed}
-						label={t('firstname')}
-						placeholder={t('enter_your_firstname')}
-						value={data?.firstname}
-						readonly={readonly}
-						onChange={onChangeFirstname}
-					/>
-					<Input
-						className={cls.inputWrapper}
-						variant={InputVariant.OutlineDashed}
-						label={t('lastname')}
-						placeholder={t('enter_your_last_name')}
-						value={data?.lastname}
-						readonly={readonly}
-						onChange={onChangeLastname}
-					/>
-					<Input
-						className={cls.inputWrapper}
-						variant={InputVariant.OutlineDashed}
-						label={t('age')}
-						placeholder={t('enter_your_age')}
-						value={data?.age}
-						readonly={readonly}
-						onChange={onChangeAge}
-					/>
-					<Input
-						className={cls.inputWrapper}
-						variant={InputVariant.OutlineDashed}
-						label={t('city')}
-						placeholder={t('enter_your_city')}
-						value={data?.city}
-						readonly={readonly}
-						onChange={onChangeCity}
-					/>
-					<Input
-						className={cls.inputWrapper}
-						variant={InputVariant.OutlineDashed}
-						label={t('link_to_avatar')}
-						placeholder={t('provide_link')}
-						value={data?.avatar}
-						readonly={readonly}
-						onChange={onChangeAvatar}
-					/>
-					<CurrencySelect
-						className={cls.select}
-						value={data?.currency}
-						readonly={readonly}
-						onChange={onChangeCurrency}
-					/>
-					<CountrySelect
-						className={cls.select}
-						value={data?.country}
-						readonly={readonly}
-						onChange={onChangeCountry}
-					/>
-				</div>
-			</div>
-		</div>
+		<VStack
+			className={cn(cls.profileCard, mods, [className])}
+			align={'center'}
+			max
+		>
+			<VStack
+				className={cls.data}
+				justify={'start'}
+				gap={16}
+			>
+				{data?.avatar && (
+					<HStack
+						className={cls.avatarWrapper}
+						max
+					>
+						<Avatar src={data?.avatar} alt={t('avatar')} />
+					</HStack>
+				)}
+				<Input
+					className={cls.inputWrapper}
+					variant={InputVariant.OutlineDashed}
+					label={t('nickname')}
+					placeholder={t('enter_your_nickname')}
+					value={data?.username}
+					readonly={readonly}
+					onChange={onChangeUsername}
+				/>
+				<Input
+					className={cls.inputWrapper}
+					variant={InputVariant.OutlineDashed}
+					label={t('firstname')}
+					placeholder={t('enter_your_firstname')}
+					value={data?.firstname}
+					readonly={readonly}
+					onChange={onChangeFirstname}
+				/>
+				<Input
+					className={cls.inputWrapper}
+					variant={InputVariant.OutlineDashed}
+					label={t('lastname')}
+					placeholder={t('enter_your_last_name')}
+					value={data?.lastname}
+					readonly={readonly}
+					onChange={onChangeLastname}
+				/>
+				<Input
+					className={cls.inputWrapper}
+					variant={InputVariant.OutlineDashed}
+					label={t('age')}
+					placeholder={t('enter_your_age')}
+					value={data?.age}
+					readonly={readonly}
+					onChange={onChangeAge}
+				/>
+				<Input
+					className={cls.inputWrapper}
+					variant={InputVariant.OutlineDashed}
+					label={t('city')}
+					placeholder={t('enter_your_city')}
+					value={data?.city}
+					readonly={readonly}
+					onChange={onChangeCity}
+				/>
+				<Input
+					className={cls.inputWrapper}
+					variant={InputVariant.OutlineDashed}
+					label={t('link_to_avatar')}
+					placeholder={t('provide_link')}
+					value={data?.avatar}
+					readonly={readonly}
+					onChange={onChangeAvatar}
+				/>
+				<CurrencySelect
+					className={cls.select}
+					value={data?.currency}
+					readonly={readonly}
+					onChange={onChangeCurrency}
+				/>
+				<CountrySelect
+					className={cls.select}
+					value={data?.country}
+					readonly={readonly}
+					onChange={onChangeCountry}
+				/>
+			</VStack>
+		</VStack>
 	);
 };

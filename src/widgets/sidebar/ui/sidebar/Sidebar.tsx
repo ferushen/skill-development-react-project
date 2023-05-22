@@ -8,6 +8,7 @@ import { ThemeSwitcher } from 'features/themeSwitcher';
 import { LangSwitcher } from 'features/langSwitcher/ui/LangSwitcher';
 import { SidebarItem } from '../sidebarItem/SidebarItem';
 import { Button, ButtonSize, ButtonVariant } from 'shared/ui/button/Button';
+import { HStack, VStack } from 'shared/ui/stack';
 
 import cls from './Sidebar.module.scss';
 
@@ -34,28 +35,46 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 	};
 
 	return (
-		<aside
-			data-testid={'sidebar'}
-			className={cn(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
-		>
-			<Button
-				data-testid='sidebar-toggle'
-				onClick={onToggle}
-				className={cls.collapseBtn}
-				variant={ButtonVariant.BACKGROUND_INVERTED}
-				size={ButtonSize.MW}
+		<aside data-testid={'sidebar'}>
+			<VStack
+				className={cn(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
+				align={'center'}
 			>
-				{collapsed ? '>>>' : '<<<'}
-			</Button>
-			<div className={cls.content}>
-				<div className={cls.items}>
-					{itemsList}
-				</div>
-				<div className={cls.switchers}>
-					<ThemeSwitcher />
-					<LangSwitcher short={collapsed} />
-				</div>
-			</div>
+				<Button
+					data-testid='sidebar-toggle'
+					onClick={onToggle}
+					className={cls.collapseBtn}
+					variant={ButtonVariant.BACKGROUND_INVERTED}
+					size={ButtonSize.MW}
+				>
+					{collapsed ? '>>>' : '<<<'}
+				</Button>
+				<VStack
+					className={cls.content}
+					justify={'between'}
+					max
+				>
+					<VStack
+						className={cls.items}
+						justify={'start'}
+						gap={20}
+					>
+						{itemsList}
+					</VStack>
+					{collapsed ?
+						(<VStack align={'center'} gap={16} max>
+							<ThemeSwitcher />
+							<LangSwitcher short={collapsed} />
+						</VStack>)
+						:
+						(<HStack justify={'around'} max>
+							<ThemeSwitcher />
+							<LangSwitcher short={collapsed} />
+						</HStack>)
+					}
+
+				</VStack>
+			</VStack>
 		</aside>
 	);
 });

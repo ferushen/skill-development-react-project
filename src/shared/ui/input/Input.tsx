@@ -7,14 +7,17 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 export enum InputVariant {
 	Primary = 'primary',
-	MaxWidth = 'maxWidth',
 	OutlineDashed = 'outlineDashed',
 	OutlineRounded = 'outlineRounded',
+	Poured = 'poured',
 }
+
+export type InputHeight = 36;
 
 interface InputProps extends HTMLInputProps {
 	className?: string;
 	variant?: InputVariant;
+	maxWidth?: boolean;
 	value?: string | number;
 	label?: string;
 	readonly?: boolean;
@@ -25,6 +28,7 @@ export const Input = memo((props: InputProps) => {
 	const {
 		className,
 		variant = InputVariant.Primary,
+		maxWidth,
 		value,
 		type = 'text',
 		label,
@@ -36,6 +40,7 @@ export const Input = memo((props: InputProps) => {
 
 	const mods: Mods = {
 		[cls.readonly]: readonly,
+		[cls.maxWidth]: maxWidth,
 	};
 
 	const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +56,7 @@ export const Input = memo((props: InputProps) => {
 			)}
 			<input
 				{...otherProps}
-				className={cn(cls.input, {}, [cls[variant]])}
+				className={cn(cls.input, mods, [cls[variant]])}
 				type={type}
 				value={value}
 				placeholder={placeholder}

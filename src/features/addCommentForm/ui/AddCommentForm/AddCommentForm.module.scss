@@ -1,14 +1,7 @@
-.addCommentForm {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-	justify-content: space-between;
-	margin: 30px 0;
+.wrapper {
+	height: 36px;
 }
 
 .input {
-	flex-grow: 1;
-	height: 36px;
-	border: 1px solid var(--primary-color);
-	border-radius: 8px;
+	height: 100%;
 }

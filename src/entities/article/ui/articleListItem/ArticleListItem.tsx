@@ -1,6 +1,6 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
@@ -13,6 +13,7 @@ import { Button, ButtonVariant } from 'shared/ui/button/Button';
 import { Card } from 'shared/ui/card/Card';
 import { Icon } from 'shared/ui/icon/Icon';
 import { Text, TextAlign } from 'shared/ui/text/Text';
+import { HStack, VStack } from 'shared/ui/stack';
 
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 
@@ -29,15 +30,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 	const { className, article, view, target } = props;
 	const { t } = useTranslation('article');
 
-	const mods: Mods = {};
-
 	const types = <Text className={cls.types} text={article.type.join(', ')} />;
 
 	const views = (
-		<div className={cls.viewsWrapper}>
+		<HStack justify={'start'} gap={8}>
 			<Icon className={cls.icon} Svg={EyeIcon} />
 			<Text className={cls.views} text={String(article.views)} />
-		</div>
+		</HStack>
 	);
 
 	if (view === ArticleView.List) {
@@ -46,40 +45,38 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 		)) as ArticleTextBlock;
 
 		return (
-			<div
-				className={cn(cls.articleListItem, mods, [className, cls[view]])}
-			>
-				<Card className={cls.card} size='large'>
-					<div className={cls.header}>
-						<div className={cls.titleWrapper}>
-							<Text className={cls.title} title={article.title} />
-							{types}
-						</div>
-						<div className={cls.infoWrapper}>
-							<div className={cls.userInfo}>
-								<Avatar size={30} src={article.user.avatar} />
-								<Text className={cls.username} text={article.user.username} />
+			<div className={cn('', {}, [className, cls[view]])}>
+				<Card size='large'>
+					<VStack justify={'start'} gap={8}>
+						<HStack justify={'between'} max>
+							<div className={cls.titleWrapper}>
+								<Text className={cls.title} title={article.title} />
+								{types}
 							</div>
-							<Text className={cls.date} align={TextAlign.Right} text={article.createdAt} />
-						</div>
-					</div>
-					<img className={cls.img} src={article.img} alt={article.title} />
-					{textBlock && (
-						<ArticleTextBlockComponent className={cls.textBlock} block={textBlock} />
-					)}
-					<div className={cls.footer}>
-						<AppLink
-							to={RoutePath['article-details'] + article.id}
-							target={target}
-						>
-							<Button
-								variant={ButtonVariant.OUTLINE}
+							<VStack justify={'start'} gap={4} className={cls.infoWrapper}>
+								<HStack justify={'start'} gap={8}>
+									<Avatar size={30} src={article.user.avatar} />
+									<Text className={cls.username} text={article.user.username} />
+								</HStack>
+								<Text className={cls.date} align={TextAlign.Right} text={article.createdAt} />
+							</VStack>
+						</HStack>
+						<img className={cls.img} src={article.img} alt={article.title} />
+						{textBlock && (
+							<ArticleTextBlockComponent className={cls.textBlock} block={textBlock} />
+						)}
+						<HStack justify={'between'} gap={8} max>
+							<AppLink
+								to={RoutePath['article-details'] + article.id}
+								target={target}
 							>
-								{t('read_more')}
-							</Button>
-						</AppLink>
-						{views}
-					</div>
+								<Button variant={ButtonVariant.OUTLINE}>
+									{t('read_more')}
+								</Button>
+							</AppLink>
+							{views}
+						</HStack>
+					</VStack>
 				</Card>
 			</div>
 		);
@@ -87,20 +84,22 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
 	return (
 		<AppLink
-			className={cn(cls.articleListItem, mods, [className, cls[view]])}
+			className={cn('', {}, [className, cls[view]])}
 			to={RoutePath['article-details'] + article.id}
 			target={target}
 		>
-			<Card className={cls.card} size='large'>
-				<div className={cls.imgWrapper}>
-					<img className={cls.img} src={article.img} alt={article.title} />
-					<Text className={cls.date} text={article.createdAt} />
-				</div>
-				<div className={cls.infoWrapper}>
-					{types}
-					{views}
-				</div>
-				<Text className={cls.title} text={article.title} />
+			<Card size='large'>
+				<VStack justify={'start'} gap={8}>
+					<div className={cls.imgWrapper}>
+						<img className={cls.img} src={article.img} alt={article.title} />
+						<Text className={cls.date} text={article.createdAt} />
+					</div>
+					<HStack justify={'between'} gap={8}>
+						{types}
+						{views}
+					</HStack>
+					<Text className={cls.title} text={article.title} />
+				</VStack>
 			</Card>
 		</AppLink>
 	);

@@ -1,9 +1,10 @@
 import { memo } from 'react';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import type { ArticleImageBlock } from '../../model/types/article';
 
 import { Text, TextAlign } from 'shared/ui/text/Text';
+import { VStack } from 'shared/ui/stack';
 
 import cls from './ArticleImageBlockComponent.module.scss';
 
@@ -15,10 +16,8 @@ interface ArticleImageBlockComponentProps {
 export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponentProps) => {
 	const { className, block } = props;
 
-	const mods: Mods = {};
-
 	return (
-		<div className={cn(cls.articleImageBlockComponent, mods, [className])}>
+		<VStack className={cn('', {}, [className])}>
 			<img
 				className={cls.img}
 				src={block.src}
@@ -30,6 +29,6 @@ export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponen
 					text={block.title}
 				/>
 			)}
-		</div>
+		</VStack>
 	);
 });

@@ -14,6 +14,7 @@ import { Button } from 'shared/ui/button/Button';
 import { ButtonVariant } from 'shared/ui/button/Button';
 import { LoginModal } from 'features/authByUsername';
 import { Text, TextVariant } from 'shared/ui/text/Text';
+import { HStack } from 'shared/ui/stack';
 
 import cls from './Navbar.module.scss';
 
@@ -41,44 +42,51 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 		dispatch(userActions.logout());
 	}, [dispatch]);
 
-	if (authData) {
-		return (
-			<div className={cn(cls.navbar, {}, [className])}>
+	return (
+		<header>
+			<HStack
+				className={cn(cls.navbar, {}, [className])}
+				justify={'between'}
+				max
+			>
 				<Text
 					className={cls.appName}
 					variant={TextVariant.Inverted}
 					title={t('ferushen_app')}
 				/>
-				<div className={cls.btnsControls}>
+				<HStack justify={'end'} gap={30}>
 					<BugButton />
-					<AppLink
-						className={cls.createLink}
-						variant={AppLinkVariant.INVERTED}
-						to={RoutePath['article-create']}
-					>
-						{t('create_article')}
-					</AppLink>
-					<Button
-						onClick={onLogout}
-						variant={ButtonVariant.CLEAR_INVERTED}
-					>
-						{t('logout')}
-					</Button>
-				</div>
-			</div>
-		);
-	}
-
-	return (
-		<header className={cn(cls.navbar, {}, [className])}>
-			<BugButton />
-			<Button
-				onClick={onShowModal}
-				variant={ButtonVariant.CLEAR_INVERTED}
-			>
-				{t('login')}
-			</Button>
-			<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+					{authData
+						? (
+							<>
+								<AppLink
+									variant={AppLinkVariant.INVERTED}
+									to={RoutePath['article-create']}
+								>
+									{t('create_article')}
+								</AppLink>
+								<Button
+									onClick={onLogout}
+									variant={ButtonVariant.CLEAR_INVERTED}
+								>
+									{t('logout')}
+								</Button>
+							</>
+						)
+						: (
+							<>
+								<Button
+									onClick={onShowModal}
+									variant={ButtonVariant.CLEAR_INVERTED}
+								>
+									{t('login')}
+								</Button>
+								<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+							</>
+						)
+					}
+				</HStack>
+			</HStack>
 		</header>
 	);
 });

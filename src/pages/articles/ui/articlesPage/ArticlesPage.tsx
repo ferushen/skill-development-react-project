@@ -16,7 +16,8 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 
 import { Page } from 'widgets/page/Page';
 import { ArticleList, ArticleView } from 'entities/article';
-import { ArticlesPageFilters } from '../../../../features/articlesFilters/ui/articlesPageFilters/ArticlesPageFilters';
+import { ArticlesPageFilters } from 'features/articlesFilters/ui/articlesPageFilters/ArticlesPageFilters';
+import { VStack } from 'shared/ui/stack';
 
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
@@ -45,17 +46,20 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 	const mods: Mods = {};
 
 	const onLoadNextPart = useCallback(() => {
-		// if (__PROJECT__ !== 'storybook') { }
-		if (!isLoading) {
-			dispatch(fetchNextArticlesPage());
+		if (__PROJECT__ !== 'storybook') {
+			if (!isLoading) {
+				dispatch(fetchNextArticlesPage());
+			}
 		}
 	}, [dispatch, isLoading]);
 
 	// TODO: разобраться с колбэками
+	// TODO: разобраться со storybook
 
 	const fetchData = useCallback(() => {
-		dispatch(fetchArticlesList({ replace: true }));
-
+		if (__PROJECT__ !== 'storybook') {
+			dispatch(fetchArticlesList({ replace: true }));
+		}
 	}, [dispatch]);
 
 	const debouncedFetchData = useDebounce(fetchData, 400);
@@ -87,17 +91,19 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 				className={cn(cls.articlesPage, mods, [className])}
 				onScrollEnd={onLoadNextPart}
 			>
-				<ArticlesPageFilters
-					view={view}
-					onChangeView={onChangeView}
-					fetchData={refetchData}
-					debouncedFetchData={debouncedRefetchData}
-				/>
-				<ArticleList
-					isLoading={isLoading}
-					view={view}
-					articles={articles}
-				/>
+				<VStack align={'start'} gap={16} max>
+					<ArticlesPageFilters
+						view={view}
+						onChangeView={onChangeView}
+						fetchData={refetchData}
+						debouncedFetchData={debouncedRefetchData}
+					/>
+					<ArticleList
+						isLoading={isLoading}
+						view={view}
+						articles={articles}
+					/>
+				</VStack>
 			</Page>
 		</DynamicModuleLoader>
 	);

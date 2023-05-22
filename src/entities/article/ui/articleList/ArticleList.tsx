@@ -1,6 +1,6 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../articleListItem/ArticleListItem';
@@ -34,8 +34,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
 	} = props;
 	const { t } = useTranslation('article');
 
-	const mods: Mods = {};
-
 	const renderArticle = (article: Article) => {
 		return (
 			<ArticleListItem
@@ -49,14 +47,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
 	if (!isLoading && !articles.length) {
 		return (
-			<div className={cn(cls.articleList, mods, [className, cls[view]])}>
+			<div className={cn('', {}, [className, cls[view]])}>
 				<Text title={t('articles_not_found')} />
 			</div>
 		);
 	}
 
 	return (
-		<div className={cn(cls.articleList, mods, [className, cls[view]])}>
+		<div className={cn('', {}, [className, cls[view]])}>
 			{articles.length > 0
 				? articles.map(renderArticle)
 				: null

@@ -6,6 +6,7 @@ import type { Comment } from '../../model/types/comment';
 
 import { CommentCard } from '../commentCard/CommentCard';
 import { Text } from 'shared/ui/text/Text';
+import { VStack } from 'shared/ui/stack';
 
 import cls from './CommentList.module.scss';
 
@@ -27,14 +28,14 @@ export const CommentList = memo((props: CommentListProps) => {
 
 	if (isLoading) {
 		return (
-			<div className={cn(cls.commentList, mods, [className])}>
+			<VStack className={cn('', mods, [className])} max>
 				<CommentCard isLoading />
-			</div>
+			</VStack>
 		);
 	}
 
 	return (
-		<div className={cn(cls.commentList, mods, [className])}>
+		<VStack className={cn('', mods, [className])} gap={20} max>
 			{comments?.length
 				? comments.map(comment => (
 					<CommentCard
@@ -45,6 +46,6 @@ export const CommentList = memo((props: CommentListProps) => {
 				))
 				: <Text title={t('no_comments_yet')} />
 			}
-		</div>
+		</VStack>
 	);
 });

@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -20,10 +20,8 @@ import { ArticleTypeTabs } from '../articleTypeTabs/ArticleTypeTabs';
 import { ArticlesSortSwitcher } from '../articlesSortSwitcher/ArticlesSortSwitcher';
 import { ArticlesViewSwitcher } from '../articlesViewSwitcher/ArticlesViewSwitcher';
 
-import { Card } from 'shared/ui/card/Card';
 import { Input, InputVariant } from 'shared/ui/input/Input';
-
-import cls from './ArticlesPageFilters.module.scss';
+import { HStack, VStack } from 'shared/ui/stack';
 
 interface ArticlesPageFiltersProps {
 	className?: string;
@@ -49,8 +47,6 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 	const sort = useSelector(getArticlesFiltersSort);
 	const type = useSelector(getArticlesFiltersTabType);
 
-	const mods: Mods = {};
-
 	const onChangeOrder = useCallback((order: SortOrder) => {
 		dispatch(articlesFiltersActions.setOrder(order));
 		fetchData();
@@ -72,10 +68,14 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 	}, [dispatch, fetchData]);
 
 	return (
-		<div className={cn(cls.articlesPageFilters, mods, [className])}>
-			<div className={cls.sortWrapper}>
+		<VStack
+			className={cn('', {}, [className])}
+			align={'start'}
+			gap={8}
+			max
+		>
+			<HStack justify={'between'} gap={16} max>
 				<ArticlesSortSwitcher
-					className={cls.sort}
 					order={order}
 					sort={sort}
 					onChangeOrder={onChangeOrder}
@@ -85,19 +85,18 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 					activeView={view}
 					onClickView={onChangeView}
 				/>
-			</div>
-			<Card className={cls.search} size='small'>
-				<Input
-					variant={InputVariant.MaxWidth}
-					placeholder={t('search')}
-					value={search}
-					onChange={onChangeSearch}
-				/>
-			</Card>
+			</HStack>
+			<Input
+				variant={InputVariant.Poured}
+				maxWidth
+				placeholder={t('search')}
+				value={search}
+				onChange={onChangeSearch}
+			/>
 			<ArticleTypeTabs
 				active={type}
 				onChangeTypeTab={onChangeType}
 			/>
-		</div>
+		</VStack>
 	);
 });

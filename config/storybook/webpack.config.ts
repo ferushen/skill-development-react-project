@@ -6,10 +6,12 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export default ({ config }: { config: webpack.Configuration }) => {
 	const paths: BuildPaths = {
+		src: path.resolve(__dirname, '..', '..', 'src'),
+		locales: path.resolve(__dirname, '..', '..', 'public', 'locales'),
 		build: '',
 		html: '',
 		entry: '',
-		src: path.resolve(__dirname, '..', '..', 'src'),
+		buildLocales: '',
 	};
 
 	config.resolve?.modules?.unshift(paths.src); // для работы с абсолютными путями

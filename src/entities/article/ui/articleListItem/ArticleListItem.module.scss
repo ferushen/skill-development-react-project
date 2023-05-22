@@ -1,41 +1,9 @@
-.card {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	align-items: center;
-}
-
-.viewsWrapper {
-	display: flex;
-	gap: 8px;
-	align-items: center;
-}
-
 .views {
 	margin-left: auto;
 }
 
 .list {
 	min-width: 480px;
-
-	.header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
-	}
-
-	.infoWrapper {
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
-	}
-
-	.userInfo {
-		display: flex;
-		gap: 8px;
-		align-items: center;
-	}
 
 	.textBlock {
 		max-height: 200px;
@@ -47,14 +15,6 @@
 		max-width: 900px;
 		max-height: 300px;
 		object-fit: cover;
-	}
-
-	.footer {
-		display: flex;
-		gap: 8px;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
 	}
 }
 
@@ -84,14 +44,6 @@
 		background-color: var(--bg-color);
 		border-radius: 10px;
 		transform: translate(-50%, -50%);
-	}
-
-	.infoWrapper {
-		display: flex;
-		gap: 8px;
-		align-items: center;
-		justify-content: space-between;
-		margin-top: 8px;
 	}
 
 	.types p {
@@ -127,20 +79,6 @@
 }
 
 .articleListItemSkeleton.list {
-	.card {
-		align-items: normal;
-	}
-
-	.titleWrapper {
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-	}
-
-	.infoWrapper {
-		align-items: flex-end;
-	}
-
 	.img {
 		max-width: inherit;
 	}
@@ -148,10 +86,6 @@
 
 .articleListItemSkeleton.grid {
 	cursor: not-allowed;
-
-	.card {
-		align-items: normal;
-	}
 
 	&:hover {
 		opacity: 1;

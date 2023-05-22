@@ -15,6 +15,7 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 import { Button, ButtonVariant } from 'shared/ui/button/Button';
 import { Input, InputVariant } from 'shared/ui/input/Input';
 import { Text, TextVariant } from 'shared/ui/text/Text';
+import { VStack } from 'shared/ui/stack';
 
 import cls from './LoginForm.module.scss';
 
@@ -55,10 +56,17 @@ const LoginForm = memo((props: LoginFormProps) => {
 
 	return (
 		<DynamicModuleLoader reducers={initialReducers}>
-			<div className={cn(cls.loginForm, {}, [className])}>
+			<VStack
+				className={cn(cls.loginForm, {}, [className])}
+				align={'center'}
+				gap={40}
+			>
 				<Text title={t('login_form')} />
 				{error && <Text className={cls.error} text={t('incorrect_login_or_password')} variant={TextVariant.Error} />}
-				<div className={cls.inputsWrapper}>
+				<VStack
+					align={'center'}
+					gap={20}
+				>
 					<Input
 						value={username}
 						variant={InputVariant.OutlineRounded}
@@ -72,7 +80,7 @@ const LoginForm = memo((props: LoginFormProps) => {
 						placeholder={t('enter_password')}
 						onChange={onChangePassword}
 					/>
-				</div>
+				</VStack>
 				<Button
 					onClick={onLoginClick}
 					className={cls.loginBtn}
@@ -81,7 +89,7 @@ const LoginForm = memo((props: LoginFormProps) => {
 				>
 					{t('login')}
 				</Button>
-			</div>
+			</VStack>
 		</DynamicModuleLoader>
 	);
 });

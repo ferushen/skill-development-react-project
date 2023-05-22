@@ -599,6 +599,18 @@
 			"articleId": "1",
 			"userId": "1",
 			"id": "8dEz1i5"
+		},
+		{
+			"text": "Привет, мистер!",
+			"articleId": "16",
+			"userId": "1",
+			"id": "hU4jZMi"
+		},
+		{
+			"text": "новый коммент",
+			"articleId": "14",
+			"userId": "1",
+			"id": "vTfUFY8"
 		}
 	],
 	"users": [

@@ -1,16 +1,15 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import type { SortOrder } from 'shared/types/sortOrder';
 import { ArticleSortField } from '../../model/types/articlesFilters';
 
 import { Select, SelectOptions } from 'shared/ui/select/Select';
+import { HStack } from 'shared/ui/stack';
 
 import cls from './ArticlesSortSwitcher.module.scss';
 
 interface ArticlesSortSwitcherProps {
-	className?: string;
 	sort: ArticleSortField;
 	order: SortOrder;
 	onChangeOrder: (newOrder: SortOrder) => void;
@@ -19,7 +18,6 @@ interface ArticlesSortSwitcherProps {
 
 export const ArticlesSortSwitcher = memo((props: ArticlesSortSwitcherProps) => {
 	const {
-		className,
 		order,
 		sort,
 		onChangeOrder,
@@ -54,9 +52,9 @@ export const ArticlesSortSwitcher = memo((props: ArticlesSortSwitcherProps) => {
 	], [t]);
 
 	return (
-		<div className={cn(cls.articlesSortSwitcher, {}, [])}>
+		<HStack gap={8}>
 			<Select<ArticleSortField>
-				className={className}
+				className={cls.sortField}
 				label={t('sort_by')}
 				options={sortFieldOptions}
 				value={sort}
@@ -67,6 +65,6 @@ export const ArticlesSortSwitcher = memo((props: ArticlesSortSwitcherProps) => {
 				value={order}
 				onChange={onChangeOrder}
 			/>
-		</div>
+		</HStack>
 	);
 });

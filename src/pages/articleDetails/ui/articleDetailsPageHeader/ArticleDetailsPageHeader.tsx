@@ -1,21 +1,20 @@
 import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 import { useSelector } from 'react-redux';
 import { getCanEditArticle } from '../../model/selectors/article';
-/*
 import { getArticleDetailsData } from 'entities/article';
-import { getUserAuthData } from 'entities/user';
-*/
+import { getArticleDetailsIsLoading } from 'entities/article/model/selectors/articleDetails';
+// import { getUserAuthData } from 'entities/user';
 
 import { Button, ButtonVariant } from 'shared/ui/button/Button';
+import { Skeleton } from 'shared/ui/skeleton/Skeleton';
+import { HStack } from 'shared/ui/stack';
 
-import cls from './ArticleDetailsPageHeader.module.scss';
-import { getArticleDetailsData } from 'entities/article';
 
 interface ArticleDetailsPageHeaderProps {
 	className?: string;
@@ -35,6 +34,7 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
 
 	const article = useSelector(getArticleDetailsData);
 	const canEdit = useSelector(getCanEditArticle);
+	const isLoading = useSelector(getArticleDetailsIsLoading);
 
 	const onBackToList = useCallback(() => {
 		navigate(RoutePath.articles);
@@ -44,22 +44,32 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
 		navigate(`${RoutePath['article-details']}${article?.id}/edit`);
 	}, [article?.id, navigate]);
 
-	const mods: Mods = {};
+	if (isLoading) {
+		return (
+			<HStack className={cn('', {}, [className])} >
+				<Skeleton width={160} height={36} border={'6px'} />
+			</HStack>
+		);
+	}
 
 	return (
-		<div className={cn(cls.articleDetailsPageHeader, mods, [className])}>
+		<HStack
+			className={cn('', {}, [className])}
+			justify={'between'}
+			gap={20}
+			max
+		>
 			<Button onClick={onBackToList}>
 				{t('back_to_article_list')}
 			</Button>
 			{canEdit && (
 				<Button
-					className={cls.editBtn}
 					variant={ButtonVariant.OUTLINE}
 					onClick={onEditArticle}
 				>
 					{t('edit')}
 				</Button>
 			)}
-		</div>
+		</HStack>
 	);
 });

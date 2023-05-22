@@ -1,7 +1,7 @@
 import { memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -23,6 +23,7 @@ import { Skeleton } from 'shared/ui/skeleton/Skeleton';
 import { Avatar } from 'shared/ui/avatar/Avatar';
 import { Text, TextAlign, TextSize, TextVariant } from 'shared/ui/text/Text';
 import { Icon } from 'shared/ui/icon/Icon';
+import { HStack, VStack } from 'shared/ui/stack';
 
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
@@ -49,8 +50,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 	const isLoading = useSelector(getArticleDetailsIsLoading);
 	const article = useSelector(getArticleDetailsData);
 	const error = useSelector(getArticleDetailsError);
-
-	const mods: Mods = {};
 
 	const renderBlock = useCallback((block: ArticleBlock) => {
 		switch (block.type) {
@@ -117,37 +116,37 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 	if (!isLoading && !error) {
 		content = (
 			<>
-				<div className={cls.avatarWrapper}>
+				<HStack align={'start'} max>
 					<Avatar
 						className={cls.avatar}
 						size={200}
 						src={article?.img}
 					/>
-				</div>
+				</HStack>
 				<Text
 					className={cls.title}
 					size={TextSize.L}
 					title={article?.title}
 					text={article?.subtitle}
 				/>
-				<div className={cls.articleInfo}>
+				<HStack justify={'start'}>
 					<Icon className={cls.logo} Svg={EyeIcon} />
 					<Text text={String(article?.views)} />
-				</div>
-				<div className={cls.articleInfo}>
+				</HStack>
+				<HStack className={cls.articleInfo}>
 					<Icon className={cls.logo} Svg={CalendarIcon} />
 					<Text text={article?.createdAt} />
-				</div>
-				<div className={cls.blocksWrapper}>
+				</HStack>
+				<VStack justify={'start'} gap={16}>
 					{article?.blocks.map(renderBlock)}
-				</div>
+				</VStack>
 			</>
 		);
 	}
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-			<div className={cn(cls.articleDetails, mods, [className])}>
+			<div className={cn(cls.articleDetails, {}, [className])}>
 				{content}
 			</div>
 		</DynamicModuleLoader>
