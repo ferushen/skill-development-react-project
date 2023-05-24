@@ -5,6 +5,8 @@ import { ArticleBlockType, ArticleType } from 'entities/article/model/types/arti
 import { Article } from 'entities/article';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/themeProvider';
 
 export default {
 	title: 'pages/ArticleDetailsPage',
@@ -104,3 +106,14 @@ Normal.decorators = [StoreDecorator({
 		data: article
 	}
 })];
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [
+	ThemeDecorator(Theme.DARK),
+	StoreDecorator({
+		articleDetails: {
+			data: article
+		}
+	})
+];

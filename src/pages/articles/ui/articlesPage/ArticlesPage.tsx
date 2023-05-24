@@ -91,7 +91,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 				className={cn(cls.articlesPage, mods, [className])}
 				onScrollEnd={onLoadNextPart}
 			>
-				<VStack align={'start'} gap={16} max>
+				<VStack align={'start'} gap={16} width={'max'}>
 					<ArticlesPageFilters
 						view={view}
 						onChangeView={onChangeView}

@@ -21,7 +21,10 @@ export enum TextAlign {
 	Right = 'right'
 }
 
+type TitleTagType = 'h1' | 'h2' | 'h3' | 'p';
+
 interface TextProps {
+	TitleTag?: TitleTagType;
 	className?: string;
 	variant?: TextVariant;
 	size?: TextSize;
@@ -32,6 +35,7 @@ interface TextProps {
 
 export const Text = memo((props: TextProps) => {
 	const {
+		TitleTag = 'p',
 		className,
 		variant = TextVariant.Primary,
 		size = TextSize.M,
@@ -49,7 +53,7 @@ export const Text = memo((props: TextProps) => {
 
 	return (
 		<div className={cn('', {}, additionalClasses)}>
-			{title && <p className={cls.title}>{title}</p>}
+			{title && <TitleTag className={cls.title}>{title}</TitleTag>}
 			{text && <p className={cls.text}>{text}</p>}
 		</div>
 	);

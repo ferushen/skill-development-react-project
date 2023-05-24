@@ -1,23 +1,29 @@
 .app_dark_theme {
 	/* background color */
-	--bg-color: #364746;
-	--inverted-bg-color: #c5e3f2;
+	--bg-color: #0a0f0e;
+	--inverted-bg-color: #181d1d;
 
 	/* color */
-	--primary-color: #3cffd9;
-	--secondary-color: #9eeaf0;
+	--primary-color: #37f1cd;
+	--secondary-color: #ebe6cd;
 
 	/* color: inverted */
-	--inverted-primary-color: #154580;
-	--inverted-secondary-color: #010626;
+	--inverted-primary-color: #ebe6cd;
+	--inverted-secondary-color: #11054c;
 
 	/* skeleton */
 	--skeleton-color: #5a9f9c;
 	--skeleton-shadow: #3a4f4e;
 
 	/* code */
-	--code-bg: #4b605f;
+	--code-bg: #1f2727;
 
 	/* articleCard */
-	--card-bg: #415d5b;
+	--card-bg: #142221;
+
+	/* list box */
+	--listbox-bg: #0a0f0e;
+	--listbox-color: #ebe6cd;
+	--listbox-selected: #ebe6cd;
+	--listbox-selected-color: #0a0f0e;
 }

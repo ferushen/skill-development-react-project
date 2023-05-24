@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/storeProvider';
+import { Country } from 'entities/country';
 import { Profile } from '../../types/profile';
 
 export const fetchProfileData = createAsyncThunk<
@@ -16,7 +17,10 @@ export const fetchProfileData = createAsyncThunk<
 			throw new Error('Не удалось загрузить данные с сервера');
 		}
 
-		return response.data;
+		const data = response.data;
+
+		// TODO: разобраться как избавиться от костыля
+		return { ...data, country: data.country?.toLowerCase() as Country };
 	} catch (e) {
 		console.log(e);
 		return rejectWithValue('error');

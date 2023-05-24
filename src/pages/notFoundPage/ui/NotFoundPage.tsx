@@ -18,7 +18,7 @@ export const NotFoundPage = ({ className }: NotFoundPageProps) => {
 			<VStack
 				className={cn(cls.notFoundPage, {}, [className])}
 				align={'center'}
-				max
+				width={'max'}
 			>
 				{t('page_not_found')}
 			</VStack>

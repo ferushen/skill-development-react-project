@@ -4,7 +4,8 @@
 
 .recommendations {
 	flex-wrap: nowrap;
-	margin-top: 20px;
+	width: 100%;
+	padding: 20px 0;
 	overflow-x: auto;
 	overflow-y: hidden;
 }

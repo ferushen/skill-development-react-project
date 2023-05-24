@@ -28,14 +28,14 @@ export const CommentList = memo((props: CommentListProps) => {
 
 	if (isLoading) {
 		return (
-			<VStack className={cn('', mods, [className])} max>
+			<VStack className={cn('', mods, [className])} width={'max'}>
 				<CommentCard isLoading />
 			</VStack>
 		);
 	}
 
 	return (
-		<VStack className={cn('', mods, [className])} gap={20} max>
+		<VStack className={cn('', mods, [className])} gap={20} width={'max'}>
 			{comments?.length
 				? comments.map(comment => (
 					<CommentCard

@@ -48,7 +48,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 			<div className={cn('', {}, [className, cls[view]])}>
 				<Card size='large'>
 					<VStack justify={'start'} gap={8}>
-						<HStack justify={'between'} max>
+						<HStack justify={'between'} width={'max'}>
 							<div className={cls.titleWrapper}>
 								<Text className={cls.title} title={article.title} />
 								{types}
@@ -65,12 +65,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 						{textBlock && (
 							<ArticleTextBlockComponent className={cls.textBlock} block={textBlock} />
 						)}
-						<HStack justify={'between'} gap={8} max>
+						<HStack justify={'between'} gap={8} width={'max'}>
 							<AppLink
 								to={RoutePath['article-details'] + article.id}
 								target={target}
 							>
-								<Button variant={ButtonVariant.OUTLINE}>
+								<Button variant={ButtonVariant.Outline}>
 									{t('read_more')}
 								</Button>
 							</AppLink>

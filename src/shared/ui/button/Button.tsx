@@ -4,12 +4,13 @@ import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonVariant {
-	CLEAR = 'clear',
-	CLEAR_INVERTED = 'clearInverted',
-	OUTLINE = 'outline',
-	OUTLINE_RED = 'outline_red',
-	BACKGROUND = 'background',
-	BACKGROUND_INVERTED = 'backgroundInverted',
+	Clear = 'clear',
+	ClearInverted = 'clear_inverted',
+	Outline = 'outline',
+	OutlineRed = 'outline_red',
+	OutlineSecondary = 'outline_secondary',
+	Background = 'background',
+	BackgroundInverted = 'background_inverted',
 }
 
 export enum ButtonSize {
@@ -20,12 +21,16 @@ export enum ButtonSize {
 	MW = 'max_width'
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonDisabled = 'only_cursor' | 'with_opacity';
+type ButtonWidth = 'max';
+
+interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'width' | 'disabled'> {
 	className?: string;
 	variant?: ButtonVariant;
 	square?: boolean;
 	size?: ButtonSize;
-	disabled?: boolean;
+	width?: ButtonWidth;
+	disabled?: ButtonDisabled;
 	children?: ReactNode;
 }
 
@@ -33,29 +38,31 @@ export const Button = memo((props: ButtonProps) => {
 	const {
 		className,
 		children,
-		variant = ButtonVariant.OUTLINE,
+		variant = ButtonVariant.Outline,
 		square,
 		size = ButtonSize.M,
+		width,
 		disabled,
 		...otherProps
 	} = props;
 
 	const mods: Mods = {
 		[cls.square]: square,
-		[cls.disabled]: disabled,
 	};
 
 	const additionalClasses: Array<string | undefined> = [
 		className,
 		cls[variant],
 		cls[size],
+		width && cls[width],
+		disabled && cls[disabled]
 	];
 
 	return (
 		<button
 			{...otherProps}
 			className={cn(cls.button, mods, additionalClasses)}
-			disabled={disabled}
+			disabled={Boolean(disabled)}
 		>
 			{children}
 		</button>

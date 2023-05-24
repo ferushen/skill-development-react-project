@@ -84,8 +84,8 @@ const LoginForm = memo((props: LoginFormProps) => {
 				<Button
 					onClick={onLoginClick}
 					className={cls.loginBtn}
-					variant={ButtonVariant.OUTLINE}
-					disabled={isLoading}
+					variant={ButtonVariant.Outline}
+					disabled={isLoading ? 'with_opacity' : undefined}
 				>
 					{t('login')}
 				</Button>

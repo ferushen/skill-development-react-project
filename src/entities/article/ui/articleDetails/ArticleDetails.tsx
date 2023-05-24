@@ -116,7 +116,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 	if (!isLoading && !error) {
 		content = (
 			<>
-				<HStack align={'start'} max>
+				<HStack align={'start'} width={'max'}>
 					<Avatar
 						className={cls.avatar}
 						size={200}

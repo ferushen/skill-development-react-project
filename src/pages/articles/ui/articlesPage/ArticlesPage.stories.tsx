@@ -3,6 +3,8 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { Article } from 'entities/article';
 import { ArticleType, ArticleBlockType } from 'entities/article/model/types/article';
 import ArticlesPage from './ArticlesPage';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/themeProvider';
 
 const articles: Record<number, Article> = {
 	1: {
@@ -323,15 +325,29 @@ const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {.
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-	articlesPage: {
-		ids: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-		entities: articles,
-		_inited: true,
-		isLoading: false,
-		hasMore: true,
-	},
-	scrollSaver: {
-		scroll: {}
-	}
-})];
+Normal.decorators = [
+	StoreDecorator({
+		articlesPage: {
+			ids: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+			entities: articles,
+			_inited: true,
+			isLoading: false,
+			hasMore: true,
+		},
+	})
+];
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [
+	ThemeDecorator(Theme.DARK),
+	StoreDecorator({
+		articlesPage: {
+			ids: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+			entities: articles,
+			_inited: true,
+			isLoading: false,
+			hasMore: true,
+		},
+	})
+];

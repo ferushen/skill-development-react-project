@@ -99,7 +99,7 @@ const ProfilePage = (props: ProfilePageProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers}>
 			<Page className={cn('', {}, [className])}>
-				<VStack gap={16} max>
+				<VStack gap={16} width={'minMax'}>
 					<ProfilePageHeader />
 					{validateErrors?.length && validateErrors.map(err => (
 						<Text

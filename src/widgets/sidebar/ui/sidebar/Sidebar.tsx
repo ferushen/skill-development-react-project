@@ -35,7 +35,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 	};
 
 	return (
-		<aside data-testid={'sidebar'}>
+		<section data-testid={'sidebar'}>
 			<VStack
 				className={cn(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
 				align={'center'}
@@ -44,7 +44,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 					data-testid='sidebar-toggle'
 					onClick={onToggle}
 					className={cls.collapseBtn}
-					variant={ButtonVariant.BACKGROUND_INVERTED}
+					variant={ButtonVariant.BackgroundInverted}
 					size={ButtonSize.MW}
 				>
 					{collapsed ? '>>>' : '<<<'}
@@ -52,9 +52,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 				<VStack
 					className={cls.content}
 					justify={'between'}
-					max
+					width={'max'}
 				>
 					<VStack
+						role={'navigation'}
 						className={cls.items}
 						justify={'start'}
 						gap={20}
@@ -62,19 +63,18 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 						{itemsList}
 					</VStack>
 					{collapsed ?
-						(<VStack align={'center'} gap={16} max>
+						(<VStack align={'center'} gap={16} width={'max'}>
 							<ThemeSwitcher />
 							<LangSwitcher short={collapsed} />
 						</VStack>)
 						:
-						(<HStack justify={'around'} max>
+						(<HStack justify={'around'} width={'max'}>
 							<ThemeSwitcher />
 							<LangSwitcher short={collapsed} />
 						</HStack>)
 					}
-
 				</VStack>
 			</VStack>
-		</aside>
+		</section>
 	);
 });

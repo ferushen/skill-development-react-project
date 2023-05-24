@@ -24,7 +24,7 @@ export const PageError = ({ className }: PageErrorProps) => {
 			gap={40}
 		>
 			<p>{t('unexpected_error')}</p>
-			<Button onClick={reloadPage} variant={ButtonVariant.OUTLINE}>
+			<Button onClick={reloadPage} variant={ButtonVariant.Outline}>
 				{t('refresh_page')}
 			</Button>
 		</VStack>

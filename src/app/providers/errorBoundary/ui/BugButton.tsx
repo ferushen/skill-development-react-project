@@ -16,7 +16,7 @@ export const BugButton = () => {
 	}, [error]);
 
 	return (
-		<Button onClick={throwHandler} variant={ButtonVariant.BACKGROUND}>
+		<Button onClick={throwHandler} variant={ButtonVariant.Background}>
 			{t('throw_error')}
 		</Button >
 	);

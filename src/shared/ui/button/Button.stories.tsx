@@ -22,75 +22,75 @@ Primary.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-	children: 'click me',
-	variant: ButtonVariant.OUTLINE,
-	disabled: true
+	children: 'Click me',
+	variant: ButtonVariant.Outline,
+	disabled: 'with_opacity'
 };
 
 export const Clear = Template.bind({});
 Clear.args = {
-	children: 'btn',
-	variant: ButtonVariant.CLEAR
+	children: 'Click me',
+	variant: ButtonVariant.Clear
 };
 
 export const ClearInverted = Template.bind({});
 ClearInverted.args = {
-	children: 'btn',
-	variant: ButtonVariant.CLEAR_INVERTED
+	children: 'Click me',
+	variant: ButtonVariant.ClearInverted
 };
 
 export const OutlineLight = Template.bind({});
 OutlineLight.args = {
-	children: 'btn',
-	variant: ButtonVariant.OUTLINE
+	children: 'Click me',
+	variant: ButtonVariant.Outline
 };
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
-	children: 'btn',
-	variant: ButtonVariant.OUTLINE
+	children: 'Click me',
+	variant: ButtonVariant.Outline
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
-	children: 'btn',
-	variant: ButtonVariant.BACKGROUND
+	children: 'Click me',
+	variant: ButtonVariant.Background
 };
 
 export const BackgroundInvertedTheme = Template.bind({});
 BackgroundInvertedTheme.args = {
-	children: 'btn',
-	variant: ButtonVariant.BACKGROUND_INVERTED
+	children: 'Click me',
+	variant: ButtonVariant.BackgroundInverted
 };
 
 export const SquareSizeM = Template.bind({});
 SquareSizeM.args = {
-	children: '@',
+	children: '#',
 	square: true,
 	size: ButtonSize.M,
-	variant: ButtonVariant.BACKGROUND_INVERTED
+	variant: ButtonVariant.BackgroundInverted
 };
 
 export const SquareSizeL = Template.bind({});
 SquareSizeL.args = {
-	children: '@',
+	children: '#',
 	square: true,
 	size: ButtonSize.L,
-	variant: ButtonVariant.BACKGROUND_INVERTED
+	variant: ButtonVariant.BackgroundInverted
 };
 
 export const SquareSizeXL = Template.bind({});
 SquareSizeXL.args = {
-	children: '@',
+	children: '#',
 	square: true,
 	size: ButtonSize.XL,
-	variant: ButtonVariant.BACKGROUND_INVERTED
+	variant: ButtonVariant.BackgroundInverted
 };
 
 export const MaxWidth = Template.bind({});
 MaxWidth.args = {
-	children: '>>>',
+	children: 'Click me',
 	size: ButtonSize.MW,
-	variant: ButtonVariant.BACKGROUND_INVERTED
+	variant: ButtonVariant.BackgroundInverted,
 };

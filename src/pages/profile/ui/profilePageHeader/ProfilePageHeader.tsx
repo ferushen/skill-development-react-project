@@ -41,12 +41,12 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
 	// TODO: пересмотреть css-классы
 
 	return (
-		<HStack justify={'between'} gap={8} max className={cn('', {}, [className])}>
+		<HStack justify={'between'} gap={8} width={'max'} className={cn('', {}, [className])}>
 			<div>
 				<Text title={t('profile')} />
 			</div>
 			{canEdit && (
-				<HStack gap={4} >
+				<HStack gap={16} >
 					{readonly
 						? (
 							<Button
@@ -58,7 +58,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
 						: (
 							<>
 								<Button
-									variant={ButtonVariant.OUTLINE_RED}
+									variant={ButtonVariant.OutlineRed}
 									onClick={onCancelEdit}
 								>
 									{t('cancel')}

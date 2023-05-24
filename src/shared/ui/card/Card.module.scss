@@ -1,8 +1,3 @@
-.normal {
-	background-color: var(--card-bg);
-	border: 1px solid var(--card-bg);
-}
-
 .outline {
 	border: 1px solid var(--primary-color);
 }
@@ -20,4 +15,21 @@
 .large {
 	padding: 15px;
 	border-radius: 12px;
+}
+
+.extraLarge {
+	padding: 20px;
+	border-radius: 12px;
+}
+
+.light {
+	background-color: var(--card-light);
+}
+
+.dark {
+	background-color: var(--card-dark);
+}
+
+.bgColor {
+	background-color: var(--bg-color);
 }

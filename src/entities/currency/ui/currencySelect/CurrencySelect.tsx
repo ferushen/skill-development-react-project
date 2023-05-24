@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Currency } from '../../model/types/currency';
 
-import { Select } from 'shared/ui/select/Select';
+import { ListBox } from 'shared/ui/listBox/ListBox';
 
 interface CurrencySelectProps {
 	className?: string;
@@ -28,9 +28,10 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 	}, [onChange]);
 
 	return (
-		<Select
+		<ListBox
 			className={className}
 			label={t('currency')}
+			ratio='ratio_40_60'
 			options={options}
 			value={value}
 			readonly={readonly}

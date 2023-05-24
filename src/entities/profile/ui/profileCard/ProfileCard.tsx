@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
 import { Profile } from '../../model/types/profile';
 
-import { Input, InputVariant } from 'shared/ui/input/Input';
+import { Input } from 'shared/ui/input/Input';
 import { Text, TextAlign, TextVariant } from 'shared/ui/text/Text';
 import { Loader } from 'shared/ui/loader/Loader';
 import { Avatar } from 'shared/ui/avatar/Avatar';
@@ -13,6 +13,7 @@ import { Country, CountrySelect } from 'entities/country';
 import { HStack, VStack } from 'shared/ui/stack';
 
 import cls from './ProfileCard.module.scss';
+import { Card, CardVariant } from 'shared/ui/card/Card';
 
 interface ProfileCardProps {
 	className?: string;
@@ -64,7 +65,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 
 	if (isLoading) {
 		return (
-			<HStack className={cn('', {}, classesLoading)} max>
+			<HStack className={cn('', {}, classesLoading)} width={'max'}>
 				<Loader />
 			</HStack>
 		);
@@ -83,29 +84,37 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 		);
 	}
 
+	// TODO: уменьшить ширину BoxList, подправить цвет в темной теме и спозиционировать
+	// TODO: сделать корректный перевод выбранной в BoxList страны
+	// TODO: подумать над структурой ProfileCard
+
 	return (
-		<VStack
+		<Card
 			className={cn(cls.profileCard, mods, [className])}
-			align={'center'}
-			max
+			variant={CardVariant.Outline}
+			size={'extraLarge'}
 		>
 			<VStack
-				className={cls.data}
-				justify={'start'}
+				className={cls.content}
+				justify={'center'}
 				gap={16}
 			>
 				{data?.avatar && (
-					<HStack
+					<Card
 						className={cls.avatarWrapper}
-						max
+						variant={CardVariant.Outline}
+						color='bgColor'
 					>
-						<Avatar src={data?.avatar} alt={t('avatar')} />
-					</HStack>
+						<HStack width={'max'}>
+							<Avatar src={data?.avatar} alt={t('avatar')} />
+						</HStack>
+					</Card>
 				)}
 				<Input
 					className={cls.inputWrapper}
-					variant={InputVariant.OutlineDashed}
+					rounded='rounded_6'
 					label={t('nickname')}
+					ratio='ratio_40_60'
 					placeholder={t('enter_your_nickname')}
 					value={data?.username}
 					readonly={readonly}
@@ -113,8 +122,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 				/>
 				<Input
 					className={cls.inputWrapper}
-					variant={InputVariant.OutlineDashed}
+					rounded='rounded_6'
 					label={t('firstname')}
+					ratio='ratio_40_60'
 					placeholder={t('enter_your_firstname')}
 					value={data?.firstname}
 					readonly={readonly}
@@ -122,8 +132,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 				/>
 				<Input
 					className={cls.inputWrapper}
-					variant={InputVariant.OutlineDashed}
+					rounded='rounded_6'
 					label={t('lastname')}
+					ratio='ratio_40_60'
 					placeholder={t('enter_your_last_name')}
 					value={data?.lastname}
 					readonly={readonly}
@@ -131,8 +142,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 				/>
 				<Input
 					className={cls.inputWrapper}
-					variant={InputVariant.OutlineDashed}
+					rounded='rounded_6'
 					label={t('age')}
+					ratio='ratio_40_60'
 					placeholder={t('enter_your_age')}
 					value={data?.age}
 					readonly={readonly}
@@ -140,8 +152,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 				/>
 				<Input
 					className={cls.inputWrapper}
-					variant={InputVariant.OutlineDashed}
+					rounded='rounded_6'
 					label={t('city')}
+					ratio='ratio_40_60'
 					placeholder={t('enter_your_city')}
 					value={data?.city}
 					readonly={readonly}
@@ -149,26 +162,27 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 				/>
 				<Input
 					className={cls.inputWrapper}
-					variant={InputVariant.OutlineDashed}
+					rounded='rounded_6'
 					label={t('link_to_avatar')}
+					ratio='ratio_40_60'
 					placeholder={t('provide_link')}
 					value={data?.avatar}
 					readonly={readonly}
 					onChange={onChangeAvatar}
 				/>
 				<CurrencySelect
-					className={cls.select}
+					className={cls.inputWrapper}
 					value={data?.currency}
 					readonly={readonly}
 					onChange={onChangeCurrency}
 				/>
 				<CountrySelect
-					className={cls.select}
+					className={cls.inputWrapper}
 					value={data?.country}
 					readonly={readonly}
 					onChange={onChangeCountry}
 				/>
 			</VStack>
-		</VStack>
+		</Card>
 	);
 };

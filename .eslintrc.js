@@ -69,6 +69,7 @@ module.exports = {
 						'direction',
 						'justify',
 						'name',
+						'role',
 						'size',
 						'target',
 						'to',

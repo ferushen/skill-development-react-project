@@ -1,0 +1,17 @@
+.switcher {
+	fill: var(--inverted-primary-color);
+	transition: transform 0.2s ease, fill 0.2s;
+	transform: scale(0.75);
+
+	&:hover {
+		transform: scale(0.9);
+	}
+
+	.app_light_theme:hover {
+		fill: #2c7bdc;
+	}
+
+	.app_dark_theme:hover {
+		fill: #e08600;
+	}
+}

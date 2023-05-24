@@ -28,7 +28,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 	if (isLoading) {
 		return (
 			<div className={cn(cls.commentCard, mods, [className])}>
-				<HStack justify={'start'} gap={16} max>
+				<HStack justify={'start'} gap={16} width={'max'}>
 					<Skeleton width={30} height={30} border={'50%'} />
 					<Skeleton width={100} height={16} />
 				</HStack>
@@ -46,7 +46,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 			<AppLink
 				to={`${RoutePath.profile}${comment.user.id}`}
 			>
-				<HStack justify={'start'} gap={16} max>
+				<HStack justify={'start'} gap={16} width={'max'}>
 					{comment.user.avatar
 						? <Avatar size={30} src={comment.user.avatar} />
 						: <Avatar size={30} empty={true} />

@@ -7,13 +7,13 @@
 	padding: 4px;
 	text-align: center;
 	border: 1px solid var(--primary-color);
-	border-radius: 8px;
+	border-radius: 6px;
 }
 
 .input {
-	padding: 4px 6px;
-	color: var(--inverted-bg-color);
-	background-color: transparent;
+	padding: 4px 4px 4px 10px;
+	color: var(--bg-color);
+	background-color: var(--primary-color);
 	border: none;
 
 	&::placeholder {
@@ -27,21 +27,50 @@
 
 .readonly {
 	.input {
-		background-color: var(--bg-color);
-		border: none;
+		color: var(--secondary-color);
+		background-color: transparent;
 	}
 }
 
 .maxWidth {
-	flex-grow: 10;
 	width: 100%;
+}
+
+.ratio_50_50 {
+	& .label {
+		width: 50%;
+	}
+
+	& .input {
+		width: 50%;
+	}
+}
+
+.ratio_40_60 {
+	& .label {
+		width: 40%;
+	}
+
+	& .input {
+		width: 60%;
+	}
+}
+
+.ratio_100 {
+	& .input {
+		width: 100%;
+	}
+}
+
+.rounded_6 {
+	border-radius: 6px;
 }
 
 .outlineRounded {
 	width: 240px;
 	padding: 8px;
-	border: 1px solid var(--primary-color);
 	border-radius: 8px;
+	outline: 1px solid var(--primary-color);
 
 	&:focus {
 		box-shadow: -1px 1px 8px var(--primary-color);
@@ -49,12 +78,12 @@
 }
 
 .outlineDashed {
-	border: 1px dashed var(--inverted-bg-color);
+	outline: 1px dashed var(--inverted-bg-color);
 }
 
 .poured {
 	height: inherit;
 	background-color: var(--card-bg);
-	border: 1px solid var(--card-bg);
 	border-radius: 6px;
+	outline: 1px solid var(--card-bg);
 }

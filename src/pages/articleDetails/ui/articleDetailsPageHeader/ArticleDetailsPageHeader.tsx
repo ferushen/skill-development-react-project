@@ -57,14 +57,14 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
 			className={cn('', {}, [className])}
 			justify={'between'}
 			gap={20}
-			max
+			width={'max'}
 		>
 			<Button onClick={onBackToList}>
 				{t('back_to_article_list')}
 			</Button>
 			{canEdit && (
 				<Button
-					variant={ButtonVariant.OUTLINE}
+					variant={ButtonVariant.Outline}
 					onClick={onEditArticle}
 				>
 					{t('edit')}

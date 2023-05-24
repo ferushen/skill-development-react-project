@@ -47,7 +47,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 			<HStack
 				className={cn(cls.navbar, {}, [className])}
 				justify={'between'}
-				max
+				width={'max'}
 			>
 				<Text
 					className={cls.appName}
@@ -67,7 +67,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 								</AppLink>
 								<Button
 									onClick={onLogout}
-									variant={ButtonVariant.CLEAR_INVERTED}
+									variant={ButtonVariant.ClearInverted}
 								>
 									{t('logout')}
 								</Button>
@@ -77,7 +77,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 							<>
 								<Button
 									onClick={onShowModal}
-									variant={ButtonVariant.CLEAR_INVERTED}
+									variant={ButtonVariant.ClearInverted}
 								>
 									{t('login')}
 								</Button>

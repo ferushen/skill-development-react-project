@@ -72,9 +72,9 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 			className={cn('', {}, [className])}
 			align={'start'}
 			gap={8}
-			max
+			width={'max'}
 		>
-			<HStack justify={'between'} gap={16} max>
+			<HStack justify={'between'} gap={16} width={'max'}>
 				<ArticlesSortSwitcher
 					order={order}
 					sort={sort}
@@ -88,7 +88,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 			</HStack>
 			<Input
 				variant={InputVariant.Poured}
-				maxWidth
+				ratio='ratio_100'
 				placeholder={t('search')}
 				value={search}
 				onChange={onChangeSearch}

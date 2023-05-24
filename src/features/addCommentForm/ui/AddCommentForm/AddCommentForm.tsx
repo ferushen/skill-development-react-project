@@ -50,12 +50,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 				className={cn(cls.wrapper, {}, [className])}
 				justify={'between'}
 				gap={12}
-				max
+				width={'max'}
 			>
 				<Input
 					className={cls.input}
 					variant={InputVariant.Poured}
-					maxWidth
+					ratio='ratio_100'
 					placeholder={t('enter_comment_text')}
 					value={text}
 					onChange={onCommentTextChange}

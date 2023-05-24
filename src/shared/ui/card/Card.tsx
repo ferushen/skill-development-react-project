@@ -8,12 +8,14 @@ export enum CardVariant {
 	Outline = 'outline',
 }
 
-export type CardSize = 'small' | 'medium' | 'large';
+export type CardSize = 'small' | 'medium' | 'large' | 'extraLarge';
+export type CardColor = 'light' | 'dark' | 'bgColor';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string;
 	variant?: CardVariant;
 	size?: CardSize;
+	color?: CardColor;
 	children: ReactNode;
 }
 
@@ -22,6 +24,7 @@ export const Card = (props: CardProps) => {
 		className,
 		variant = CardVariant.Normal,
 		size = 'medium',
+		color = 'light',
 		children,
 		...otherProps
 	} = props;
@@ -30,6 +33,7 @@ export const Card = (props: CardProps) => {
 		className,
 		cls[variant],
 		size && cls[size],
+		cls[color],
 	];
 
 	return (

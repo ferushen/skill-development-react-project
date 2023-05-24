@@ -24,7 +24,7 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps
 			<div className={cn(cls.articleListItemSkeleton, mods, [className, cls[view]])}>
 				<Card size='large'>
 					<VStack align={'normal'} justify={'start'} gap={8}>
-						<HStack justify={'between'} max>
+						<HStack justify={'between'} width={'max'}>
 							<VStack justify={'start'} gap={8}>
 								<Skeleton className={cls.title} width={250} height={24} />
 								<Skeleton className={cls.types} width={180} height={16} />
@@ -39,7 +39,7 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps
 						</HStack>
 						<Skeleton className={cls.img} width={'100%'} height={300} />
 						<Skeleton className={cls.textBlock} />
-						<HStack justify={'between'} gap={8} max>
+						<HStack justify={'between'} gap={8} width={'max'}>
 							<Skeleton width={126} height={36} />
 							<Skeleton className={cls.date} width={60} height={24} />
 						</HStack >

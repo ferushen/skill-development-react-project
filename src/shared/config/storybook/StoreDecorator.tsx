@@ -7,13 +7,19 @@ import { profileReducer } from 'entities/profile';
 import { articleDetailsReducer } from 'entities/article/model/slice/articleSlice';
 import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice';
 import { articleDetailsPageReducer } from 'pages/articleDetails/model/slices';
+import { scrollSaverReducer } from 'features/scrollSaver';
+import { articlesPageReducer } from 'pages/articles/model/slices/articlesPageSlice';
+import { articlesFiltersReducer } from 'features/articlesFilters/model/slice/articlesFiltersSlice';
 
 const defaultAsyncReducers: ReducersList = {
 	loginForm: loginReducer,
 	profile: profileReducer,
+	articlesPage: articlesPageReducer,
+	articlesFilters: articlesFiltersReducer,
 	articleDetails: articleDetailsReducer,
 	articleDetailsPage: articleDetailsPageReducer,
 	addCommentForm: addCommentFormReducer,
+	scrollSaver: scrollSaverReducer,
 };
 
 export const StoreDecorator = (

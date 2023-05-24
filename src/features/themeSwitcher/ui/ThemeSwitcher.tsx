@@ -4,8 +4,9 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { Button, ButtonVariant } from 'shared/ui/button/Button';
 
-import LightIcon from 'shared/assets/icons/theme-light.svg';
-import DarkIcon from 'shared/assets/icons/theme-dark.svg';
+import IconTumbler from 'shared/assets/icons/theme-tumbler.svg';
+
+import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
 	className?: string;
@@ -16,11 +17,12 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 
 	return (
 		<Button
-			className={cn('', {}, [className])}
-			variant={ButtonVariant.CLEAR}
+			className={cn(cls.switcher, {}, [className])}
+			variant={ButtonVariant.Clear}
 			onClick={toggleTheme}
 		>
-			{theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
+			<IconTumbler className={cn(cls[theme], {}, [])} />
+			{/*{theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}*/}
 		</Button>
 	);
 });

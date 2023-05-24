@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Country } from '../../model/types/country';
 
-import { Select } from 'shared/ui/select/Select';
+import { ListBox } from 'shared/ui/listBox/ListBox';
 
 interface CountrySelectProps {
 	className?: string;
@@ -11,8 +11,6 @@ interface CountrySelectProps {
 	readonly?: boolean;
 	onChange?: (value: Country) => void;
 }
-
-const options = Object.entries(Country).map((val) => ({ value: val[0], content: val[1] }));
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
 	const {
@@ -23,16 +21,19 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 	} = props;
 	const { t } = useTranslation();
 
-	const changeHandler = useCallback((value: string) => {
-		onChange?.(value as Country);
+	const options = Object.entries(Country).map((val) => ({ value: val[0] as Country, content: t(val[1]) }));
+
+	const changeHandler = useCallback((value: Country) => {
+		onChange?.(value);
 	}, [onChange]);
 
 	return (
-		<Select
+		<ListBox
 			className={className}
 			label={t('country')}
+			ratio='ratio_40_60'
 			options={options}
-			value={value}
+			value={value && t(value)}
 			readonly={readonly}
 			onChange={changeHandler}
 		/>
