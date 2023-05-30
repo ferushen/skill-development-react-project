@@ -1,4 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/themeProvider';
 import { [FTName] } from './[FTName]';
 
 export default {
@@ -12,6 +14,13 @@ export default {
 const Template: ComponentStory<typeof [FTName]> = (args) => <[FTName] { ...args } />;
 
 export const Normal = Template.bind({});
-Normal.args = {
+Normal.args = {};
+Normal.decorators = [
+	ThemeDecorator(Theme.LIGHT),
+];
 
-};
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [
+	ThemeDecorator(Theme.DARK),
+];

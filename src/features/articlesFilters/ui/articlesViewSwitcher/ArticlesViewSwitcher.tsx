@@ -5,6 +5,7 @@ import { ArticleView } from 'entities/article';
 
 import { Button, ButtonVariant } from 'shared/ui/button/Button';
 import { Icon } from 'shared/ui/icon/Icon';
+import { HStack } from 'shared/ui/stack';
 
 import GridIcon from 'shared/assets/icons/grid-24-24.svg';
 import ListIcon from 'shared/assets/icons/list-24-24.svg';
@@ -40,19 +41,23 @@ export const ArticlesViewSwitcher = memo((props: ArticlesViewSwitcherProps) => {
 	};
 
 	return (
-		<div className={cn(cls.articleViewSwitcher, {}, [className])}>
+		<HStack
+			className={cn('', {}, [className])}
+			gap={8}
+		>
 			{viewTypes.map(viewType => (
 				<Button
-					variant={ButtonVariant.Clear}
 					key={viewType.view}
+					className={cls.btn}
+					variant={ButtonVariant.Clear}
 					onClick={onClick(viewType.view)}
 				>
 					<Icon
-						className={cn('', { [cls.active]: viewType.view === activeView }, [cls.icon])}
+						className={cn(cls.icon, { [cls.active]: viewType.view === activeView })}
 						Svg={viewType.icon}
 					/>
 				</Button>
 			))}
-		</div>
+		</HStack>
 	);
 });

@@ -37,7 +37,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 	return (
 		<AppLink
 			to={item.path}
-			variant={AppLinkVariant.INVERTED}
+			variant={AppLinkVariant.Inverted}
 		>
 			<HStack
 				className={cn(cls.item, mods)}

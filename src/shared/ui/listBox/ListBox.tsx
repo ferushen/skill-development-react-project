@@ -2,11 +2,28 @@ import { Fragment, ReactNode } from 'react';
 import { typedMemo } from 'shared/lib/utils/typedMemo/typedMemo';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
+import type { DropdownDirection } from 'shared/types/ui';
+
 import { Listbox as HListBox } from '@headlessui/react'
 import { HStack, VStack } from '../stack';
 import { Button, ButtonSize, ButtonVariant } from '../button/Button';
 
 import cls from './ListBox.module.scss';
+
+type ListBoxLabelRatio = 'ratio_50_50' | 'ratio_40_60';
+type ListBoxOptionWidth = 'normal' | 'max-content';
+
+const mapDirectionClass: Record<DropdownDirection, string> = {
+	'bottom left': cls.optionsBottomLeft,
+	'bottom right': cls.optionsBottomRight,
+	'top left': cls.optionsTopLeft,
+	'top right': cls.optionsTopRight,
+};
+
+const mapOptionWidthClass: Record<ListBoxOptionWidth, string> = {
+	'normal': cls.optionWidthNormal,
+	'max-content': cls.optionWidthMax,
+};
 
 export interface ListBoxOption<T extends string = string> {
 	value: T;
@@ -14,18 +31,15 @@ export interface ListBoxOption<T extends string = string> {
 	disabled?: boolean;
 }
 
-type DropdownDirection = 'top' | 'bottom';
-
-type ListBoxLabelRatio = 'ratio_50_50' | 'ratio_40_60';
-
 interface ListBoxProps<T extends string> {
 	className?: string;
 	direction?: DropdownDirection;
-	label?: string;
+	optionWidth?: ListBoxOptionWidth;
 	ratio?: ListBoxLabelRatio;
 	readonly?: boolean;
+	label?: string;
 	options?: ListBoxOption<T>[];
-	defaultValue?: T;
+	defaultValue?: string | T;
 	value?: T;
 	onChange?: (value: T) => void;
 }
@@ -33,10 +47,11 @@ interface ListBoxProps<T extends string> {
 export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 	const {
 		className,
-		direction = 'bottom',
-		label,
+		direction = 'bottom right',
+		optionWidth = 'normal',
 		ratio,
 		readonly,
+		label,
 		options,
 		defaultValue,
 		value,
@@ -47,16 +62,16 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 		[cls.readonly]: readonly
 	};
 
-	const classes = [
+	const wrapperClasses = [
 		className,
 		ratio && cls[ratio]
 	];
-
-	const optionsClasses = [cls[direction]];
+	const optionsClasses = [mapDirectionClass[direction]];
+	const optionClasses = [mapOptionWidthClass[optionWidth]];
 
 	return (
 		<HStack
-			className={cn('', {}, classes)}
+			className={cn('', {}, wrapperClasses)}
 			justify='start'
 			width={ratio && 'max'}
 		>
@@ -99,12 +114,11 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 												[cls.active]: active,
 												[cls.selected]: selected,
 												[cls.disabled]: opt.disabled,
-											}
+											},
+											optionClasses
 										)}
 									>
 										{opt.content}
-										{console.log(value)}
-										{console.log(opt.value, selected)}
 									</li>
 								)}
 

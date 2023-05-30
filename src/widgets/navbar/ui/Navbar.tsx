@@ -9,15 +9,16 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData, userActions } from 'entities/user';
 
 import { AppLink, AppLinkVariant } from 'shared/ui/appLink/AppLink';
+import { Avatar } from 'shared/ui/avatar/Avatar';
 import { BugButton } from 'app/providers/errorBoundary';
 import { Button } from 'shared/ui/button/Button';
 import { ButtonVariant } from 'shared/ui/button/Button';
+import { Dropdown } from 'shared/ui/dropdown/Dropdown';
+import { HStack } from 'shared/ui/stack';
 import { LoginModal } from 'features/authByUsername';
 import { Text, TextVariant } from 'shared/ui/text/Text';
-import { HStack } from 'shared/ui/stack';
 
 import cls from './Navbar.module.scss';
-
 
 interface NavbarProps {
 	className?: string;
@@ -52,7 +53,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 				<Text
 					className={cls.appName}
 					variant={TextVariant.Inverted}
-					title={t('ferushen_app')}
+					title={'🍺' + t('ferushen_app')}
 				/>
 				<HStack justify={'end'} gap={30}>
 					<BugButton />
@@ -60,17 +61,26 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 						? (
 							<>
 								<AppLink
-									variant={AppLinkVariant.INVERTED}
+									variant={AppLinkVariant.Inverted}
 									to={RoutePath['article-create']}
 								>
 									{t('create_article')}
 								</AppLink>
-								<Button
-									onClick={onLogout}
-									variant={ButtonVariant.ClearInverted}
-								>
-									{t('logout')}
-								</Button>
+								<Dropdown
+									optionsWidth={160}
+									indent='m'
+									items={[
+										{
+											content: t('profile'),
+											href: RoutePath.profile + authData.id
+										},
+										{
+											content: t('logout'),
+											handleClick: onLogout
+										},
+									]}
+									trigger={<Avatar size={30} src={authData.avatar} />}
+								/>
 							</>
 						)
 						: (

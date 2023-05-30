@@ -24,20 +24,30 @@
 	min-width: fit-content;
 	color: var(--listbox-color);
 	user-select: none;
-
 	border-radius: 8px;
+}
 
-	&.bottom {
-		top: 120%;
-	}
+.optionsBottomLeft {
+	top: 120%;
+	right:0;
+}
 
-	&.top {
-		bottom: 120%;
-	}
+.optionsBottomRight {
+	top: 120%;
+	left: 0;
+}
+
+.optionsTopLeft {
+	right: 0;
+	bottom: 120%;
+}
+
+.optionsTopRight {
+	bottom: 120%;
+	left: 0;
 }
 
 .option {
-	width: 100%;
 	padding: 4px;
 	padding-left: 28px;
 	background-color: var(--bg-color);
@@ -54,6 +64,15 @@
 	&:only-child {
 		border-radius: 8px;
 	}
+}
+
+.optionWidthNormal {
+	width: 100%;
+}
+
+.optionWidthMax {
+	width: max-content;
+	min-width: 100%;
 }
 
 .selected {

@@ -1,4 +1,4 @@
-import { memo, ReactNode } from 'react';
+import { ForwardedRef, forwardRef, memo, ReactNode } from 'react';
 import { LinkProps, Link } from 'react-router-dom';
 
 import { classNames as cn } from 'shared/lib/classNames/classNames';
@@ -11,8 +11,8 @@ type AppLinkVariant = (typeof AppLinkVariantVariants)[number];
 */
 
 export enum AppLinkVariant {
-	PRIMARY = 'primary',
-	INVERTED = 'inverted',
+	Primary = 'primary',
+	Inverted = 'inverted',
 }
 
 interface AppLinkProps extends LinkProps {
@@ -21,17 +21,18 @@ interface AppLinkProps extends LinkProps {
 	children?: ReactNode;
 }
 
-export const AppLink = memo((props: AppLinkProps) => {
+export const AppLink = memo(forwardRef((props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
 	const {
 		to,
 		className,
 		children,
-		variant = AppLinkVariant.PRIMARY,
+		variant = AppLinkVariant.Primary,
 		...otherProps
 	} = props;
 
 	return (
 		<Link
+			ref={ref}
 			to={to}
 			className={cn(cls.appLink, {}, [className, cls[variant]])}
 			{...otherProps}
@@ -39,4 +40,4 @@ export const AppLink = memo((props: AppLinkProps) => {
 			{children}
 		</Link>
 	);
-});
+}));

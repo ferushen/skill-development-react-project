@@ -1,15 +1,16 @@
 .app_dark_theme {
 	/* background color */
 	--bg-color: #0a0f0e;
-	--inverted-bg-color: #181d1d;
+	--secondary-bg-color: #181d1d;
 
 	/* color */
 	--primary-color: #37f1cd;
+	--auxiliary-primary-color: #29ba9d;
 	--secondary-color: #ebe6cd;
 
 	/* color: inverted */
 	--inverted-primary-color: #ebe6cd;
-	--inverted-secondary-color: #11054c;
+	--inverted-secondary-color: #d8cb87;
 
 	/* skeleton */
 	--skeleton-color: #5a9f9c;
@@ -18,8 +19,9 @@
 	/* code */
 	--code-bg: #1f2727;
 
-	/* articleCard */
-	--card-bg: #142221;
+	/* card */
+	--card-light: #181d1d;
+	--card-dark: #142221;
 
 	/* list box */
 	--listbox-bg: #0a0f0e;

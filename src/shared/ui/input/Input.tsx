@@ -15,7 +15,6 @@ export enum InputVariant {
 }
 
 export type InputBorder = 'rounded_6';
-
 export type InputLabelRatio = 'ratio_50_50' | 'ratio_40_60' | 'ratio_100';
 
 /*export type InputHeight = 36;*/

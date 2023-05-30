@@ -2,5 +2,14 @@
 	height: var(--navbar-height);
 	padding: 20px;
 
-	background-color: var(--inverted-bg-color);
+	background-color: var(--secondary-bg-color);
+}
+
+.appName {
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+}
+
+.dropdownMenu {
+	width: 160px;
 }
