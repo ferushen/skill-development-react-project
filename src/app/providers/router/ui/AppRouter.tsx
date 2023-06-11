@@ -31,7 +31,7 @@ const AppRouter = () => {
 export default memo(AppRouter);
 
 /*
-const isAuth = useSelector(getUserAuthData);
+const isAuth = useSelector(selectUserAuthData);
 
 const routes = useMemo(() => {
 	return Object.values(routeConfig).filter(route => {

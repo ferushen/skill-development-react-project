@@ -1,14 +1,26 @@
 .commentCard {
-	width: 100%;
-	padding: 10px;
-	background-color: var(--code-bg);
+	padding: 8px 10px;
+	background-color: var(--card-primary);
 	border-radius: 10px;
-}
-
-.text {
-	margin-top: 10px;
 }
 
 .loading {
 	border: none;
+}
+
+.avatar {
+	height: 46px;
+	padding: 8px;
+	background: var(--card-primary);
+	border-radius: 50%;
+}
+
+.username {
+	padding: 2px 8px;
+	background: var(--card-secondary);
+	border-radius: 10px;
+}
+
+.commentText {
+	padding-left: 8px;
 }

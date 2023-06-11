@@ -6,7 +6,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getUserAuthData, userActions } from 'entities/user';
+import { selectUserAuthData, userActions } from 'entities/user';
 
 import { AppLink, AppLinkVariant } from 'shared/ui/appLink/AppLink';
 import { Avatar } from 'shared/ui/avatar/Avatar';
@@ -29,7 +29,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	const dispatch = useAppDispatch();
 
 	const [isAuthModal, setIsAuthModal] = useState(false);
-	const authData = useSelector(getUserAuthData);
+	const authData = useSelector(selectUserAuthData);
 
 	const onCloseModal = useCallback(() => {
 		setIsAuthModal(false);

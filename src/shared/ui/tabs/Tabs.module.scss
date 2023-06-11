@@ -1,8 +1,26 @@
-.tabs {
-	display: flex;
-	gap: 8px;
-}
-
 .tab {
 	cursor: pointer;
+}
+
+.small {
+	padding: 0 2px;
+}
+
+.medium {
+	padding: 2px 8px;
+}
+
+.large {
+	padding: 6px 16px;
+}
+
+.activePrimary,
+.hoverPrimary:hover {
+	background-color: var(--tabs-primary-active);
+}
+
+.activeSecondary,
+.hoverSecondary:hover {
+	color: var(--bg-color);
+	background-color: var(--tabs-secondary-active);
 }

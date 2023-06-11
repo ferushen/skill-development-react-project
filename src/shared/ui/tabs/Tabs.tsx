@@ -1,12 +1,24 @@
 import { ReactNode, useCallback } from 'react';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { typedMemo } from 'shared/lib/utils/typedMemo/typedMemo';
 
 import { Card, CardVariant } from 'shared/ui/card/Card';
+import { HStack } from '../stack';
 
 import cls from './Tabs.module.scss';
 
-export type TabSize = 'small' | 'medium' | 'large';
+type TabSize = 'small' | 'medium' | 'large';
+type TabColor = 'primary' | 'secondary';
+
+const activeTabClass: Record<TabColor, string> = {
+	primary: cls.activePrimary,
+	secondary: cls.activeSecondary,
+};
+
+const hoverTabClass: Record<TabColor, string> = {
+	primary: cls.hoverPrimary,
+	secondary: cls.hoverSecondary,
+};
 
 export interface TabItem<T extends string> {
 	value: T;
@@ -16,6 +28,7 @@ export interface TabItem<T extends string> {
 interface TabsProps<T extends string> {
 	className?: string;
 	size?: TabSize;
+	color?: TabColor;
 	tabs: TabItem<T>[];
 	active?: T;
 	/*onClickTab: (tab: TabItem<T>) => void;*/
@@ -26,12 +39,16 @@ export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
 	const {
 		className,
 		size = 'medium',
+		color = 'primary',
 		tabs,
 		active,
 		onClickTab
 	} = props;
 
-	const mods: Mods = {};
+	const tabClasses = [
+		cls[size],
+		hoverTabClass[color],
+	];
 
 	const clickTabHandle = useCallback((tab: TabItem<T>) => {
 		return () => {
@@ -42,18 +59,23 @@ export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
 
 
 	return (
-		<div className={cn(cls.tabs, mods, [className])}>
+		<HStack gap={8} justify='start' className={className}>
 			{tabs.map(tab => (
 				<Card
-					className={cls.tab}
-					variant={active === tab.value ? CardVariant.Normal : CardVariant.Outline}
+					className={cn(
+						cls.tab,
+						{ [activeTabClass[color]]: active === tab.value },
+						tabClasses)
+					}
+					variant={CardVariant.Normal}
 					size={size}
+					color={color}
 					key={tab.value}
 					onClick={clickTabHandle(tab)}
 				>
 					{tab.content}
 				</Card>
 			))}
-		</div>
+		</HStack>
 	);
 });

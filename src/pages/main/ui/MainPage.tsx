@@ -1,6 +1,9 @@
 import { useTranslation } from 'react-i18next';
+import { Button } from 'shared/ui/button/Button';
 import { ListBox, ListBoxOption } from 'shared/ui/listBox/ListBox';
 import { Page } from 'widgets/page/Page';
+
+import cls from './MainPage.module.scss';
 
 const MainPage = () => {
 	const { t } = useTranslation('main');
@@ -23,6 +26,8 @@ const MainPage = () => {
 				value={undefined}
 				onChange={(value) => { }}
 			/>
+
+			<Button className={cls['btn']}>Click</Button>
 		</Page>
 	);
 };

@@ -1,13 +1,33 @@
+.label {
+	min-width: fit-content;
+	text-align: center;
+	white-space: nowrap;
+
+	&.outlined {
+		padding: 4px 8px;
+		border: 1px solid var(--primary-color);
+		border-radius: 6px;
+	}
+
+	&.stretchBgInverted {
+		padding: 0 8px;
+		border-radius: 8px;
+	}
+}
+
 .listBox {
 	position: relative;
 	width: fit-content;
 }
 
-.label {
-	padding: 4px;
-	text-align: center;
-	border: 1px solid var(--primary-color);
-	border-radius: 8px;
+.btn {
+	&.outlined {
+		padding: 4px 8px;
+	}
+
+	&.stretchBgInverted {
+		padding: 0 8px;
+	}
 }
 
 .trigger {
@@ -21,7 +41,7 @@
 	position: absolute;
 	z-index: 200;
 	width: 100%;
-	min-width: fit-content;
+	min-width: max-content;
 	color: var(--listbox-color);
 	user-select: none;
 	border-radius: 8px;
@@ -29,7 +49,7 @@
 
 .optionsBottomLeft {
 	top: 120%;
-	right:0;
+	right: 0;
 }
 
 .optionsBottomRight {
@@ -48,8 +68,7 @@
 }
 
 .option {
-	padding: 4px;
-	padding-left: 28px;
+	padding: 4px 28px;
 	background-color: var(--bg-color);
 	border: 1px solid var(--listbox-border);
 
@@ -78,7 +97,6 @@
 .selected {
 	padding-left: 4px;
 	color: var(--listbox-selected-color);
-	background-color: var(--listbox-selected);
 
 	&::before {
 		margin-right: 2px;

@@ -11,6 +11,7 @@ export enum ButtonVariant {
 	OutlineSecondary = 'outline_secondary',
 	Background = 'background',
 	BackgroundInverted = 'background_inverted',
+	BackgroundSecondaryInverted = 'background_secondary_inverted',
 }
 
 export enum ButtonSize {
@@ -18,19 +19,20 @@ export enum ButtonSize {
 	M = 'size_m',
 	L = 'size_l',
 	XL = 'size_xl',
-	MW = 'max_width'
 }
 
 type ButtonDisabled = 'only_cursor' | 'with_opacity';
 type ButtonWidth = 'max';
+type ButtonFormat = 'square' | 'flat' | 'stretch';
 
 interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'width' | 'disabled'> {
 	className?: string;
 	variant?: ButtonVariant;
-	square?: boolean;
+	format?: ButtonFormat;
 	size?: ButtonSize;
 	width?: ButtonWidth;
 	disabled?: ButtonDisabled;
+	animated?: boolean;
 	children?: ReactNode;
 }
 
@@ -39,29 +41,31 @@ export const Button = memo(forwardRef((props: ButtonProps, ref: ForwardedRef<HTM
 		className,
 		children,
 		variant = ButtonVariant.Outline,
-		square,
 		size = ButtonSize.M,
+		format,
 		width,
 		disabled,
+		animated = true,
 		...otherProps
 	} = props;
 
 	const mods: Mods = {
-		[cls.square]: square,
+		[cls.animated]: disabled || variant === ButtonVariant.Clear || variant === ButtonVariant.ClearInverted ? false : animated,
 	};
 
-	const additionalClasses: Array<string | undefined> = [
-		className,
-		cls[variant],
+	const classes: Array<string | undefined> = [
 		cls[size],
+		cls[variant],
+		format && cls[format],
 		width && cls[width],
-		disabled && cls[disabled]
+		disabled && cls[disabled],
+		className,
 	];
 
 	return (
 		<button
 			{...otherProps}
-			className={cn(cls.button, mods, additionalClasses)}
+			className={cn(cls.button, mods, classes)}
 			disabled={Boolean(disabled)}
 			ref={ref}
 		>

@@ -2,10 +2,10 @@ export type { ArticlesFiltersSchema } from './model/types/articlesFilters';
 export { ArticlesPageFilters } from './ui/articlesPageFilters/ArticlesPageFilters';
 
 export {
-	getArticlesFiltersOrder,
-	getArticlesFiltersSearch,
-	getArticlesFiltersSort,
-	getArticlesFiltersTabType,
+	selectArticlesFiltersOrder as getArticlesFiltersOrder,
+	selectArticlesFiltersSearch as getArticlesFiltersSearch,
+	selectArticlesFiltersSort as getArticlesFiltersSort,
+	selectArticlesFiltersTabType as getArticlesFiltersTabType,
 } from './model/selectors/articlesFiltersSelectors';
 
 export { articlesFiltersActions } from './model/slice/articlesFiltersSlice';

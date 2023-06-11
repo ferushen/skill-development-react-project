@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Country } from '../../model/types/country';
@@ -21,7 +21,9 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 	} = props;
 	const { t } = useTranslation();
 
-	const options = Object.entries(Country).map((val) => ({ value: val[0] as Country, content: t(val[1]) }));
+	const options = useMemo(() => {
+		return Object.entries(Country).map((val) => ({ value: val[0] as Country, content: t(val[1]) }))
+	}, []);
 
 	const changeHandler = useCallback((value: Country) => {
 		onChange?.(value);
@@ -33,7 +35,8 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 			label={t('country')}
 			ratio='ratio_40_60'
 			options={options}
-			value={value && t(value)}
+			value={value}
+			defaultValue={t('not_specified')}
 			readonly={readonly}
 			onChange={changeHandler}
 		/>

@@ -1,8 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticlesSortSwitcher } from './ArticlesSortSwitcher';
+import { ArticleSortField } from '../../model/types/articlesFilters';
 
 export default {
-	title: 'features/ArticlesSortSwitcher',
+	title: 'features/ArticlesFilters/ArticlesSortSwitcher',
 	component: ArticlesSortSwitcher,
 	argTypes: {
 		backgroundColor: { control: 'color' },
@@ -13,5 +14,6 @@ const Template: ComponentStory<typeof ArticlesSortSwitcher> = (args) => <Article
 
 export const Normal = Template.bind({});
 Normal.args = {
-
+	order: 'asc',
+	sort: ArticleSortField.Created,
 };

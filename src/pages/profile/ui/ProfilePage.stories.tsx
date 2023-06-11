@@ -7,16 +7,6 @@ import { Currency } from 'entities/currency';
 import { Country } from 'entities/country';
 import avatar from 'shared/assets/tests/avatar.jpeg';
 
-export default {
-	title: 'pages/ProfilePage',
-	component: ProfilePage,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
-} as ComponentMeta<typeof ProfilePage>;
-
-const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
-
 const data = {
 	id: '1',
 	firstname: 'Николай',
@@ -29,48 +19,46 @@ const data = {
 	avatar: avatar
 };
 
+export default {
+	title: 'pages/ProfilePage',
+	component: ProfilePage,
+	argTypes: {
+		backgroundColor: { control: 'color' },
+	},
+	decorators: [
+		StoreDecorator({
+			profile: {
+				data,
+				form: data,
+				readonly: true,
+			},
+			user: {
+				authData: {
+					id: '1'
+				}
+			}
+		})
+	],
+	parameters: {
+		router: {
+			route: '/profile/1',
+			path: '/profile/:id',
+		}
+	},
+} as ComponentMeta<typeof ProfilePage>;
+
+const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
+
+
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [
-	StoreDecorator({
-		profile: {
-			data,
-		},
-		user: {
-			authData: {
-				id: '1'
-			}
-		}
-	})
-];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
-	StoreDecorator({
-		profile: {
-			data,
-		},
-		user: {
-			authData: {
-				id: '1'
-			}
-		}
-	}),
 	ThemeDecorator(Theme.DARK)
 ];
 
 export const CantEdit = Template.bind({});
 CantEdit.args = {};
-CantEdit.decorators = [
-	StoreDecorator({
-		profile: {
-			data,
-		},
-		user: {
-			authData: {
-				id: '2'
-			}
-		}
-	})
-];
+CantEdit.decorators = [];

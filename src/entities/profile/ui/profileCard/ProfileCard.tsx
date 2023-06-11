@@ -1,19 +1,18 @@
-import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
-import { Profile } from '../../model/types/profile';
+import type { Profile } from '../../model/types/profile';
 
-import { Input } from 'shared/ui/input/Input';
-import { Text, TextAlign, TextVariant } from 'shared/ui/text/Text';
-import { Loader } from 'shared/ui/loader/Loader';
-import { Avatar } from 'shared/ui/avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/currency';
 import { Country, CountrySelect } from 'entities/country';
+import { Avatar } from 'shared/ui/avatar/Avatar';
+import { Input } from 'shared/ui/input/Input';
+import { Card, CardVariant } from 'shared/ui/card/Card';
+import { Loader } from 'shared/ui/loader/Loader';
 import { HStack, VStack } from 'shared/ui/stack';
+import { Text, TextAlign, TextVariant } from 'shared/ui/text/Text';
 
 import cls from './ProfileCard.module.scss';
-import { Card, CardVariant } from 'shared/ui/card/Card';
 
 interface ProfileCardProps {
 	className?: string;
@@ -31,7 +30,7 @@ interface ProfileCardProps {
 	onChangeCountry?: (value: Country) => void;
 }
 
-export const ProfileCard: FC<ProfileCardProps> = (props) => {
+export const ProfileCard = (props: ProfileCardProps) => {
 	const {
 		className,
 		data,
@@ -111,7 +110,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					</Card>
 				)}
 				<Input
-					className={cls.inputWrapper}
+					classNameWrapper={cls.inputWrapper}
 					rounded='rounded_6'
 					label={t('nickname')}
 					ratio='ratio_40_60'
@@ -121,7 +120,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					onChange={onChangeUsername}
 				/>
 				<Input
-					className={cls.inputWrapper}
+					classNameWrapper={cls.inputWrapper}
 					rounded='rounded_6'
 					label={t('firstname')}
 					ratio='ratio_40_60'
@@ -131,7 +130,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					onChange={onChangeFirstname}
 				/>
 				<Input
-					className={cls.inputWrapper}
+					classNameWrapper={cls.inputWrapper}
 					rounded='rounded_6'
 					label={t('lastname')}
 					ratio='ratio_40_60'
@@ -141,7 +140,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					onChange={onChangeLastname}
 				/>
 				<Input
-					className={cls.inputWrapper}
+					classNameWrapper={cls.inputWrapper}
 					rounded='rounded_6'
 					label={t('age')}
 					ratio='ratio_40_60'
@@ -151,7 +150,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					onChange={onChangeAge}
 				/>
 				<Input
-					className={cls.inputWrapper}
+					classNameWrapper={cls.inputWrapper}
 					rounded='rounded_6'
 					label={t('city')}
 					ratio='ratio_40_60'
@@ -161,7 +160,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 					onChange={onChangeCity}
 				/>
 				<Input
-					className={cls.inputWrapper}
+					classNameWrapper={cls.inputWrapper}
 					rounded='rounded_6'
 					label={t('link_to_avatar')}
 					ratio='ratio_40_60'

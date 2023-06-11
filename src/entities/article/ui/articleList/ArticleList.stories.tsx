@@ -76,12 +76,14 @@ ViewGrid.args = {
 
 export const ViewListLoading = Template.bind({});
 ViewListLoading.args = {
+	articles: [],
 	isLoading: true,
 	view: ArticleView.List
 };
 
 export const ViewGridLoading = Template.bind({});
 ViewGridLoading.args = {
+	articles: [],
 	isLoading: true,
 	view: ArticleView.Grid
 };

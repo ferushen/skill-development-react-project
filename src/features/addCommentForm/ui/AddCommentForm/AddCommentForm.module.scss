@@ -2,6 +2,19 @@
 	height: 36px;
 }
 
-.input {
+.inputWrapper {
 	height: 100%;
+	background-color: var(--card-primary);
+}
+
+.input {
+	color: var(--primary-color);
+}
+
+.input::placeholder {
+	color: var(--auxiliary-primary-color);
+}
+
+.input:focus::placeholder {
+	color: var(--card-secondary);
 }

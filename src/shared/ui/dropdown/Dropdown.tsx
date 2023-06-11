@@ -89,8 +89,9 @@ export const Dropdown = memo((props: DropdownProps) => {
 									<Button
 										className={cn(cls.item, { [cls.active]: active })}
 										variant={ButtonVariant.Clear}
-										onClick={item.handleClick}
 										disabled={item.disabled ? 'with_opacity' : undefined}
+										animated={false}
+										onClick={item.handleClick}
 									>
 										{item.content}
 									</Button>

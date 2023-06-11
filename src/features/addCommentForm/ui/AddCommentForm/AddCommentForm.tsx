@@ -53,9 +53,11 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 				width={'max'}
 			>
 				<Input
-					className={cls.input}
+					classNameWrapper={cls.inputWrapper}
+					classNameInput={cls.input}
 					variant={InputVariant.Poured}
-					ratio='ratio_100'
+					rounded='rounded_6'
+					max
 					placeholder={t('enter_comment_text')}
 					value={text}
 					onChange={onCommentTextChange}

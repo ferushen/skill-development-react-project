@@ -1,0 +1,22 @@
+.container {
+	min-width: 546px;
+	padding: 8px;
+	background-color: var(--card-primary);
+	border-radius: 12px;
+}
+
+.inputWrapper {
+	height: 100%;
+}
+
+.input {
+	color: var(--primary-color);
+}
+
+.input::placeholder {
+	color: var(--auxiliary-primary-color);
+}
+
+.input:focus::placeholder {
+	color: var(--card-secondary);
+}

@@ -1,6 +1,7 @@
-import { CSSProperties, FC, useMemo } from 'react';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { CSSProperties, useMemo } from 'react';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
+import EmptyAvatar from './visitor-512-512.png';
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {
@@ -11,7 +12,7 @@ interface AvatarProps {
 	empty?: boolean;
 }
 
-export const Avatar: FC<AvatarProps> = (props) => {
+export const Avatar = (props: AvatarProps) => {
 	const {
 		className,
 		src,
@@ -20,10 +21,6 @@ export const Avatar: FC<AvatarProps> = (props) => {
 		empty
 	} = props;
 
-	const mods: Mods = {
-		[cls.empty]: empty
-	};
-
 	const styles = useMemo<CSSProperties>(() => ({
 		width: size || 100,
 		height: size || 100,
@@ -31,10 +28,10 @@ export const Avatar: FC<AvatarProps> = (props) => {
 
 	return (
 		<img
-			src={src}
+			src={!empty ? src : EmptyAvatar}
 			alt={alt}
 			style={styles}
-			className={cn(cls.avatar, mods, [className])}
+			className={cn(cls.avatar, {}, [className])}
 		/>
 	);
 };

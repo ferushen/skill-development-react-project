@@ -13,3 +13,16 @@ export interface ArticlesFiltersSchema {
 	sort: ArticleSortField;
 	type: ArticleType;
 }
+
+interface OrderOption {
+	value: SortOrder;
+	content: string;
+}
+
+interface SortOption {
+	value: ArticleSortField;
+	content: string;
+}
+
+export type OrderOptions = OrderOption[];
+export type SortOptions = SortOption[];

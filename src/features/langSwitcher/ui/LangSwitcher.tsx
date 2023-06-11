@@ -38,9 +38,10 @@ export const LangSwitcher = memo((props: LangSwitcherProps) => {
 
 	return (
 		<Button
-			onClick={toggle}
 			className={cn(cls.langSwitcher, {}, [className])}
 			variant={ButtonVariant.Clear}
+			animated={false}
+			onClick={toggle}
 		>
 			{short ? t('change_language_short') : t('change_language')}
 		</Button>

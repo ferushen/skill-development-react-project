@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Country } from 'entities/country';
 import { Currency } from 'entities/currency';
-
 import { ProfileCard } from './ProfileCard';
 import avatar from 'shared/assets/tests/avatar.jpeg';
 
@@ -22,7 +21,7 @@ Primary.args = {
 		lastname: 'Никола',
 		age: 25,
 		currency: Currency.RUB,
-		country: Country.Russia,
+		country: 'Russia' as Country,
 		city: 'Saint-Petersburg',
 		username: 'SnowOrWeak',
 		avatar: avatar

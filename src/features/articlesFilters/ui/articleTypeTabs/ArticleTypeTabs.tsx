@@ -1,6 +1,5 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { ArticleType } from 'entities/article';
 
@@ -18,7 +17,7 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
 		active,
 		onChangeTypeTab
 	} = props;
-	const { t } = useTranslation();
+	const { t } = useTranslation('article');
 
 	const tabs = useMemo<TabItem<ArticleType>[]>(() => [
 		{
@@ -43,10 +42,10 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
 		onChangeTypeTab(tab.value);
 	}, [onChangeTypeTab]);*/
 
-
 	return (
 		<Tabs
-			className={cn('', {}, [className])}
+			className={className}
+			color='secondary'
 			tabs={tabs}
 			active={active}
 			/*onClickTab={onClickTab}*/

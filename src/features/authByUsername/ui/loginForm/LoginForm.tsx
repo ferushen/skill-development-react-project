@@ -6,11 +6,11 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
-import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 
 import { Button, ButtonVariant } from 'shared/ui/button/Button';
 import { Input, InputVariant } from 'shared/ui/input/Input';
@@ -53,6 +53,8 @@ const LoginForm = memo((props: LoginFormProps) => {
 			onSuccess();
 		}
 	}, [dispatch, password, username, onSuccess]);
+
+	// TODO: переделать дизайн инпутов
 
 	return (
 		<DynamicModuleLoader reducers={initialReducers}>

@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticlesViewSwitcher } from './ArticlesViewSwitcher';
 
 export default {
-	title: 'features/ArticlesViewSwitcher',
+	title: 'features/ArticlesFilters/ArticlesViewSwitcher',
 	component: ArticlesViewSwitcher,
 	argTypes: {
 		backgroundColor: { control: 'color' },

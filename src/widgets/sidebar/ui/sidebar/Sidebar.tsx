@@ -4,9 +4,9 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 
+import { SidebarItem } from '../sidebarItem/SidebarItem';
 import { ThemeSwitcher } from 'features/themeSwitcher';
 import { LangSwitcher } from 'features/langSwitcher/ui/LangSwitcher';
-import { SidebarItem } from '../sidebarItem/SidebarItem';
 import { Button, ButtonSize, ButtonVariant } from 'shared/ui/button/Button';
 import { HStack, VStack } from 'shared/ui/stack';
 
@@ -38,37 +38,39 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 		<section data-testid={'sidebar'}>
 			<VStack
 				className={cn(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
-				align={'center'}
+				align='center'
 			>
 				<Button
-					data-testid='sidebar-toggle'
-					onClick={onToggle}
 					className={cls.collapseBtn}
 					variant={ButtonVariant.BackgroundInverted}
-					size={ButtonSize.MW}
+					size={ButtonSize.L}
+					format='stretch'
+					animated={false}
+					onClick={onToggle}
+					data-testid='sidebar-toggle'
 				>
 					{collapsed ? '>>>' : '<<<'}
 				</Button>
 				<VStack
 					className={cls.content}
-					justify={'between'}
-					width={'max'}
+					justify='between'
+					width='max'
 				>
 					<VStack
-						role={'navigation'}
-						className={cls.items}
-						justify={'start'}
+						justify='start'
 						gap={20}
+						role='navigation'
+						className={cls.items}
 					>
 						{itemsList}
 					</VStack>
 					{collapsed ?
-						(<VStack align={'center'} gap={16} width={'max'}>
+						(<VStack align='center' gap={16} width='max'>
 							<ThemeSwitcher />
 							<LangSwitcher short={collapsed} />
 						</VStack>)
 						:
-						(<HStack justify={'around'} width={'max'}>
+						(<HStack justify='around' width='max'>
 							<ThemeSwitcher />
 							<LangSwitcher short={collapsed} />
 						</HStack>)

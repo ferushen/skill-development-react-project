@@ -34,6 +34,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 			ratio='ratio_40_60'
 			options={options}
 			value={value}
+			defaultValue={t('not_specified')}
 			readonly={readonly}
 			onChange={changeHandler}
 		/>

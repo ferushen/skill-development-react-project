@@ -1,5 +1,5 @@
 export enum Country {
-	Russia = 'russia',
+	Russia = 'russia', // нижний регистр, т.к. это формат ключей для переводов
 	Belarus = 'belarus',
 	Ukraine = 'ukraine',
 }

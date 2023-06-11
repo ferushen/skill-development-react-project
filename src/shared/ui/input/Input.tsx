@@ -3,7 +3,7 @@ import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' | 'max'>;
 
 // TODO: разобраться с InputVariant
 
@@ -14,15 +14,17 @@ export enum InputVariant {
 	Poured = 'poured',
 }
 
-export type InputBorder = 'rounded_6';
+export type InputBorder = 'rounded_6' | 'rounded_10';
 export type InputLabelRatio = 'ratio_50_50' | 'ratio_40_60' | 'ratio_100';
 
 /*export type InputHeight = 36;*/
 
 interface InputProps extends HTMLInputProps {
-	className?: string;
+	classNameInput?: string;
+	classNameWrapper?: string;
 	variant?: InputVariant;
 	rounded?: InputBorder;
+	max?: boolean;
 	ratio?: InputLabelRatio;
 	value?: string | number;
 	label?: string;
@@ -32,9 +34,11 @@ interface InputProps extends HTMLInputProps {
 
 export const Input = memo((props: InputProps) => {
 	const {
-		className,
+		classNameInput,
+		classNameWrapper,
 		variant = InputVariant.Primary,
 		rounded,
+		max,
 		ratio,
 		value,
 		type = 'text',
@@ -45,18 +49,20 @@ export const Input = memo((props: InputProps) => {
 		...otherProps
 	} = props;
 
-	const mods: Mods = {
+	const wrapperMods: Mods = {
 		[cls.readonly]: readonly,
+		[cls.maxWidth]: max,
 	};
 
-	const classes = [
-		className,
-		ratio && cls[ratio]
+	const wrapperClasses = [
+		classNameWrapper,
+		ratio && cls[ratio],
 	];
 
 	const inputClasses = [
 		cls[variant],
 		rounded && cls[rounded],
+		classNameInput,
 	];
 
 	const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +70,7 @@ export const Input = memo((props: InputProps) => {
 	};
 
 	return (
-		<div className={cn(cls.inputWrapper, mods, classes)}>
+		<div className={cn(cls.inputWrapper, wrapperMods, wrapperClasses)}>
 			{label && (
 				<div className={cls.label}>
 					{label}
@@ -72,7 +78,7 @@ export const Input = memo((props: InputProps) => {
 			)}
 			<input
 				{...otherProps}
-				className={cn(cls.input, mods, inputClasses)}
+				className={cn(cls.input, wrapperMods, inputClasses)}
 				type={type}
 				value={value}
 				placeholder={placeholder}

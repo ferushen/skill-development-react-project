@@ -3,8 +3,13 @@ import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
 import cls from './Skeleton.module.scss';
 
+type SkeletonVariant = 'primary' | 'filled';
+type SkeletonAnimationSize = 'small' | 'big';
+
 interface SkeletonProps {
 	className?: string;
+	variant?: SkeletonVariant;
+	size?: SkeletonAnimationSize;
 	height?: string | number;
 	width?: string | number;
 	border?: string;
@@ -13,12 +18,20 @@ interface SkeletonProps {
 export const Skeleton = memo((props: SkeletonProps) => {
 	const {
 		className,
+		variant = 'primary',
+		size = 'small',
 		height,
 		width,
 		border
 	} = props;
 
 	const mods: Mods = {};
+
+	const classes = [
+		className,
+		cls[variant],
+		cls[size]
+	];
 
 	const styles: CSSProperties = {
 		height,
@@ -28,7 +41,7 @@ export const Skeleton = memo((props: SkeletonProps) => {
 
 	return (
 		<div
-			className={cn(cls.skeleton, mods, [className])}
+			className={cn(cls.skeleton, mods, classes)}
 			style={styles}
 		/>
 	);

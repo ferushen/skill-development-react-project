@@ -42,18 +42,19 @@ export const ArticlesViewSwitcher = memo((props: ArticlesViewSwitcherProps) => {
 
 	return (
 		<HStack
-			className={cn('', {}, [className])}
+			className={cn(cls.container, {}, [className])}
 			gap={8}
 		>
 			{viewTypes.map(viewType => (
 				<Button
 					key={viewType.view}
-					className={cls.btn}
+					className={cn(cls.btn, { [cls.active]: viewType.view === activeView })}
 					variant={ButtonVariant.Clear}
+					animated={false}
 					onClick={onClick(viewType.view)}
 				>
 					<Icon
-						className={cn(cls.icon, { [cls.active]: viewType.view === activeView })}
+						className={cls.icon}
 						Svg={viewType.icon}
 					/>
 				</Button>

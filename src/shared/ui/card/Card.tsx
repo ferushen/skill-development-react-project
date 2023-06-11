@@ -9,7 +9,7 @@ export enum CardVariant {
 }
 
 export type CardSize = 'small' | 'medium' | 'large' | 'extraLarge';
-export type CardColor = 'light' | 'dark' | 'bgColor';
+export type CardColor = 'primary' | 'secondary' | 'bgColor';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string;
@@ -24,7 +24,7 @@ export const Card = (props: CardProps) => {
 		className,
 		variant = CardVariant.Normal,
 		size = 'medium',
-		color = 'light',
+		color = 'primary',
 		children,
 		...otherProps
 	} = props;

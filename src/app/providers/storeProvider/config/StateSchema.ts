@@ -7,7 +7,7 @@ import {
 	ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { CounterSchema } from 'entities/counter';
-import { ProfileSchema } from 'entities/profile';
+import { ProfileSchema } from 'features/editableProfileCard';
 import { UserSchema } from 'entities/user';
 import { LoginSchema } from 'features/authByUsername';
 import { ArticleDetailsSchema } from 'entities/article';
@@ -16,11 +16,13 @@ import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/articles';
 import { ScrollSaverSchema } from 'features/scrollSaver';
 import { ArticlesFiltersSchema } from 'features/articlesFilters';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
 	counter: CounterSchema;
 	user: UserSchema;
 	scrollSaver: ScrollSaverSchema;
+	[rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
 	// Асинхронные редьюсеры
 	addCommentForm?: AddCommentFormSchema;

@@ -2,16 +2,11 @@
 	min-height: 100%;
 }
 
-.avatar {
-	margin: 0 auto;
-}
-
-.title {
-	margin-top: 20px;
-}
-
-.skeleton {
-	margin-top: 15px;
+.img {
+	width: 100%;
+	max-width: 900px;
+	max-height: 300px;
+	object-fit: cover;
 }
 
 .logo {

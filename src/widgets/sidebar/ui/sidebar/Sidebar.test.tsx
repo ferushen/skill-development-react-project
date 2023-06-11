@@ -18,8 +18,8 @@ describe('Sidebar', () => {
 		componentRender(<Sidebar />,);
 		const toggleBtn = screen.getByTestId('sidebar-toggle');
 		expect(screen.getByTestId('sidebar')).toBeInTheDocument();
-		expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+		expect(screen.getByTestId('sidebar').childNodes[0]).not.toHaveClass('collapsed');
 		fireEvent.click(toggleBtn);
-		expect(screen.getByTestId('sidebar')).not.toHaveClass('collapsed');
+		expect(screen.getByTestId('sidebar').childNodes[0]).toHaveClass('collapsed');
 	});
 });

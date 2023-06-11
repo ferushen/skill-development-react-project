@@ -7,21 +7,27 @@
 	--primary-color: #0a0d20;
 	--auxiliary-primary-color: #48758d;
 	--secondary-color: #1b0977;
+	--auxiliary-secondary-color: #639db1;
 
 	/* color: inverted */
 	--inverted-primary-color: #deecf4;
 	--inverted-secondary-color: #2c7bdc;
 
 	/* skeleton */
-	--skeleton-color: #bcdff3;
+	--skeleton-primary-color: #bcdff3;
+	--skeleton-filled-color: #b5d8eb;
 	--skeleton-shadow: #639db1;
 
 	/* code */
 	--code-bg: #afd1e4;
 
 	/* card */
-	--card-light: #afd1e4;
-	--card-dark: #9dc5d9;
+	--card-primary: #afd1e4;
+	--card-secondary: #99c8e0;
+
+	/* tabs */
+	--tabs-primary-active: #a1d0eb;
+	--tabs-secondary-active: #296b8d;
 
 	/* list box */
 	--listbox-border: #9dc5d9;

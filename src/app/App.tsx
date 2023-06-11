@@ -1,24 +1,23 @@
 import { Suspense, useEffect } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/router';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getUserInitialized, userActions } from 'entities/user';
+import { selectUserInitialized, userActions } from 'entities/user';
 
 import { Navbar } from 'widgets/navbar';
 import { Sidebar } from 'widgets/sidebar';
 
 const App = () => {
 	const dispatch = useAppDispatch();
-	const initialized = useSelector(getUserInitialized);
+	const initialized = useSelector(selectUserInitialized);
 
 	useEffect(() => {
 		dispatch(userActions.initAuthData());
 	}, [dispatch]);
 
 	return (
-		<div className={cn('app', {}, [])}>
+		<div className={'app'}>
 			<Suspense fallback=''>
 				<Navbar />
 				<div className="content-page">

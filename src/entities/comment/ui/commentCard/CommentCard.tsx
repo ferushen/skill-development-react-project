@@ -2,24 +2,23 @@ import { memo } from 'react';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
-import { Avatar } from 'shared/ui/avatar/Avatar';
-import { Skeleton } from 'shared/ui/skeleton/Skeleton';
-import { Text } from 'shared/ui/text/Text';
-import { AppLink } from 'shared/ui/appLink/AppLink';
-import { HStack } from 'shared/ui/stack';
-
 import type { Comment } from '../../model/types/comment';
+
+import { AppLink } from 'shared/ui/appLink/AppLink';
+import { Avatar } from 'shared/ui/avatar/Avatar';
+import { HStack, VStack } from 'shared/ui/stack';
+import { Skeleton } from 'shared/ui/skeleton/Skeleton';
+import { Text, TextSize } from 'shared/ui/text/Text';
 
 import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
-	className?: string;
 	comment?: Comment;
 	isLoading?: boolean;
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-	const { className, comment, isLoading } = props;
+	const { comment, isLoading } = props;
 
 	const mods: Mods = {
 		[cls.loading]: isLoading,
@@ -27,13 +26,19 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
 	if (isLoading) {
 		return (
-			<div className={cn(cls.commentCard, mods, [className])}>
-				<HStack justify={'start'} gap={16} width={'max'}>
-					<Skeleton width={30} height={30} border={'50%'} />
-					<Skeleton width={100} height={16} />
-				</HStack>
-				<Skeleton className={cls.text} width={'100%'} height={24} />
-			</div>
+			<HStack align='start' gap={8} width='max'>
+				<Skeleton
+					className={cls.avatar}
+					width={46}
+					height={46}
+					border='50%' />
+				<Skeleton
+					className={cls.commentCard}
+					width='100%'
+					height={76}
+					size='big'
+				/>
+			</HStack>
 		);
 	}
 
@@ -42,19 +47,30 @@ export const CommentCard = memo((props: CommentCardProps) => {
 	}
 
 	return (
-		<div className={cn(cls.commentCard, mods, [className])}>
+		<HStack align='start' gap={8} width='max'>
 			<AppLink
+				className={cls.avatar}
 				to={`${RoutePath.profile}${comment.user.id}`}
 			>
-				<HStack justify={'start'} gap={16} width={'max'}>
-					{comment.user.avatar
-						? <Avatar size={30} src={comment.user.avatar} />
-						: <Avatar size={30} empty={true} />
-					}
-					<Text text={comment.user.username} />
-				</HStack>
+				{comment.user.avatar
+					? <Avatar size={30} src={comment.user.avatar} />
+					: <Avatar size={30} empty={true} />
+				}
 			</AppLink>
-			<Text className={cls.text} text={comment.text} />
-		</div>
+
+			<VStack gap={8} width='max' className={cn(cls.commentCard, mods, [])}>
+				<AppLink to={`${RoutePath.profile}${comment.user.id}`}>
+					<Text
+						className={cls.username}
+						title={comment.user.username}
+						size={TextSize.S}
+					/>
+				</AppLink>
+				<Text
+					className={cls.commentText}
+					text={comment.text}
+				/>
+			</VStack>
+		</HStack>
 	);
 });

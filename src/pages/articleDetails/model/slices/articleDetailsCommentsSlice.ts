@@ -15,7 +15,7 @@ const commentsAdapter = createEntityAdapter<Comment>({
 	selectId: (comment: Comment) => comment.id,
 });
 
-export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
+export const selectArticleComments = commentsAdapter.getSelectors<StateSchema>(
 	(state) =>
 		state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
 );

@@ -7,15 +7,16 @@ import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import { articlesFiltersReducer } from 'features/articlesFilters/model/slice/articlesFiltersSlice';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
+import { ArticleInfiniteList } from '../articleInfiniteList/ArticleInfiniteList';
 import { Page } from 'widgets/page/Page';
-import { ArticleList, ArticleView } from 'entities/article';
+import { ArticleView } from 'entities/article';
 import { ArticlesPageFilters } from 'features/articlesFilters/ui/articlesPageFilters/ArticlesPageFilters';
 import { VStack } from 'shared/ui/stack';
 
@@ -39,11 +40,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
 	const [searchParams] = useSearchParams();
 
-	const articles = useSelector(getArticles.selectAll);
 	const isLoading = useSelector(getArticlesPageIsLoading);
 	const view = useSelector(getArticlesPageView);
-
-	const mods: Mods = {};
 
 	const onLoadNextPart = useCallback(() => {
 		if (__PROJECT__ !== 'storybook') {
@@ -83,12 +81,10 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 		dispatch(initArticlesPage(searchParams));
 	});
 
-	// TODO: добавить обработку ошибки при загрузке списка статей
-
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
 			<Page
-				className={cn(cls.articlesPage, mods, [className])}
+				className={cn(cls.articlesPage, {}, [className])}
 				onScrollEnd={onLoadNextPart}
 			>
 				<VStack align={'start'} gap={16} width={'max'}>
@@ -98,11 +94,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 						fetchData={refetchData}
 						debouncedFetchData={debouncedRefetchData}
 					/>
-					<ArticleList
-						isLoading={isLoading}
-						view={view}
-						articles={articles}
-					/>
+					<ArticleInfiniteList />
 				</VStack>
 			</Page>
 		</DynamicModuleLoader>
