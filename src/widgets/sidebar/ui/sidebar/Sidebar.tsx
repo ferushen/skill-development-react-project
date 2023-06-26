@@ -42,7 +42,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 			>
 				<Button
 					className={cls.collapseBtn}
-					variant={ButtonVariant.BackgroundInverted}
+					variant={ButtonVariant.ClearInverted}
 					size={ButtonSize.L}
 					format='stretch'
 					animated={false}

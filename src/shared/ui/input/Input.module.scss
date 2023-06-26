@@ -16,9 +16,11 @@
 	color: var(--bg-color);
 	background-color: var(--primary-color);
 	border: none;
+	transition: color 0.15s, background-color 0.15s;
 
 	&::placeholder {
-		color: var(--primary-color);
+		color: var(--bg-color);
+		opacity: 0.5;
 	}
 
 	&:focus {
@@ -26,10 +28,25 @@
 	}
 }
 
+.backgroundInverted {
+	color: var(--bg-color);
+	background-color: var(--button-bg-inverted);
+
+	&:focus,
+	&:hover {
+		background-color: var(--button-bg-inverted-auxiliary);
+	}
+}
+
 .readonly {
 	.input {
-		color: var(--secondary-color);
+		color: var(--primary-color);
 		background-color: transparent;
+
+		&::placeholder {
+			color: var(--auxiliary-primary-color);
+			opacity: 0.9;
+		}
 	}
 }
 

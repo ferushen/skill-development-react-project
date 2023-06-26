@@ -32,6 +32,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 	return (
 		<ListBox
 			className={className}
+			variant='profileInput'
 			label={t('country')}
 			ratio='ratio_40_60'
 			options={options}

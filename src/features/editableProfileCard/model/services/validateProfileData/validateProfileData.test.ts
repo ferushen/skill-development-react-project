@@ -6,7 +6,7 @@ import { ValidateProfileError } from '../../types/editableProfileCard';
 const data = {
 	firstname: 'Николай',
 	lastname: 'Никола',
-	age: 25,
+	age: '25',
 	currency: Currency.RUB,
 	country: Country.Russia,
 	city: 'Saint-Petersburg',
@@ -28,7 +28,7 @@ describe('validateProfileData', () => {
 			lastname: '',
 		});
 
-		expect(result).toEqual([ValidateProfileError.IncorrectUserData]);
+		expect(result).toEqual([ValidateProfileError.EmptyUserData]);
 	});
 
 	test('without age', () => {
@@ -37,25 +37,21 @@ describe('validateProfileData', () => {
 			age: undefined,
 		});
 
-		expect(result).toEqual([ValidateProfileError.IncorrectAge]);
+		expect(result).toEqual([]);
 	});
 
-	test('without country', () => {
+	test('incorrect age format', () => {
 		const result = validateProfileData({
 			...data,
-			country: undefined,
+			age: '1112',
 		});
 
-		expect(result).toEqual([ValidateProfileError.IncorrectCountry]);
+		expect(result).toEqual([ValidateProfileError.IncorrectAgeFormat]);
 	});
 
 	test('incorrect all', () => {
 		const result = validateProfileData({});
 
-		expect(result).toEqual([
-			ValidateProfileError.IncorrectUserData,
-			ValidateProfileError.IncorrectAge,
-			ValidateProfileError.IncorrectCountry,
-		]);
+		expect(result).toEqual([ValidateProfileError.EmptyUserData]);
 	});
 });

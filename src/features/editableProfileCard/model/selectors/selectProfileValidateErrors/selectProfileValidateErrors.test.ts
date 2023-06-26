@@ -7,14 +7,14 @@ describe('selectProfileValidateErrors', () => {
 		const state: DeepPartial<StateSchema> = {
 			profile: {
 				validateErrors: [
-					ValidateProfileError.IncorrectAge,
-					ValidateProfileError.IncorrectCountry,
+					ValidateProfileError.InvalidSymbolsInFirstname,
+					ValidateProfileError.IncorrectAgeFormat,
 				],
 			},
 		};
 		expect(selectProfileValidateErrors(state as StateSchema)).toEqual([
-			ValidateProfileError.IncorrectAge,
-			ValidateProfileError.IncorrectCountry,
+			ValidateProfileError.InvalidSymbolsInFirstname,
+			ValidateProfileError.IncorrectAgeFormat,
 		]);
 	});
 	test('should work with empty state', () => {

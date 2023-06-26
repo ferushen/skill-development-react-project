@@ -644,12 +644,12 @@
   "profile": [
     {
       "id": "1",
-      "firstname": "Николай",
-      "lastname": "Никола",
-      "age": 1,
-      "currency": "RUB",
+      "firstname": "VlidNaMeWith",
+      "lastname": "",
+      "age": "",
+      "currency": "EUR",
       "country": "Belarus",
-      "city": "Kiev",
+      "city": "",
       "username": "SnowOrWeak",
       "avatar": "https://dslv9ilpbe7p1.cloudfront.net/-OEv2bO51P2ZzpjfAYBH7A_store_banner_image.jpeg"
     },

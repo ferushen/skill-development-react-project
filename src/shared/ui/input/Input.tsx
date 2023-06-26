@@ -12,6 +12,7 @@ export enum InputVariant {
 	OutlineDashed = 'outlineDashed',
 	OutlineRounded = 'outlineRounded',
 	Poured = 'poured',
+	BackgroundInverted = 'backgroundInverted',
 }
 
 export type InputBorder = 'rounded_6' | 'rounded_10';
@@ -29,6 +30,7 @@ interface InputProps extends HTMLInputProps {
 	value?: string | number;
 	label?: string;
 	readonly?: boolean;
+	placeholderReadonly?: string;
 	onChange?: (value: string) => void;
 }
 
@@ -45,6 +47,7 @@ export const Input = memo((props: InputProps) => {
 		label,
 		placeholder,
 		readonly,
+		placeholderReadonly,
 		onChange,
 		...otherProps
 	} = props;
@@ -81,7 +84,7 @@ export const Input = memo((props: InputProps) => {
 				className={cn(cls.input, wrapperMods, inputClasses)}
 				type={type}
 				value={value}
-				placeholder={placeholder}
+				placeholder={(readonly && placeholderReadonly) ? placeholderReadonly : placeholder}
 				readOnly={readonly}
 				onChange={changeHandler}
 			/>

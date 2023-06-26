@@ -10,6 +10,8 @@ import { Text } from 'shared/ui/text/Text';
 
 import cls from './ArticleList.module.scss';
 
+// TODO: добавить виртуализацию условной (управление пропсом)
+
 interface ArticleListProps {
 	className?: string;
 	articles: Article[];

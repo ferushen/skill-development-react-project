@@ -9,6 +9,8 @@ import { VStack } from 'shared/ui/stack';
 
 import cls from './ArticleRecommendationList.module.scss';
 
+// TODO: если будет сделана виртуализация списка => здесь отключить
+
 interface ArticleRecommendationListProps {
 	className?: string;
 }
@@ -19,8 +21,8 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
 	// подгружаем только 3 статьи
 	const { data: articles, isLoading, error } = useArticleRecommendationList(3);
 
-	// TODO: сделать корректные заглушки
-	if (isLoading || error) {
+	// TODO: сделать корректные заглушки под каждый кейс
+	if (isLoading || error || !articles) {
 		return null;
 	}
 

@@ -3,14 +3,14 @@
 	min-width: 470px;
 }
 
-.loading,
-.error {
-	height: 300px;
+.skeletonContainer {
+	margin-top: 38px;
 	border: 1px solid var(--bg-color);
 }
 
-.editing {
-	border: 1px solid var(--inverted-secondary-color);
+.error {
+	height: 300px;
+	border: 1px solid var(--bg-color);
 }
 
 .avatarWrapper {

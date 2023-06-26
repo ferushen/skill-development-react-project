@@ -12,13 +12,14 @@ import cls from './ListBox.module.scss';
 
 // TODO: облегчить компонент (напр., убрать ListBoxLabelRatio)
 
-type ListBoxVariant = 'outlined' | 'stretchBgInverted';
+type ListBoxVariant = 'outlined' | 'stretchBgInverted' | 'profileInput';
 type ListBoxLabelRatio = 'ratio_50_50' | 'ratio_40_60';
 type ListBoxOptionWidth = 'normal' | 'max-content';
 
 const mapButtonVariant: Record<ListBoxVariant, ButtonVariant> = {
 	'outlined': ButtonVariant.BackgroundInverted,
 	'stretchBgInverted': ButtonVariant.BackgroundSecondaryInverted,
+	'profileInput': ButtonVariant.BackgroundInverted,
 };
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
@@ -78,12 +79,18 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 	];
 	const labelClasses = [cls[variant]];
 	const optionsClasses = [mapDirectionClass[direction]];
-	const optionClasses = [mapOptionWidthClass[optionWidth]];
+	const optionClasses = [
+		mapOptionWidthClass[optionWidth],
+		cls[variant]
+	];
 
 	const activeOption = options.find((opt) => opt.value === value);
 	const activeContent = activeOption?.content;
 
 	const buttonVariant = mapButtonVariant[variant];
+	const buttonMods: Mods = {
+		[cls.btnReadonly]: readonly
+	};
 
 	return (
 		<HStack
@@ -104,8 +111,8 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 			>
 				<HListBox.Button as={'div'}>
 					<Button
-						className={cn(cls.btn, {}, [])}
-						variant={readonly ? ButtonVariant.OutlineSecondary : buttonVariant}
+						className={cn(cls.btn, buttonMods, [])}
+						variant={readonly ? ButtonVariant.Clear : buttonVariant}
 						size={variant === 'stretchBgInverted' ? ButtonSize.M : ButtonSize.S}
 						format={variant === 'stretchBgInverted' ? 'flat' : undefined}
 						width={ratio && 'max'}

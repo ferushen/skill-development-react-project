@@ -19,7 +19,7 @@ Primary.args = {
 	data: {
 		firstname: 'Николай',
 		lastname: 'Никола',
-		age: 25,
+		age: '25',
 		currency: Currency.RUB,
 		country: 'Russia' as Country,
 		city: 'Saint-Petersburg',

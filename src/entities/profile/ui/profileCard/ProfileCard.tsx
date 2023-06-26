@@ -1,15 +1,15 @@
 import { useTranslation } from 'react-i18next';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import type { Profile } from '../../model/types/profile';
 
 import { Currency, CurrencySelect } from 'entities/currency';
 import { Country, CountrySelect } from 'entities/country';
 import { Avatar } from 'shared/ui/avatar/Avatar';
-import { Input } from 'shared/ui/input/Input';
 import { Card, CardVariant } from 'shared/ui/card/Card';
-import { Loader } from 'shared/ui/loader/Loader';
 import { HStack, VStack } from 'shared/ui/stack';
+import { Input, InputVariant } from 'shared/ui/input/Input';
+import { Skeleton } from 'shared/ui/skeleton/Skeleton';
 import { Text, TextAlign, TextVariant } from 'shared/ui/text/Text';
 
 import cls from './ProfileCard.module.scss';
@@ -48,15 +48,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
 	} = props;
 	const { t } = useTranslation('profile');
 
-	const mods: Mods = {
-		[cls.editing]: !readonly,
-	};
-
-	const classesLoading = [
-		className,
-		cls.loading
-	];
-
 	const classesError = [
 		className,
 		cls.error
@@ -64,9 +55,15 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
 	if (isLoading) {
 		return (
-			<HStack className={cn('', {}, classesLoading)} width={'max'}>
-				<Loader />
-			</HStack>
+			<Skeleton
+				className={cls.skeletonContainer}
+				variant='filled'
+				size='big'
+				width='100%'
+				height={570}
+				border='12px'
+				data-testid='ProfileCard.Loader'
+			/>
 		);
 	}
 
@@ -89,7 +86,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
 	return (
 		<Card
-			className={cn(cls.profileCard, mods, [className])}
+			className={cn(cls.profileCard, {}, [className])}
 			variant={CardVariant.Outline}
 			size={'extraLarge'}
 		>
@@ -111,75 +108,94 @@ export const ProfileCard = (props: ProfileCardProps) => {
 				)}
 				<Input
 					classNameWrapper={cls.inputWrapper}
+					variant={InputVariant.BackgroundInverted}
 					rounded='rounded_6'
 					label={t('nickname')}
 					ratio='ratio_40_60'
 					placeholder={t('enter_your_nickname')}
 					value={data?.username}
 					readonly={readonly}
+					placeholderReadonly={t('not_specified')}
 					onChange={onChangeUsername}
+					data-testid='ProfileCard.username'
 				/>
 				<Input
 					classNameWrapper={cls.inputWrapper}
+					variant={InputVariant.BackgroundInverted}
 					rounded='rounded_6'
 					label={t('firstname')}
 					ratio='ratio_40_60'
 					placeholder={t('enter_your_firstname')}
 					value={data?.firstname}
 					readonly={readonly}
+					placeholderReadonly={t('not_specified')}
 					onChange={onChangeFirstname}
+					data-testid='ProfileCard.firstname'
 				/>
 				<Input
 					classNameWrapper={cls.inputWrapper}
+					variant={InputVariant.BackgroundInverted}
 					rounded='rounded_6'
 					label={t('lastname')}
 					ratio='ratio_40_60'
 					placeholder={t('enter_your_last_name')}
 					value={data?.lastname}
 					readonly={readonly}
+					placeholderReadonly={t('not_specified')}
 					onChange={onChangeLastname}
+					data-testid='ProfileCard.lastname'
 				/>
 				<Input
 					classNameWrapper={cls.inputWrapper}
+					variant={InputVariant.BackgroundInverted}
 					rounded='rounded_6'
 					label={t('age')}
 					ratio='ratio_40_60'
 					placeholder={t('enter_your_age')}
 					value={data?.age}
 					readonly={readonly}
+					placeholderReadonly={t('not_specified')}
 					onChange={onChangeAge}
+					data-testid='ProfileCard.age'
 				/>
 				<Input
 					classNameWrapper={cls.inputWrapper}
+					variant={InputVariant.BackgroundInverted}
 					rounded='rounded_6'
 					label={t('city')}
 					ratio='ratio_40_60'
 					placeholder={t('enter_your_city')}
 					value={data?.city}
 					readonly={readonly}
+					placeholderReadonly={t('not_specified')}
 					onChange={onChangeCity}
+					data-testid='ProfileCard.city'
+
 				/>
 				<Input
 					classNameWrapper={cls.inputWrapper}
+					variant={InputVariant.BackgroundInverted}
 					rounded='rounded_6'
 					label={t('link_to_avatar')}
 					ratio='ratio_40_60'
 					placeholder={t('provide_link')}
 					value={data?.avatar}
 					readonly={readonly}
+					placeholderReadonly={t('not_specified')}
 					onChange={onChangeAvatar}
-				/>
-				<CurrencySelect
-					className={cls.inputWrapper}
-					value={data?.currency}
-					readonly={readonly}
-					onChange={onChangeCurrency}
+					data-testid='ProfileCard.avatar'
 				/>
 				<CountrySelect
 					className={cls.inputWrapper}
 					value={data?.country}
 					readonly={readonly}
 					onChange={onChangeCountry}
+				/>
+				<CurrencySelect
+					className={cls.inputWrapper}
+					value={data?.currency}
+					readonly={readonly}
+					onChange={onChangeCurrency}
 				/>
 			</VStack>
 		</Card>

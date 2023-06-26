@@ -31,6 +31,7 @@ interface TextProps {
 	align?: TextAlign;
 	title?: string;
 	text?: string;
+	'data-testid'?: string;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -42,6 +43,7 @@ export const Text = memo((props: TextProps) => {
 		align = TextAlign.Left,
 		title,
 		text,
+		'data-testid': dataTestId = 'Text'
 	} = props;
 
 	const additionalClasses = [
@@ -53,8 +55,22 @@ export const Text = memo((props: TextProps) => {
 
 	return (
 		<div className={cn('', {}, additionalClasses)}>
-			{title && <TitleTag className={cls.title}>{title}</TitleTag>}
-			{text && <p className={cls.text}>{text}</p>}
+			{title && (
+				<TitleTag
+					className={cls.title}
+					data-testid={`${dataTestId}.Title`}
+				>
+					{title}
+				</TitleTag>
+			)}
+			{text && (
+				<p
+					className={cls.text}
+					data-testid={`${dataTestId}.Paragraph`}
+				>
+					{text}
+				</p>
+			)}
 		</div>
 	);
 });

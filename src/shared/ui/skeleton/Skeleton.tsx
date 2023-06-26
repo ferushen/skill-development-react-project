@@ -13,6 +13,7 @@ interface SkeletonProps {
 	height?: string | number;
 	width?: string | number;
 	border?: string;
+	'data-testid'?: string;
 }
 
 export const Skeleton = memo((props: SkeletonProps) => {
@@ -22,7 +23,8 @@ export const Skeleton = memo((props: SkeletonProps) => {
 		size = 'small',
 		height,
 		width,
-		border
+		border,
+		'data-testid': dataTestId = 'Skeleton'
 	} = props;
 
 	const mods: Mods = {};
@@ -43,6 +45,7 @@ export const Skeleton = memo((props: SkeletonProps) => {
 		<div
 			className={cn(cls.skeleton, mods, classes)}
 			style={styles}
+			data-testid={dataTestId}
 		/>
 	);
 });

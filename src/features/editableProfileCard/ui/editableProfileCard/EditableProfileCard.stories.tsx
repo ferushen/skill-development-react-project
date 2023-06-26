@@ -22,7 +22,7 @@ Normal.decorators = [
 			form: {
 				firstname: 'Николай',
 				lastname: 'Никола',
-				age: 25,
+				age: '25',
 				currency: 'RUB' as Currency,
 				country: 'Russia' as Country,
 				city: 'Saint-Petersburg',

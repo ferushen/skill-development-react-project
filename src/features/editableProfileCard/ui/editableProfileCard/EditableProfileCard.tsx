@@ -42,36 +42,45 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 	const validateErrors = useSelector(selectProfileValidateErrors);
 
 	const validateErrorsTranslates = {
-		[ValidateProfileError.IncorrectUserData]: t('first_and_last_names_are_require'),
-		[ValidateProfileError.IncorrectAge]: t('invalid_age_value'),
-		[ValidateProfileError.IncorrectCountry]: t('incorrect_region_value'),
-		[ValidateProfileError.NoData]: t('no_data_specified'),
 		[ValidateProfileError.ServerError]: t('error_while_saving'),
+		[ValidateProfileError.NoData]: t('no_data_specified'),
+		[ValidateProfileError.EmptyUserData]: t('empty_required_fields'),
+		[ValidateProfileError.InvalidSymbolsInUsername]: t('invalid_username'),
+		[ValidateProfileError.InvalidSymbolsInFirstname]: t('invalid_firstname'),
+		[ValidateProfileError.InvalidSymbolsInLastname]: t('invalid_lastname'),
+		[ValidateProfileError.InvalidUsernameLength]: t('invalid_username_length'),
+		[ValidateProfileError.InvalidFirstnameLength]: t('invalid_firstname_length'),
+		[ValidateProfileError.InvalidLastnameLength]: t('invalid_lastname_length'),
+		[ValidateProfileError.IncorrectAgeFormat]: t('invalid_age_value'),
 	};
 
+	const onChangeUsername = useCallback((value?: string) => {
+		const validatedValue = value?.replace(/[^a-zа-яё_-]/gmi, '');
+		dispatch(profileActions.updateProfile({ username: validatedValue ?? '' }));
+	}, [dispatch]);
+
 	const onChangeFirstname = useCallback((value?: string) => {
-		dispatch(profileActions.updateProfile({ firstname: value || '' }));
+		const validatedValue = value?.replace(/[^a-zа-яё]/gmi, '');
+		dispatch(profileActions.updateProfile({ firstname: validatedValue ?? '' }));
 	}, [dispatch]);
 
 	const onChangeLastname = useCallback((value?: string) => {
-		dispatch(profileActions.updateProfile({ lastname: value || '' }));
+		const validatedValue = value?.replace(/[^a-zа-яё]/gmi, '');
+		dispatch(profileActions.updateProfile({ lastname: validatedValue ?? '' }));
 	}, [dispatch]);
 
 	const onChangeAge = useCallback((value?: string) => {
 		const validatedValue = value?.replace(/\D+/gm, '');
-		dispatch(profileActions.updateProfile({ age: Number(validatedValue || 0) }));
+		dispatch(profileActions.updateProfile({ age: validatedValue }));
 	}, [dispatch]);
 
 	const onChangeCity = useCallback((value?: string) => {
-		dispatch(profileActions.updateProfile({ city: value || '' }));
+		dispatch(profileActions.updateProfile({ city: value ?? '' }));
 	}, [dispatch]);
 
-	const onChangeUsername = useCallback((value?: string) => {
-		dispatch(profileActions.updateProfile({ username: value || '' }));
-	}, [dispatch]);
 
 	const onChangeAvatar = useCallback((value?: string) => {
-		dispatch(profileActions.updateProfile({ avatar: value || '' }));
+		dispatch(profileActions.updateProfile({ avatar: value ?? '' }));
 	}, [dispatch]);
 
 	const onChangeCurrency = useCallback((currency: Currency) => {
@@ -97,6 +106,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 						variant={TextVariant.Error}
 						text={validateErrorsTranslates[err]}
 						key={err}
+						data-testid='EditableProfileCard.Error'
 					/>
 				))}
 				<ProfileCard

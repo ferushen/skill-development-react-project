@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode, memo } from 'react';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import cls from './Card.module.scss';
@@ -19,7 +19,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 	children: ReactNode;
 }
 
-export const Card = (props: CardProps) => {
+export const Card = memo((props: CardProps) => {
 	const {
 		className,
 		variant = CardVariant.Normal,
@@ -44,4 +44,4 @@ export const Card = (props: CardProps) => {
 			{children}
 		</div>
 	);
-};
+});

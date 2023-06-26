@@ -47,7 +47,11 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
 				<HStack gap={16} >
 					{readonly
 						? (
-							<Button onClick={onEdit}>
+							<Button
+								onClick={onEdit}
+								data-testid='EditableProfileCardHeader.EditButton'
+								key='editButton'
+							>
 								{t('edit')}
 							</Button>
 						)
@@ -56,10 +60,15 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
 								<Button
 									variant={ButtonVariant.OutlineRed}
 									onClick={onCancelEdit}
+									data-testid='EditableProfileCardHeader.CancelButton'
+									key='cancelButton'
 								>
 									{t('cancel')}
 								</Button>
-								<Button onClick={onSave}>
+								<Button
+									onClick={onSave}
+									data-testid='EditableProfileCardHeader.SaveButton'
+								>
 									{t('save')}
 								</Button>
 							</>

@@ -3,7 +3,8 @@
 	text-align: center;
 	white-space: nowrap;
 
-	&.outlined {
+	&.outlined,
+	&.profileInput {
 		padding: 4px 8px;
 		border: 1px solid var(--primary-color);
 		border-radius: 6px;
@@ -28,6 +29,11 @@
 	&.stretchBgInverted {
 		padding: 0 8px;
 	}
+}
+
+.btnReadonly {
+	padding: 4px 4px 4px 10px;
+	text-align: left;
 }
 
 .trigger {
@@ -96,7 +102,7 @@
 
 .selected {
 	padding-left: 4px;
-	color: var(--listbox-selected-color);
+	background-color: var(--bg-color);
 
 	&::before {
 		margin-right: 2px;
@@ -107,6 +113,10 @@
 .active {
 	color: var(--bg-color);
 	background-color: var(--primary-color);
+
+	&.profileInput {
+		background-color: var(--button-bg-inverted);
+	}
 }
 
 .disabled {

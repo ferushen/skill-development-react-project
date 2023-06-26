@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 /*
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
@@ -18,9 +22,22 @@ export default {
 	moduleNameMapper: {
 		'\\.(s?css)$': 'identity-obj-proxy',
 		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+		'\\.png': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
 		axios: 'axios/dist/node/axios.cjs',
 	},
 	modulePaths: ['<rootDir>src'],
+	reporters: [
+		'default',
+		[
+			'jest-html-reporters',
+			{
+				publicPath: '<rootDir>/reports/unit',
+				filename: 'report.html',
+				openReport: false,
+				inlineSource: true, // вместо отдельных html-файлов генерируется один html
+			},
+		],
+	],
 	rootDir: '../../',
 	setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 	testEnvironment: 'jsdom',

@@ -1,4 +1,4 @@
-import { CSSProperties, useMemo } from 'react';
+import { CSSProperties, memo, useMemo } from 'react';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import EmptyAvatar from './visitor-512-512.png';
@@ -12,7 +12,7 @@ interface AvatarProps {
 	empty?: boolean;
 }
 
-export const Avatar = (props: AvatarProps) => {
+export const Avatar = memo((props: AvatarProps) => {
 	const {
 		className,
 		src,
@@ -34,4 +34,4 @@ export const Avatar = (props: AvatarProps) => {
 			className={cn(cls.avatar, {}, [className])}
 		/>
 	);
-};
+});

@@ -30,6 +30,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 	return (
 		<ListBox
 			className={className}
+			variant='profileInput'
 			label={t('currency')}
 			ratio='ratio_40_60'
 			options={options}

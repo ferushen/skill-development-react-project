@@ -8,7 +8,7 @@ const data = {
 	id: '1',
 	firstname: 'Николай',
 	lastname: 'Никола',
-	age: 25,
+	age: '25',
 	currency: Currency.RUB,
 	country: Country.Russia,
 	city: 'Saint-Petersburg',
@@ -50,7 +50,7 @@ describe('updateProfileData', () => {
 		thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
 		const result = await thunk.callThunk();
 
-		// убеждаемся что async thunk отработал без ошибок
+		// убеждаемся что async thunk отработал с ошибкой
 		expect(result.meta.requestStatus).toBe('rejected');
 		expect(result.payload).toEqual([ValidateProfileError.ServerError]);
 	});
@@ -59,7 +59,7 @@ describe('updateProfileData', () => {
 		// создаем инстанс TestAsyncThunk и вызываем thunk
 		const thunk = new TestAsyncThunk(updateProfileData, {
 			profile: {
-				form: { ...data, lastname: '' },
+				form: { ...data, lastname: 'a' },
 			},
 		});
 
@@ -68,8 +68,10 @@ describe('updateProfileData', () => {
 
 		const result = await thunk.callThunk();
 
-		// убеждаемся что async thunk отработал без ошибок
+		// убеждаемся что async thunk отработал с ошибкой
 		expect(result.meta.requestStatus).toBe('rejected');
-		expect(result.payload).toEqual([ValidateProfileError.IncorrectUserData]);
+		expect(result.payload).toEqual([
+			ValidateProfileError.InvalidLastnameLength,
+		]);
 	});
 });

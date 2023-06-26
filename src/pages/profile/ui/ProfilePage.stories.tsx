@@ -11,7 +11,7 @@ const data = {
 	id: '1',
 	firstname: 'Николай',
 	lastname: 'Никола',
-	age: 25,
+	age: '25',
 	currency: Currency.RUB,
 	country: Country.Russia,
 	city: 'Saint-Petersburg',
