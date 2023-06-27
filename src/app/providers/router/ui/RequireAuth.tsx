@@ -4,8 +4,9 @@ import { selectUserAuthData } from 'entities/user';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
-	const auth = useSelector(selectUserAuthData);
 	const location = useLocation();
+
+	const auth = useSelector(selectUserAuthData);
 
 	if (!auth) {
 		// Redirect them to the /login page, but save the current location they were

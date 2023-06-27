@@ -6,8 +6,9 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { selectUserAuthData, userActions } from 'entities/user';
+import { isUserAdmin, isUserModerator, selectUserAuthData, userActions } from 'entities/user';
 
+import { LoginModal } from 'features/authByUsername';
 import { AppLink, AppLinkVariant } from 'shared/ui/appLink/AppLink';
 import { Avatar } from 'shared/ui/avatar/Avatar';
 import { BugButton } from 'app/providers/errorBoundary';
@@ -15,7 +16,6 @@ import { Button } from 'shared/ui/button/Button';
 import { ButtonVariant } from 'shared/ui/button/Button';
 import { Dropdown } from 'shared/ui/dropdown/Dropdown';
 import { HStack } from 'shared/ui/stack';
-import { LoginModal } from 'features/authByUsername';
 import { Text, TextVariant } from 'shared/ui/text/Text';
 
 import cls from './Navbar.module.scss';
@@ -30,6 +30,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
 	const [isAuthModal, setIsAuthModal] = useState(false);
 	const authData = useSelector(selectUserAuthData);
+	const isAdmin = useSelector(isUserAdmin);
+	const isModerator = useSelector(isUserModerator);
 
 	const onCloseModal = useCallback(() => {
 		setIsAuthModal(false);
@@ -42,6 +44,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	const onLogout = useCallback(() => {
 		dispatch(userActions.logout());
 	}, [dispatch]);
+
+	const isAdminPanelAvailable = isAdmin || isModerator;
 
 	return (
 		<header>
@@ -70,6 +74,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 									optionsWidth={160}
 									indent='m'
 									items={[
+										...(isAdminPanelAvailable ? [{
+											content: t('admin_panel'),
+											href: RoutePath['admin-panel']
+										}] : []),
 										{
 											content: t('profile'),
 											href: RoutePath.profile + authData.id

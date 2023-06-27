@@ -1,5 +1,6 @@
 {
   "about_us": "",
+  "admin_panel": "",
   "age": "",
   "all": "",
   "article_not_found": "",
@@ -60,6 +61,7 @@
   "logout": "",
   "main_page": "",
   "nickname": "",
+  "no_access_to_the_page": "",
   "no_comments_yet": "",
   "no_data_specified": "",
   "no_language_schema_found": "",
