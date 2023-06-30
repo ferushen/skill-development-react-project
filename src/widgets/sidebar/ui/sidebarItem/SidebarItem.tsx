@@ -46,7 +46,6 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 			>
 				<item.Icon className={cls.icon} />
 				<span className={cls.link}>
-					{/* i18next-extract-disable-next-line */}
 					{t(item.text)}
 				</span>
 			</HStack>

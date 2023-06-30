@@ -1,4 +1,4 @@
-import { FC, Suspense } from 'react';
+import { Suspense } from 'react';
 
 import { Modal } from 'shared/ui/modal/Modal';
 import { Loader } from 'shared/ui/loader/Loader';
@@ -10,7 +10,7 @@ interface LoginModalProps {
 	onClose: () => void;
 }
 
-export const LoginModal: FC<LoginModalProps> = (props) => {
+export const LoginModal = (props: LoginModalProps) => {
 	const {
 		isOpen,
 		onClose

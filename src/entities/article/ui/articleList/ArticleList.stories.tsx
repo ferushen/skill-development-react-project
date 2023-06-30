@@ -52,7 +52,7 @@ const article = {
 
 export const ViewList = Template.bind({});
 ViewList.args = {
-	articles: new Array(16).fill(0).map((item, index) => ({
+	articles: new Array(4).fill(0).map((item, index) => ({
 		...article,
 		id: String(index),
 		key: index

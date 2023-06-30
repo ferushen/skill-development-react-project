@@ -3,8 +3,7 @@ import { Story, StoryContext } from '@storybook/react';
 import { I18nextProvider } from 'react-i18next';
 import i18n from 'shared/config/i18n/i18n';
 
-export const I18nextDecorator = (Story: Story, context: StoryContext) => {
-	console.log(`I18nextDecorator: ${context}`);
+export const I18nextDecorator = (StoryComponent: Story, context: StoryContext) => {
 	const { locale } = context.globals;
 
 	// When the locale global changes
@@ -18,7 +17,7 @@ export const I18nextDecorator = (Story: Story, context: StoryContext) => {
 		// Alternative: set useSuspense to false on i18next.options.react when initializing i18next
 		<Suspense fallback={<div>loading translations...</div>}>
 			<I18nextProvider i18n={i18n}>
-				<Story />
+				<StoryComponent />
 			</I18nextProvider>
 		</Suspense>
 	);

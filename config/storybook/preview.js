@@ -3,6 +3,7 @@ import { StyleDecorator } from 'shared/config/storybook/StyleDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { I18nextDecorator } from 'shared/config/storybook/I18nextDecorator';
+import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator';
 import { Theme } from 'app/providers/themeProvider';
 
 export const parameters = {
@@ -30,9 +31,11 @@ export const globalTypes = {
 	},
 };
 
-// export const decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
-
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
+addDecorator(SuspenseDecorator); // последовательность декораторов играет роль
 addDecorator(I18nextDecorator);
+
+// альтернативная запись:
+// export const decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ...];

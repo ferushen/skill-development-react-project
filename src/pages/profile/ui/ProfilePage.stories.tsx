@@ -6,6 +6,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Currency } from 'entities/currency';
 import { Country } from 'entities/country';
 import avatar from 'shared/assets/tests/avatar.jpeg';
+import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator';
 
 const data = {
 	id: '1',
@@ -26,6 +27,7 @@ export default {
 		backgroundColor: { control: 'color' },
 	},
 	decorators: [
+		SuspenseDecorator,
 		StoreDecorator({
 			profile: {
 				data,
@@ -37,7 +39,7 @@ export default {
 					id: '1'
 				}
 			}
-		})
+		}),
 	],
 	parameters: {
 		router: {

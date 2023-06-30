@@ -25,7 +25,7 @@ export default {
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
-const article: Article = {
+const articleMock: Article = {
 	id: '1',
 	title: 'Javascript news',
 	subtitle: 'Что нового в JS за 2022 год?',
@@ -103,14 +103,14 @@ const article: Article = {
 export const Readonly = Template.bind({});
 Readonly.decorators = [StoreDecorator({
 	articleDetails: {
-		data: article
+		data: articleMock
 	}
 })];
 
 export const Editable = Template.bind({});
 Editable.decorators = [StoreDecorator({
 	articleDetails: {
-		data: article
+		data: articleMock
 	},
 	user: {
 		authData: {
@@ -139,7 +139,7 @@ DarkReadonly.decorators = [
 	ThemeDecorator(Theme.DARK),
 	StoreDecorator({
 		articleDetails: {
-			data: article
+			data: articleMock
 		}
 	})
 ];
@@ -150,7 +150,7 @@ DarkEditable.decorators = [
 	ThemeDecorator(Theme.DARK),
 	StoreDecorator({
 		articleDetails: {
-			data: article
+			data: articleMock
 		},
 		user: {
 			authData: {

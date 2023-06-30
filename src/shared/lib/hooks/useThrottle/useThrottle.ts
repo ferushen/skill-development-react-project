@@ -9,7 +9,7 @@ export function useThrottle(callback: (...args: any[]) => void, delay: number) {
 	}, []);
 
 	return useCallback(
-		(...args) => {
+		(...args: any[]) => {
 			if (!throttleRef.current) {
 				callback(...args);
 				throttleRef.current = true;
