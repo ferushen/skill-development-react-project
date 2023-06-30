@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/consts';
 
 import { Card } from 'shared/ui/card/Card';
 import { Skeleton } from 'shared/ui/skeleton/Skeleton';

@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Country } from '../../model/types/country';
+import { Country } from '../../model/consts/country';
 
 import { ListBox } from 'shared/ui/listBox/ListBox';
 

@@ -9,6 +9,7 @@
 		"allowSyntheticDefaultImports": true,
 		"jsx": "react-jsx",
 		"allowJs": true,
+		"isolatedModules": true,
 
 		// неявное использование any
 		"noImplicitAny": true,

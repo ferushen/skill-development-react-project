@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import { ValidateProfileError } from '../../model/types/editableProfileCard';
+import { ValidateProfileError } from '../../model/consts/consts';
 import { selectProfileForm } from '../../model/selectors/selectProfileForm/selectProfileForm';
 import { selectProfileIsLoading } from '../../model/selectors/selectProfileIsLoading/selectProfileIsLoading';
 import { selectProfileReadonly } from '../../model/selectors/selectProfileReadonly/selectProfileReadonly';

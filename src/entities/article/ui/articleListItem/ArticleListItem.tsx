@@ -4,7 +4,8 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 
 import { AppLink } from 'shared/ui/appLink/AppLink';
 import { ArticleTextBlockComponent } from '../articleTextBlockComponent/ArticleTextBlockComponent';
