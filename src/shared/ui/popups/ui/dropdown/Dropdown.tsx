@@ -4,9 +4,9 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 import type { DropdownDirection } from 'shared/types/ui';
 
 import { Menu } from '@headlessui/react'
-import { AppLink } from '../appLink/AppLink';
-import { Button, ButtonVariant } from '../button/Button';
-import { HStack } from '../stack';
+import { AppLink } from 'shared/ui/appLink/AppLink';
+import { Button, ButtonVariant } from 'shared/ui/button/Button';
+import { HStack } from 'shared/ui/stack';
 
 import cls from './Dropdown.module.scss';
 
@@ -36,7 +36,7 @@ interface DropdownItem {
 interface DropdownProps {
 	className?: string;
 	items: DropdownItem[];
-	trigger?: ReactNode;
+	trigger: ReactNode;
 	direction?: DropdownDirection;
 	optionsWidth?: DropdownOptionsWidth;
 	indent?: DropdownIndent;

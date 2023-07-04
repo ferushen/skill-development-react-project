@@ -5,8 +5,8 @@ import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 import type { DropdownDirection } from 'shared/types/ui';
 
 import { Listbox as HListBox } from '@headlessui/react'
-import { HStack, VStack } from '../stack';
-import { Button, ButtonSize, ButtonVariant } from '../button/Button';
+import { HStack, VStack } from 'shared/ui/stack';
+import { Button, ButtonSize, ButtonVariant } from 'shared/ui/button/Button';
 
 import cls from './ListBox.module.scss';
 
@@ -40,7 +40,7 @@ export interface ListBoxOption<T extends string = string> {
 	disabled?: boolean;
 }
 
-interface ListBoxProps<T extends string> {
+interface ListBoxProps<T extends string = string> {
 	className?: string;
 	variant?: ListBoxVariant;
 	direction?: DropdownDirection;

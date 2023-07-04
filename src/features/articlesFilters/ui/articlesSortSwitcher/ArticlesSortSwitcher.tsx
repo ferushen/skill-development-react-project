@@ -5,7 +5,7 @@ import type { SortOrder } from 'shared/types/sortOrder';
 
 import { ArticleSortField, OrderOptions, SortOptions } from '../../model/types/articlesFilters';
 
-import { ListBox } from 'shared/ui/listBox/ListBox';
+import { ListBox } from 'shared/ui/popups';
 import { HStack } from 'shared/ui/stack';
 
 import cls from './ArticlesSortSwitcher.module.scss';

@@ -6,15 +6,15 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { isUserAdmin, isUserModerator, selectUserAuthData, userActions } from 'entities/user';
+import { selectUserAuthData } from 'entities/user';
 
 import { LoginModal } from 'features/authByUsername';
+import { AvatarDropdown } from 'features/avatarDropdown';
+import { NotificationButton } from 'features/notificationButton';
 import { AppLink, AppLinkVariant } from 'shared/ui/appLink/AppLink';
-import { Avatar } from 'shared/ui/avatar/Avatar';
 import { BugButton } from 'app/providers/errorBoundary';
 import { Button } from 'shared/ui/button/Button';
 import { ButtonVariant } from 'shared/ui/button/Button';
-import { Dropdown } from 'shared/ui/dropdown/Dropdown';
 import { HStack } from 'shared/ui/stack';
 import { Text, TextVariant } from 'shared/ui/text/Text';
 
@@ -30,8 +30,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
 	const [isAuthModal, setIsAuthModal] = useState(false);
 	const authData = useSelector(selectUserAuthData);
-	const isAdmin = useSelector(isUserAdmin);
-	const isModerator = useSelector(isUserModerator);
 
 	const onCloseModal = useCallback(() => {
 		setIsAuthModal(false);
@@ -40,12 +38,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	const onShowModal = useCallback(() => {
 		setIsAuthModal(true);
 	}, []);
-
-	const onLogout = useCallback(() => {
-		dispatch(userActions.logout());
-	}, [dispatch]);
-
-	const isAdminPanelAvailable = isAdmin || isModerator;
 
 	return (
 		<header>
@@ -70,25 +62,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 								>
 									{t('create_article')}
 								</AppLink>
-								<Dropdown
-									optionsWidth={160}
-									indent='m'
-									items={[
-										...(isAdminPanelAvailable ? [{
-											content: t('admin_panel'),
-											href: RoutePath['admin-panel']
-										}] : []),
-										{
-											content: t('profile'),
-											href: RoutePath.profile + authData.id
-										},
-										{
-											content: t('logout'),
-											handleClick: onLogout
-										},
-									]}
-									trigger={<Avatar size={30} src={authData.avatar} />}
-								/>
+								<NotificationButton />
+								<AvatarDropdown />
 							</>
 						)
 						: (

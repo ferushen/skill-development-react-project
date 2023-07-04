@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/themeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Button } from '../button/Button';
+import { Button } from '../../../button/Button';
 import { Dropdown } from './Dropdown';
 
 export default {
