@@ -5,7 +5,6 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { selectUserAuthData } from 'entities/user';
 
 import { LoginModal } from 'features/authByUsername';
@@ -26,7 +25,6 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
 	const { t } = useTranslation();
-	const dispatch = useAppDispatch();
 
 	const [isAuthModal, setIsAuthModal] = useState(false);
 	const authData = useSelector(selectUserAuthData);

@@ -1,4 +1,5 @@
-import { memo } from 'react';
+import { memo, useCallback, useState } from 'react';
+import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
 
 import { NotificationList } from 'entities/notification';
 import { Button, ButtonVariant } from 'shared/ui/button/Button';
@@ -6,6 +7,7 @@ import { Icon } from 'shared/ui/icon/Icon';
 import { Popover } from 'shared/ui/popups';
 
 import NotificationIcon from 'shared/assets/icons/notification-20-20.svg'
+import { Drawer } from 'shared/ui/drawer/Drawer';
 
 interface NotificationButtonProps {
 	className?: string;
@@ -13,22 +15,51 @@ interface NotificationButtonProps {
 
 export const NotificationButton = memo((props: NotificationButtonProps) => {
 	const { className } = props;
+	const [isOpen, setIsOpen] = useState(false);
+
+	const isMobile = useDevice();
+
+	const onOpenDrawer = useCallback(() => {
+		setIsOpen(true);
+	}, []);
+
+	const onCloseDrawer = useCallback(() => {
+		setIsOpen(false);
+	}, []);
+
+	const trigger = (
+		<Button
+			variant={ButtonVariant.Clear}
+			format='square'
+			onClick={onOpenDrawer}
+		>
+			<Icon
+				variant='inverted'
+				Svg={NotificationIcon}
+			/>
+		</Button>
+	);
+
+	if (isMobile) {
+		return (
+			<>
+				{trigger}
+				<Drawer
+					className={className}
+					isOpen={isOpen}
+					onClose={onCloseDrawer}
+				>
+					<NotificationList />
+				</Drawer>
+			</>
+		);
+	}
 
 	return (
 		<Popover
 			className={className}
 			direction='bottom left'
-			trigger={(
-				<Button
-					variant={ButtonVariant.Clear}
-					format='square'
-				>
-					<Icon
-						variant='inverted'
-						Svg={NotificationIcon}
-					/>
-				</Button>
-			)}
+			trigger={trigger}
 		>
 			<NotificationList />
 		</Popover>
