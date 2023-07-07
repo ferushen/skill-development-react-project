@@ -1,7 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
@@ -47,10 +46,10 @@ export const ArticleDetailsHeader = memo((props: ArticleDetailsHeaderProps) => {
 		return (
 			<HStack
 				className={className}
-				justify={'start'}
-				width={'max'}
+				justify='start'
+				width='max'
 			>
-				<Skeleton width={160} height={36} border={'6px'} />
+				<Skeleton width={160} height={36} border='6px' />
 			</HStack>
 		);
 	}

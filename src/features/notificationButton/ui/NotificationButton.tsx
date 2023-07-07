@@ -3,11 +3,13 @@ import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
 
 import { NotificationList } from 'entities/notification';
 import { Button, ButtonVariant } from 'shared/ui/button/Button';
+import { Drawer } from 'shared/ui/drawer/Drawer';
 import { Icon } from 'shared/ui/icon/Icon';
 import { Popover } from 'shared/ui/popups';
 
-import NotificationIcon from 'shared/assets/icons/notification-20-20.svg'
-import { Drawer } from 'shared/ui/drawer/Drawer';
+import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
+
+import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
 	className?: string;
@@ -49,7 +51,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 					isOpen={isOpen}
 					onClose={onCloseDrawer}
 				>
-					<NotificationList />
+					<NotificationList className={cls.notifications_mobile} />
 				</Drawer>
 			</>
 		);

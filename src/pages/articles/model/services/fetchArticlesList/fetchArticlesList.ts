@@ -2,15 +2,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/storeProvider';
 import { Article, ArticleType } from 'entities/article';
 import {
-	getArticlesFiltersOrder,
-	getArticlesFiltersSearch,
-	getArticlesFiltersSort,
-	getArticlesFiltersTabType,
+	selectArticlesFiltersOrder,
+	selectArticlesFiltersSearch,
+	selectArticlesFiltersSort,
+	selectArticlesFiltersTabType,
 } from 'features/articlesFilters';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 import {
-	getArticlesPageLimit,
-	getArticlesPageNum,
+	selectArticlesPageLimit,
+	selectArticlesPageNum,
 } from '../../selectors/articlesPageSelectors';
 
 interface fetchArticlesListArgs {
@@ -24,13 +24,13 @@ export const fetchArticlesList = createAsyncThunk<
 >('articles/fetchArticlesList', async (args, thunkAPI) => {
 	const { extra, rejectWithValue, getState } = thunkAPI;
 
-	const limit = getArticlesPageLimit(getState());
-	const page = getArticlesPageNum(getState());
+	const limit = selectArticlesPageLimit(getState());
+	const page = selectArticlesPageNum(getState());
 
-	const order = getArticlesFiltersOrder(getState());
-	const search = getArticlesFiltersSearch(getState());
-	const sort = getArticlesFiltersSort(getState());
-	const type = getArticlesFiltersTabType(getState());
+	const order = selectArticlesFiltersOrder(getState());
+	const search = selectArticlesFiltersSearch(getState());
+	const sort = selectArticlesFiltersSort(getState());
+	const type = selectArticlesFiltersTabType(getState());
 
 	try {
 		addQueryParams({

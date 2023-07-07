@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { ForwardedRef, forwardRef, memo, ReactNode } from 'react';
 import { LinkProps, Link } from 'react-router-dom';
 

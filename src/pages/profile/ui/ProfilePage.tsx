@@ -17,7 +17,7 @@ const ProfilePage = (props: ProfilePageProps) => {
 	const { id } = useParams<{ id: string }>();
 
 	if (!id) {
-		return <Text title={t('profile_not_found')} />
+		return <Text title={t('profile_not_found')} />;
 	}
 
 	return (

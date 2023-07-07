@@ -22,7 +22,7 @@ export function RequireRole({ children, roles }: RequireRoleProps) {
 		return roles.some(role => {
 			const hasRole = userRoles?.includes(role);
 			return hasRole;
-		})
+		});
 	}, [roles, userRoles]);
 
 	if (!hasRequiredRoles) {

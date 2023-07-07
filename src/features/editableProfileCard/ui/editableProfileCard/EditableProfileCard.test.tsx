@@ -40,7 +40,7 @@ const options = {
 describe('features/EditableProfileCard', () => {
 	beforeEach(() => {
 		componentRender(<EditableProfileCard id='1' />, options);
-	})
+	});
 
 	test('should change from read-only mode to editable mode by clicking edit-button', async () => {
 		await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));

@@ -42,7 +42,7 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
 	// TODO: пересмотреть css-классы
 
 	return (
-		<HStack className={className} justify={'end'} gap={8} width={'max'}>
+		<HStack className={className} justify='end' gap={8} width='max'>
 			{canEdit && (
 				<HStack gap={16} >
 					{readonly

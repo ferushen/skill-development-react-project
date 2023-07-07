@@ -6,7 +6,7 @@ import { articlesFiltersActions } from 'features/articlesFilters';
 import { ArticleSortField } from 'features/articlesFilters';
 import { SortOrder } from 'shared/types/sortOrder';
 
-import { getArticlesPageInited } from '../../selectors/articlesPageSelectors';
+import { selectArticlesPageInited } from '../../selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../slices/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
@@ -17,7 +17,7 @@ export const initArticlesPage = createAsyncThunk<
 >('articles/initArticlesPage', async (searchParams, thunkAPI) => {
 	const { getState, dispatch } = thunkAPI;
 
-	const inited = getArticlesPageInited(getState());
+	const inited = selectArticlesPageInited(getState());
 
 	if (!inited) {
 		searchParams.forEach((value, param) => {

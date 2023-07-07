@@ -72,11 +72,11 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 	return (
 		<VStack
 			className={cn(cls.container, {}, [className])}
-			align={'start'}
+			align='start'
 			gap={8}
-			width={'max'}
+			width='max'
 		>
-			<HStack justify={'between'} gap={16} width={'max'}>
+			<HStack justify='between' gap={16} width='max'>
 				<ArticlesSortSwitcher
 					order={order}
 					sort={sort}

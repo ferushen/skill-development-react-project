@@ -36,13 +36,12 @@ export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => ({
 					},
 				],
 				'@babel/plugin-transform-runtime',
-				isTsx &&
-					!isDev && [
-						babelRemovePropsPlugin,
-						{
-							props: ['data-testid'],
-						},
-					],
+				isTsx && !isDev && [
+					babelRemovePropsPlugin,
+					{
+						props: ['data-testid'],
+					},
+				],
 				isDev && 'react-refresh/babel',
 			].filter(Boolean),
 		},

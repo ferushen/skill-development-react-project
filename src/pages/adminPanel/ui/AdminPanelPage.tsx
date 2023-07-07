@@ -1,6 +1,5 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import cls from './AdminPanelPage.module.scss';
 
@@ -10,12 +9,9 @@ interface AdminPanelPageProps {
 
 const AdminPanelPage = (props: AdminPanelPageProps) => {
 	const { className } = props;
-	const { t } = useTranslation();
-
-	const mods: Mods = {};
 
 	return (
-		<div className={cn(cls.adminPanelPage, mods, [className])}>
+		<div className={cn(cls.adminPanelPage, {}, [className])}>
 			{ /* eslint-disable-next-line */}
 			{'AdminPanelPage'}
 		</div>

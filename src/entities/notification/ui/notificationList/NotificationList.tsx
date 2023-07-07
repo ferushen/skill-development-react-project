@@ -1,8 +1,7 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
-import { useNotifications } from 'entities/notification/api/notificationApi';
+import { useNotifications } from '../../api/notificationApi';
 
 import { NotificationItem } from '../notificationItem/NotificationItem';
 import { Skeleton } from 'shared/ui/skeleton/Skeleton';
@@ -16,7 +15,6 @@ interface NotificationListProps {
 
 export const NotificationList = memo((props: NotificationListProps) => {
 	const { className } = props;
-	const { t } = useTranslation();
 
 	const { data, isLoading } = useNotifications(null, {
 		pollingInterval: 5000,

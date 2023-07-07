@@ -15,7 +15,7 @@ export default {
 	],
 	args: {
 		// eslint-disable-next-line i18next/no-literal-string
-		children: <Text title={`Card's title`} text='some text' />
+		children: <Text title='Card title' text='some text' />
 	}
 } as ComponentMeta<typeof Card>;
 

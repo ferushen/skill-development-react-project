@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
-import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import { selectAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 
 import { Button } from 'shared/ui/button/Button';
 import { Input, InputVariant } from 'shared/ui/input/Input';
@@ -28,10 +28,10 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 	const { t } = useTranslation();
 
 	const dispatch = useAppDispatch();
-	const text = useSelector(getAddCommentFormText);
+	const text = useSelector(selectAddCommentFormText);
 
 	// TODO: реализовать валидацию комментария
-	const error = useSelector(getAddCommentFormError);
+	// const error = useSelector(selectAddCommentFormError);
 
 	const onCommentTextChange = useCallback((value: string) => {
 		dispatch(addCommentFormActions.setText(value));
@@ -48,9 +48,9 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 		<DynamicModuleLoader reducers={reducers}>
 			<HStack
 				className={cn(cls.wrapper, {}, [className])}
-				justify={'between'}
+				justify='between'
 				gap={12}
-				width={'max'}
+				width='max'
 			>
 				<Input
 					classNameWrapper={cls.inputWrapper}

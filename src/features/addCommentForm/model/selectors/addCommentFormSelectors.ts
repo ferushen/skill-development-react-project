@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/storeProvider';
 
-export const getAddCommentFormText = (state: StateSchema) =>
+export const selectAddCommentFormText = (state: StateSchema) =>
 	state.addCommentForm?.text ?? '';
 
-export const getAddCommentFormError = (state: StateSchema) =>
+export const selectAddCommentFormError = (state: StateSchema) =>
 	state.addCommentForm?.error;

@@ -22,8 +22,8 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 	const { t } = useTranslation();
 
 	const options = useMemo(() => {
-		return Object.entries(Country).map((val) => ({ value: val[0] as Country, content: t(val[1]) }))
-	}, []);
+		return Object.entries(Country).map((val) => ({ value: val[0] as Country, content: t(val[1]) }));
+	}, [t]);
 
 	const changeHandler = useCallback((value: Country) => {
 		onChange?.(value);

@@ -1,17 +1,17 @@
 import { StateSchema } from 'app/providers/storeProvider';
 import { ArticleView } from 'entities/article';
 
-export const getArticlesPageIsLoading = (state: StateSchema) =>
+export const selectArticlesPageIsLoading = (state: StateSchema) =>
 	state.articlesPage?.isLoading || false;
-export const getArticlesPageError = (state: StateSchema) =>
+export const selectArticlesPageError = (state: StateSchema) =>
 	state.articlesPage?.error;
-export const getArticlesPageView = (state: StateSchema) =>
+export const selectArticlesPageView = (state: StateSchema) =>
 	state.articlesPage?.view || ArticleView.List;
-export const getArticlesPageNum = (state: StateSchema) =>
+export const selectArticlesPageNum = (state: StateSchema) =>
 	state.articlesPage?.page || 1;
-export const getArticlesPageLimit = (state: StateSchema) =>
+export const selectArticlesPageLimit = (state: StateSchema) =>
 	state.articlesPage?.limit || 9;
-export const getArticlesPageHasMore = (state: StateSchema) =>
+export const selectArticlesPageHasMore = (state: StateSchema) =>
 	state.articlesPage?.hasMore;
-export const getArticlesPageInited = (state: StateSchema) =>
+export const selectArticlesPageInited = (state: StateSchema) =>
 	state.articlesPage?._inited;

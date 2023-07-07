@@ -3,7 +3,7 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 
 import type { DropdownDirection } from 'shared/types/ui';
 
-import { Menu } from '@headlessui/react'
+import { Menu } from '@headlessui/react';
 import { AppLink } from 'shared/ui/appLink/AppLink';
 import { Button, ButtonVariant } from 'shared/ui/button/Button';
 import { HStack } from 'shared/ui/stack';

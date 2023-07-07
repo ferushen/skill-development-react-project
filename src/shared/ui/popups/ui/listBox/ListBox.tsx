@@ -4,7 +4,7 @@ import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 
 import type { DropdownDirection } from 'shared/types/ui';
 
-import { Listbox as HListBox } from '@headlessui/react'
+import { Listbox as HListBox } from '@headlessui/react';
 import { HStack, VStack } from 'shared/ui/stack';
 import { Button, ButtonSize, ButtonVariant } from 'shared/ui/button/Button';
 
@@ -109,7 +109,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 				value={value}
 				onChange={onChange}
 			>
-				<HListBox.Button as={'div'}>
+				<HListBox.Button as='div'>
 					<Button
 						className={cn(cls.btn, buttonMods, [])}
 						variant={readonly ? ButtonVariant.Clear : buttonVariant}
@@ -152,5 +152,5 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 				</HListBox.Options>
 			</HListBox>
 		</HStack>
-	)
+	);
 });

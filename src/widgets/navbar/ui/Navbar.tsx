@@ -47,7 +47,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 				<Text
 					className={cls.appName}
 					variant={TextVariant.Inverted}
-					title={'🍺' + t('ferushen_app')}
+					title={`🍺${t('ferushen_app')}`}
 				/>
 				<HStack justify={'end'} gap={30}>
 					<BugButton />

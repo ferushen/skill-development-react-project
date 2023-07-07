@@ -48,14 +48,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 		return (
 			<div className={cn('', {}, [className, cls[view]])}>
 				<Card size='large'>
-					<VStack justify={'start'} gap={8}>
-						<HStack justify={'between'} width={'max'}>
+					<VStack justify='start' gap={8}>
+						<HStack justify='between' width='max'>
 							<div className={cls.titleWrapper}>
 								<Text className={cls.title} title={article.title} />
 								{types}
 							</div>
-							<VStack justify={'start'} gap={4} className={cls.infoWrapper}>
-								<HStack justify={'start'} gap={8}>
+							<VStack justify='start' gap={4} className={cls.infoWrapper}>
+								<HStack justify='start' gap={8}>
 									<Avatar size={30} src={article.user.avatar} />
 									<Text className={cls.username} text={article.user.username} />
 								</HStack>
@@ -66,7 +66,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 						{textBlock && (
 							<ArticleTextBlockComponent className={cls.textBlock} block={textBlock} />
 						)}
-						<HStack justify={'between'} gap={8} width={'max'}>
+						<HStack justify='between' gap={8} width='max'>
 							<AppLink
 								to={RoutePath['article-details'] + article.id}
 								target={target}
@@ -90,12 +90,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 			target={target}
 		>
 			<Card size='large'>
-				<VStack justify={'start'} gap={8}>
+				<VStack justify='start' gap={8}>
 					<div className={cls.imgWrapper}>
 						<img className={cls.img} src={article.img} alt={article.title} />
 						<Text className={cls.date} text={article.createdAt} />
 					</div>
-					<HStack justify={'between'} gap={8}>
+					<HStack justify='between' gap={8}>
 						{types}
 						{views}
 					</HStack>

@@ -17,7 +17,7 @@ const articlesAdapter = createEntityAdapter<Article>({
 	selectId: (article) => article.id,
 });
 
-export const getArticles = articlesAdapter.getSelectors<StateSchema>(
+export const selectArticles = articlesAdapter.getSelectors<StateSchema>(
 	(state) => state.articlesPage || articlesAdapter.getInitialState()
 );
 

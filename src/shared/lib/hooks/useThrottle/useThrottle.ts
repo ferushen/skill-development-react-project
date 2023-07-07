@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { MutableRefObject, useCallback, useEffect, useRef } from 'react';
 
 export function useThrottle(callback: (...args: any[]) => void, delay: number) {

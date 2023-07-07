@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/button/Button';
 import { Dropdown, ListBox, ListBoxOption, Popover } from 'shared/ui/popups';

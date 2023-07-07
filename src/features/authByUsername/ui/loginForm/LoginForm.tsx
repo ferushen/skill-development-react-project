@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 
@@ -53,6 +53,21 @@ const LoginForm = memo((props: LoginFormProps) => {
 			onSuccess();
 		}
 	}, [dispatch, password, username, onSuccess]);
+
+	useEffect(() => {
+		const handleClickLogin = (e: KeyboardEvent) => {
+			if (e.key === 'Enter') {
+				onLoginClick();
+			}
+		};
+
+		window.addEventListener('keydown', handleClickLogin);
+
+		return () => {
+			// очищаем прослушку на кнопки
+			window.removeEventListener('keydown', handleClickLogin);
+		};
+	}, [onLoginClick]);
 
 	// TODO: переделать дизайн инпутов
 
