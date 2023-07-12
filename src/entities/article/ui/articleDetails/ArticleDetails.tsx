@@ -1,14 +1,14 @@
 import { memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { ArticleBlock } from '../../model/types/article';
 import { ArticleBlockType } from '../../model/consts/consts';
 
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
@@ -20,13 +20,13 @@ import {
 import { ArticleCodeBlockComponent } from '../articleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../articleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../articleTextBlockComponent/ArticleTextBlockComponent';
-import { Icon } from 'shared/ui/icon/Icon';
-import { HStack, VStack } from 'shared/ui/stack';
-import { Skeleton } from 'shared/ui/skeleton/Skeleton';
-import { Text, TextAlign, TextSize, TextVariant } from 'shared/ui/text/Text';
+import { Icon } from '@/shared/ui/icon/Icon';
+import { HStack, VStack } from '@/shared/ui/stack';
+import { Skeleton } from '@/shared/ui/skeleton/Skeleton';
+import { Text, TextAlign, TextSize, TextVariant } from '@/shared/ui/text/Text';
 
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 
 import cls from './ArticleDetails.module.scss';
 

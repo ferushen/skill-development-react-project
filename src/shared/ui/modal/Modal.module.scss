@@ -11,7 +11,7 @@
 }
 
 .content {
-	z-index: 100;
+	z-index: var(--modal-z-index);
 	padding: 20px;
 
 	background-color: var(--bg-color);

@@ -1,12 +1,12 @@
 import { Fragment, memo, ReactNode } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import type { DropdownDirection } from 'shared/types/ui';
+import type { DropdownDirection } from '@/shared/types/ui';
 
 import { Menu } from '@headlessui/react';
-import { AppLink } from 'shared/ui/appLink/AppLink';
-import { Button, ButtonVariant } from 'shared/ui/button/Button';
-import { HStack } from 'shared/ui/stack';
+import { AppLink } from '@/shared/ui/appLink/AppLink';
+import { Button, ButtonVariant } from '@/shared/ui/button/Button';
+import { HStack } from '@/shared/ui/stack';
 
 import cls from './Dropdown.module.scss';
 

@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/themeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/themeProvider';
 import { ArticleRecommendationList } from './ArticleRecommendationList';
-import { Article } from 'entities/article';
-import { ArticleBlockType, ArticleType } from 'entities/article';
+import { Article } from '@/entities/article';
+import { ArticleBlockType, ArticleType } from '@/entities/article';
 /*import withMock from 'storybook-addon-mock';*/
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 // TODO: разобраться как мокать данные от RTK query
 

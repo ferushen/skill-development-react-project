@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import type { ArticleCodeBlock } from '../../model/types/article';
 
-import { Code } from 'shared/ui/code/Code';
+import { Code } from '@/shared/ui/code/Code';
 
 import cls from './ArticleCodeBlockComponent.module.scss';
 

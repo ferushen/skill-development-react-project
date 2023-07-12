@@ -1,12 +1,12 @@
 import { Fragment, ReactNode } from 'react';
-import { typedMemo } from 'shared/lib/utils/typedMemo/typedMemo';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { typedMemo } from '@/shared/lib/utils/typedMemo/typedMemo';
+import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
-import type { DropdownDirection } from 'shared/types/ui';
+import type { DropdownDirection } from '@/shared/types/ui';
 
 import { Listbox as HListBox } from '@headlessui/react';
-import { HStack, VStack } from 'shared/ui/stack';
-import { Button, ButtonSize, ButtonVariant } from 'shared/ui/button/Button';
+import { HStack, VStack } from '@/shared/ui/stack';
+import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/button/Button';
 
 import cls from './ListBox.module.scss';
 

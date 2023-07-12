@@ -1,16 +1,16 @@
 import { RouteProps } from 'react-router-dom';
 
-import { MainPage } from 'pages/main';
-import { AboutPage } from 'pages/about';
-import { NotFoundPage } from 'pages/notFoundPage';
-import { ProfilePage } from 'pages/profile';
-import { ArticlesPage } from 'pages/articles';
-import { ArticleDetailsPage } from 'pages/articleDetails';
-import { ArticleEditPage } from 'pages/articleEditPage';
-import { AdminPanelPage } from 'pages/adminPanel';
-import { ForbiddenPage } from 'pages/Forbidden';
+import { MainPage } from '@/pages/main';
+import { AboutPage } from '@/pages/about';
+import { NotFoundPage } from '@/pages/notFoundPage';
+import { ProfilePage } from '@/pages/profile';
+import { ArticlesPage } from '@/pages/articles';
+import { ArticleDetailsPage } from '@/pages/articleDetails';
+import { ArticleEditPage } from '@/pages/articleEditPage';
+import { AdminPanelPage } from '@/pages/adminPanel';
+import { ForbiddenPage } from '@/pages/Forbidden';
 
-import { UserRole } from 'entities/user';
+import { UserRole } from '@/entities/user';
 
 export type AppRoutesProps = RouteProps & {
 	authOnly?: boolean;

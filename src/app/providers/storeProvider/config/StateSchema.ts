@@ -6,17 +6,17 @@ import {
 	Reducer,
 	ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { CounterSchema } from 'entities/counter';
-import { ProfileSchema } from 'features/editableProfileCard';
-import { UserSchema } from 'entities/user';
-import { LoginSchema } from 'features/authByUsername';
-import { ArticleDetailsSchema } from 'entities/article';
-import { ArticleDetailsPageSchema } from 'pages/articleDetails';
-import { AddCommentFormSchema } from 'features/addCommentForm';
-import { ArticlesPageSchema } from 'pages/articles';
-import { ScrollSaverSchema } from 'features/scrollSaver';
-import { ArticlesFiltersSchema } from 'features/articlesFilters';
-import { rtkApi } from 'shared/api/rtkApi';
+import { CounterSchema } from '@/entities/counter';
+import { ProfileSchema } from '@/features/editableProfileCard';
+import { UserSchema } from '@/entities/user';
+import { LoginSchema } from '@/features/authByUsername';
+import { ArticleDetailsSchema } from '@/entities/article';
+import { ArticleDetailsPageSchema } from '@/pages/articleDetails';
+import { AddCommentFormSchema } from '@/features/addCommentForm';
+import { ArticlesPageSchema } from '@/pages/articles';
+import { ScrollSaverSchema } from '@/features/scrollSaver';
+import { ArticlesFiltersSchema } from '@/features/articlesFilters';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
 	counter: CounterSchema;

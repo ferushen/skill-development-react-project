@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/storeProvider';
-import { ArticleType } from 'entities/article';
+import { StateSchema } from '@/app/providers/storeProvider';
+import { ArticleType } from '@/entities/article';
 import { ArticleSortField } from '../types/articlesFilters';
 
 export const selectArticlesFiltersOrder = (state: StateSchema) =>

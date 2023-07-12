@@ -2,7 +2,7 @@
 import { ForwardedRef, forwardRef, memo, ReactNode } from 'react';
 import { LinkProps, Link } from 'react-router-dom';
 
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import cls from './AppLink.module.scss';
 

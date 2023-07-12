@@ -1,11 +1,11 @@
 import { ReactNode, memo, useCallback, useEffect } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { useTheme } from 'app/providers/themeProvider';
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
+import { useTheme } from '@/app/providers/themeProvider';
+import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 
-import { Overlay } from 'shared/ui/overlay/Overlay';
-import { Portal } from 'shared/ui/portal/Portal';
+import { Overlay } from '@/shared/ui/overlay/Overlay';
+import { Portal } from '@/shared/ui/portal/Portal';
 
 import cls from './Drawer.module.scss';
 
@@ -104,7 +104,9 @@ export const DrawerContent = memo((props: DrawerProps) => {
 		<Portal>
 			<div className={cn(cls.drawer, {}, [className, theme, 'app_drawer'])}>
 				<Spring.a.div style={overlayStyle}>
-					<Overlay onClick={closeOnOverlayClick ? () => closeDrawer() : undefined} />
+					<Overlay
+						onClick={closeOnOverlayClick ? () => closeDrawer() : undefined}
+					/>
 				</Spring.a.div>
 				<Spring.a.div
 					className={cls.content}

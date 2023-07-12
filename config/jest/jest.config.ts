@@ -24,6 +24,7 @@ export default {
 		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
 		'\\.png': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
 		axios: 'axios/dist/node/axios.cjs',
+		'^@/(.*)$': '<rootDir>/src/$1',
 	},
 	modulePaths: ['<rootDir>src'],
 	reporters: [

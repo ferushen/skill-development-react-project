@@ -2,17 +2,17 @@ import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 import { useSelector } from 'react-redux';
 import { selectCanEditArticle } from '../../model/selectors/article';
-import { selectArticleDetailsData } from 'entities/article';
-import { selectArticleDetailsIsLoading } from 'entities/article/model/selectors/articleDetails';
+import { selectArticleDetailsData } from '@/entities/article';
+import { selectArticleDetailsIsLoading } from '@/entities/article/model/selectors/articleDetails';
 // import { selectUserAuthData } from 'entities/user';
 
-import { Button, ButtonVariant } from 'shared/ui/button/Button';
-import { Skeleton } from 'shared/ui/skeleton/Skeleton';
-import { HStack } from 'shared/ui/stack';
+import { Button, ButtonVariant } from '@/shared/ui/button/Button';
+import { Skeleton } from '@/shared/ui/skeleton/Skeleton';
+import { HStack } from '@/shared/ui/stack';
 
 interface ArticleDetailsHeaderProps {
 	className?: string;

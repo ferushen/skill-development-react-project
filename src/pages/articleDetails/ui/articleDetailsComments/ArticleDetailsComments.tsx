@@ -1,18 +1,18 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 
 import { selectArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { selectArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-import { CommentList } from 'entities/comment';
-import { AddCommentForm } from 'features/addCommentForm';
-import { Text, TextSize } from 'shared/ui/text/Text';
-import { VStack } from 'shared/ui/stack';
+import { CommentList } from '@/entities/comment';
+import { AddCommentForm } from '@/features/addCommentForm';
+import { Text, TextSize } from '@/shared/ui/text/Text';
+import { VStack } from '@/shared/ui/stack';
 
 interface ArticleDetailsCommentsProps {
 	className?: string;

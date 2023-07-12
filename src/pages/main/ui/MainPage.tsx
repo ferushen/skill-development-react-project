@@ -1,11 +1,11 @@
 /* eslint-disable */
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/button/Button';
-import { Dropdown, ListBox, ListBoxOption, Popover } from 'shared/ui/popups';
-import { Page } from 'widgets/page/Page';
+import { Button } from '@/shared/ui/button/Button';
+import { Dropdown, ListBox, ListBoxOption, Popover } from '@/shared/ui/popups';
+import { Page } from '@/widgets/page/Page';
 
 import cls from './MainPage.module.scss';
-import { VStack } from 'shared/ui/stack';
+import { VStack } from '@/shared/ui/stack';
 
 const MainPage = () => {
 	const { t } = useTranslation('main');

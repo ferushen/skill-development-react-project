@@ -1,5 +1,5 @@
 import { CSSProperties, memo, useMemo } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import EmptyAvatar from './visitor-512-512.png';
 import cls from './Avatar.module.scss';

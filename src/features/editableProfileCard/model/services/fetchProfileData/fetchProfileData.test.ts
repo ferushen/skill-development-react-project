@@ -1,7 +1,7 @@
 import { fetchProfileData } from './fetchProfileData';
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
-import { Currency } from 'entities/currency';
-import { Country } from 'entities/country';
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk';
+import { Currency } from '@/entities/currency';
+import { Country } from '@/entities/country';
 
 const data = {
 	firstname: 'Николай',

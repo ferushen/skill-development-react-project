@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTranslation } from 'react-i18next';
 
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { ValidateProfileError } from '../../model/consts/consts';
 import { selectProfileForm } from '../../model/selectors/selectProfileForm/selectProfileForm';
@@ -15,11 +15,11 @@ import { selectProfileValidateErrors } from '../../model/selectors/selectProfile
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 
 import { EditableProfileCardHeader } from '../editableProfileCardHeader/EditableProfileCardHeader';
-import { Country } from 'entities/country';
-import { Currency } from 'entities/currency';
-import { ProfileCard } from 'entities/profile';
-import { Text, TextVariant } from 'shared/ui/text/Text';
-import { VStack } from 'shared/ui/stack';
+import { Country } from '@/entities/country';
+import { Currency } from '@/entities/currency';
+import { ProfileCard } from '@/entities/profile';
+import { Text, TextVariant } from '@/shared/ui/text/Text';
+import { VStack } from '@/shared/ui/stack';
 
 const reducers: ReducersList = {
 	profile: profileReducer

@@ -1,13 +1,13 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import type { SortOrder } from 'shared/types/sortOrder';
-import { ArticleType, ArticleView } from 'entities/article';
+import type { SortOrder } from '@/shared/types/sortOrder';
+import { ArticleType, ArticleView } from '@/entities/article';
 import { ArticleSortField } from '../../model/types/articlesFilters';
 
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { articlesFiltersActions } from '../../model/slice/articlesFiltersSlice';
 import {
 	selectArticlesFiltersOrder,
@@ -20,8 +20,8 @@ import {
 import { ArticleTypeTabs } from '../articleTypeTabs/ArticleTypeTabs';
 import { ArticlesSortSwitcher } from '../articlesSortSwitcher/ArticlesSortSwitcher';
 import { ArticlesViewSwitcher } from '../articlesViewSwitcher/ArticlesViewSwitcher';
-import { Input, InputVariant } from 'shared/ui/input/Input';
-import { HStack, VStack } from 'shared/ui/stack';
+import { Input, InputVariant } from '@/shared/ui/input/Input';
+import { HStack, VStack } from '@/shared/ui/stack';
 
 import cls from './ArticlesPageFilters.module.scss';
 

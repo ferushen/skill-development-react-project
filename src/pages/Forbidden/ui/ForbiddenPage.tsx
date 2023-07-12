@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import cls from './ForbiddenPage.module.scss';
 

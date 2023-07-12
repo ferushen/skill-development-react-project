@@ -1,22 +1,22 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 
-import { AppLink } from 'shared/ui/appLink/AppLink';
+import { AppLink } from '@/shared/ui/appLink/AppLink';
 import { ArticleTextBlockComponent } from '../articleTextBlockComponent/ArticleTextBlockComponent';
-import { Avatar } from 'shared/ui/avatar/Avatar';
-import { Button, ButtonVariant } from 'shared/ui/button/Button';
-import { Card } from 'shared/ui/card/Card';
-import { Icon } from 'shared/ui/icon/Icon';
-import { Text, TextAlign } from 'shared/ui/text/Text';
-import { HStack, VStack } from 'shared/ui/stack';
+import { Avatar } from '@/shared/ui/avatar/Avatar';
+import { Button, ButtonVariant } from '@/shared/ui/button/Button';
+import { Card } from '@/shared/ui/card/Card';
+import { Icon } from '@/shared/ui/icon/Icon';
+import { Text, TextAlign } from '@/shared/ui/text/Text';
+import { HStack, VStack } from '@/shared/ui/stack';
 
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 
 import cls from './ArticleListItem.module.scss';
 

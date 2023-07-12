@@ -1,12 +1,12 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import type { SortOrder } from 'shared/types/sortOrder';
+import type { SortOrder } from '@/shared/types/sortOrder';
 
 import { ArticleSortField, OrderOptions, SortOptions } from '../../model/types/articlesFilters';
 
-import { ListBox } from 'shared/ui/popups';
-import { HStack } from 'shared/ui/stack';
+import { ListBox } from '@/shared/ui/popups';
+import { HStack } from '@/shared/ui/stack';
 
 import cls from './ArticlesSortSwitcher.module.scss';
 

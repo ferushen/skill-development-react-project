@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/storeProvider';
-import { ArticleView } from 'entities/article';
+import { StateSchema } from '@/app/providers/storeProvider';
+import { ArticleView } from '@/entities/article';
 
 export const selectArticlesPageIsLoading = (state: StateSchema) =>
 	state.articlesPage?.isLoading || false;

@@ -1,21 +1,21 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 import { useSelector } from 'react-redux';
-import { selectUserAuthData } from 'entities/user';
+import { selectUserAuthData } from '@/entities/user';
 
-import { LoginModal } from 'features/authByUsername';
-import { AvatarDropdown } from 'features/avatarDropdown';
-import { NotificationButton } from 'features/notificationButton';
-import { AppLink, AppLinkVariant } from 'shared/ui/appLink/AppLink';
-import { BugButton } from 'app/providers/errorBoundary';
-import { Button } from 'shared/ui/button/Button';
-import { ButtonVariant } from 'shared/ui/button/Button';
-import { HStack } from 'shared/ui/stack';
-import { Text, TextVariant } from 'shared/ui/text/Text';
+import { LoginModal } from '@/features/authByUsername';
+import { AvatarDropdown } from '@/features/avatarDropdown';
+import { NotificationButton } from '@/features/notificationButton';
+import { AppLink, AppLinkVariant } from '@/shared/ui/appLink/AppLink';
+import { BugButton } from '@/app/providers/errorBoundary';
+import { Button } from '@/shared/ui/button/Button';
+import { ButtonVariant } from '@/shared/ui/button/Button';
+import { HStack } from '@/shared/ui/stack';
+import { Text, TextVariant } from '@/shared/ui/text/Text';
 
 import cls from './Navbar.module.scss';
 

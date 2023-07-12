@@ -1,5 +1,5 @@
 import { HTMLAttributes, ReactNode, memo } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import cls from './Card.module.scss';
 

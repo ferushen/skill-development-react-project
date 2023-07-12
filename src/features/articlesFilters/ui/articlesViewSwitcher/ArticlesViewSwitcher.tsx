@@ -1,14 +1,14 @@
 import { memo } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { ArticleView } from 'entities/article';
+import { ArticleView } from '@/entities/article';
 
-import { Button, ButtonVariant } from 'shared/ui/button/Button';
-import { Icon } from 'shared/ui/icon/Icon';
-import { HStack } from 'shared/ui/stack';
+import { Button, ButtonVariant } from '@/shared/ui/button/Button';
+import { Icon } from '@/shared/ui/icon/Icon';
+import { HStack } from '@/shared/ui/stack';
 
-import GridIcon from 'shared/assets/icons/grid-24-24.svg';
-import ListIcon from 'shared/assets/icons/list-24-24.svg';
+import GridIcon from '@/shared/assets/icons/grid-24-24.svg';
+import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 
 import cls from './ArticlesViewSwitcher.module.scss';
 

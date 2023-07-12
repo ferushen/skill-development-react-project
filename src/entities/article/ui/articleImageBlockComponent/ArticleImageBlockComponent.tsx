@@ -1,10 +1,10 @@
 import { memo } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import type { ArticleImageBlock } from '../../model/types/article';
 
-import { Text, TextAlign } from 'shared/ui/text/Text';
-import { VStack } from 'shared/ui/stack';
+import { Text, TextAlign } from '@/shared/ui/text/Text';
+import { VStack } from '@/shared/ui/stack';
 
 import cls from './ArticleImageBlockComponent.module.scss';
 

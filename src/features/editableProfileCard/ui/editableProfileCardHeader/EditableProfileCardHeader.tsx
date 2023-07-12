@@ -2,15 +2,15 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from '../../model/slice/profileSlice';
 import { selectProfileData } from '../../model/selectors/selectProfileData/selectProfileData';
 import { selectProfileReadonly } from '../../model/selectors/selectProfileReadonly/selectProfileReadonly';
-import { selectUserAuthData } from 'entities/user';
+import { selectUserAuthData } from '@/entities/user';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
-import { Button, ButtonVariant } from 'shared/ui/button/Button';
-import { HStack } from 'shared/ui/stack/hStack/HStack';
+import { Button, ButtonVariant } from '@/shared/ui/button/Button';
+import { HStack } from '@/shared/ui/stack/hStack/HStack';
 
 interface EditableProfileCardHeaderProps {
 	className?: string;

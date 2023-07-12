@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { selectArticlesPageError, selectArticlesPageIsLoading, selectArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import { selectArticles } from '../../model/slices/articlesPageSlice';
 
-import { ArticleList } from 'entities/article';
-import { Text } from 'shared/ui/text/Text';
+import { ArticleList } from '@/entities/article';
+import { Text } from '@/shared/ui/text/Text';
 
 interface ArticleInfiniteListProps {
 	className?: string;

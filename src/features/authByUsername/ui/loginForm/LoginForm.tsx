@@ -1,10 +1,10 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -12,10 +12,10 @@ import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLogi
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 
-import { Button, ButtonVariant } from 'shared/ui/button/Button';
-import { Input, InputVariant } from 'shared/ui/input/Input';
-import { Text, TextVariant } from 'shared/ui/text/Text';
-import { VStack } from 'shared/ui/stack';
+import { Button, ButtonVariant } from '@/shared/ui/button/Button';
+import { Input, InputVariant } from '@/shared/ui/input/Input';
+import { Text, TextVariant } from '@/shared/ui/text/Text';
+import { VStack } from '@/shared/ui/stack';
 
 import cls from './LoginForm.module.scss';
 

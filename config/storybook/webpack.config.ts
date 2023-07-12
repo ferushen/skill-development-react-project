@@ -14,6 +14,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
 		buildLocales: '',
 	};
 
+	// eslint-disable-next-line
+	config.resolve!.alias = { '@': paths.src };
 	config.resolve?.modules?.unshift(paths.src); // для работы с абсолютными путями
 	config.resolve?.extensions?.push('.ts', '.tsx'); // т.к. используем TS
 

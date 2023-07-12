@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import type { ArticleTextBlock } from '../../model/types/article';
 
-import { Text } from 'shared/ui/text/Text';
+import { Text } from '@/shared/ui/text/Text';
 
 import cls from './ArticleTextBlockComponent.module.scss';
 

@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, ReactNode } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import cls from './Flex.module.scss';
 

@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, memo } from 'react';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import cls from './Input.module.scss';
 

@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/themeProvider';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/themeProvider';
 
-import type { Article } from 'entities/article';
-import { ArticleBlockType, ArticleType } from 'entities/article';
+import type { Article } from '@/entities/article';
+import { ArticleBlockType, ArticleType } from '@/entities/article';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
 

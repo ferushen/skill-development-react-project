@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/storeProvider';
+import { StateSchema } from '@/app/providers/storeProvider';
 import { getScrollSaver } from './getScrollSaver';
 
 // большого смысла в reselect нет, т.к. нет необходимости мемоизировать

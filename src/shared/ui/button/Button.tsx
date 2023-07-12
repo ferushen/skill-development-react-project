@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, memo, ReactNode } from 'react';
-import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
+import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import cls from './Button.module.scss';
 
