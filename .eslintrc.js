@@ -110,6 +110,7 @@ module.exports = {
 		'react/display-name': 'off',
 		semi: ['error', 'always'],
 		'correct-fsd-import-paths/type-path-checker': 2,
+		'react/jsx-no-constructed-context-values': 2,
 	},
 	settings: {
 		react: {

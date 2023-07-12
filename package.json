@@ -74,6 +74,7 @@
 		"eslint-config-airbnb": "19.0.4",
 		"eslint-config-prettier": "8.6.0",
 		"eslint-config-standard-with-typescript": "34.0.0",
+		"eslint-plugin-correct-fsd-import-paths": "^0.0.1",
 		"eslint-plugin-i18next": "^6.0.0-2",
 		"eslint-plugin-import": "2.25.4",
 		"eslint-plugin-jsx-a11y": "6.5.1",
@@ -119,7 +120,9 @@
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.14",
+		"@react-spring/web": "^9.7.3",
 		"@reduxjs/toolkit": "^1.8.0",
+		"@use-gesture/react": "^10.2.27",
 		"axios": "^1.3.4",
 		"i18next": "^23.2.3",
 		"i18next-browser-languagedetector": "6.1.3",
