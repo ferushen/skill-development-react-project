@@ -2,7 +2,7 @@ import { ReactNode, memo, useCallback, useEffect } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { useTheme } from '@/app/providers/themeProvider';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 
 import { Overlay } from '@/shared/ui/overlay/Overlay';
 import { Portal } from '@/shared/ui/portal/Portal';
@@ -96,7 +96,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 	};
 
 	const overlayStyle = {
-		display,
+		display: display,
 		opacity: y.to([0, height], [1, 0], 'clamp'),
 	};
 
@@ -108,6 +108,13 @@ export const DrawerContent = memo((props: DrawerProps) => {
 						onClick={closeOnOverlayClick ? () => closeDrawer() : undefined}
 					/>
 				</Spring.a.div>
+				{/*				
+				<Overlay
+					as={Spring.a.div}
+					style={overlayStyle}
+					onClick={closeOnOverlayClick ? () => closeDrawer() : undefined}
+				/>
+				*/}
 				<Spring.a.div
 					className={cls.content}
 					style={contentStyle}
@@ -120,7 +127,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 	);
 });
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
 	const { isLoaded } = useAnimationLibs();
 
 	if (!isLoaded) {
@@ -128,4 +135,12 @@ export const Drawer = memo((props: DrawerProps) => {
 	}
 
 	return <DrawerContent {...props} />;
-});
+};
+
+export const Drawer = (props: DrawerProps) => {
+	return (
+		<AnimationProvider>
+			<DrawerAsync {...props} />
+		</AnimationProvider>
+	);
+};

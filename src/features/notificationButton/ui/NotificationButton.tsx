@@ -1,6 +1,5 @@
 import { memo, useCallback, useState } from 'react';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 
 import { NotificationList } from '@/entities/notification';
 import { Button, ButtonVariant } from '@/shared/ui/button/Button';
@@ -47,15 +46,13 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 		return (
 			<>
 				{trigger}
-				<AnimationProvider>
-					<Drawer
-						className={className}
-						isOpen={isOpen}
-						onClose={onCloseDrawer}
-					>
-						<NotificationList className={cls.notifications_mobile} />
-					</Drawer>
-				</AnimationProvider>
+				<Drawer
+					className={className}
+					isOpen={isOpen}
+					onClose={onCloseDrawer}
+				>
+					<NotificationList className={cls.notifications_mobile} />
+				</Drawer>
 			</>
 		);
 	}
