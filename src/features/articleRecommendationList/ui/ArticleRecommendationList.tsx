@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useArticleRecommendationList } from '../api/recommendationsApi';
+import { useGetArticleRecommendationList } from '../api/recommendationsApi';
 
 import { ArticleList } from '@/entities/article';
 import { Text, TextSize } from '@/shared/ui/text/Text';
@@ -19,7 +19,7 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
 	const { className } = props;
 	const { t } = useTranslation('article');
 	// подгружаем только 3 статьи
-	const { data: articles, isLoading, error } = useArticleRecommendationList(3);
+	const { data: articles, isLoading, error } = useGetArticleRecommendationList(3);
 
 	// TODO: сделать корректные заглушки под каждый кейс
 	if (isLoading || error || !articles) {

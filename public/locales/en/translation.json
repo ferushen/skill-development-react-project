@@ -3,8 +3,10 @@
     "admin_panel": "Admin panel",
     "articles_page": "Articles",
     "belarus": "Belarus",
+    "cancel": "Cancel",
     "change_language": "Русский",
     "change_language_short": "RU",
+    "close": "Close",
     "country": "Country",
     "create_article": "Create article",
     "currency": "Currency",
@@ -29,7 +31,10 @@
     "refresh_page": "Refresh page",
     "russia": "Russia",
     "send": "Send",
+    "thanks_for_your_rate": "Thanks for your rate!",
+    "the_rate_has_already_been_done": "The rate has already been done",
     "throw_error": "Throw error!",
     "ukraine": "Ukraine",
-    "unexpected_error": "Unexpected error"
+    "unexpected_error": "Unexpected error",
+    "your_feedback": "Your feedback"
 }

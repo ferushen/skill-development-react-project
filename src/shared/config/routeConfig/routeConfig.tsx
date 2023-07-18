@@ -8,7 +8,7 @@ import { ArticlesPage } from '@/pages/articles';
 import { ArticleDetailsPage } from '@/pages/articleDetails';
 import { ArticleEditPage } from '@/pages/articleEditPage';
 import { AdminPanelPage } from '@/pages/adminPanel';
-import { ForbiddenPage } from '@/pages/Forbidden';
+import { ForbiddenPage } from '@/pages/forbidden';
 
 import { UserRole } from '@/entities/user';
 

@@ -6,6 +6,8 @@ import { Page } from '@/widgets/page/Page';
 
 import cls from './MainPage.module.scss';
 import { VStack } from '@/shared/ui/stack';
+import { StarRating } from '@/shared/ui/starRating/StarRating';
+import { RatingCard } from '@/entities/rating';
 
 const MainPage = () => {
 	const { t } = useTranslation('main');
@@ -60,6 +62,15 @@ const MainPage = () => {
 				</VStack>
 
 				<Button className={cls['btn']}>Click</Button>
+
+				<StarRating />
+
+				<RatingCard
+					feedbackTitle='Оставьте отзыв о статье'
+					hasFeedback={true}
+					title='Оцените статью'
+
+				/>
 
 			</VStack>
 		</Page>

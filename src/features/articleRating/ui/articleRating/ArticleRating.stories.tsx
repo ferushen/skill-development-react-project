@@ -1,17 +1,17 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/themeProvider';
-import { [FTName] } from './[FTName]';
+import { ArticleRating } from './ArticleRating';
 
 export default {
-   title: 'features/[FTName]',
-   component: [FTName],
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
-} as ComponentMeta<typeof [FTName]>;
+	title: 'features/articleRating',
+	component: ArticleRating,
+	argTypes: {
+		backgroundColor: { control: 'color' },
+	},
+} as ComponentMeta<typeof ArticleRating>;
 
-const Template: ComponentStory<typeof [FTName]> = (args) => <[FTName] { ...args } />;
+const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

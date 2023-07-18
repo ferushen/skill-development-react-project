@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import cls from './[FTName].module.scss';
 
@@ -13,8 +13,6 @@ export const [FTName] = memo((props: [FTName]Props) => {
 	const { t } = useTranslation();
 
 	return (
-		<div className={cn(cls.[FTName | camelcase], {}, [className])}>
-
-		</div>
+		<div className={cn(cls.[FTName | camelcase], {}, [className])}></div>
 	);
 });

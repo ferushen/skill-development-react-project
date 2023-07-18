@@ -69,7 +69,7 @@ export const Dropdown = memo((props: DropdownProps) => {
 				{items.map((item, index) => {
 					if (item.href) {
 						return (
-							<Menu.Item as={Fragment} key={index}>
+							<Menu.Item as={Fragment} key={`dropdown-key-${index}`}>
 								{({ active }) => (
 									<AppLink
 										className={cn(cls.item, { [cls.active]: active })}
@@ -84,7 +84,7 @@ export const Dropdown = memo((props: DropdownProps) => {
 
 					if (item.handleClick) {
 						return (
-							<Menu.Item as={Fragment} key={index}>
+							<Menu.Item as={Fragment} key={`dropdown-key-${index}`}>
 								{({ active }) => (
 									<Button
 										className={cn(cls.item, { [cls.active]: active })}

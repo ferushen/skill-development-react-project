@@ -6,11 +6,10 @@ import cls from './Overlay.module.scss';
 interface OverlayProps {
 	className?: string;
 	onClick?: () => void;
-	/*as?: ComponentType | keyof JSX.IntrinsicElements;*/
 }
 
 export const Overlay = memo((props: OverlayProps) => {
-	const { className, onClick, /*as: Tag = 'div'*/ } = props;
+	const { className, onClick } = props;
 
 	return (
 		<div
@@ -19,3 +18,23 @@ export const Overlay = memo((props: OverlayProps) => {
 		/>
 	);
 });
+
+/*
+interface OverlayProps extends HTMLAttributes<HTMLElement> {
+	className?: string;
+	onClick?: () => void;
+	wrapper?: ComponentType | keyof JSX.IntrinsicElements;
+}
+
+export const Overlay = memo((props: OverlayProps) => {
+	const { className, onClick, wrapper: Tag = 'div', ...otherProps } = props;
+
+	return (
+		<Tag
+			className={cn(cls.overlay, {}, [className])}
+			onClick={onClick}
+			{...otherProps}
+		/>
+	);
+});
+*/

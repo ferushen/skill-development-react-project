@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { useNotifications } from '../../api/notificationApi';
+import { useGetNotifications } from '../../api/notificationApi';
 
 import { NotificationItem } from '../notificationItem/NotificationItem';
 import { Skeleton } from '@/shared/ui/skeleton/Skeleton';
@@ -16,7 +16,7 @@ interface NotificationListProps {
 export const NotificationList = memo((props: NotificationListProps) => {
 	const { className } = props;
 
-	const { data, isLoading } = useNotifications(null, {
+	const { data, isLoading } = useGetNotifications(null, {
 		pollingInterval: 5000,
 	});
 

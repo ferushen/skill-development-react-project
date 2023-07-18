@@ -1,17 +1,17 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/themeProvider';
-import { [FTName] } from './[FTName]';
+import { RatingCard } from './RatingCard';
 
 export default {
-   title: 'features/[FTName]',
-   component: [FTName],
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
-} as ComponentMeta<typeof [FTName]>;
+	title: 'shared/RatingCard',
+	component: RatingCard,
+	argTypes: {
+		backgroundColor: { control: 'color' },
+	},
+} as ComponentMeta<typeof RatingCard>;
 
-const Template: ComponentStory<typeof [FTName]> = (args) => <[FTName] { ...args } />;
+const Template: ComponentStory<typeof RatingCard> = (args) => <RatingCard {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

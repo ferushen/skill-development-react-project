@@ -3,8 +3,10 @@
     "admin_panel": "Админка",
     "articles_page": "Статьи",
     "belarus": "Беларусь",
+    "cancel": "Отменить",
     "change_language": "English",
     "change_language_short": "EN",
+    "close": "Закрыть",
     "country": "Страна",
     "create_article": "Создать статью",
     "currency": "Валюта",
@@ -29,7 +31,10 @@
     "refresh_page": "Обновить страницу",
     "russia": "Россия",
     "send": "Отправить",
+    "thanks_for_your_rate": "Спасибо за вашу оценку!",
+    "the_rate_has_already_been_done": "Оценка уже когда-то была сделана",
     "throw_error": "Прокинуть ошибку!",
     "ukraine": "Украина",
-    "unexpected_error": "Непредвиденная ошибка"
+    "unexpected_error": "Непредвиденная ошибка",
+    "your_feedback": "Ваш отзыв"
 }
