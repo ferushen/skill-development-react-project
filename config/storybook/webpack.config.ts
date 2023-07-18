@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import path from 'path';
 import webpack, { DefinePlugin } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
@@ -14,8 +15,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
 		buildLocales: '',
 	};
 
-	// eslint-disable-next-line
-	config.resolve!.alias = { '@': paths.src };
+	config.resolve!.alias = {
+		...config.resolve!.alias,
+		'@': paths.src,
+	};
 	config.resolve?.modules?.unshift(paths.src); // для работы с абсолютными путями
 	config.resolve?.extensions?.push('.ts', '.tsx'); // т.к. используем TS
 
@@ -64,8 +67,6 @@ export default ({ config }: { config: webpack.Configuration }) => {
 /* 
 const rules = config.module!.rules as RuleSetRule[]
 config.module!.rules = rules.map((rule) => (
-/svg/.test(rule.test as string)
-? {...rule, exclude: /\.svg$/i}
-: rule
+/svg/.test(rule.test as string) ? {...rule, exclude: /\.svg$/i} : rule
 ))
 */

@@ -4,11 +4,18 @@ import { Theme } from '@/app/providers/themeProvider';
 import { NotificationItem } from './NotificationItem';
 
 export default {
-	title: 'shared/NotificationItem',
+	title: 'entities/Notification/NotificationItem',
 	component: NotificationItem,
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
+	args: {
+		item: {
+			id: '1',
+			description: 'Здесь описание уведомления',
+			title: 'Заголовок уведомления'
+		}
+	}
 } as ComponentMeta<typeof NotificationItem>;
 
 const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
