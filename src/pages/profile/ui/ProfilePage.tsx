@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { EditableProfileCard } from '@/features/editableProfileCard';
-import { Page } from '@/widgets/page/Page';
+import { Page } from '@/widgets/page';
 import { Text } from '@/shared/ui/text/Text';
 
 interface ProfilePageProps {

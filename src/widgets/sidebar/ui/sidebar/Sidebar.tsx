@@ -6,7 +6,7 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 
 import { SidebarItem } from '../sidebarItem/SidebarItem';
 import { ThemeSwitcher } from '@/features/themeSwitcher';
-import { LangSwitcher } from '@/features/langSwitcher/ui/LangSwitcher';
+import { LangSwitcher } from '@/features/langSwitcher';
 import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/button/Button';
 import { HStack, VStack } from '@/shared/ui/stack';
 

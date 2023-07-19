@@ -11,7 +11,7 @@ import { ArticleDetailsHeader } from '../articleDetailsHeader/ArticleDetailsHead
 import { ArticleDetails } from '@/entities/article';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import { ArticleRating } from '@/features/articleRating';
-import { Page } from '@/widgets/page/Page';
+import { Page } from '@/widgets/page';
 import { VStack } from '@/shared/ui/stack';
 
 import cls from './ArticleDetailsPage.module.scss';

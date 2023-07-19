@@ -9,15 +9,15 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { selectArticlesPageIsLoading, selectArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions, articlesPageReducer } from '../../model/slices/articlesPageSlice';
-import { articlesFiltersReducer } from '@/features/articlesFilters/model/slice/articlesFiltersSlice';
+import { articlesFiltersReducer } from '@/features/articlesFilters';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
 import { ArticleInfiniteList } from '../articleInfiniteList/ArticleInfiniteList';
-import { Page } from '@/widgets/page/Page';
+import { Page } from '@/widgets/page';
 import { ArticleView } from '@/entities/article';
-import { ArticlesPageFilters } from '@/features/articlesFilters/ui/articlesPageFilters/ArticlesPageFilters';
+import { ArticlesPageFilters } from '@/features/articlesFilters';
 import { VStack } from '@/shared/ui/stack';
 
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';

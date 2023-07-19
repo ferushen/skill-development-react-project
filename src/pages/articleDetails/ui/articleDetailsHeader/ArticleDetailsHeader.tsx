@@ -6,8 +6,7 @@ import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 import { useSelector } from 'react-redux';
 import { selectCanEditArticle } from '../../model/selectors/article';
-import { selectArticleDetailsData } from '@/entities/article';
-import { selectArticleDetailsIsLoading } from '@/entities/article/model/selectors/articleDetails';
+import { selectArticleDetailsData, selectArticleDetailsIsLoading } from '@/entities/article';
 // import { selectUserAuthData } from 'entities/user';
 
 import { Button, ButtonVariant } from '@/shared/ui/button/Button';

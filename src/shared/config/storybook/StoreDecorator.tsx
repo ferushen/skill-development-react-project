@@ -1,3 +1,6 @@
+/* eslint-disable correct-fsd-import-paths/use-only-public-api */
+// TODO: fix eslint-disable
+
 import { Story } from '@storybook/react';
 
 import { StateSchema, StoreProvider } from '@/app/providers/storeProvider';

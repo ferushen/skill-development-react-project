@@ -110,6 +110,7 @@ module.exports = {
 		'react/display-name': 'off',
 		semi: ['error', 'always'],
 		'correct-fsd-import-paths/type-path-checker': ['error', { alias: '@' }],
+		'correct-fsd-import-paths/use-only-public-api': ['error', { alias: '@' }],
 		'react/jsx-no-constructed-context-values': 2,
 	},
 	settings: {

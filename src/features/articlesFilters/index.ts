@@ -8,5 +8,8 @@ export {
 	selectArticlesFiltersTabType,
 } from './model/selectors/articlesFiltersSelectors';
 
-export { articlesFiltersActions } from './model/slice/articlesFiltersSlice';
+export {
+	articlesFiltersActions,
+	articlesFiltersReducer,
+} from './model/slice/articlesFiltersSlice';
 export { ArticleSortField } from './model/types/articlesFilters';

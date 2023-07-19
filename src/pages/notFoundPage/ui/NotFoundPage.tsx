@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { Page } from '@/widgets/page/Page';
+import { Page } from '@/widgets/page';
 import { VStack } from '@/shared/ui/stack';
 
 import cls from './NotFoundPage.module.scss';

@@ -10,4 +10,7 @@ export {
 	ArticleView,
 } from './model/consts/consts';
 
-export { selectArticleDetailsData } from './model/selectors/articleDetails';
+export {
+	selectArticleDetailsData,
+	selectArticleDetailsIsLoading,
+} from './model/selectors/articleDetails';
