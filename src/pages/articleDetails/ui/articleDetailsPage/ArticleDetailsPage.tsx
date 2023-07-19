@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsPageReducer } from '../../model/slices';
+import { articleDetailsPageReducer } from '../../model/slices/articleDetailsPageReducer';
 
 import { ArticleDetailsComments } from '../articleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsHeader } from '../articleDetailsHeader/ArticleDetailsHeader';
