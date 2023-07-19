@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { UserRole, selectUserRoles } from '@/entities/user';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '../../../../shared/const/router';
 
 interface RequireRoleProps {
 	children: JSX.Element;

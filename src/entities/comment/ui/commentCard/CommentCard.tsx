@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import type { Comment } from '../../model/types/comment';
