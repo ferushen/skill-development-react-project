@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from 'react';
-import { AppRouter } from '@/app/providers/router';
+import { AppRouter } from './providers/router';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';

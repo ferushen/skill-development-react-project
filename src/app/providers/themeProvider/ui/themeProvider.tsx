@@ -1,6 +1,8 @@
 import { ReactNode, useEffect, useMemo, useState } from 'react';
-import { Theme } from '../consts/consts';
-import { LOCAL_STORAGE_THEME_KEY, ThemeContext } from '../lib/themeContext';
+
+import { Theme } from '@/shared/const/theme';
+import { ThemeContext } from '@/shared/lib/context/themeContext';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 
 const defaultValue = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 

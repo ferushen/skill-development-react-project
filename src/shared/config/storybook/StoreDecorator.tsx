@@ -7,7 +7,7 @@ import { loginReducer } from '@/features/authByUsername/testing';
 import { articleDetailsReducer } from '@/entities/article/testing';
 import { addCommentFormReducer } from '@/features/addCommentForm/testing';
 import { articleDetailsPageReducer } from '@/pages/articleDetails/testing';
-import { scrollSaverReducer } from '@/features/scrollSaver';
+/*import { scrollSaverReducer } from '@/features/scrollSaver';*/
 import { articlesPageReducer } from '@/pages/articles/testing';
 import { articlesFiltersReducer } from '@/features/articlesFilters/testing';
 import { profileReducer } from '@/features/editableProfileCard/testing';
@@ -20,7 +20,7 @@ const defaultAsyncReducers: ReducersList = {
 	articleDetails: articleDetailsReducer,
 	articleDetailsPage: articleDetailsPageReducer,
 	addCommentForm: addCommentFormReducer,
-	scrollSaver: scrollSaverReducer,
+	/*scrollSaver: scrollSaverReducer,*/
 };
 
 export const StoreDecorator = (

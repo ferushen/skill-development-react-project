@@ -11,7 +11,7 @@ import { LoginModal } from '@/features/authByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
 import { AppLink, AppLinkVariant } from '@/shared/ui/appLink/AppLink';
-import { BugButton } from '@/app/providers/errorBoundary';
+import { BugButton } from '@/features/bugButton';
 import { Button } from '@/shared/ui/button/Button';
 import { ButtonVariant } from '@/shared/ui/button/Button';
 import { HStack } from '@/shared/ui/stack';

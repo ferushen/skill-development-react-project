@@ -1,6 +1,7 @@
 import { useContext } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, ThemeContext } from './themeContext';
-import { Theme } from '../consts/consts';
+import { Theme } from '@/shared/const/theme';
+import { ThemeContext } from '@/shared/lib/context/themeContext';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 
 interface UseThemeResult {
 	toggleTheme: () => void;
@@ -39,10 +40,10 @@ export function useTheme(): UseThemeResult {
 	return { theme: theme || Theme.LIGHT, toggleTheme };
 }
 
-/* 
-При первоначальной загрузке страницы в body нет класса app-light-theme. 
-Он накидывается только при вызове хука useTheme. 
-А вызывается он нажатием на кнопку смены темы. 
-Я решил этот баг добавлением useEffect в useTheme, и в нём кидаю класс темы на body. 
+/*
+При первоначальной загрузке страницы в body нет класса app-light-theme.
+Он накидывается только при вызове хука useTheme.
+А вызывается он нажатием на кнопку смены темы.
+Я решил этот баг добавлением useEffect в useTheme, и в нём кидаю класс темы на body.
 И при каждом изменении темы этот useEffect вызывается.
 */

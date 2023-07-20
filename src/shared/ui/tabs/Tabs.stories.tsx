@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tabs } from './Tabs';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/themeProvider';
+import { Theme } from '@/shared/const/theme';
 
 export default {
 	title: 'shared/Tabs',
@@ -70,7 +70,7 @@ SizeLarge.args = {
 	size: 'large',
 };
 
-/* 
+/*
 type TabSize = 'small' | 'medium' | 'large';
 type TabColor = 'light' | 'dark';
 */

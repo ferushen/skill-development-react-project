@@ -109,12 +109,19 @@ module.exports = {
 		*/
 		'react/display-name': 'off',
 		semi: ['error', 'always'],
-		'correct-fsd-import-paths/type-path-checker': ['error', { alias: '@' }],
-		'correct-fsd-import-paths/use-only-public-api': [
+		'correct-fsd-import-paths/relative-path-inside-module': ['error', { alias: '@' }],
+		'correct-fsd-import-paths/public-api-outside-module': [
 			'error',
 			{
 				alias: '@',
 				testFilesPatterns: ['**/*.test.ts', '**/*.stories.tsx', '**/StoreDecorator.tsx']
+			}
+		],
+		'correct-fsd-import-paths/layer-import': [
+			'error',
+			{
+				alias: '@',
+				ignoredImportPatterns: ['**/storeProvider', '**/testing']
 			}
 		],
 		'react/jsx-no-constructed-context-values': 2,

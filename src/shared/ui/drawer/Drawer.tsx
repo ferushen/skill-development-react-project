@@ -1,7 +1,6 @@
 import { ReactNode, memo, useCallback, useEffect } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-
-import { useTheme } from '@/app/providers/themeProvider';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 
 import { Overlay } from '@/shared/ui/overlay/Overlay';
@@ -108,7 +107,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 						onClick={closeOnOverlayClick ? () => closeDrawer() : undefined}
 					/>
 				</Spring.a.div>
-				{/*				
+				{/*
 				<Overlay
 					as={Spring.a.div}
 					style={overlayStyle}
