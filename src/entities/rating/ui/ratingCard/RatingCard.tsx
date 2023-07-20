@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 
-import { Button, ButtonVariant } from '@/shared/ui/button/Button';
-import { Card } from '@/shared/ui/card/Card';
-import { Drawer } from '@/shared/ui/drawer/Drawer';
-import { Input, InputVariant } from '@/shared/ui/input/Input';
-import { Modal } from '@/shared/ui/modal/Modal';
-import { StarRating } from '@/shared/ui/starRating/StarRating';
-import { Text } from '@/shared/ui/text/Text';
+import { Button, ButtonVariant } from '@/shared/ui/button';
+import { Card } from '@/shared/ui/card';
+import { Drawer } from '@/shared/ui/drawer';
+import { Input, InputVariant } from '@/shared/ui/input';
+import { Modal } from '@/shared/ui/modal';
+import { StarRating } from '@/shared/ui/starRating';
+import { Text } from '@/shared/ui/text';
 import { HStack, VStack } from '@/shared/ui/stack';
 
 import cls from './RatingCard.module.scss';

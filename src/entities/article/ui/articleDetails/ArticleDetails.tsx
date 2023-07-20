@@ -20,10 +20,10 @@ import {
 import { ArticleCodeBlockComponent } from '../articleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../articleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../articleTextBlockComponent/ArticleTextBlockComponent';
-import { Icon } from '@/shared/ui/icon/Icon';
+import { Icon } from '@/shared/ui/icon';
 import { HStack, VStack } from '@/shared/ui/stack';
-import { Skeleton } from '@/shared/ui/skeleton/Skeleton';
-import { Text, TextAlign, TextSize, TextVariant } from '@/shared/ui/text/Text';
+import { Skeleton } from '@/shared/ui/skeleton';
+import { Text, TextAlign, TextSize, TextVariant } from '@/shared/ui/text';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';

@@ -4,11 +4,11 @@ import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import type { Comment } from '../../model/types/comment';
 
-import { AppLink } from '@/shared/ui/appLink/AppLink';
-import { Avatar } from '@/shared/ui/avatar/Avatar';
+import { AppLink } from '@/shared/ui/appLink';
+import { Avatar } from '@/shared/ui/avatar';
 import { HStack, VStack } from '@/shared/ui/stack';
-import { Skeleton } from '@/shared/ui/skeleton/Skeleton';
-import { Text, TextSize } from '@/shared/ui/text/Text';
+import { Skeleton } from '@/shared/ui/skeleton';
+import { Text, TextSize } from '@/shared/ui/text';
 
 import cls from './CommentCard.module.scss';
 

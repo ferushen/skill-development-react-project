@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 import { Mods, classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { Icon } from '@/shared/ui/icon/Icon';
+import { Icon } from '@/shared/ui/icon';
 
 import IconStar from '@/shared/assets/icons/star-20-20.svg';
 

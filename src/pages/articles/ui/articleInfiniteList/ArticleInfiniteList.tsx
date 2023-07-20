@@ -6,7 +6,7 @@ import { selectArticlesPageError, selectArticlesPageIsLoading, selectArticlesPag
 import { selectArticles } from '../../model/slices/articlesPageSlice';
 
 import { ArticleList } from '@/entities/article';
-import { Text } from '@/shared/ui/text/Text';
+import { Text } from '@/shared/ui/text';
 
 interface ArticleInfiniteListProps {
 	className?: string;

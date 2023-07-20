@@ -8,8 +8,8 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import { selectAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 
-import { Button } from '@/shared/ui/button/Button';
-import { Input, InputVariant } from '@/shared/ui/input/Input';
+import { Button } from '@/shared/ui/button';
+import { Input, InputVariant } from '@/shared/ui/input';
 import { HStack } from '@/shared/ui/stack';
 
 import cls from './AddCommentForm.module.scss';

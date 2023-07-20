@@ -4,8 +4,8 @@ import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import type { DropdownDirection } from '@/shared/types/ui';
 
 import { Menu } from '@headlessui/react';
-import { AppLink } from '@/shared/ui/appLink/AppLink';
-import { Button, ButtonVariant } from '@/shared/ui/button/Button';
+import { AppLink } from '@/shared/ui/appLink';
+import { Button, ButtonVariant } from '@/shared/ui/button';
 import { HStack } from '@/shared/ui/stack';
 
 import cls from './Dropdown.module.scss';

@@ -3,8 +3,8 @@ import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { ArticleView } from '@/entities/article';
 
-import { Button, ButtonVariant } from '@/shared/ui/button/Button';
-import { Icon } from '@/shared/ui/icon/Icon';
+import { Button, ButtonVariant } from '@/shared/ui/button';
+import { Icon } from '@/shared/ui/icon';
 import { HStack } from '@/shared/ui/stack';
 
 import GridIcon from '@/shared/assets/icons/grid-24-24.svg';

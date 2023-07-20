@@ -4,7 +4,7 @@ import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { Page } from '@/widgets/page';
-import { Text } from '@/shared/ui/text/Text';
+import { Text } from '@/shared/ui/text';
 
 interface ProfilePageProps {
 	className?: string;

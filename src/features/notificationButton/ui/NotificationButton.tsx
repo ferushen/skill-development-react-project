@@ -2,9 +2,9 @@ import { memo, useCallback, useState } from 'react';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 
 import { NotificationList } from '@/entities/notification';
-import { Button, ButtonVariant } from '@/shared/ui/button/Button';
-import { Drawer } from '@/shared/ui/drawer/Drawer';
-import { Icon } from '@/shared/ui/icon/Icon';
+import { Button, ButtonVariant } from '@/shared/ui/button';
+import { Drawer } from '@/shared/ui/drawer';
+import { Icon } from '@/shared/ui/icon';
 import { Popover } from '@/shared/ui/popups';
 
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';

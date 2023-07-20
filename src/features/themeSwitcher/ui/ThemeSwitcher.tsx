@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
-import { Button, ButtonVariant } from '@/shared/ui/button/Button';
+import { Button, ButtonVariant } from '@/shared/ui/button';
 import IconTumbler from '@/shared/assets/icons/theme-tumbler.svg';
 
 import cls from './ThemeSwitcher.module.scss';

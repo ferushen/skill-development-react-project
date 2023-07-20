@@ -7,13 +7,13 @@ import { RoutePath } from '@/shared/const/router';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 
-import { AppLink } from '@/shared/ui/appLink/AppLink';
+import { AppLink } from '@/shared/ui/appLink';
 import { ArticleTextBlockComponent } from '../articleTextBlockComponent/ArticleTextBlockComponent';
-import { Avatar } from '@/shared/ui/avatar/Avatar';
-import { Button, ButtonVariant } from '@/shared/ui/button/Button';
-import { Card } from '@/shared/ui/card/Card';
-import { Icon } from '@/shared/ui/icon/Icon';
-import { Text, TextAlign } from '@/shared/ui/text/Text';
+import { Avatar } from '@/shared/ui/avatar';
+import { Button, ButtonVariant } from '@/shared/ui/button';
+import { Card } from '@/shared/ui/card';
+import { Icon } from '@/shared/ui/icon';
+import { Text, TextAlign } from '@/shared/ui/text';
 import { HStack, VStack } from '@/shared/ui/stack';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';

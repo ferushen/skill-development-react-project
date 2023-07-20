@@ -2,7 +2,7 @@ import { ReactNode, useCallback } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { typedMemo } from '@/shared/lib/utils/typedMemo/typedMemo';
 
-import { Card, CardVariant } from '@/shared/ui/card/Card';
+import { Card, CardVariant } from '@/shared/ui/card';
 import { HStack } from '../stack';
 
 import cls from './Tabs.module.scss';

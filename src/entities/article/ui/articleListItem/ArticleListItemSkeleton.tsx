@@ -3,8 +3,8 @@ import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import { ArticleView } from '../../model/consts/consts';
 
-import { Card } from '@/shared/ui/card/Card';
-import { Skeleton } from '@/shared/ui/skeleton/Skeleton';
+import { Card } from '@/shared/ui/card';
+import { Skeleton } from '@/shared/ui/skeleton';
 import { HStack, VStack } from '@/shared/ui/stack';
 
 import cls from './ArticleListItem.module.scss';

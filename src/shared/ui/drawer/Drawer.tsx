@@ -3,8 +3,8 @@ import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 
-import { Overlay } from '@/shared/ui/overlay/Overlay';
-import { Portal } from '@/shared/ui/portal/Portal';
+import { Overlay } from '@/shared/ui/overlay';
+import { Portal } from '@/shared/ui/portal';
 
 import cls from './Drawer.module.scss';
 

@@ -18,7 +18,7 @@ import { EditableProfileCardHeader } from '../editableProfileCardHeader/Editable
 import { Country } from '@/entities/country';
 import { Currency } from '@/entities/currency';
 import { ProfileCard } from '@/entities/profile';
-import { Text, TextVariant } from '@/shared/ui/text/Text';
+import { Text, TextVariant } from '@/shared/ui/text';
 import { VStack } from '@/shared/ui/stack';
 
 const reducers: ReducersList = {

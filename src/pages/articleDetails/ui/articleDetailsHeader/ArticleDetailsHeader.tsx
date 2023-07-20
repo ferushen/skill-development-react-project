@@ -9,8 +9,8 @@ import { selectCanEditArticle } from '../../model/selectors/article';
 import { selectArticleDetailsData, selectArticleDetailsIsLoading } from '@/entities/article';
 // import { selectUserAuthData } from 'entities/user';
 
-import { Button, ButtonVariant } from '@/shared/ui/button/Button';
-import { Skeleton } from '@/shared/ui/skeleton/Skeleton';
+import { Button, ButtonVariant } from '@/shared/ui/button';
+import { Skeleton } from '@/shared/ui/skeleton';
 import { HStack } from '@/shared/ui/stack';
 
 interface ArticleDetailsHeaderProps {

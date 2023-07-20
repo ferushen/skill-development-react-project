@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 import type { SidebarItemType } from '../../model/types/sidebar';
 
-import { AppLink, AppLinkVariant } from '@/shared/ui/appLink/AppLink';
+import { AppLink, AppLinkVariant } from '@/shared/ui/appLink';
 import { HStack } from '@/shared/ui/stack';
 
 import cls from './SidebarItem.module.scss';

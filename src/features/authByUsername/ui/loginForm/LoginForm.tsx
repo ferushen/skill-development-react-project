@@ -12,9 +12,9 @@ import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLogi
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 
-import { Button, ButtonVariant } from '@/shared/ui/button/Button';
-import { Input, InputVariant } from '@/shared/ui/input/Input';
-import { Text, TextVariant } from '@/shared/ui/text/Text';
+import { Button, ButtonVariant } from '@/shared/ui/button';
+import { Input, InputVariant } from '@/shared/ui/input';
+import { Text, TextVariant } from '@/shared/ui/text';
 import { VStack } from '@/shared/ui/stack';
 
 import cls from './LoginForm.module.scss';

@@ -10,12 +10,12 @@ import { selectUserAuthData } from '@/entities/user';
 import { LoginModal } from '@/features/authByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
-import { AppLink, AppLinkVariant } from '@/shared/ui/appLink/AppLink';
+import { AppLink, AppLinkVariant } from '@/shared/ui/appLink';
 import { BugButton } from '@/features/bugButton';
-import { Button } from '@/shared/ui/button/Button';
-import { ButtonVariant } from '@/shared/ui/button/Button';
+import { Button } from '@/shared/ui/button';
+import { ButtonVariant } from '@/shared/ui/button';
 import { HStack } from '@/shared/ui/stack';
-import { Text, TextVariant } from '@/shared/ui/text/Text';
+import { Text, TextVariant } from '@/shared/ui/text';
 
 import cls from './Navbar.module.scss';
 

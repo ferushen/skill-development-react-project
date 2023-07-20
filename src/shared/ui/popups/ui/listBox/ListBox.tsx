@@ -6,7 +6,7 @@ import type { DropdownDirection } from '@/shared/types/ui';
 
 import { Listbox as HListBox } from '@headlessui/react';
 import { HStack, VStack } from '@/shared/ui/stack';
-import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/button/Button';
+import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/button';
 
 import cls from './ListBox.module.scss';
 

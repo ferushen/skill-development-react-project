@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { Loader } from '@/shared/ui/loader/Loader';
+import { Loader } from '@/shared/ui/loader';
 import { HStack } from '@/shared/ui/stack';
 
 import cls from './PageLoader.module.scss';

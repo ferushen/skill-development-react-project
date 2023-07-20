@@ -20,7 +20,7 @@ import {
 import { ArticleTypeTabs } from '../articleTypeTabs/ArticleTypeTabs';
 import { ArticlesSortSwitcher } from '../articlesSortSwitcher/ArticlesSortSwitcher';
 import { ArticlesViewSwitcher } from '../articlesViewSwitcher/ArticlesViewSwitcher';
-import { Input, InputVariant } from '@/shared/ui/input/Input';
+import { Input, InputVariant } from '@/shared/ui/input';
 import { HStack, VStack } from '@/shared/ui/stack';
 
 import cls from './ArticlesPageFilters.module.scss';

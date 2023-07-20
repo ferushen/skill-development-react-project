@@ -1,12 +1,12 @@
 /* eslint-disable */
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/shared/ui/button/Button';
+import { Button } from '@/shared/ui/button';
 import { Dropdown, ListBox, ListBoxOption, Popover } from '@/shared/ui/popups';
 import { Page } from '@/widgets/page';
 
 import cls from './MainPage.module.scss';
 import { VStack } from '@/shared/ui/stack';
-import { StarRating } from '@/shared/ui/starRating/StarRating';
+import { StarRating } from '@/shared/ui/starRating';
 import { RatingCard } from '@/entities/rating';
 
 const MainPage = () => {

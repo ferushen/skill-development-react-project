@@ -9,8 +9,8 @@ import { selectProfileReadonly } from '../../model/selectors/selectProfileReadon
 import { selectUserAuthData } from '@/entities/user';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
-import { Button, ButtonVariant } from '@/shared/ui/button/Button';
-import { HStack } from '@/shared/ui/stack/hStack/HStack';
+import { Button, ButtonVariant } from '@/shared/ui/button';
+import { HStack } from '@/shared/ui/stack';
 
 interface EditableProfileCardHeaderProps {
 	className?: string;

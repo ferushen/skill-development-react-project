@@ -4,7 +4,7 @@ import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { useGetNotifications } from '../../api/notificationApi';
 
 import { NotificationItem } from '../notificationItem/NotificationItem';
-import { Skeleton } from '@/shared/ui/skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/skeleton';
 import { VStack } from '@/shared/ui/stack';
 
 import cls from './NotificationList.module.scss';

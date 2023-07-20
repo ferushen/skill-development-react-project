@@ -5,12 +5,12 @@ import type { Profile } from '../../model/types/profile';
 
 import { Currency, CurrencySelect } from '@/entities/currency';
 import { Country, CountrySelect } from '@/entities/country';
-import { Avatar } from '@/shared/ui/avatar/Avatar';
-import { Card, CardVariant } from '@/shared/ui/card/Card';
+import { Avatar } from '@/shared/ui/avatar';
+import { Card, CardVariant } from '@/shared/ui/card';
 import { HStack, VStack } from '@/shared/ui/stack';
-import { Input, InputVariant } from '@/shared/ui/input/Input';
-import { Skeleton } from '@/shared/ui/skeleton/Skeleton';
-import { Text, TextAlign, TextVariant } from '@/shared/ui/text/Text';
+import { Input, InputVariant } from '@/shared/ui/input';
+import { Skeleton } from '@/shared/ui/skeleton';
+import { Text, TextAlign, TextVariant } from '@/shared/ui/text';
 
 import cls from './ProfileCard.module.scss';
 

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { selectUserAuthData, isUserAdmin, isUserModerator, userActions } from '@/entities/user';
 
-import { Avatar } from '@/shared/ui/avatar/Avatar';
+import { Avatar } from '@/shared/ui/avatar';
 import { Dropdown } from '@/shared/ui/popups';
 
 export const AvatarDropdown = memo(() => {
