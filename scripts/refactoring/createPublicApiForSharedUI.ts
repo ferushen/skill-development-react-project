@@ -72,7 +72,7 @@ componentsDirs?.forEach((directory) => {
 
 		if (exportedNodes.typedNodes.length !== 0) {
 			const exportedVarsWithTypesStr = exportedNodes.typedNodes.join(', ');
-			const exportWithTypes = `\nexport type { ${exportedVarsWithTypesStr} } from './${componentFilename}';`;
+			const exportWithTypes = `\r\nexport type { ${exportedVarsWithTypesStr} } from './${componentFilename}';`;
 			resultSourceCode += exportWithTypes;
 		}
 

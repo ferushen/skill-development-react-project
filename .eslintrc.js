@@ -37,6 +37,7 @@ module.exports = {
 		'i18next',
 		'react-hooks',
 		'correct-fsd-import-paths',
+		'unused-imports',
 	],
 	rules: {
 		// отвечает за правильное написание хуков
@@ -125,6 +126,16 @@ module.exports = {
 			}
 		],
 		'react/jsx-no-constructed-context-values': 2,
+		'unused-imports/no-unused-imports': 'error',
+		'unused-imports/no-unused-vars': [
+			'warn',
+			{
+				vars: 'all',
+				varsIgnorePattern: '^_',
+				args: 'after-used',
+				argsIgnorePattern: '^_'
+			}
+		],
 	},
 	settings: {
 		react: {

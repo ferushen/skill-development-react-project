@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { RoutePath } from '@/shared/const/router';
 
 import { useSelector } from 'react-redux';
