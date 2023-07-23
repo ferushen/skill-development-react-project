@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios, { AxiosStatic } from 'axios';
+import axios from 'axios';
 import { AsyncThunkAction } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/storeProvider';
 
@@ -11,7 +11,7 @@ type ActionCreatorType<Return, Arg, RejectedValue> = (
 jest.mock('axios');
 
 // флаг true указывает на глубокое "моканье"
-const mockedAxios = jest.mocked(axios, true);
+const mockedAxios = jest.mocked(axios);
 
 /*
  * Return - тип, который возвращает thunk;
@@ -23,7 +23,7 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
 	getState: () => StateSchema;
 	actionCreator: ActionCreatorType<Return, Arg, RejectedValue>;
 
-	api: jest.MockedFunctionDeep<AxiosStatic>;
+	api: jest.MockedFunctionDeep<typeof axios>;
 	dispatch: jest.MockedFn<any>;
 	navigate: jest.MockedFn<any>;
 

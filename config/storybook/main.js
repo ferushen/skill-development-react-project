@@ -18,8 +18,14 @@ module.exports = {
 	addons: [
 		'@storybook/addon-actions',
 		'@storybook/addon-links',
-		'@storybook/addon-essentials',
+		{
+			name: '@storybook/addon-essentials',
+			options: {
+				background: false
+			}
+		},
 		'@storybook/addon-interactions',
 		'storybook-addon-mock',
+		'storybook-addon-themes'
 	],
 };

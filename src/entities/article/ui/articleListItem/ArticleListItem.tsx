@@ -2,7 +2,7 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
@@ -68,7 +68,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 						)}
 						<HStack justify='between' gap={8} width='max'>
 							<AppLink
-								to={RoutePath['article-details'] + article.id}
+								to={getRouteArticleDetails(article.id)}
 								target={target}
 							>
 								<Button variant={ButtonVariant.Outline}>
@@ -86,7 +86,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 	return (
 		<AppLink
 			className={cn('', {}, [className, cls[view]])}
-			to={RoutePath['article-details'] + article.id}
+			to={getRouteArticleDetails(article.id)}
 			target={target}
 		>
 			<Card size='large'>

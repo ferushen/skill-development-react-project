@@ -35,11 +35,11 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 	const { t } = useTranslation('profile');
 	const dispatch = useAppDispatch();
 
-	const formData = useSelector(selectProfileForm);
 	const isLoading = useSelector(selectProfileIsLoading);
-	const readonly = useSelector(selectProfileReadonly);
 	const error = useSelector(selectProfileError);
+	const readonly = useSelector(selectProfileReadonly);
 	const validateErrors = useSelector(selectProfileValidateErrors);
+	const formData = useSelector(selectProfileForm);
 
 	const validateErrorsTranslates = {
 		[ValidateProfileError.ServerError]: t('error_while_saving'),
@@ -100,7 +100,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers}>
 			<VStack className={className} gap={16} width='minMax'>
-				<EditableProfileCardHeader />
+				<EditableProfileCardHeader isLoading={isLoading} />
 				{validateErrors?.length && validateErrors.map(err => (
 					<Text
 						variant={TextVariant.Error}

@@ -4,7 +4,7 @@ type Parameters = OptionalRecord<ParameterName, ParameterValue>;
 
 export function getQueryParams(params: Parameters) {
 	const searchParams = new URLSearchParams(window.location.search);
-	console.log('@getQueryParams/searchParams', searchParams.toString());
+	/*console.log('@getQueryParams/searchParams', searchParams.toString());*/
 
 	Object.entries(params).forEach(([name, value]) => {
 		if (value !== undefined) {

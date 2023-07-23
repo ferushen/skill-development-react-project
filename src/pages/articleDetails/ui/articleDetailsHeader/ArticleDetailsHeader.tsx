@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 import { useSelector } from 'react-redux';
 import { selectCanEditArticle } from '../../model/selectors/article';
@@ -34,12 +34,14 @@ export const ArticleDetailsHeader = memo((props: ArticleDetailsHeaderProps) => {
 	const isLoading = useSelector(selectArticleDetailsIsLoading);
 
 	const onBackToList = useCallback(() => {
-		navigate(RoutePath.articles);
+		navigate(getRouteArticles());
 	}, [navigate]);
 
 	const onEditArticle = useCallback(() => {
-		navigate(`${RoutePath['article-details']}${article?.id}/edit`);
-	}, [article?.id, navigate]);
+		if (article) {
+			navigate(getRouteArticleEdit(article.id));
+		}
+	}, [article, navigate]);
 
 	if (isLoading) {
 		return (

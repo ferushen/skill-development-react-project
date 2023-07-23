@@ -22,8 +22,6 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 
 	const { data, isLoading } = useGetArticleRating({ articleId, userId: userData?.id ?? '' });
 	const rate = data?.[0]?.rate;
-	console.log('rtk-data: ', data);
-
 
 	const handleRateArticle = useCallback((starsCount: number, feedback?: string) => {
 		try {

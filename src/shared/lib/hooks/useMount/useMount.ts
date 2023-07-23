@@ -8,7 +8,7 @@ interface useMountProps {
 export const useMount = ({ opened, delay = 300 }: useMountProps) => {
 	const [mounted, setMounted] = useState(false);
 	const timer = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
-	console.log(`useMount:start opened:${opened}; mounted:${mounted}`);
+	//console.log(`useMount:start opened:${opened}; mounted:${mounted}`);
 	//console.log(`useMount:end opened:${opened}; mounted:${mounted}`);
 
 	useEffect(() => {

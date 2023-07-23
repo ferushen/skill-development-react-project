@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -35,11 +35,11 @@ export const AvatarDropdown = memo(() => {
 			items={[
 				...(isAdminPanelAvailable ? [{
 					content: t('admin_panel'),
-					href: RoutePath['admin-panel']
+					href: getRouteAdminPanel()
 				}] : []),
 				{
 					content: t('profile'),
-					href: RoutePath.profile + authData.id
+					href: getRouteProfile(authData.id)
 				},
 				{
 					content: t('logout'),

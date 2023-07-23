@@ -84,12 +84,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
 	// TODO: сделать корректный перевод выбранной в BoxList страны
 	// TODO: подумать над структурой ProfileCard
 
-	if (isLoading === false && error === undefined) {
+	if (!isLoading && !error && data) {
 		return (
 			<Card
 				className={cn(cls.profileCard, {}, [className])}
 				variant={CardVariant.Outline}
 				size='extraLarge'
+				data-testid='ProfileCard'
 			>
 				<VStack
 					className={cls.content}

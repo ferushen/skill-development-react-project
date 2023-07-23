@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { I18nextDecorator } from 'shared/config/storybook/I18nextDecorator';
 import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator';
-import { Theme } from 'app/providers/themeProvider';
+import { Theme } from 'shared/const/theme';
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
@@ -14,6 +14,13 @@ export const parameters = {
 			date: /Date$/,
 		},
 	},
+	themes: {
+		default: 'dark',
+		list: [
+			{ name: 'light', class: Theme.LIGHT, color: '#00aced' },
+			{ name: 'dark', class: Theme.DARK, color: '#3b5998' }
+		],
+	}
 };
 
 export const globalTypes = {

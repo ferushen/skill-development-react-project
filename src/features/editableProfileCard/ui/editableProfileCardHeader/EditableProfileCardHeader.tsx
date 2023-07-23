@@ -14,10 +14,11 @@ import { HStack } from '@/shared/ui/stack';
 
 interface EditableProfileCardHeaderProps {
 	className?: string;
+	isLoading?: boolean;
 }
 
 export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
-	const { className } = props;
+	const { className, isLoading } = props;
 	const { t } = useTranslation('profile');
 
 	const dispatch = useAppDispatch();
@@ -43,7 +44,7 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
 
 	return (
 		<HStack className={className} justify='end' gap={8} width='max'>
-			{canEdit && (
+			{canEdit && !isLoading && (
 				<HStack gap={16} >
 					{readonly
 						? (

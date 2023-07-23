@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 
 import { useSelector } from 'react-redux';
 import { selectUserAuthData } from '@/entities/user';
@@ -56,7 +56,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 							<>
 								<AppLink
 									variant={AppLinkVariant.Inverted}
-									to={RoutePath['article-create']}
+									to={getRouteArticleCreate()}
 								>
 									{t('create_article')}
 								</AppLink>

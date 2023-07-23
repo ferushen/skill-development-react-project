@@ -17,7 +17,7 @@ export const LangSwitcher = memo((props: LangSwitcherProps) => {
 
 	const toggle = async () => {
 		const currentLng = i18n.language;
-		console.log(currentLng);
+
 		let nextLng: string | null = null;
 
 		switch (currentLng) {

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import type { Comment } from '../../model/types/comment';
@@ -50,7 +50,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 		<HStack align='start' gap={8} width='max'>
 			<AppLink
 				className={cls.avatar}
-				to={`${RoutePath.profile}${comment.user.id}`}
+				to={getRouteProfile(comment.user.id)}
 			>
 				{comment.user.avatar
 					? <Avatar size={30} src={comment.user.avatar} />
@@ -59,7 +59,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 			</AppLink>
 
 			<VStack gap={8} width='max' className={cn(cls.commentCard, mods, [])}>
-				<AppLink to={`${RoutePath.profile}${comment.user.id}`}>
+				<AppLink to={getRouteProfile(comment.user.id)}>
 					<Text
 						className={cls.username}
 						title={comment.user.username}

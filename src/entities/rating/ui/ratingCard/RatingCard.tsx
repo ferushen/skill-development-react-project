@@ -41,9 +41,6 @@ export const RatingCard = memo((props: RatingCardProps) => {
 	const [starsCount, setStarsCount] = useState(rate);
 	const [feedback, setFeedback] = useState('');
 
-	console.log('@RatingCard: rate', rate);
-	console.log('@RatingCard: starsCount', starsCount);
-
 	const isMobile = useDevice();
 
 	const onSelectStars = useCallback((selectedStarsCount: number) => {
