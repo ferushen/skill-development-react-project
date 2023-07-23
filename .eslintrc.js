@@ -25,6 +25,12 @@ module.exports = {
 				'i18next/no-literal-string': 'off',
 			},
 		},
+		{
+			files: ['**/*.js'],
+			rules: {
+				'@typescript-eslint/no-var-requires': 'off',
+			},
+		},
 	],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
