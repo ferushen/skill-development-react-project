@@ -7,14 +7,16 @@ import { getRouteArticleDetails } from '@/shared/const/router';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 
-import { AppLink } from '@/shared/ui/appLink';
 import { ArticleTextBlockComponent } from '../articleTextBlockComponent/ArticleTextBlockComponent';
+import { AppImage } from '@/shared/ui/appImage';
+import { AppLink } from '@/shared/ui/appLink';
 import { Avatar } from '@/shared/ui/avatar';
 import { Button, ButtonVariant } from '@/shared/ui/button';
 import { Card } from '@/shared/ui/card';
+import { HStack, VStack } from '@/shared/ui/stack';
 import { Icon } from '@/shared/ui/icon';
 import { Text, TextAlign } from '@/shared/ui/text';
-import { HStack, VStack } from '@/shared/ui/stack';
+import { Skeleton } from '@/shared/ui/skeleton';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 
@@ -62,7 +64,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 								<Text className={cls.date} align={TextAlign.Right} text={article.createdAt} />
 							</VStack>
 						</HStack>
-						<img className={cls.img} src={article.img} alt={article.title} />
+						<AppImage
+							className={cls.img}
+							src={article.img}
+							alt={article.title}
+							fallback={<Skeleton width='100%' height={300} />}
+						/>
 						{textBlock && (
 							<ArticleTextBlockComponent className={cls.textBlock} block={textBlock} />
 						)}
@@ -92,7 +99,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 			<Card size='large'>
 				<VStack justify='start' gap={8}>
 					<div className={cls.imgWrapper}>
-						<img className={cls.img} src={article.img} alt={article.title} />
+						<AppImage
+							className={cls.img}
+							src={article.img}
+							alt={article.title}
+							fallback={<Skeleton width={200} height={200} />}
+						/>
 						<Text className={cls.date} text={article.createdAt} />
 					</div>
 					<HStack justify='between' gap={8}>

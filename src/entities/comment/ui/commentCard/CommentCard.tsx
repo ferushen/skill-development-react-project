@@ -52,10 +52,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 				className={cls.avatar}
 				to={getRouteProfile(comment.user.id)}
 			>
-				{comment.user.avatar
-					? <Avatar size={30} src={comment.user.avatar} />
-					: <Avatar size={30} empty={true} />
-				}
+				<Avatar size={30} src={comment.user.avatar} />
 			</AppLink>
 
 			<VStack gap={8} width='max' className={cn(cls.commentCard, mods, [])}>

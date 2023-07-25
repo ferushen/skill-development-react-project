@@ -20,6 +20,7 @@ import {
 import { ArticleCodeBlockComponent } from '../articleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../articleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../articleTextBlockComponent/ArticleTextBlockComponent';
+import { AppImage } from '@/shared/ui/appImage';
 import { Icon } from '@/shared/ui/icon';
 import { HStack, VStack } from '@/shared/ui/stack';
 import { Skeleton } from '@/shared/ui/skeleton';
@@ -134,7 +135,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 		content = (
 			<>
 				<HStack align='start' width='max'>
-					<img
+					<AppImage
 						className={cls.img}
 						src={article?.img}
 						alt={article?.title}
