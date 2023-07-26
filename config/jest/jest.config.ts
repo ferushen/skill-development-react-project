@@ -15,6 +15,7 @@ const config: Config.InitialOptions = {
 		__IS_DEV__: true,
 		__API__: '',
 		__PROJECT__: JSON.stringify('jest'),
+		IS_REACT_ACT_ENVIRONMENT: true,
 	},
 	clearMocks: true,
 	coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
@@ -24,7 +25,7 @@ const config: Config.InitialOptions = {
 		'\\.(s?css)$': 'identity-obj-proxy',
 		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
 		'\\.png': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-		/*axios: 'axios/dist/node/axios.cjs',*/
+		axios: 'axios/dist/node/axios.cjs',
 		/*'^axios$': require.resolve('axios'),*/
 		'^@/(.*)$': '<rootDir>/src/$1', // для обработки алиасов
 	},
@@ -45,7 +46,7 @@ const config: Config.InitialOptions = {
 	setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 	testEnvironment: 'jsdom',
 	testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
-	verbose: true,
+	/*verbose: true,*/
 };
 
 export default config;

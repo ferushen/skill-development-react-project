@@ -1,6 +1,8 @@
 import { HTMLAttributes, ReactNode, memo } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
+import type { TestProps } from '@/shared/types/tests';
+
 import cls from './Card.module.scss';
 
 export enum CardVariant {
@@ -11,7 +13,7 @@ export enum CardVariant {
 export type CardSize = 'small' | 'medium' | 'large' | 'extraLarge';
 export type CardColor = 'primary' | 'secondary' | 'bgColor';
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends HTMLAttributes<HTMLDivElement>, TestProps {
 	className?: string;
 	variant?: CardVariant;
 	size?: CardSize;
@@ -40,6 +42,7 @@ export const Card = memo((props: CardProps) => {
 		<div
 			{...otherProps}
 			className={cn(cls.card, {}, additionalClasses)}
+			data-testid={props['data-testid'] ?? 'Card'}
 		>
 			{children}
 		</div>

@@ -14,7 +14,7 @@ export const NotFoundPage = ({ className }: NotFoundPageProps) => {
 	const { t } = useTranslation();
 
 	return (
-		<Page>
+		<Page data-testid='NotFoundPage'>
 			<VStack
 				className={cn(cls.notFoundPage, {}, [className])}
 				align='center'

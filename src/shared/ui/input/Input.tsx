@@ -1,6 +1,8 @@
 import { InputHTMLAttributes, memo } from 'react';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
+import type { TestProps } from '@/shared/types/tests';
+
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' | 'max'>;
@@ -20,7 +22,7 @@ export type InputLabelRatio = 'ratio_50_50' | 'ratio_40_60' | 'ratio_100';
 
 /*export type InputHeight = 36;*/
 
-interface InputProps extends HTMLInputProps {
+interface InputProps extends HTMLInputProps, TestProps {
 	classNameInput?: string;
 	classNameWrapper?: string;
 	variant?: InputVariant;
@@ -87,6 +89,7 @@ export const Input = memo((props: InputProps) => {
 				placeholder={(readonly && placeholderReadonly) ? placeholderReadonly : placeholder}
 				readOnly={readonly}
 				onChange={changeHandler}
+				data-testid={props['data-testid'] ?? 'Input'}
 			/>
 		</div>
 	);

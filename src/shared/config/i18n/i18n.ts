@@ -19,7 +19,7 @@ i18n
 	.init({
 		lng: 'ru',
 		fallbackLng: 'en',
-		debug: __IS_DEV__,
+		debug: false, // or __IS_DEV__
 		backend: {
 			loadPath: '/locales/{{lng}}/{{ns}}.json',
 		},

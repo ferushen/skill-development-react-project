@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import type { SortOrder } from '@/shared/types/sortOrder';
+import type { SortOrder } from '@/shared/types/sort';
 import { ArticleType, ArticleView } from '@/entities/article';
 import { ArticleSortField } from '../../model/types/articlesFilters';
 

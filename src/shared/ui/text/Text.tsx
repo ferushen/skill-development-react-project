@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
+import type { TestProps } from '@/shared/types/tests';
+
 import cls from './Text.module.scss';
 
 export enum TextVariant {
@@ -23,7 +25,7 @@ export enum TextAlign {
 
 type TitleTagType = 'h1' | 'h2' | 'h3' | 'p';
 
-interface TextProps {
+interface TextProps extends TestProps {
 	TitleTag?: TitleTagType;
 	className?: string;
 	variant?: TextVariant;

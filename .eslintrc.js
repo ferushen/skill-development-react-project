@@ -121,7 +121,7 @@ module.exports = {
 			'error',
 			{
 				alias: '@',
-				testFilesPatterns: ['**/*.test.ts', '**/*.stories.tsx', '**/StoreDecorator.tsx']
+				testFilesPatterns: ['**/*.test.{ts,tsx}', '**/*.stories.tsx', '**/StoreDecorator.tsx']
 			}
 		],
 		'correct-fsd-import-paths/layer-import': [

@@ -2,6 +2,8 @@
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, memo, ReactNode } from 'react';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
+import type { TestProps } from '@/shared/types/tests';
+
 import cls from './Button.module.scss';
 
 export enum ButtonVariant {
@@ -26,7 +28,7 @@ type ButtonDisabled = 'only_cursor' | 'with_opacity';
 type ButtonWidth = 'max';
 type ButtonFormat = 'square' | 'flat' | 'stretch';
 
-interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'width' | 'disabled'> {
+interface ButtonProps extends TestProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'width' | 'disabled'> {
 	className?: string;
 	variant?: ButtonVariant;
 	format?: ButtonFormat;
@@ -69,6 +71,7 @@ export const Button = memo(forwardRef((props: ButtonProps, ref: ForwardedRef<HTM
 			className={cn(cls.button, mods, classes)}
 			disabled={Boolean(disabled)}
 			ref={ref}
+			data-testid={props['data-testid'] ?? 'Button'}
 		>
 			{children}
 		</button>

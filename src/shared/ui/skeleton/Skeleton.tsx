@@ -1,12 +1,14 @@
 import { memo, CSSProperties } from 'react';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
+import type { TestProps } from '@/shared/types/tests';
+
 import cls from './Skeleton.module.scss';
 
 type SkeletonVariant = 'primary' | 'filled';
 type SkeletonAnimationSize = 'small' | 'big';
 
-interface SkeletonProps {
+interface SkeletonProps extends TestProps {
 	className?: string;
 	variant?: SkeletonVariant;
 	size?: SkeletonAnimationSize;
@@ -45,7 +47,7 @@ export const Skeleton = memo((props: SkeletonProps) => {
 		<div
 			className={cn(cls.skeleton, mods, classes)}
 			style={styles}
-			data-testid={dataTestId}
+			data-testid={`${dataTestId}`}
 		/>
 	);
 });

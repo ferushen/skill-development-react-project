@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
+import { Page } from '@/widgets/page';
+
 import cls from './AdminPanelPage.module.scss';
 
 interface AdminPanelPageProps {
@@ -11,10 +13,13 @@ const AdminPanelPage = (props: AdminPanelPageProps) => {
 	const { className } = props;
 
 	return (
-		<div className={cn(cls.adminPanelPage, {}, [className])}>
+		<Page
+			className={cn(cls.adminPanelPage, {}, [className])}
+			data-testid='AdminPanel'
+		>
 			{ /* eslint-disable-next-line */}
 			{'AdminPanelPage'}
-		</div>
+		</Page>
 	);
 };
 

@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import type { SortOrder } from '@/shared/types/sortOrder';
+import type { SortOrder } from '@/shared/types/sort';
 
 import { ArticleSortField, OrderOptions, SortOptions } from '../../model/types/articlesFilters';
 

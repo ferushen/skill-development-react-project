@@ -1,5 +1,4 @@
-import { act, cleanup, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { EditableProfileCard } from './EditableProfileCard';
 import { Profile } from '@/entities/profile';
@@ -7,10 +6,7 @@ import { Currency } from '@/entities/currency';
 import { Country } from '@/entities/country';
 import { profileReducer } from '../../model/slice/profileSlice';
 import { $api } from '@/shared/api/api';
-
-/*import { setup } from '@/shared/lib/tests/setup/setup';*/
-
-/*import { expect } from '@jest/globals';*/
+import userEvent from '@testing-library/user-event';
 
 const mockProfileData: Profile = {
 	id: '1',
@@ -41,58 +37,45 @@ const options = {
 	}
 };
 
-
+// TODO: fix "Warning: An update to null inside a test was not wrapped in act(...)."
 
 describe('features/EditableProfileCard', () => {
+	beforeEach(async () => {
+		jest.spyOn($api, 'get').mockResolvedValue({
+			data: mockProfileData,
+		});
 
-	beforeEach(() => {
-		jest.spyOn($api, 'get').mockReturnValue(
-			Promise.resolve({
-				data: mockProfileData,
-			}),
-		);
-
+		componentRender(<EditableProfileCard id='1' />, options);
 	});
+
 
 	afterEach(() => {
 		jest.clearAllMocks();
 	});
 
 	test('should change from read-only mode to editable mode by clicking edit-button', async () => {
-		const user = userEvent.setup();
+		await waitForElementToBeRemoved(() => screen.queryByTestId('ProfileCard.Loader'));
 
+		const profileCard = screen.getByTestId('ProfileCard');
+		expect(profileCard).toBeInTheDocument();
 
-		componentRender(<EditableProfileCard id='1' />, options);
+		const editButton = screen.getByTestId('EditableProfileCardHeader.EditButton');
+		expect(editButton).toBeInTheDocument();
 
-		await act(async () => {
-			screen.debug();
+		await waitFor(() => fireEvent.click(editButton));
 
-			await waitForElementToBeRemoved(async () => {
-				await screen.queryByTestId('ProfileCard.Loader');
-			});
-			screen.debug();
-
-			await user.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
-
-			await waitFor(() => {
-				expect(screen.queryByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument();
-			});
-		});
-
-
-
-		cleanup();
-
-		//componentRender(<EditableProfileCard id='1' />, options);
-		//fireEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
-		//await screen.findByTestId('EditableProfileCardHeader.CancelButton');
-		//fireEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'));
-		//expect(screen.queryByTestId('EditableProfileCardHeader.CancelButton')).not.toBeInTheDocument();
-		//cleanup();
+		const cancelButton = screen.getByTestId('EditableProfileCardHeader.CancelButton');
+		expect(cancelButton).toBeInTheDocument();
 	});
 
 	test.skip('should be returned to original values of input fields by clicking cancel-button', async () => {
-		await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+		const profileCard = await screen.findByTestId('ProfileCard');
+		expect(profileCard).toBeInTheDocument();
+
+		const editButton = await screen.findByTestId('EditableProfileCardHeader.EditButton');
+		expect(editButton).toBeInTheDocument();
+
+		await waitFor(async () => await userEvent.click(editButton));
 
 		await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
 		expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('');
@@ -104,7 +87,7 @@ describe('features/EditableProfileCard', () => {
 		await userEvent.type(screen.getByTestId('ProfileCard.age'), '32');
 		expect(screen.getByTestId('ProfileCard.age')).toHaveValue('32');
 
-		await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'));
+		await waitFor(async () => await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton')));
 		expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('Николай');
 		expect(screen.getByTestId('ProfileCard.age')).toHaveValue('25');
 	});

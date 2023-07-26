@@ -5,14 +5,16 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
+import type { TestProps } from '@/shared/types/tests';
+import type { StateSchema } from '@/app/providers/storeProvider';
+
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { StateSchema } from '@/app/providers/storeProvider';
 import { getScrollSaverByPath, scrollSaverActions } from '@/features/scrollSaver';
 
 import cls from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestProps {
 	className?: string;
 	children: ReactNode;
 	onScrollEnd?: () => void;
@@ -20,6 +22,7 @@ interface PageProps {
 
 export const Page = (props: PageProps) => {
 	const { className, children, onScrollEnd } = props;
+
 	const { pathname } = useLocation();
 	const dispatch = useAppDispatch();
 
@@ -54,6 +57,7 @@ export const Page = (props: PageProps) => {
 			className={cn(cls.page, {}, [className])}
 			onScroll={onScroll}
 			ref={wrapperRef}
+			data-testid={props['data-testid'] ?? 'Page'}
 		>
 			{children}
 			{onScrollEnd

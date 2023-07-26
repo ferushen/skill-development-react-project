@@ -1,9 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { EditableProfileCard } from '@/features/editableProfileCard';
 import { Page } from '@/widgets/page';
+import { EditableProfileCard } from '@/features/editableProfileCard';
 import { Text } from '@/shared/ui/text';
 
 interface ProfilePageProps {
@@ -21,7 +20,10 @@ const ProfilePage = (props: ProfilePageProps) => {
 	}
 
 	return (
-		<Page className={cn('', {}, [className])}>
+		<Page
+			className={className}
+			data-testid='ProfilePage'
+		>
 			<Text title={t('profile')} />
 			<EditableProfileCard id={id} />
 		</Page>

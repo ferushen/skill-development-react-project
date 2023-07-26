@@ -1,5 +1,5 @@
 import { ArticleType } from '@/entities/article';
-import { SortOrder } from '@/shared/types/sortOrder';
+import { SortOrder } from '@/shared/types/sort';
 
 export enum ArticleSortField {
 	Views = 'views',

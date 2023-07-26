@@ -1,13 +1,14 @@
 /* eslint-disable */
 import { useTranslation } from 'react-i18next';
+
+import { Page } from '@/widgets/page';
 import { Button } from '@/shared/ui/button';
 import { Dropdown, ListBox, ListBoxOption, Popover } from '@/shared/ui/popups';
-import { Page } from '@/widgets/page';
+import { RatingCard } from '@/entities/rating';
+import { StarRating } from '@/shared/ui/starRating';
+import { VStack } from '@/shared/ui/stack';
 
 import cls from './MainPage.module.scss';
-import { VStack } from '@/shared/ui/stack';
-import { StarRating } from '@/shared/ui/starRating';
-import { RatingCard } from '@/entities/rating';
 
 const MainPage = () => {
 	const { t } = useTranslation('main');
@@ -20,7 +21,7 @@ const MainPage = () => {
 	];
 
 	return (
-		<Page>
+		<Page data-testid='MainPage'>
 			{t('main_page')}
 
 			<VStack gap={40}>

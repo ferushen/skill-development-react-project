@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { Loader } from '@/shared/ui/loader';
@@ -10,7 +9,7 @@ interface PageLoaderProps {
 	className?: string;
 }
 
-export const PageLoader: FC<PageLoaderProps> = ({ className }) => {
+export const PageLoader = ({ className }: PageLoaderProps) => {
 	return (
 		<HStack className={cn(cls.pageLoader, {}, [className])}>
 			<Loader />
