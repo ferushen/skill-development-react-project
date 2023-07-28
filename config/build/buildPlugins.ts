@@ -16,7 +16,7 @@ export function buildPlugins({
 	apiUrl,
 	project,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
-	const isProd = isDev;
+	const isProd = !isDev;
 
 	const plugins = [
 		new HtmlWebpackPlugin({
