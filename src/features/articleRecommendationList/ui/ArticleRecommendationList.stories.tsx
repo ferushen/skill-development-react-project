@@ -1,10 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 import { ArticleRecommendationList } from './ArticleRecommendationList';
 import { Article } from '@/entities/article';
 import { ArticleBlockType, ArticleType } from '@/entities/article';
-/*import withMock from 'storybook-addon-mock';*/
+import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 // TODO: разобраться как мокать данные от RTK query
@@ -92,7 +90,7 @@ export default {
 	},
 	decorators: [
 		StoreDecorator({}),
-		/*withMock*/
+		withMock
 	],
 	parameters: {
 		mockData: [
@@ -113,13 +111,3 @@ export default {
 const Template: ComponentStory<typeof ArticleRecommendationList> = (args) => <ArticleRecommendationList {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [
-	ThemeDecorator(Theme.LIGHT),
-];
-
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-	ThemeDecorator(Theme.DARK),
-];

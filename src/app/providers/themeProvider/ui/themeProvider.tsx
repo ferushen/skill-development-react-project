@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo, useState } from 'react';
+import { ReactNode, useLayoutEffect, useMemo, useState } from 'react';
 
 import { Theme } from '@/shared/const/theme';
 import { ThemeContext } from '@/shared/lib/context/themeContext';
@@ -19,10 +19,13 @@ const ThemeProvider = ({ initialTheme, children }: ThemeProviderProps) => {
 		setTheme: setTheme,
 	}), [theme]);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		document.body.classList.add(theme);
+		console.log('@ThemeProvider: useEffect:add ', theme);
+
 		return () => {
 			document.body.classList.remove(theme);
+			console.log('@ThemeProvider: useEffect:remove ', theme);
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);

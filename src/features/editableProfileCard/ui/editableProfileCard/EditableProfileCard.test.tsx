@@ -1,4 +1,4 @@
-import { fireEvent, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import { act, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { EditableProfileCard } from './EditableProfileCard';
 import { Profile } from '@/entities/profile';
@@ -23,8 +23,6 @@ const options = {
 	initialState: {
 		profile: {
 			readonly: true,
-			data: mockProfileData,
-			form: mockProfileData,
 		},
 		user: {
 			authData: {
@@ -45,24 +43,27 @@ describe('features/EditableProfileCard', () => {
 			data: mockProfileData,
 		});
 
-		componentRender(<EditableProfileCard id='1' />, options);
-	});
+		await waitFor(() => {
+			componentRender(<EditableProfileCard id='1' />, options);
+		});
 
+		await waitForElementToBeRemoved(() => screen.queryByTestId('ProfileCard.Loader'));
+	});
 
 	afterEach(() => {
 		jest.clearAllMocks();
 	});
 
 	test('should change from read-only mode to editable mode by clicking edit-button', async () => {
-		await waitForElementToBeRemoved(() => screen.queryByTestId('ProfileCard.Loader'));
-
 		const profileCard = screen.getByTestId('ProfileCard');
 		expect(profileCard).toBeInTheDocument();
 
 		const editButton = screen.getByTestId('EditableProfileCardHeader.EditButton');
 		expect(editButton).toBeInTheDocument();
 
-		await waitFor(() => fireEvent.click(editButton));
+		await act(async () => {
+			await userEvent.click(editButton);
+		});
 
 		const cancelButton = screen.getByTestId('EditableProfileCardHeader.CancelButton');
 		expect(cancelButton).toBeInTheDocument();

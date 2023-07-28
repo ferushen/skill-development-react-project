@@ -53,7 +53,7 @@ export const ArticlesSortSwitcher = memo((props: ArticlesSortSwitcherProps) => {
 	], [t]);
 
 	return (
-		<HStack gap={8} className={cls.container}>
+		<HStack gap={8} className={cls.container} width='content'>
 			<ListBox
 				className={cls.sortField}
 				variant='stretchBgInverted'

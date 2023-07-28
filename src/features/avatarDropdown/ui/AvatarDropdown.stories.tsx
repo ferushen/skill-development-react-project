@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 import { AvatarDropdown } from './AvatarDropdown';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { UserRole } from '@/entities/user';
 
 export default {
 	title: 'features/AvatarDropdown',
@@ -13,14 +13,28 @@ export default {
 
 const Template: ComponentStory<typeof AvatarDropdown> = () => <AvatarDropdown />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [
-	ThemeDecorator(Theme.LIGHT),
+export const User = Template.bind({});
+User.decorators = [
+	StoreDecorator({
+		user: {
+			authData: {
+				roles: [
+					UserRole.User
+				]
+			}
+		}
+	})
 ];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-	ThemeDecorator(Theme.DARK),
+export const Admin = Template.bind({});
+Admin.decorators = [
+	StoreDecorator({
+		user: {
+			authData: {
+				roles: [
+					UserRole.Admin
+				]
+			}
+		}
+	})
 ];

@@ -1,8 +1,6 @@
 /* cSpell:disable */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-
 import { Modal } from './Modal';
 
 export default {
@@ -27,4 +25,6 @@ Dark.args = {
 	isOpen: true,
 	children: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, esse. Illum iure necessitatibus est enim blanditiis. Mollitia cupiditate ex reiciendis dolore impedit incidunt, maiores modi dolores vero repudiandae, temporibus expedita?'
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.parameters = {
+	theme: Theme.DARK
+};

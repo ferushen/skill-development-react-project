@@ -1,12 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ProfilePage from './ProfilePage';
-import { Theme } from '@/shared/const/theme';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator';
 import { Currency } from '@/entities/currency';
 import { Country } from '@/entities/country';
 import avatar from '@/shared/assets/tests/avatar.jpeg';
-import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator';
 
 const data = {
 	id: '1',
@@ -28,18 +26,7 @@ export default {
 	},
 	decorators: [
 		SuspenseDecorator,
-		StoreDecorator({
-			profile: {
-				data,
-				form: data,
-				readonly: true,
-			},
-			user: {
-				authData: {
-					id: '1'
-				}
-			}
-		}),
+
 	],
 	parameters: {
 		router: {
@@ -53,14 +40,33 @@ const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 
 export const Normal = Template.bind({});
-Normal.args = {};
-
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-	ThemeDecorator(Theme.DARK)
+Normal.decorators = [
+	StoreDecorator({
+		profile: {
+			data,
+			form: data,
+			readonly: true,
+		},
+		user: {
+			authData: {
+				id: '1'
+			}
+		}
+	})
 ];
 
 export const CantEdit = Template.bind({});
-CantEdit.args = {};
-CantEdit.decorators = [];
+CantEdit.decorators = [
+	StoreDecorator({
+		profile: {
+			data,
+			form: data,
+			readonly: true,
+		},
+		user: {
+			authData: {
+				id: '2'
+			}
+		}
+	})
+];

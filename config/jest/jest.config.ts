@@ -25,8 +25,8 @@ const config: Config.InitialOptions = {
 		'\\.(s?css)$': 'identity-obj-proxy',
 		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
 		'\\.png': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-		axios: 'axios/dist/node/axios.cjs',
-		/*'^axios$': require.resolve('axios'),*/
+		//axios: 'axios/dist/node/axios.cjs',
+		'^axios$': require.resolve('axios'),
 		'^@/(.*)$': '<rootDir>/src/$1', // для обработки алиасов
 	},
 	modulePaths: ['<rootDir>src'],

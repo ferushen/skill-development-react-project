@@ -1,7 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tabs } from './Tabs';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
 export default {
@@ -43,17 +42,17 @@ ColorSecondary.args = {
 };
 
 export const DarkColorPrimary = Template.bind({});
-DarkColorPrimary.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+DarkColorPrimary.parameters = {
+	theme: Theme.DARK
+};
 
 export const DarkColorSecondary = Template.bind({});
 DarkColorSecondary.args = {
 	color: 'secondary',
 };
-DarkColorSecondary.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+DarkColorSecondary.parameters = {
+	theme: Theme.DARK
+};
 
 export const SizeSmall = Template.bind({});
 SizeSmall.args = {

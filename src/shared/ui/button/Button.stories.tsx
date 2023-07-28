@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { Button, ButtonSize, ButtonVariant } from './Button';
 
@@ -78,7 +77,10 @@ export const DarkPrimary = Template.bind({});
 DarkPrimary.args = {
 	children: 'btn'
 };
-DarkPrimary.decorators = [ThemeDecorator(Theme.DARK)];
+DarkPrimary.parameters = {
+	theme: Theme.DARK
+};
+
 
 export const DarkDisabled = Template.bind({});
 DarkDisabled.args = {
@@ -86,63 +88,90 @@ DarkDisabled.args = {
 	variant: ButtonVariant.Outline,
 	disabled: 'with_opacity'
 };
-DarkDisabled.decorators = [ThemeDecorator(Theme.DARK)];
+DarkDisabled.parameters = {
+	theme: Theme.DARK
+};
+
 
 export const DarkClear = Template.bind({});
 DarkClear.args = {
 	children: 'Click me',
 	variant: ButtonVariant.Clear,
 };
-DarkClear.decorators = [ThemeDecorator(Theme.DARK)];
+DarkClear.parameters = {
+	theme: Theme.DARK
+};
+
 
 export const DarkClearInverted = Template.bind({});
 DarkClearInverted.args = {
 	children: 'Click me',
 	variant: ButtonVariant.ClearInverted
 };
-DarkClearInverted.decorators = [ThemeDecorator(Theme.DARK)];
+DarkClearInverted.parameters = {
+	theme: Theme.DARK
+};
+
 
 export const DarkOutline = Template.bind({});
 DarkOutline.args = {
 	children: 'Click me',
 	variant: ButtonVariant.Outline
 };
-DarkOutline.decorators = [ThemeDecorator(Theme.DARK)];
+DarkOutline.parameters = {
+	theme: Theme.DARK
+};
+
 
 export const DarkOutlineSecondary = Template.bind({});
 DarkOutlineSecondary.args = {
 	children: 'Click me',
 	variant: ButtonVariant.OutlineSecondary
 };
-DarkOutlineSecondary.decorators = [ThemeDecorator(Theme.DARK)];
+DarkOutlineSecondary.parameters = {
+	theme: Theme.DARK
+};
+
 
 export const DarkOutlineRed = Template.bind({});
 DarkOutlineRed.args = {
 	children: 'Click me',
 	variant: ButtonVariant.OutlineRed
 };
-DarkOutlineRed.decorators = [ThemeDecorator(Theme.DARK)];
+DarkOutlineRed.parameters = {
+	theme: Theme.DARK
+};
+
 
 export const DarkBackground = Template.bind({});
 DarkBackground.args = {
 	children: 'Click me',
 	variant: ButtonVariant.Background
 };
-DarkBackground.decorators = [ThemeDecorator(Theme.DARK)];
+DarkBackground.parameters = {
+	theme: Theme.DARK
+};
+
 
 export const DarkBackgroundInverted = Template.bind({});
 DarkBackgroundInverted.args = {
 	children: 'Click me',
 	variant: ButtonVariant.BackgroundInverted
 };
-DarkBackgroundInverted.decorators = [ThemeDecorator(Theme.DARK)];
+DarkBackgroundInverted.parameters = {
+	theme: Theme.DARK
+};
+
 
 export const DarkBackgroundSecondaryInverted = Template.bind({});
 DarkBackgroundSecondaryInverted.args = {
 	children: 'Click me',
 	variant: ButtonVariant.BackgroundSecondaryInverted
 };
-DarkBackgroundSecondaryInverted.decorators = [ThemeDecorator(Theme.DARK)];
+DarkBackgroundSecondaryInverted.parameters = {
+	theme: Theme.DARK
+};
+
 
 export const FormatMaxWidth = Template.bind({});
 FormatMaxWidth.args = {

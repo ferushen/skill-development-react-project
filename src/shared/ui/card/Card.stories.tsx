@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Text } from '@/shared/ui/text';
 import { Card, CardVariant } from './Card';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
 export default {
@@ -45,33 +44,33 @@ export const DarkColorPrimary = Template.bind({});
 DarkColorPrimary.args = {
 	color: 'primary',
 };
-DarkColorPrimary.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+DarkColorPrimary.parameters = {
+	theme: Theme.DARK
+};
 
 export const DarkColorSecondary = Template.bind({});
 DarkColorSecondary.args = {
 	color: 'secondary',
 };
-DarkColorSecondary.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+DarkColorSecondary.parameters = {
+	theme: Theme.DARK
+};
 
 export const DarkColorBgColor = Template.bind({});
 DarkColorBgColor.args = {
 	color: 'bgColor',
 };
-DarkColorBgColor.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+DarkColorBgColor.parameters = {
+	theme: Theme.DARK
+};
 
 export const DarkOutline = Template.bind({});
 DarkOutline.args = {
 	variant: CardVariant.Outline,
 };
-DarkOutline.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+DarkOutline.parameters = {
+	theme: Theme.DARK
+};
 
 export const SizeSmall = Template.bind({});
 SizeSmall.args = {

@@ -1,8 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 import { NotificationList } from './NotificationList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import withMock from 'storybook-addon-mock';
 
 export default {
 	title: 'entities/Notification/NotificationList',
@@ -10,7 +9,7 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-	decorators: [StoreDecorator({})],
+	decorators: [StoreDecorator({}), withMock],
 	parameters: {
 		mockData: [
 			{
@@ -42,13 +41,3 @@ export default {
 const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [
-	ThemeDecorator(Theme.LIGHT),
-];
-
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-	ThemeDecorator(Theme.DARK),
-];

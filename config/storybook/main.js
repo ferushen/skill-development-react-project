@@ -21,11 +21,11 @@ module.exports = {
 		{
 			name: '@storybook/addon-essentials',
 			options: {
-				background: false
+				background: true
 			}
 		},
 		'@storybook/addon-interactions',
-		'storybook-addon-mock',
-		'storybook-addon-themes'
+		'storybook-addon-mock/register',
+		'@storybook/addon-styling'
 	],
 };

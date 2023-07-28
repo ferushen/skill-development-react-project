@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { ListBox, ListBoxOption } from './ListBox';
 
@@ -71,9 +70,9 @@ DarkTopLeft.args = {
 	direction: 'top left',
 	optionWidth: 'max-content',
 };
-DarkTopLeft.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+DarkTopLeft.parameters = {
+	theme: Theme.DARK
+};
 
 export const DarkTopRight = Template.bind({});
 DarkTopRight.args = {
@@ -82,9 +81,9 @@ DarkTopRight.args = {
 	direction: 'top right',
 	optionWidth: 'max-content',
 };
-DarkTopRight.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+DarkTopRight.parameters = {
+	theme: Theme.DARK
+};
 
 export const DarkBottomLeft = Template.bind({});
 DarkBottomLeft.args = {
@@ -93,9 +92,9 @@ DarkBottomLeft.args = {
 	direction: 'bottom left',
 	optionWidth: 'max-content',
 };
-DarkBottomLeft.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+DarkBottomLeft.parameters = {
+	theme: Theme.DARK
+};
 
 export const DarkBottomRight = Template.bind({});
 DarkBottomRight.args = {
@@ -104,7 +103,7 @@ DarkBottomRight.args = {
 	direction: 'bottom right',
 	optionWidth: 'max-content',
 };
-DarkBottomRight.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+DarkBottomRight.parameters = {
+	theme: Theme.DARK
+};
 

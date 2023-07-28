@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from '@/shared/const/theme';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import AboutPage from './AboutPage';
 
 export default {
@@ -16,20 +14,8 @@ export default {
 const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
 Normal.decorators = [StoreDecorator({
 	scrollSaver: {
 		scroll: {}
 	}
 })];
-
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-	ThemeDecorator(Theme.DARK),
-	StoreDecorator({
-		scrollSaver: {
-			scroll: {}
-		}
-	})
-];

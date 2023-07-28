@@ -1,7 +1,6 @@
 /* eslint-disable */
 import { useTranslation } from 'react-i18next';
 
-import { Page } from '@/widgets/page';
 import { Button } from '@/shared/ui/button';
 import { Dropdown, ListBox, ListBoxOption, Popover } from '@/shared/ui/popups';
 import { RatingCard } from '@/entities/rating';
@@ -21,7 +20,7 @@ const MainPage = () => {
 	];
 
 	return (
-		<Page data-testid='MainPage'>
+		<div data-testid='MainPage'>
 			{t('main_page')}
 
 			<VStack gap={40}>
@@ -74,7 +73,7 @@ const MainPage = () => {
 				/>
 
 			</VStack>
-		</Page>
+		</div>
 	);
 };
 

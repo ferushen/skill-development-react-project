@@ -7,7 +7,7 @@ export type FlexJustify = 'start' | 'center' | 'end' | 'between' | 'around';
 export type FlexAlign = 'start' | 'center' | 'end' | 'normal';
 export type FlexDirection = 'row' | 'column';
 export type FlexGap = 4 | 8 | 12 | 16 | 20 | 24 | 30 | 40;
-export type FlexWidth = 'max' | 'minMax';
+export type FlexWidth = 'max' | 'minMax' | 'content';
 
 const justifyClasses: Record<FlexJustify, string> = {
 	around: cls.justifyAround,
@@ -43,6 +43,7 @@ const gapClasses: Record<FlexGap, string> = {
 const widthClasses: Record<FlexWidth, string> = {
 	minMax: cls.minMax,
 	max: cls.max,
+	content: cls.fit
 };
 
 type DivProps = DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;

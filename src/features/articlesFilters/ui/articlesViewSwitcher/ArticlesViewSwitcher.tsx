@@ -44,6 +44,7 @@ export const ArticlesViewSwitcher = memo((props: ArticlesViewSwitcherProps) => {
 		<HStack
 			className={cn(cls.container, {}, [className])}
 			gap={8}
+			width='content'
 		>
 			{viewTypes.map(viewType => (
 				<Button

@@ -1,9 +1,14 @@
 import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { I18nextDecorator } from 'shared/config/storybook/I18nextDecorator';
 import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+
+//import { ThemeAddonDecorator } from 'shared/config/storybook/ThemeAddonDecorator';
+//import { withThemeFromJSXProvider } from "@storybook/addon-styling";
+//import { ThemeProvider } from 'app/providers/themeProvider';
+
 import { Theme } from 'shared/const/theme';
 
 export const parameters = {
@@ -14,13 +19,7 @@ export const parameters = {
 			date: /Date$/,
 		},
 	},
-	themes: {
-		default: 'dark',
-		list: [
-			{ name: 'light', class: Theme.LIGHT, color: '#00aced' },
-			{ name: 'dark', class: Theme.DARK, color: '#3b5998' }
-		],
-	}
+	theme: Theme.LIGHT
 };
 
 export const globalTypes = {
@@ -39,7 +38,22 @@ export const globalTypes = {
 };
 
 addDecorator(StyleDecorator);
-addDecorator(ThemeDecorator(Theme.LIGHT));
+addDecorator(ThemeDecorator);
+/*addDecorator(ThemeAddonDecorator({
+	themes: {
+		light: Theme.LIGHT,
+		dark: Theme.DARK,
+	},
+	defaultTheme: 'light',
+}));*/
+/*addDecorator(withThemeFromJSXProvider({
+	themes: {
+		light: Theme.LIGHT,
+		dark: Theme.DARK,
+	},
+	defaultTheme: 'light',
+	Provider: ThemeProvider,
+}));*/
 addDecorator(RouterDecorator);
 addDecorator(SuspenseDecorator); // последовательность декораторов играет роль
 addDecorator(I18nextDecorator);

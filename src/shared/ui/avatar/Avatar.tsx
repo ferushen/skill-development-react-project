@@ -5,7 +5,7 @@ import { AppImage } from '../appImage';
 import { Icon } from '../icon';
 import { Skeleton } from '../skeleton';
 
-import EmptyAvatar from './visitor-512-512.png';
+import EmptyAvatar from '../../assets/tests/visitor-80-80.png';
 import UserFallback from '../../assets/icons/user-32-32.svg';
 
 import cls from './Avatar.module.scss';
@@ -35,12 +35,18 @@ export const Avatar = memo((props: AvatarProps) => {
 	}), [size]);
 
 	const fallback = <Skeleton width={size} height={size} border='50%' />;
-	const errorFallback = (
+	const errorFallback = isEmpty ? (
+		<img
+			width={size}
+			height={size}
+			src={EmptyAvatar}
+		/>
+	) : (
 		<Icon
 			variant={invertedFallbackColor ? 'inverted' : 'primary'}
 			width={size}
 			height={size}
-			Svg={isEmpty ? EmptyAvatar : UserFallback}
+			Svg={UserFallback}
 		/>
 	);
 

@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 
 import { Text, TextSize, TextVariant } from './Text';
 
@@ -56,16 +55,22 @@ PrimaryDark.args = {
 	title: 'Title for testing',
 	text: 'This test proposal is, in a way, to fill the text space of the limitless canvas of the Internet page.'
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.parameters = {
+	theme: Theme.DARK
+};
 
 export const OnlyTitleDark = Template.bind({});
 OnlyTitleDark.args = {
 	title: 'Title for testing',
 };
-OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
+OnlyTitleDark.parameters = {
+	theme: Theme.DARK
+};
 
 export const OnlyTextDark = Template.bind({});
 OnlyTextDark.args = {
 	text: 'This test proposal is, in a way, to fill the text space of the limitless canvas of the Internet page.'
 };
-OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+OnlyTextDark.parameters = {
+	theme: Theme.DARK
+};

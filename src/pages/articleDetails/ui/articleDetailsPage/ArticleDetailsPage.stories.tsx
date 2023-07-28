@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 
 import type { Article } from '@/entities/article';
 import { ArticleBlockType, ArticleType } from '@/entities/article';
@@ -133,48 +131,3 @@ Error.parameters = {
 		route: '/article/',
 	}
 };
-
-export const DarkReadonly = Template.bind({});
-DarkReadonly.decorators = [
-	ThemeDecorator(Theme.DARK),
-	StoreDecorator({
-		articleDetails: {
-			data: articleMock
-		}
-	})
-];
-
-
-export const DarkEditable = Template.bind({});
-DarkEditable.decorators = [
-	ThemeDecorator(Theme.DARK),
-	StoreDecorator({
-		articleDetails: {
-			data: articleMock
-		},
-		user: {
-			authData: {
-				id: '1',
-			},
-		},
-	})];
-
-export const DarkLoading = Template.bind({});
-DarkLoading.decorators = [
-	ThemeDecorator(Theme.DARK),
-	StoreDecorator({
-		articleDetails: {
-			isLoading: true,
-		},
-	})];
-
-export const DarkError = Template.bind({});
-DarkError.parameters = {
-	router: {
-		path: '/article/',
-		route: '/article/',
-	}
-};
-DarkError.decorators = [
-	ThemeDecorator(Theme.DARK),
-];

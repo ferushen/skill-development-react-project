@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { AppImage } from './AppImage';
 import { Theme } from '@/shared/const/theme';
 
@@ -14,13 +13,8 @@ export default {
 const Template: ComponentStory<typeof AppImage> = (args) => <AppImage {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [
-	ThemeDecorator(Theme.LIGHT),
-];
 
 export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-	ThemeDecorator(Theme.DARK),
-];
+Dark.parameters = {
+	theme: Theme.DARK
+};
