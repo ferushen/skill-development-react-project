@@ -56,7 +56,7 @@ jobs:
     runs-on: [windows-2019]
     concurrency: ci-${{ github.ref }}
     environment:
-      name: 'github-pages'
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:

@@ -1,6 +1,7 @@
 module.exports = {
 	core: {
-		builder: '@storybook/builder-webpack5',
+		//builder: '@storybook/builder-webpack5',
+		builder: 'webpack5',
 	},
 	framework: '@storybook/react',
 	reactOptions: { legacyRootApi: true },
@@ -16,7 +17,6 @@ module.exports = {
 	},
 	stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
 	addons: [
-		'@storybook/addon-actions',
 		'@storybook/addon-links',
 		{
 			name: '@storybook/addon-essentials',
