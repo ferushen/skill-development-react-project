@@ -5,4 +5,4 @@ node_modules
 .vscode/settings.json
 .loki/report.html
 .loki/report.json
-report
+report/unit
