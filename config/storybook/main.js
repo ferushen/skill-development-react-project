@@ -1,19 +1,19 @@
 module.exports = {
-	core: {
-		//builder: '@storybook/builder-webpack5',
-		builder: 'webpack5',
+	framework: {
+		name: '@storybook/react-webpack5',
+		options: {
+			legacyRootApi: true
+		}
 	},
-	framework: '@storybook/react',
-	reactOptions: { legacyRootApi: true },
 	typescript: {
 		reactDocgen: 'react-docgen-typescript-plugin',
 		reactDocgenTypescriptOptions: {
 			compilerOptions: {
 				allowSyntheticDefaultImports: false,
-				esModuleInterop: false,
+				esModuleInterop: false
 			},
-			propFilter: () => true,
-		},
+			propFilter: () => true
+		}
 	},
 	stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
 	addons: [
@@ -25,7 +25,7 @@ module.exports = {
 			}
 		},
 		'@storybook/addon-interactions',
-		'storybook-addon-mock/register',
+		'storybook-addon-mock',
 		'@storybook/addon-styling'
 	],
 };

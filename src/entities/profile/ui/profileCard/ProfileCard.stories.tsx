@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Country } from '@/entities/country';
 import { Currency } from '@/entities/currency';
 import { ProfileCard } from './ProfileCard';
@@ -10,9 +10,9 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-} as ComponentMeta<typeof ProfileCard>;
+} as Meta<typeof ProfileCard>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: StoryFn<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

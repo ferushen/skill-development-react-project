@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Theme } from '@/shared/const/theme';
 import { ListBox, ListBoxOption } from './ListBox';
 
@@ -21,9 +21,9 @@ export default {
 			</div>
 		)
 	],
-} as ComponentMeta<typeof ListBox>;
+} as Meta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: StoryFn<typeof ListBox> = (args) => <ListBox {...args} />;
 
 const optionsLong: ListBoxOption[] = [
 	{ value: 'opt1', content: 'длинная-длинная-опция-1' },

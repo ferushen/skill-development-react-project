@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ArticlesViewSwitcher } from './ArticlesViewSwitcher';
 
 export default {
@@ -7,9 +7,9 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-} as ComponentMeta<typeof ArticlesViewSwitcher>;
+} as Meta<typeof ArticlesViewSwitcher>;
 
-const Template: ComponentStory<typeof ArticlesViewSwitcher> = (args) => <ArticlesViewSwitcher {...args} />;
+const Template: StoryFn<typeof ArticlesViewSwitcher> = (args) => <ArticlesViewSwitcher {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

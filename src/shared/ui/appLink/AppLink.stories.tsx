@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Theme } from '@/shared/const/theme';
 import { AppLink, AppLinkVariant } from './AppLink';
 
@@ -11,10 +11,10 @@ export default {
 	args: {
 		to: '/',
 	}
-} as ComponentMeta<typeof AppLink>;
+} as Meta<typeof AppLink>;
 
 
-const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;
+const Template: StoryFn<typeof AppLink> = (args) => <AppLink {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

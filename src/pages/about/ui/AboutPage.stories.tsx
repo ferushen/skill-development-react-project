@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import AboutPage from './AboutPage';
 
@@ -8,10 +8,10 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-} as ComponentMeta<typeof AboutPage>;
+} as Meta<typeof AboutPage>;
 
 
-const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
+const Template: StoryFn<typeof AboutPage> = () => <AboutPage />;
 
 export const Normal = Template.bind({});
 Normal.decorators = [StoreDecorator({

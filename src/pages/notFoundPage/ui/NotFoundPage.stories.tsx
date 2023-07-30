@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { NotFoundPage } from './NotFoundPage';
 
@@ -8,10 +8,10 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-} as ComponentMeta<typeof NotFoundPage>;
+} as Meta<typeof NotFoundPage>;
 
 
-const Template: ComponentStory<typeof NotFoundPage> = () => <NotFoundPage />;
+const Template: StoryFn<typeof NotFoundPage> = () => <NotFoundPage />;
 
 export const Normal = Template.bind({});
 Normal.decorators = [StoreDecorator({

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ArticlesSortSwitcher } from './ArticlesSortSwitcher';
 import { ArticleSortField } from '../../model/types/articlesFilters';
 
@@ -8,9 +8,9 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-} as ComponentMeta<typeof ArticlesSortSwitcher>;
+} as Meta<typeof ArticlesSortSwitcher>;
 
-const Template: ComponentStory<typeof ArticlesSortSwitcher> = (args) => <ArticlesSortSwitcher {...args} />;
+const Template: StoryFn<typeof ArticlesSortSwitcher> = (args) => <ArticlesSortSwitcher {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

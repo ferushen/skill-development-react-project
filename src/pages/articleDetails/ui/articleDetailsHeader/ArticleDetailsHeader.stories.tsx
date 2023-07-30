@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ArticleDetailsHeader } from './ArticleDetailsHeader';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
@@ -14,9 +14,9 @@ export default {
 			route: '/article/1',
 		}
 	},
-} as ComponentMeta<typeof ArticleDetailsHeader>;
+} as Meta<typeof ArticleDetailsHeader>;
 
-const Template: ComponentStory<typeof ArticleDetailsHeader> = (args) => <ArticleDetailsHeader {...args} />;
+const Template: StoryFn<typeof ArticleDetailsHeader> = (args) => <ArticleDetailsHeader {...args} />;
 
 export const Readonly = Template.bind({});
 Readonly.decorators = [

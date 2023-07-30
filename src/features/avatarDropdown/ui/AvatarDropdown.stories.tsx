@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { AvatarDropdown } from './AvatarDropdown';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { UserRole } from '@/entities/user';
@@ -9,9 +9,9 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-} as ComponentMeta<typeof AvatarDropdown>;
+} as Meta<typeof AvatarDropdown>;
 
-const Template: ComponentStory<typeof AvatarDropdown> = () => <AvatarDropdown />;
+const Template: StoryFn<typeof AvatarDropdown> = () => <AvatarDropdown />;
 
 export const User = Template.bind({});
 User.decorators = [

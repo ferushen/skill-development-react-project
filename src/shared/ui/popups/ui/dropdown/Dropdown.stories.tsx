@@ -1,5 +1,5 @@
 /* eslint-disable i18next/no-literal-string */
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Theme } from '@/shared/const/theme';
 import { Button } from '../../../button/Button';
 import { Dropdown } from './Dropdown';
@@ -13,9 +13,9 @@ export default {
 	decorators: [
 		(Story) => (<div style={{}}><Story /></div>)
 	]
-} as ComponentMeta<typeof Dropdown>;
+} as Meta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: StoryFn<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
 const args = {
 	trigger: <Button>Trigger</Button>,

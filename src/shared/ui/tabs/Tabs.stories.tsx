@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Tabs } from './Tabs';
 import { Theme } from '@/shared/const/theme';
 
@@ -27,9 +27,9 @@ export default {
 		active: 'tab_1',
 		onClickTab: action('onClickTab')
 	}
-} as ComponentMeta<typeof Tabs>;
+} as Meta<typeof Tabs>;
 
-const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
+const Template: StoryFn<typeof Tabs> = (args) => <Tabs {...args} />;
 
 export const ColorPrimary = Template.bind({});
 ColorPrimary.args = {

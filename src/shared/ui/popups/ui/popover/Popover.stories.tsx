@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Theme } from '@/shared/const/theme';
 import { Popover } from './Popover';
 
@@ -8,9 +8,9 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-} as ComponentMeta<typeof Popover>;
+} as Meta<typeof Popover>;
 
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
+const Template: StoryFn<typeof Popover> = (args) => <Popover {...args} />;
 
 export const Normal = Template.bind({});
 

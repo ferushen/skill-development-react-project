@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { Text } from '@/shared/ui/text';
 import { Card, CardVariant } from './Card';
 import { Theme } from '@/shared/const/theme';
@@ -16,9 +16,9 @@ export default {
 		// eslint-disable-next-line i18next/no-literal-string
 		children: <Text title='Card title' text='some text' />
 	}
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
+const Template: StoryFn<typeof Card> = (args) => <Card {...args} />;
 
 export const ColorPrimary = Template.bind({});
 ColorPrimary.args = {

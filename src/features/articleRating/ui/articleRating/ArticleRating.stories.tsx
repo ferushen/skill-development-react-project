@@ -1,7 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import ArticleRating from './ArticleRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import withMock from 'storybook-addon-mock';
 
 export default {
 	title: 'features/ArticleRating',
@@ -19,27 +18,26 @@ export default {
 					id: '1'
 				}
 			}
-		}),
-		withMock
-	],
-	parameters: {
-		mockData: [
-			{
-				url: `${__API__}/article-ratings?userId=1&articleId=1`, // важен порядок query-параметров
-				method: 'GET',
-				status: 200,
-				response: [{
-					rate: 4,
-					feedback: 'статья нормик'
-				}]
-			}
-		]
-	}
-} as ComponentMeta<typeof ArticleRating>;
+		})
+	]
+} as Meta<typeof ArticleRating>;
 
-const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
+const Template: StoryFn<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
 
 export const Normal = Template.bind({});
+Normal.parameters = {
+	mockData: [
+		{
+			url: `${__API__}/article-ratings?userId=1&articleId=1`, // важен порядок query-параметров
+			method: 'GET',
+			status: 200,
+			response: [{
+				rate: 4,
+				feedback: 'статья нормик'
+			}]
+		}
+	]
+};
 
 export const WithoutRate = Template.bind({});
 WithoutRate.parameters = {

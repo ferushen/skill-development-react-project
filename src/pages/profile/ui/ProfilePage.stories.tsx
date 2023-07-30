@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import ProfilePage from './ProfilePage';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator';
@@ -34,9 +34,9 @@ export default {
 			path: '/profile/:id',
 		}
 	},
-} as ComponentMeta<typeof ProfilePage>;
+} as Meta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
+const Template: StoryFn<typeof ProfilePage> = () => <ProfilePage />;
 
 
 export const Normal = Template.bind({});

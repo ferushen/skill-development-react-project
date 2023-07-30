@@ -1,4 +1,3 @@
-import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { I18nextDecorator } from 'shared/config/storybook/I18nextDecorator';
@@ -37,8 +36,14 @@ export const globalTypes = {
 	},
 };
 
-addDecorator(StyleDecorator);
-addDecorator(ThemeDecorator);
+export const decorators = [
+	StyleDecorator,
+	ThemeDecorator,
+	RouterDecorator,
+	SuspenseDecorator,
+	I18nextDecorator
+];
+
 /*addDecorator(ThemeAddonDecorator({
 	themes: {
 		light: Theme.LIGHT,
@@ -54,9 +59,3 @@ addDecorator(ThemeDecorator);
 	defaultTheme: 'light',
 	Provider: ThemeProvider,
 }));*/
-addDecorator(RouterDecorator);
-addDecorator(SuspenseDecorator); // последовательность декораторов играет роль
-addDecorator(I18nextDecorator);
-
-// альтернативная запись:
-// export const decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ...];
