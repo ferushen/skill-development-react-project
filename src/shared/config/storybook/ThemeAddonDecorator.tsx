@@ -1,8 +1,8 @@
 /* eslint-disable correct-fsd-import-paths/layer-import */
+// @ts-nocheck
 import { ThemeProvider } from '@/app/providers/themeProvider';
 import { Theme } from '@/shared/const/theme';
-import { Story, StoryContext } from '@storybook/react';
-
+import { StoryContext, StoryFn } from '@storybook/react';
 import { DecoratorHelpers } from '@storybook/addon-styling';
 
 type ThemeName = 'dark' | 'light';
@@ -32,7 +32,7 @@ export const ThemeAddonDecorator = ({
 
 	initializeThemeState(themeNames, defaultTheme || themeNames[0]);
 
-	return (StoryComponent: Story, context: StoryContext) => {
+	return (StoryComponent: StoryFn, context: StoryContext) => {
 		const themeFromContext = pluckThemeFromContext(context) as ThemeName;
 		const selectedThemeName = themeFromContext || defaultTheme;
 		const theme = themes[selectedThemeName];

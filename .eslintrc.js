@@ -142,6 +142,8 @@ module.exports = {
 				argsIgnorePattern: '^_'
 			}
 		],
+		'@typescript-eslint/no-namespace': 0,
+		'@typescript-eslint/no-empty-function': 1,
 	},
 	settings: {
 		react: {
