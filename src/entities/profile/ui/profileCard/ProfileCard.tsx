@@ -97,17 +97,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
 					justify='center'
 					gap={16}
 				>
-					{data?.avatar && (
-						<Card
-							className={cls.avatarWrapper}
-							variant={CardVariant.Outline}
-							color='bgColor'
-						>
-							<HStack width={'max'}>
-								<Avatar src={data?.avatar} alt={t('avatar')} />
-							</HStack>
-						</Card>
-					)}
+					<Card
+						className={cls.avatarWrapper}
+						variant={CardVariant.Outline}
+						color='bgColor'
+					>
+						<HStack width={'max'}>
+							<Avatar
+								src={data?.avatar}
+								alt={t('avatar')}
+							/>
+						</HStack>
+					</Card>
 					<Input
 						classNameWrapper={cls.inputWrapper}
 						variant={InputVariant.BackgroundInverted}

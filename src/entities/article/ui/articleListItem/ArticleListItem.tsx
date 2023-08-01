@@ -48,7 +48,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 		)) as ArticleTextBlock;
 
 		return (
-			<div className={cn('', {}, [className, cls[view]])}>
+			<div
+				className={cn('', {}, [className, cls[view]])}
+				data-testid='ArticleListItem'
+			>
 				<Card size='large'>
 					<VStack justify='start' gap={8}>
 						<HStack justify='between' width='max'>
@@ -95,6 +98,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 			className={cn('', {}, [className, cls[view]])}
 			to={getRouteArticleDetails(article.id)}
 			target={target}
+			data-testid='ArticleListItem'
 		>
 			<Card size='large'>
 				<VStack justify='start' gap={8}>

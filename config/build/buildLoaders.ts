@@ -11,17 +11,18 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 		use: ['@svgr/webpack'],
 	};
 
-	/* 
+	/*
     const svgLoader: webpack.RuleSetRule = {
         test: /\.svg$/,
         type: 'asset/resource',
         generator: {
             filename: options.paths.assets.svg,
         },
-    }; 
+    };
     */
 
 	// webpack v5: deprecated
+	/*
 	const fileLoader = {
 		test: /\.(png|jpe?g|gif|woff2|woff)$/i,
 		use: [
@@ -30,8 +31,14 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 			},
 		],
 	};
+	*/
 
-	/* 
+	const assetModulesLoader = {
+		test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+		type: 'asset/resource',
+	};
+
+	/*
     const imgLoader: webpack.RuleSetRule = {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
@@ -51,7 +58,8 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	//	};
 
 	return [
-		fileLoader,
+		/*fileLoader,*/
+		assetModulesLoader,
 		svgLoader,
 		codeBabelLoader,
 		tsxCodeBabelLoader,

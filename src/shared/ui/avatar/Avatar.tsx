@@ -40,6 +40,7 @@ export const Avatar = memo((props: AvatarProps) => {
 			width={size}
 			height={size}
 			src={EmptyAvatar}
+			alt={alt}
 		/>
 	) : (
 		<Icon

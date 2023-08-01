@@ -1,9 +1,10 @@
 {
 	"compilerOptions": {
-		"target": "ES5",
+		"target": "es5",
 		"lib": ["es5", "dom"],
 		"types": ["cypress", "node"],
-		"allowJs": true
+		"allowJs": true,
+		"isolatedModules": false
 	},
 	"extends": "../tsconfig.json", // расширяем конфигом приложения
 	"include": ["**/*.ts"]

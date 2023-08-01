@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { ArticleBlock } from '../../model/types/article';
+import type { ArticleBlock } from '../../model/types/article';
 import { ArticleBlockType } from '../../model/consts/consts';
 
 import { useSelector } from 'react-redux';
@@ -156,7 +156,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 					title={article?.title}
 					text={article?.subtitle}
 				/>
-				<VStack justify='start' gap={16}>
+				<VStack
+					justify='start'
+					gap={16}
+					data-testid='ArticleDetails.Information'
+				>
 					{article?.blocks.map(renderBlock)}
 				</VStack>
 			</>

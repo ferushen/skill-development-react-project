@@ -67,6 +67,7 @@ export const Flex = (props: FlexProps) => {
 		justify = 'center',
 		gap,
 		width,
+		...otherProps
 	} = props;
 
 	const classes = [
@@ -79,7 +80,7 @@ export const Flex = (props: FlexProps) => {
 	];
 
 	return (
-		<div className={cn(cls.flex, {}, classes)}>
+		<div className={cn(cls.flex, {}, classes)} {...otherProps}>
 			{children}
 		</div>
 	);

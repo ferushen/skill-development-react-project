@@ -51,6 +51,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 				justify='between'
 				gap={12}
 				width='max'
+				data-testid='AddCommentForm'
 			>
 				<Input
 					classNameWrapper={cls.inputWrapper}
@@ -61,8 +62,14 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 					placeholder={t('enter_comment_text')}
 					value={text}
 					onChange={onCommentTextChange}
+					data-testid='AddCommentForm.Input'
 				/>
-				<Button onClick={onSend}>{t('send')}</Button>
+				<Button
+					onClick={onSend}
+					data-testid='AddCommentForm.Submit'
+				>
+					{t('send')}
+				</Button>
 			</HStack>
 		</DynamicModuleLoader>
 	);
