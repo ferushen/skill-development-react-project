@@ -29,17 +29,15 @@ export function buildPlugins({
 			__API__: JSON.stringify(apiUrl),
 			__PROJECT__: JSON.stringify(project),
 		}),
+		new BundleAnalyzerPlugin({
+			analyzerMode: analyze ? 'server' : 'disabled',
+			openAnalyzer: false,
+		}),
 	];
 
 	if (isDev) {
 		plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
 		/*plugins.push(new webpack.HotModuleReplacementPlugin());*/
-		plugins.push(
-			new BundleAnalyzerPlugin({
-				analyzerMode: analyze ? 'server' : 'disabled',
-				openAnalyzer: false,
-			})
-		);
 		plugins.push(
 			new CircularDependencyPlugin({
 				exclude: /node_modules/,

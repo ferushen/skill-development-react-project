@@ -7,5 +7,5 @@
 		"isolatedModules": false
 	},
 	"extends": "../tsconfig.json", // расширяем конфигом приложения
-	"include": ["**/*.ts"]
+	"include": ["**/*.ts", "**/*.tsx"]
 }
