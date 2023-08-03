@@ -10,10 +10,7 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-	decorators: [
-		SuspenseDecorator,
-		StoreDecorator({}),
-	]
+	decorators: [SuspenseDecorator, StoreDecorator({})],
 } as Meta<typeof Input>;
 
 const Template: StoryFn<typeof Input> = (args) => <Input {...args} />;
@@ -26,5 +23,5 @@ Primary.args = {
 export const PrimaryWithValue = Template.bind({});
 PrimaryWithValue.args = {
 	placeholder: 'Enter something',
-	value: 'Some value'
+	value: 'Some value',
 };

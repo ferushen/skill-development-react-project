@@ -20,9 +20,12 @@ export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentP
 	return (
 		<div className={cn(cls.articleTextBlockComponent, mods, [className])}>
 			{block.title && (
-				<Text className={cls.title} title={block.title} />
+				<Text
+					className={cls.title}
+					title={block.title}
+				/>
 			)}
-			{block.paragraphs.map(paragraph => (
+			{block.paragraphs.map((paragraph) => (
 				<Text
 					className={cls.paragraph}
 					text={paragraph}

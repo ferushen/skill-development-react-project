@@ -9,7 +9,6 @@ export default {
 	},
 } as Meta<typeof Select>;
 
-
 const Template: StoryFn<typeof Select> = (args) => <Select {...args} />;
 
 export const Primary = Template.bind({});
@@ -20,5 +19,5 @@ Primary.args = {
 		{ value: '123', content: 'Пункт первый' },
 		{ value: '234', content: 'Второй первый' },
 		{ value: '345', content: 'Третий первый' },
-	]
+	],
 };

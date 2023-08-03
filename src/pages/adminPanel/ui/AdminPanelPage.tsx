@@ -15,7 +15,7 @@ const AdminPanelPage = (props: AdminPanelPageProps) => {
 			className={cn(cls.adminPanelPage, {}, [className])}
 			data-testid='AdminPanel'
 		>
-			{ /* eslint-disable-next-line */}
+			{/* eslint-disable-next-line */}
 			{'AdminPanelPage'}
 		</div>
 	);

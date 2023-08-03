@@ -22,7 +22,9 @@ describe('profileSlice', () => {
 
 		expect(
 			profileReducer(state as ProfileSchema, profileActions.setReadonly(true))
-		).toEqual({ readonly: true });
+		).toEqual({
+			readonly: true,
+		});
 	});
 
 	test('test cancel edit', () => {
@@ -63,12 +65,12 @@ describe('profileSlice', () => {
 			validateErrors: [ValidateProfileError.ServerError],
 		};
 
-		expect(
-			profileReducer(state as ProfileSchema, updateProfileData.pending)
-		).toEqual({
-			isLoading: true,
-			validateErrors: undefined,
-		});
+		expect(profileReducer(state as ProfileSchema, updateProfileData.pending)).toEqual(
+			{
+				isLoading: true,
+				validateErrors: undefined,
+			}
+		);
 	});
 
 	test('test update profile service fulfilled', () => {
@@ -77,10 +79,7 @@ describe('profileSlice', () => {
 		};
 
 		expect(
-			profileReducer(
-				state as ProfileSchema,
-				updateProfileData.fulfilled(data, '')
-			)
+			profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data, ''))
 		).toEqual({
 			isLoading: false,
 			readonly: true,

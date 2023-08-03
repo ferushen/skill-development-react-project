@@ -70,8 +70,6 @@ describe('updateProfileData', () => {
 
 		// убеждаемся что async thunk отработал с ошибкой
 		expect(result.meta.requestStatus).toBe('rejected');
-		expect(result.payload).toEqual([
-			ValidateProfileError.InvalidLastnameLength,
-		]);
+		expect(result.payload).toEqual([ValidateProfileError.InvalidLastnameLength]);
 	});
 });

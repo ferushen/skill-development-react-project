@@ -4,7 +4,8 @@ import { Theme } from '@/shared/const/theme';
 import { ThemeContext } from '@/shared/lib/context/themeContext';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 
-const defaultValue = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
+const defaultValue =
+	(localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 interface ThemeProviderProps {
 	initialTheme?: Theme;
@@ -14,10 +15,13 @@ interface ThemeProviderProps {
 const ThemeProvider = ({ initialTheme, children }: ThemeProviderProps) => {
 	const [theme, setTheme] = useState<Theme>(initialTheme || defaultValue);
 
-	const defaultProps = useMemo(() => ({
-		theme: theme,
-		setTheme: setTheme,
-	}), [theme]);
+	const defaultProps = useMemo(
+		() => ({
+			theme: theme,
+			setTheme: setTheme,
+		}),
+		[theme]
+	);
 
 	useLayoutEffect(() => {
 		document.body.classList.add(theme);
@@ -30,11 +34,7 @@ const ThemeProvider = ({ initialTheme, children }: ThemeProviderProps) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	return (
-		<ThemeContext.Provider value={defaultProps}>
-			{children}
-		</ThemeContext.Provider>
-	);
+	return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
 };
 
 export default ThemeProvider;

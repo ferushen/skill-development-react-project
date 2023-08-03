@@ -16,7 +16,7 @@ Normal.args = {
 	comment: {
 		id: '1',
 		text: 'Я первый!',
-		user: { id: '1', username: 'Joker' }
+		user: { id: '1', username: 'Joker' },
 	},
 };
 
@@ -25,7 +25,7 @@ Loading.args = {
 	comment: {
 		id: '',
 		text: '',
-		user: { id: '', username: '' }
+		user: { id: '', username: '' },
 	},
 	isLoading: true,
 };

@@ -21,20 +21,16 @@ interface ArticleListProps {
 	target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.Grid ? 9 : 3)
-	.fill(0)
-	.map((_, index) => (
-		<ArticleListItemSkeleton view={view} key={index} />
+const getSkeletons = (view: ArticleView) =>
+	new Array(view === ArticleView.Grid ? 9 : 3).fill(0).map((_, index) => (
+		<ArticleListItemSkeleton
+			view={view}
+			key={index}
+		/>
 	));
 
 export const ArticleList = memo((props: ArticleListProps) => {
-	const {
-		className,
-		articles,
-		view = ArticleView.Grid,
-		isLoading,
-		target
-	} = props;
+	const { className, articles, view = ArticleView.Grid, isLoading, target } = props;
 	const { t } = useTranslation('article');
 
 	const renderArticle = (article: Article) => {
@@ -61,10 +57,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 			className={cn('', {}, [className, cls[view]])}
 			data-testid='ArticleList'
 		>
-			{articles.length > 0
-				? articles.map(renderArticle)
-				: null
-			}
+			{articles.length > 0 ? articles.map(renderArticle) : null}
 			{isLoading && getSkeletons(view)}
 		</div>
 	);

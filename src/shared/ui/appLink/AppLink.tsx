@@ -22,23 +22,25 @@ interface AppLinkProps extends LinkProps {
 	children?: ReactNode;
 }
 
-export const AppLink = memo(forwardRef((props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
-	const {
-		to,
-		className,
-		children,
-		variant = AppLinkVariant.Primary,
-		...otherProps
-	} = props;
+export const AppLink = memo(
+	forwardRef((props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+		const {
+			to,
+			className,
+			children,
+			variant = AppLinkVariant.Primary,
+			...otherProps
+		} = props;
 
-	return (
-		<Link
-			ref={ref}
-			to={to}
-			className={cn(cls.appLink, {}, [className, cls[variant]])}
-			{...otherProps}
-		>
-			{children}
-		</Link>
-	);
-}));
+		return (
+			<Link
+				ref={ref}
+				to={to}
+				className={cn(cls.appLink, {}, [className, cls[variant]])}
+				{...otherProps}
+			>
+				{children}
+			</Link>
+		);
+	})
+);

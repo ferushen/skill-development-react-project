@@ -20,28 +20,34 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 	const [rateArticleMutation] = useRateArticle();
 	const userData = useSelector(selectUserAuthData);
 
-	const { data, isLoading } = useGetArticleRating({ articleId, userId: userData?.id ?? '' });
+	const { data, isLoading } = useGetArticleRating({
+		articleId,
+		userId: userData?.id ?? '',
+	});
 	const rate = data?.[0]?.rate;
 
-	const handleRateArticle = useCallback((starsCount: number, feedback?: string) => {
-		try {
-			rateArticleMutation({
-				userId: userData?.id ?? '',
-				articleId,
-				rate: starsCount,
-				feedback,
-			});
+	const handleRateArticle = useCallback(
+		(starsCount: number, feedback?: string) => {
+			try {
+				rateArticleMutation({
+					userId: userData?.id ?? '',
+					articleId,
+					rate: starsCount,
+					feedback,
+				});
+			} catch (e) {
+				console.log(e);
+			}
+		},
+		[articleId, userData?.id, rateArticleMutation]
+	);
 
-		} catch (e) {
-			console.log(e);
-		}
-
-	}, [articleId, userData?.id, rateArticleMutation]);
-
-
-	const onAccept = useCallback((starsCount: number, feedback?: string) => {
-		handleRateArticle(starsCount, feedback);
-	}, [handleRateArticle]);
+	const onAccept = useCallback(
+		(starsCount: number, feedback?: string) => {
+			handleRateArticle(starsCount, feedback);
+		},
+		[handleRateArticle]
+	);
 
 	/*
 	const onCancel = useCallback((starsCount: number) => {
@@ -50,7 +56,12 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 	*/
 
 	if (isLoading) {
-		return <Skeleton width='100%' height={90} />;
+		return (
+			<Skeleton
+				width='100%'
+				height={90}
+			/>
+		);
 	}
 
 	return (
@@ -61,7 +72,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 			feedbackTitle={t('leave_feedback_about_the_article')}
 			rate={rate}
 			onAccept={onAccept}
-		/*onCancel={onCancel}*/
+			/*onCancel={onCancel}*/
 		/>
 	);
 });

@@ -45,9 +45,7 @@ describe('articleDetails', () => {
 				error: 'some error',
 			},
 		};
-		expect(selectArticleDetailsError(state as StateSchema)).toEqual(
-			'some error'
-		);
+		expect(selectArticleDetailsError(state as StateSchema)).toEqual('some error');
 	});
 
 	test('should work with empty state error', () => {

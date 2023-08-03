@@ -42,31 +42,34 @@ export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
 		color = 'primary',
 		tabs,
 		active,
-		onClickTab
+		onClickTab,
 	} = props;
 
-	const tabClasses = [
-		cls[size],
-		hoverTabClass[color],
-	];
+	const tabClasses = [cls[size], hoverTabClass[color]];
 
-	const clickTabHandle = useCallback((tab: TabItem<T>) => {
-		return () => {
-			/*onClickTab(tab);*/
-			onClickTab(tab.value);
-		};
-	}, [onClickTab]);
-
+	const clickTabHandle = useCallback(
+		(tab: TabItem<T>) => {
+			return () => {
+				/*onClickTab(tab);*/
+				onClickTab(tab.value);
+			};
+		},
+		[onClickTab]
+	);
 
 	return (
-		<HStack gap={8} justify='start' className={className}>
-			{tabs.map(tab => (
+		<HStack
+			gap={8}
+			justify='start'
+			className={className}
+		>
+			{tabs.map((tab) => (
 				<Card
 					className={cn(
 						cls.tab,
 						{ [activeTabClass[color]]: active === tab.value },
-						tabClasses)
-					}
+						tabClasses
+					)}
 					variant={CardVariant.Normal}
 					size={size}
 					color={color}

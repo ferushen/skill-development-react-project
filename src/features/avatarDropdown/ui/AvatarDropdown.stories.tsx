@@ -18,12 +18,10 @@ User.decorators = [
 	StoreDecorator({
 		user: {
 			authData: {
-				roles: [
-					UserRole.User
-				]
-			}
-		}
-	})
+				roles: [UserRole.User],
+			},
+		},
+	}),
 ];
 
 export const Admin = Template.bind({});
@@ -31,10 +29,8 @@ Admin.decorators = [
 	StoreDecorator({
 		user: {
 			authData: {
-				roles: [
-					UserRole.Admin
-				]
-			}
-		}
-	})
+				roles: [UserRole.Admin],
+			},
+		},
+	}),
 ];

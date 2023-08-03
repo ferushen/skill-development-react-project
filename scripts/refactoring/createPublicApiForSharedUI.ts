@@ -22,7 +22,14 @@ const slicePattern = 'ui';
 const typeExportDeclarations = ['InterfaceDeclaration', 'TypeAliasDeclaration'];
 
 // получаем путь до папки ui в shared-слое
-const sharedUiPath = path.resolve(__dirname, '..', '..', 'src', layerPattern, slicePattern);
+const sharedUiPath = path.resolve(
+	__dirname,
+	'..',
+	'..',
+	'src',
+	layerPattern,
+	slicePattern
+);
 const sharedUiDir = project.getDirectory(sharedUiPath);
 // получаем пути до попок с ui-компонентами в shared-слое
 const componentsDirs = sharedUiDir?.getDirectories();
@@ -54,7 +61,8 @@ componentsDirs?.forEach((directory) => {
 		for (const [name, declarations] of exportedDeclarations) {
 			declarations.map((d) => {
 				const declarationName = d.getKindName();
-				const isTypeOrInterface = typeExportDeclarations.includes(declarationName);
+				const isTypeOrInterface =
+					typeExportDeclarations.includes(declarationName);
 
 				if (isTypeOrInterface) {
 					exportedNodes.typedNodes.push(name);
@@ -76,8 +84,12 @@ componentsDirs?.forEach((directory) => {
 			resultSourceCode += exportWithTypes;
 		}
 
-		const file = directory.createSourceFile(indexFilePath, resultSourceCode, { overwrite: true });
-		file.save().then(() => console.log(`"index.ts" created for ${componentFolderName}`));
+		const file = directory.createSourceFile(indexFilePath, resultSourceCode, {
+			overwrite: true,
+		});
+		file.save().then(() =>
+			console.log(`"index.ts" created for ${componentFolderName}`)
+		);
 	}
 });
 

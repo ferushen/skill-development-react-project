@@ -11,8 +11,12 @@ export default {
 		backgroundColor: { control: 'color' },
 	},
 	decorators: [
-		(Story) => (<div style={{}}><Story /></div>)
-	]
+		(Story) => (
+			<div style={{}}>
+				<Story />
+			</div>
+		),
+	],
 } as Meta<typeof Dropdown>;
 
 const Template: StoryFn<typeof Dropdown> = (args) => <Dropdown {...args} />;
@@ -23,7 +27,7 @@ const args = {
 		{ content: 'first item' },
 		{ content: 'second item' },
 		{ content: 'third item' },
-	]
+	],
 };
 
 export const Normal = Template.bind({});
@@ -32,5 +36,5 @@ Normal.args = args;
 export const Dark = Template.bind({});
 Dark.args = args;
 Dark.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };

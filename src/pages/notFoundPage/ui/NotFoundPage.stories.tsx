@@ -10,12 +10,13 @@ export default {
 	},
 } as Meta<typeof NotFoundPage>;
 
-
 const Template: StoryFn<typeof NotFoundPage> = () => <NotFoundPage />;
 
 export const Normal = Template.bind({});
-Normal.decorators = [StoreDecorator({
-	scrollSaver: {
-		scroll: {}
-	}
-})];
+Normal.decorators = [
+	StoreDecorator({
+		scrollSaver: {
+			scroll: {},
+		},
+	}),
+];

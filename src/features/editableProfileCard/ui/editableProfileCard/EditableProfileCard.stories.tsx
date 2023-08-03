@@ -13,7 +13,9 @@ export default {
 	},
 } as Meta<typeof EditableProfileCard>;
 
-const Template: StoryFn<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
+const Template: StoryFn<typeof EditableProfileCard> = (args) => (
+	<EditableProfileCard {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.decorators = [
@@ -27,10 +29,10 @@ Normal.decorators = [
 				country: 'Russia' as Country,
 				city: 'Saint-Petersburg',
 				username: 'SnowOrWeak',
-				avatar: avatar
-			}
-		}
-	})
+				avatar: avatar,
+			},
+		},
+	}),
 ];
 
 export const WithError = Template.bind({});
@@ -38,8 +40,8 @@ WithError.decorators = [
 	StoreDecorator({
 		profile: {
 			error: 'Some error',
-		}
-	})
+		},
+	}),
 ];
 
 export const Loading = Template.bind({});
@@ -47,6 +49,6 @@ Loading.decorators = [
 	StoreDecorator({
 		profile: {
 			isLoading: true,
-		}
-	})
+		},
+	}),
 ];

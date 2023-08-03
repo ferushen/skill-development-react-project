@@ -15,18 +15,24 @@ const Template: StoryFn<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [StoreDecorator({
-	loginForm: { username: 'admin', password: '12345' }
-})];
+Primary.decorators = [
+	StoreDecorator({
+		loginForm: { username: 'admin', password: '12345' },
+	}),
+];
 
 export const WithError = Template.bind({});
 WithError.args = {};
-WithError.decorators = [StoreDecorator({
-	loginForm: { username: 'admin', password: '12345', error: 'Ошибка' }
-})];
+WithError.decorators = [
+	StoreDecorator({
+		loginForm: { username: 'admin', password: '12345', error: 'Ошибка' },
+	}),
+];
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StoreDecorator({
-	loginForm: { username: 'admin', password: '12345', isLoading: true }
-})];
+Loading.decorators = [
+	StoreDecorator({
+		loginForm: { username: 'admin', password: '12345', isLoading: true },
+	}),
+];

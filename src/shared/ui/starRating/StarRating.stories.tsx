@@ -16,5 +16,5 @@ export const Normal = Template.bind({});
 
 export const Dark = Template.bind({});
 Dark.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };

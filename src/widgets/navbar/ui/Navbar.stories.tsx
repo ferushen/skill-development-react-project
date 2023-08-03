@@ -21,17 +21,15 @@ AuthLight.decorators = [
 	StoreDecorator({
 		user: {
 			authData: { id: '1' },
-			_initialized: true
-		}
-	})
+			_initialized: true,
+		},
+	}),
 ];
 
 export const Dark = Template.bind({});
-Dark.decorators = [
-	StoreDecorator({})
-];
+Dark.decorators = [StoreDecorator({})];
 Dark.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const AuthDark = Template.bind({});
@@ -39,10 +37,10 @@ AuthDark.decorators = [
 	StoreDecorator({
 		user: {
 			authData: { id: '1' },
-			_initialized: true
-		}
-	})
+			_initialized: true,
+		},
+	}),
 ];
 AuthDark.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };

@@ -25,8 +25,7 @@ describe('classNames', () => {
 	});
 
 	test('with additional classes and mods', () => {
-		const expected =
-			'someClass addClassOne addClassTwo modeClassOne modeClassTwo';
+		const expected = 'someClass addClassOne addClassTwo modeClassOne modeClassTwo';
 		expect(
 			classNames(
 				'someClass',

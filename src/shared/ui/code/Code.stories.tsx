@@ -27,5 +27,5 @@ export default {
 
 const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
-export const Normal = Template.bind({});`
+export const Normal = Template.bind({});`,
 };

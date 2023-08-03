@@ -3,9 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { useSelector } from 'react-redux';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+	DynamicModuleLoader,
+	ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
+import {
+	addCommentFormActions,
+	addCommentFormReducer,
+} from '../../model/slices/addCommentFormSlice';
 import { selectAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 
 import { Button } from '@/shared/ui/button';
@@ -33,9 +39,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 	// TODO: реализовать валидацию комментария
 	// const error = useSelector(selectAddCommentFormError);
 
-	const onCommentTextChange = useCallback((value: string) => {
-		dispatch(addCommentFormActions.setText(value));
-	}, [dispatch]);
+	const onCommentTextChange = useCallback(
+		(value: string) => {
+			dispatch(addCommentFormActions.setText(value));
+		},
+		[dispatch]
+	);
 
 	const onSend = useCallback(() => {
 		if (text) {

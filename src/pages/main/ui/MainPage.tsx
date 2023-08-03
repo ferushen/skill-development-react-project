@@ -31,7 +31,7 @@ const MainPage = () => {
 						options={options}
 						defaultValue='Выберите что-нибудь'
 						value={undefined}
-						onChange={(value) => { }}
+						onChange={(value) => {}}
 					/>
 				</VStack>
 
@@ -69,9 +69,7 @@ const MainPage = () => {
 					feedbackTitle='Оставьте отзыв о статье'
 					hasFeedback={true}
 					title='Оцените статью'
-
 				/>
-
 			</VStack>
 		</div>
 	);

@@ -15,8 +15,6 @@ const Template: StoryFn<typeof AddCommentForm> = (args) => <AddCommentForm {...a
 
 export const Normal = Template.bind({});
 Normal.args = {
-	onCommentSend: action('onCommentSend')
+	onCommentSend: action('onCommentSend'),
 };
-Normal.decorators = [
-	StoreDecorator({})
-];
+Normal.decorators = [StoreDecorator({})];

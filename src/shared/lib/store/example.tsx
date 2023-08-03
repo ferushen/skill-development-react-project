@@ -25,7 +25,7 @@ export const counterSlice = buildSlice({
 		},
 		add: (state, { payload }: PayloadAction<number>) => {
 			state.value += payload;
-		}
+		},
 	},
 });
 
@@ -43,7 +43,9 @@ export const {
 
 const ComponentCounterTest = () => {
 	// const getCounterValue = (state: StateSchema) => state.counter.value;
-	const [useCounterValue, getCounterValue] = buildSelector(state => state.counter.value);
+	const [useCounterValue, getCounterValue] = buildSelector(
+		(state) => state.counter.value
+	);
 	const { add, increment, decrement } = useCounterActions()();
 
 	// const counterValue = useSelector(getCounterValue);

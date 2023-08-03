@@ -15,8 +15,7 @@ export const $api = axios.create({
 $api.interceptors.request.use((config) => {
 	if (config.headers) {
 		// заголовок для получения данных АВТОРИЗОВАННЫМИ пользователями
-		config.headers.authorization =
-			localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
+		config.headers.authorization = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
 	}
 	return config;
 });

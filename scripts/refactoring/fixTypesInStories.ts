@@ -45,7 +45,9 @@ files.forEach((sourceFile) => {
 		if (namedImports?.includes('ComponentStory') || )*/
 	});
 
-	const exportAssignments = sourceFile.getExportAssignments()[0].getDescendantStatements();
+	const exportAssignments = sourceFile
+		.getExportAssignments()[0]
+		.getDescendantStatements();
 	const exportAssignment = sourceFile.getExportAssignment(
 		(assignment) => !assignment.isExportEquals()
 	);

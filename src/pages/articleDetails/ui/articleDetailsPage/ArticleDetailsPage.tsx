@@ -3,7 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+	DynamicModuleLoader,
+	ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsPageReducer } from '../../model/slices/articleDetailsPageReducer';
 
 import { ArticleDetailsComments } from '../articleDetailsComments/ArticleDetailsComments';
@@ -42,7 +45,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers}>
 			<Page className={cn(cls.articleDetailsPage, {}, [className])}>
-				<VStack gap={16} width='max'>
+				<VStack
+					gap={16}
+					width='max'
+				>
 					<ArticleDetailsHeader />
 					<ArticleDetails id={id} />
 					<ArticleRating articleId={id} />

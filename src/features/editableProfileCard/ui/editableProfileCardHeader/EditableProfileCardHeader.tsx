@@ -26,7 +26,7 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
 	const authData = useSelector(selectUserAuthData);
 	const profileData = useSelector(selectProfileData);
 
-	const canEdit = (authData?.id !== undefined) ? authData?.id === profileData?.id : false;
+	const canEdit = authData?.id !== undefined ? authData?.id === profileData?.id : false;
 
 	const onEdit = useCallback(() => {
 		dispatch(profileActions.setReadonly(false));
@@ -43,37 +43,40 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
 	// TODO: пересмотреть css-классы
 
 	return (
-		<HStack className={className} justify='end' gap={8} width='max'>
+		<HStack
+			className={className}
+			justify='end'
+			gap={8}
+			width='max'
+		>
 			{canEdit && !isLoading && (
-				<HStack gap={16} >
-					{readonly
-						? (
+				<HStack gap={16}>
+					{readonly ? (
+						<Button
+							onClick={onEdit}
+							data-testid='EditableProfileCardHeader.EditButton'
+							key='editButton'
+						>
+							{t('edit')}
+						</Button>
+					) : (
+						<>
 							<Button
-								onClick={onEdit}
-								data-testid='EditableProfileCardHeader.EditButton'
-								key='editButton'
+								variant={ButtonVariant.OutlineRed}
+								onClick={onCancelEdit}
+								data-testid='EditableProfileCardHeader.CancelButton'
+								key='cancelButton'
 							>
-								{t('edit')}
+								{t('cancel')}
 							</Button>
-						)
-						: (
-							<>
-								<Button
-									variant={ButtonVariant.OutlineRed}
-									onClick={onCancelEdit}
-									data-testid='EditableProfileCardHeader.CancelButton'
-									key='cancelButton'
-								>
-									{t('cancel')}
-								</Button>
-								<Button
-									onClick={onSave}
-									data-testid='EditableProfileCardHeader.SaveButton'
-								>
-									{t('save')}
-								</Button>
-							</>
-						)}
+							<Button
+								onClick={onSave}
+								data-testid='EditableProfileCardHeader.SaveButton'
+							>
+								{t('save')}
+							</Button>
+						</>
+					)}
 				</HStack>
 			)}
 		</HStack>

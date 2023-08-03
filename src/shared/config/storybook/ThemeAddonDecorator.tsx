@@ -12,10 +12,7 @@ interface ThemeAddonDecoratorProps {
 	defaultTheme: ThemeName;
 }
 
-const {
-	pluckThemeFromContext,
-	initializeThemeState
-} = DecoratorHelpers;
+const { pluckThemeFromContext, initializeThemeState } = DecoratorHelpers;
 
 /*const themeMapper: Record<ThemeName, Theme> = {
 	'dark': Theme.DARK,
@@ -42,6 +39,5 @@ export const ThemeAddonDecorator = ({
 				<StoryComponent />
 			</ThemeProvider>
 		);
-
 	};
 };

@@ -5,7 +5,10 @@ import type { TestProps } from '@/shared/types/tests';
 
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' | 'max'>;
+type HTMLInputProps = Omit<
+	InputHTMLAttributes<HTMLInputElement>,
+	'value' | 'onChange' | 'readOnly' | 'max'
+>;
 
 // TODO: разобраться с InputVariant
 
@@ -59,16 +62,9 @@ export const Input = memo((props: InputProps) => {
 		[cls.maxWidth]: max,
 	};
 
-	const wrapperClasses = [
-		classNameWrapper,
-		ratio && cls[ratio],
-	];
+	const wrapperClasses = [classNameWrapper, ratio && cls[ratio]];
 
-	const inputClasses = [
-		cls[variant],
-		rounded && cls[rounded],
-		classNameInput,
-	];
+	const inputClasses = [cls[variant], rounded && cls[rounded], classNameInput];
 
 	const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e.target.value);
@@ -76,17 +72,15 @@ export const Input = memo((props: InputProps) => {
 
 	return (
 		<div className={cn(cls.inputWrapper, wrapperMods, wrapperClasses)}>
-			{label && (
-				<div className={cls.label}>
-					{label}
-				</div>
-			)}
+			{label && <div className={cls.label}>{label}</div>}
 			<input
 				{...otherProps}
 				className={cn(cls.input, wrapperMods, inputClasses)}
 				type={type}
 				value={value}
-				placeholder={(readonly && placeholderReadonly) ? placeholderReadonly : placeholder}
+				placeholder={
+					readonly && placeholderReadonly ? placeholderReadonly : placeholder
+				}
 				readOnly={readonly}
 				onChange={changeHandler}
 				data-testid={props['data-testid'] ?? 'Input'}

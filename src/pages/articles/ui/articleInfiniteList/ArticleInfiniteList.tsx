@@ -2,7 +2,11 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { selectArticlesPageError, selectArticlesPageIsLoading, selectArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import {
+	selectArticlesPageError,
+	selectArticlesPageIsLoading,
+	selectArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
 import { selectArticles } from '../../model/slices/articlesPageSlice';
 
 import { ArticleList } from '@/entities/article';

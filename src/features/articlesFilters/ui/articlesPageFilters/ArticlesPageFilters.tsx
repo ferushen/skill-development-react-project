@@ -13,9 +13,8 @@ import {
 	selectArticlesFiltersOrder,
 	selectArticlesFiltersSearch,
 	selectArticlesFiltersSort,
-	selectArticlesFiltersTabType
+	selectArticlesFiltersTabType,
 } from '../../model/selectors/articlesFiltersSelectors';
-
 
 import { ArticleTypeTabs } from '../articleTypeTabs/ArticleTypeTabs';
 import { ArticlesSortSwitcher } from '../articlesSortSwitcher/ArticlesSortSwitcher';
@@ -34,13 +33,7 @@ interface ArticlesPageFiltersProps {
 }
 
 export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
-	const {
-		className,
-		view,
-		onChangeView,
-		fetchData,
-		debouncedFetchData,
-	} = props;
+	const { className, view, onChangeView, fetchData, debouncedFetchData } = props;
 	const { t } = useTranslation('article');
 	const dispatch = useAppDispatch();
 
@@ -49,25 +42,37 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 	const sort = useSelector(selectArticlesFiltersSort);
 	const type = useSelector(selectArticlesFiltersTabType);
 
-	const onChangeOrder = useCallback((order: SortOrder) => {
-		dispatch(articlesFiltersActions.setOrder(order));
-		fetchData();
-	}, [dispatch, fetchData]);
+	const onChangeOrder = useCallback(
+		(order: SortOrder) => {
+			dispatch(articlesFiltersActions.setOrder(order));
+			fetchData();
+		},
+		[dispatch, fetchData]
+	);
 
-	const onChangeSort = useCallback((sort: ArticleSortField) => {
-		dispatch(articlesFiltersActions.setSort(sort));
-		fetchData();
-	}, [dispatch, fetchData]);
+	const onChangeSort = useCallback(
+		(sort: ArticleSortField) => {
+			dispatch(articlesFiltersActions.setSort(sort));
+			fetchData();
+		},
+		[dispatch, fetchData]
+	);
 
-	const onChangeSearch = useCallback((search: string) => {
-		dispatch(articlesFiltersActions.setSearch(search));
-		debouncedFetchData();
-	}, [dispatch, debouncedFetchData]);
+	const onChangeSearch = useCallback(
+		(search: string) => {
+			dispatch(articlesFiltersActions.setSearch(search));
+			debouncedFetchData();
+		},
+		[dispatch, debouncedFetchData]
+	);
 
-	const onChangeType = useCallback((type: ArticleType) => {
-		dispatch(articlesFiltersActions.setType(type));
-		fetchData();
-	}, [dispatch, fetchData]);
+	const onChangeType = useCallback(
+		(type: ArticleType) => {
+			dispatch(articlesFiltersActions.setType(type));
+			fetchData();
+		},
+		[dispatch, fetchData]
+	);
 
 	return (
 		<VStack
@@ -76,7 +81,11 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 			gap={8}
 			width='max'
 		>
-			<HStack justify='between' gap={16} width='max'>
+			<HStack
+				justify='between'
+				gap={16}
+				width='max'
+			>
 				<ArticlesSortSwitcher
 					order={order}
 					sort={sort}

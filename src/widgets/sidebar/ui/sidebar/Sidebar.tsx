@@ -21,7 +21,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 	const sidebarItems = useSelector(getSidebarItems);
 
 	const itemsList = useMemo(() => {
-		return sidebarItems.map(item => (
+		return sidebarItems.map((item) => (
 			<SidebarItem
 				key={item.path}
 				item={item}
@@ -31,7 +31,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 	}, [collapsed, sidebarItems]);
 
 	const onToggle = () => {
-		setCollapsed(prev => !prev);
+		setCollapsed((prev) => !prev);
 	};
 
 	return (
@@ -64,17 +64,24 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 					>
 						{itemsList}
 					</VStack>
-					{collapsed ?
-						(<VStack align='center' gap={16} width='max'>
+					{collapsed ? (
+						<VStack
+							align='center'
+							gap={16}
+							width='max'
+						>
 							<ThemeSwitcher />
 							<LangSwitcher short={collapsed} />
-						</VStack>)
-						:
-						(<HStack justify='around' width='max'>
+						</VStack>
+					) : (
+						<HStack
+							justify='around'
+							width='max'
+						>
 							<ThemeSwitcher />
 							<LangSwitcher short={collapsed} />
-						</HStack>)
-					}
+						</HStack>
+					)}
 				</VStack>
 			</VStack>
 		</section>

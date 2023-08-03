@@ -11,7 +11,6 @@ export default {
 	},
 } as Meta<typeof Loader>;
 
-
 const Template: StoryFn<typeof Loader> = (args) => <Loader {...args} />;
 
 export const Normal = Template.bind({});
@@ -23,7 +22,7 @@ export const Normal = Template.bind({});
 
 export const Dark = Template.bind({});
 Dark.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 /*Dark.parameters = {
 	theming: {

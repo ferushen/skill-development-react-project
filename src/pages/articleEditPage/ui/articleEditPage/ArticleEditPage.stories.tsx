@@ -14,4 +14,3 @@ const Template: StoryFn<typeof ArticleEditPage> = (args) => <ArticleEditPage {..
 
 export const Normal = Template.bind({});
 Normal.decorators = [StoreDecorator({})];
-

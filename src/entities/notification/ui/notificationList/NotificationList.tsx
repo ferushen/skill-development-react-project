@@ -27,9 +27,21 @@ export const NotificationList = memo((props: NotificationListProps) => {
 				gap={8}
 				width='max'
 			>
-				<Skeleton width='100%' height={60} border='10px' />
-				<Skeleton width='100%' height={60} border='10px' />
-				<Skeleton width='100%' height={60} border='10px' />
+				<Skeleton
+					width='100%'
+					height={60}
+					border='10px'
+				/>
+				<Skeleton
+					width='100%'
+					height={60}
+					border='10px'
+				/>
+				<Skeleton
+					width='100%'
+					height={60}
+					border='10px'
+				/>
 			</VStack>
 		);
 	}
@@ -40,8 +52,11 @@ export const NotificationList = memo((props: NotificationListProps) => {
 			gap={8}
 			width='max'
 		>
-			{data?.map(item => (
-				<NotificationItem item={item} key={item.id} />
+			{data?.map((item) => (
+				<NotificationItem
+					item={item}
+					key={item.id}
+				/>
 			))}
 		</VStack>
 	);

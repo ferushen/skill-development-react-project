@@ -19,10 +19,7 @@ const ArticleEditPage = (props: ArticleEditPageProps) => {
 
 	return (
 		<Page className={className}>
-			{isEdit
-				? t('edit_article_with_id') + id
-				: t('creating_new_article')
-			}
+			{isEdit ? t('edit_article_with_id') + id : t('creating_new_article')}
 		</Page>
 	);
 };

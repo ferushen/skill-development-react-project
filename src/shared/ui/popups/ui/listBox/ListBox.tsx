@@ -17,9 +17,9 @@ type ListBoxLabelRatio = 'ratio_50_50' | 'ratio_40_60';
 type ListBoxOptionWidth = 'normal' | 'max-content';
 
 const mapButtonVariant: Record<ListBoxVariant, ButtonVariant> = {
-	'outlined': ButtonVariant.BackgroundInverted,
-	'stretchBgInverted': ButtonVariant.BackgroundSecondaryInverted,
-	'profileInput': ButtonVariant.BackgroundInverted,
+	outlined: ButtonVariant.BackgroundInverted,
+	stretchBgInverted: ButtonVariant.BackgroundSecondaryInverted,
+	profileInput: ButtonVariant.BackgroundInverted,
 };
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
@@ -30,7 +30,7 @@ const mapDirectionClass: Record<DropdownDirection, string> = {
 };
 
 const mapOptionWidthClass: Record<ListBoxOptionWidth, string> = {
-	'normal': cls.optionWidthNormal,
+	normal: cls.optionWidthNormal,
 	'max-content': cls.optionWidthMax,
 };
 
@@ -66,30 +66,24 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 		options,
 		defaultValue,
 		value,
-		onChange
+		onChange,
 	} = props;
 
 	const listBoxMods: Mods = {
-		[cls.readonly]: readonly
+		[cls.readonly]: readonly,
 	};
 
-	const wrapperClasses = [
-		className,
-		ratio && cls[ratio]
-	];
+	const wrapperClasses = [className, ratio && cls[ratio]];
 	const labelClasses = [cls[variant]];
 	const optionsClasses = [mapDirectionClass[direction]];
-	const optionClasses = [
-		mapOptionWidthClass[optionWidth],
-		cls[variant]
-	];
+	const optionClasses = [mapOptionWidthClass[optionWidth], cls[variant]];
 
 	const activeOption = options.find((opt) => opt.value === value);
 	const activeContent = activeOption?.content;
 
 	const buttonVariant = mapButtonVariant[variant];
 	const buttonMods: Mods = {
-		[cls.btnReadonly]: readonly
+		[cls.btnReadonly]: readonly,
 	};
 
 	return (
@@ -98,11 +92,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 			justify='start'
 			width={ratio && 'max'}
 		>
-			{label && (
-				<div className={cn(cls.label, {}, labelClasses)}>
-					{label}
-				</div>
-			)}
+			{label && <div className={cn(cls.label, {}, labelClasses)}>{label}</div>}
 			<HListBox
 				as='div'
 				className={cn(cls.listBox, listBoxMods, [])}
@@ -113,7 +103,9 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 					<Button
 						className={cn(cls.btn, buttonMods, [])}
 						variant={readonly ? ButtonVariant.Clear : buttonVariant}
-						size={variant === 'stretchBgInverted' ? ButtonSize.M : ButtonSize.S}
+						size={
+							variant === 'stretchBgInverted' ? ButtonSize.M : ButtonSize.S
+						}
 						format={variant === 'stretchBgInverted' ? 'flat' : undefined}
 						width={ratio && 'max'}
 						disabled={readonly ? 'only_cursor' : undefined}
@@ -123,7 +115,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 				</HListBox.Button>
 				<HListBox.Options className={cn(cls.options, {}, optionsClasses)}>
 					<VStack justify={'center'}>
-						{options?.map(opt => (
+						{options?.map((opt) => (
 							<HListBox.Option
 								value={opt.value}
 								disabled={opt.disabled}
@@ -145,7 +137,6 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
 										{opt.content}
 									</li>
 								)}
-
 							</HListBox.Option>
 						))}
 					</VStack>

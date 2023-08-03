@@ -18,37 +18,33 @@ interface StarRatingProps {
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
-	const {
-		className,
-		size = 30,
-		selectedStars = 0,
-		onSelect,
-		reset
-	} = props;
+	const { className, size = 30, selectedStars = 0, onSelect, reset } = props;
 
 	// состояние, необходимое для подсвечивания звезд при наведении курсора
 	const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
 	// состояние следит за тем, были ли выбраны звезды
 	const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
-	const onHover = useCallback((starsCount: number) => () => {
-		if (!isSelected) {
-			setCurrentStarsCount(starsCount);
-			//console.log('@onHover: inside condition: isSelected', isSelected);
-			//console.log('@onHover: inside condition: currentStarsCount', currentStarsCount);
-			//console.log('@onHover: inside condition: starsCount', starsCount);
-		} else {
-			//console.log('@onHover: isSelected', isSelected);
-			//console.log('@onHover: currentStarsCount', currentStarsCount);
-			//console.log('@onHover: starsCount', starsCount);
-		}
-	}, [isSelected]);
+	const onHover = useCallback(
+		(starsCount: number) => () => {
+			if (!isSelected) {
+				setCurrentStarsCount(starsCount);
+				//console.log('@onHover: inside condition: isSelected', isSelected);
+				//console.log('@onHover: inside condition: currentStarsCount', currentStarsCount);
+				//console.log('@onHover: inside condition: starsCount', starsCount);
+			} else {
+				//console.log('@onHover: isSelected', isSelected);
+				//console.log('@onHover: currentStarsCount', currentStarsCount);
+				//console.log('@onHover: starsCount', starsCount);
+			}
+		},
+		[isSelected]
+	);
 
 	const onLeave = useCallback(() => {
 		if (!isSelected) {
 			setCurrentStarsCount(0);
 			//console.log('@onLeave: inside condition: isSelected', isSelected);
-
 		} else {
 			//console.log('@onLeave: isSelected', isSelected);
 			//console.log('@onLeave: currentStarsCount', currentStarsCount);
@@ -56,13 +52,16 @@ export const StarRating = memo((props: StarRatingProps) => {
 		//console.log('@onLeave: inside condition: currentStarsCount', currentStarsCount);
 	}, [isSelected]);
 
-	const onClick = useCallback((starsCount: number) => () => {
-		if (!isSelected) {
-			onSelect?.(starsCount);
-			setCurrentStarsCount(starsCount);
-			setIsSelected(true);
-		}
-	}, [isSelected, onSelect]);
+	const onClick = useCallback(
+		(starsCount: number) => () => {
+			if (!isSelected) {
+				onSelect?.(starsCount);
+				setCurrentStarsCount(starsCount);
+				setIsSelected(true);
+			}
+		},
+		[isSelected, onSelect]
+	);
 
 	useEffect(() => {
 		if (reset) {
@@ -70,14 +69,17 @@ export const StarRating = memo((props: StarRatingProps) => {
 		}
 	}, [reset]);
 
-	const createStarMods = useCallback((starNumber: number) => {
-		const starMods: Mods = {
-			[cls.hovered]: (currentStarsCount >= starNumber),
-			[cls.selected]: isSelected,
-		};
+	const createStarMods = useCallback(
+		(starNumber: number) => {
+			const starMods: Mods = {
+				[cls.hovered]: currentStarsCount >= starNumber,
+				[cls.selected]: isSelected,
+			};
 
-		return starMods;
-	}, [isSelected, currentStarsCount]);
+			return starMods;
+		},
+		[isSelected, currentStarsCount]
+	);
 
 	return (
 		<div className={cn(cls.starRating, {}, [className])}>

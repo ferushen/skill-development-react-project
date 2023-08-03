@@ -30,11 +30,7 @@ const viewTypes = [
 ];
 
 export const ArticlesViewSwitcher = memo((props: ArticlesViewSwitcherProps) => {
-	const {
-		className,
-		activeView,
-		onClickView
-	} = props;
+	const { className, activeView, onClickView } = props;
 
 	const onClick = (newView: ArticleView) => () => {
 		onClickView?.(newView);
@@ -46,10 +42,12 @@ export const ArticlesViewSwitcher = memo((props: ArticlesViewSwitcherProps) => {
 			gap={8}
 			width='content'
 		>
-			{viewTypes.map(viewType => (
+			{viewTypes.map((viewType) => (
 				<Button
 					key={viewType.view}
-					className={cn(cls.btn, { [cls.active]: viewType.view === activeView })}
+					className={cn(cls.btn, {
+						[cls.active]: viewType.view === activeView,
+					})}
 					variant={ButtonVariant.Clear}
 					animated={false}
 					onClick={onClick(viewType.view)}

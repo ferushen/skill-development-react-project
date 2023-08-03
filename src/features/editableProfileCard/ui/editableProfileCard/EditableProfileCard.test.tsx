@@ -27,12 +27,12 @@ const options = {
 		user: {
 			authData: {
 				id: '1',
-			}
-		}
+			},
+		},
 	},
 	asyncReducers: {
-		profile: profileReducer
-	}
+		profile: profileReducer,
+	},
 };
 
 // TODO: fix "Warning: An update to null inside a test was not wrapped in act(...)."
@@ -73,7 +73,9 @@ describe('features/EditableProfileCard', () => {
 		const profileCard = await screen.findByTestId('ProfileCard');
 		expect(profileCard).toBeInTheDocument();
 
-		const editButton = await screen.findByTestId('EditableProfileCardHeader.EditButton');
+		const editButton = await screen.findByTestId(
+			'EditableProfileCardHeader.EditButton'
+		);
 		expect(editButton).toBeInTheDocument();
 
 		await waitFor(async () => await userEvent.click(editButton));
@@ -88,7 +90,12 @@ describe('features/EditableProfileCard', () => {
 		await userEvent.type(screen.getByTestId('ProfileCard.age'), '32');
 		expect(screen.getByTestId('ProfileCard.age')).toHaveValue('32');
 
-		await waitFor(async () => await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton')));
+		await waitFor(
+			async () =>
+				await userEvent.click(
+					screen.getByTestId('EditableProfileCardHeader.CancelButton')
+				)
+		);
 		expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('Николай');
 		expect(screen.getByTestId('ProfileCard.age')).toHaveValue('25');
 	});
@@ -112,13 +119,17 @@ describe('features/EditableProfileCard', () => {
 		userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
 		userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'V@lidN-aMeWit(h');
 		// ожидаем что все недопустимые символы удалятся
-		expect(screen.getByTestId<HTMLInputElement>('ProfileCard.firstname')).toHaveValue('VlidNaMeWith');
+		expect(screen.getByTestId<HTMLInputElement>('ProfileCard.firstname')).toHaveValue(
+			'VlidNaMeWith'
+		);
 
 		userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
 		expect(mockPutReq).toHaveBeenCalled();
 
 		await waitForElementToBeRemoved(() => screen.getByTestId('ProfileCard.Loader'));
 		// ожидаем что firstname будет корректным после сохранения
-		expect(screen.getByTestId<HTMLInputElement>('ProfileCard.firstname')).toHaveValue('VlidNaMeWith');
+		expect(screen.getByTestId<HTMLInputElement>('ProfileCard.firstname')).toHaveValue(
+			'VlidNaMeWith'
+		);
 	});
 });

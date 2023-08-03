@@ -14,9 +14,9 @@ type DropdownIndent = 's' | 'm' | 'l';
 type DropdownOptionsWidth = 160;
 
 const mapIndentClass: Record<DropdownIndent, string> = {
-	's': cls.smallIndent,
-	'm': cls.mediumIndent,
-	'l': cls.largeIndent,
+	s: cls.smallIndent,
+	m: cls.mediumIndent,
+	l: cls.largeIndent,
 };
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
@@ -59,9 +59,18 @@ export const Dropdown = memo((props: DropdownProps) => {
 	];
 
 	return (
-		<Menu as='div' className={cn(cls.dropdown, {}, [className])}>
-			<Menu.Button as='div' className={cls.btn}>
-				<HStack justify={'center'} align={'center'}>
+		<Menu
+			as='div'
+			className={cn(cls.dropdown, {}, [className])}
+		>
+			<Menu.Button
+				as='div'
+				className={cls.btn}
+			>
+				<HStack
+					justify={'center'}
+					align={'center'}
+				>
 					{trigger}
 				</HStack>
 			</Menu.Button>
@@ -69,7 +78,10 @@ export const Dropdown = memo((props: DropdownProps) => {
 				{items.map((item, index) => {
 					if (item.href) {
 						return (
-							<Menu.Item as={Fragment} key={`dropdown-key-${index}`}>
+							<Menu.Item
+								as={Fragment}
+								key={`dropdown-key-${index}`}
+							>
 								{({ active }) => (
 									<AppLink
 										className={cn(cls.item, { [cls.active]: active })}
@@ -84,12 +96,17 @@ export const Dropdown = memo((props: DropdownProps) => {
 
 					if (item.handleClick) {
 						return (
-							<Menu.Item as={Fragment} key={`dropdown-key-${index}`}>
+							<Menu.Item
+								as={Fragment}
+								key={`dropdown-key-${index}`}
+							>
 								{({ active }) => (
 									<Button
 										className={cn(cls.item, { [cls.active]: active })}
 										variant={ButtonVariant.Clear}
-										disabled={item.disabled ? 'with_opacity' : undefined}
+										disabled={
+											item.disabled ? 'with_opacity' : undefined
+										}
 										animated={false}
 										onClick={item.handleClick}
 									>

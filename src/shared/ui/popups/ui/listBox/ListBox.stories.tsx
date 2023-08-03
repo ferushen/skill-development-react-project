@@ -10,16 +10,16 @@ export default {
 	},
 	decorators: [
 		(Story) => (
-			<div style={
-				{
+			<div
+				style={{
 					position: 'absolute',
 					top: 300,
 					left: 200,
-				}
-			}>
+				}}
+			>
 				<Story />
 			</div>
-		)
+		),
 	],
 } as Meta<typeof ListBox>;
 
@@ -71,7 +71,7 @@ DarkTopLeft.args = {
 	optionWidth: 'max-content',
 };
 DarkTopLeft.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const DarkTopRight = Template.bind({});
@@ -82,7 +82,7 @@ DarkTopRight.args = {
 	optionWidth: 'max-content',
 };
 DarkTopRight.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const DarkBottomLeft = Template.bind({});
@@ -93,7 +93,7 @@ DarkBottomLeft.args = {
 	optionWidth: 'max-content',
 };
 DarkBottomLeft.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const DarkBottomRight = Template.bind({});
@@ -104,6 +104,5 @@ DarkBottomRight.args = {
 	optionWidth: 'max-content',
 };
 DarkBottomRight.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
-

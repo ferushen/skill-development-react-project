@@ -17,9 +17,7 @@ describe('loginByUsername', () => {
 
 		// dispatch теперь изолирован внутри thunk
 		// убеждаемся что dispatch был вызван с конкретным аргументом
-		expect(thunk.dispatch).toHaveBeenCalledWith(
-			userActions.setAuthData(userValue)
-		);
+		expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
 		// убеждаемся что dispatch был вызван 3 раза
 		expect(thunk.dispatch).toHaveBeenCalledTimes(3);
 		// убеждаемся что запрос на сервер был отправлен

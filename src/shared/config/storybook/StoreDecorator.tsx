@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 
 import { StateSchema, StoreProvider } from '@/app/providers/storeProvider';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -23,14 +23,13 @@ const defaultAsyncReducers: ReducersList = {
 	/*scrollSaver: scrollSaverReducer,*/
 };
 
-export const StoreDecorator = (
-	state: DeepPartial<StateSchema>,
-	asyncReducers?: ReducersList
-) => (StoryComponent: Story) => (
-	<StoreProvider
-		initialState={state}
-		asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-	>
-		<StoryComponent />
-	</StoreProvider>
-);
+export const StoreDecorator =
+	(state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
+	(StoryComponent: StoryFn) => (
+		<StoreProvider
+			initialState={state}
+			asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+		>
+			<StoryComponent />
+		</StoreProvider>
+	);

@@ -22,12 +22,13 @@ export const Icon = memo((props: IconProps) => {
 		...otherProps
 	} = props;
 
-	const classes = [
-		className,
-		cls[variant]
-	];
+	const classes = [className, cls[variant]];
 
 	return (
-		<Svg className={cn('', {}, classes)} data-testid={dataTestId}  {...otherProps} />
+		<Svg
+			className={cn('', {}, classes)}
+			data-testid={dataTestId}
+			{...otherProps}
+		/>
 	);
 });

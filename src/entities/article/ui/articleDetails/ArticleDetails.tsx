@@ -8,13 +8,16 @@ import { ArticleBlockType } from '../../model/consts/consts';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+	DynamicModuleLoader,
+	ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
 	selectArticleDetailsData,
 	selectArticleDetailsError,
-	selectArticleDetailsIsLoading
+	selectArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
 
 import { ArticleCodeBlockComponent } from '../articleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -41,10 +44,7 @@ const reducers: ReducersList = {
 };
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
-	const {
-		className,
-		id,
-	} = props;
+	const { className, id } = props;
 	const { t } = useTranslation('article');
 
 	const dispatch = useAppDispatch();
@@ -55,11 +55,26 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 	const renderBlock = useCallback((block: ArticleBlock) => {
 		switch (block.type) {
 			case ArticleBlockType.Code:
-				return <ArticleCodeBlockComponent block={block} key={block.id} />;
+				return (
+					<ArticleCodeBlockComponent
+						block={block}
+						key={block.id}
+					/>
+				);
 			case ArticleBlockType.Image:
-				return <ArticleImageBlockComponent block={block} key={block.id} />;
+				return (
+					<ArticleImageBlockComponent
+						block={block}
+						key={block.id}
+					/>
+				);
 			case ArticleBlockType.Text:
-				return <ArticleTextBlockComponent block={block} key={block.id} />;
+				return (
+					<ArticleTextBlockComponent
+						block={block}
+						key={block.id}
+					/>
+				);
 			default:
 				return null;
 		}
@@ -82,7 +97,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 						height={300}
 					/>
 				</HStack>
-				<HStack justify='between' width='max'>
+				<HStack
+					justify='between'
+					width='max'
+				>
 					<Skeleton
 						variant='filled'
 						width={116}
@@ -134,20 +152,32 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 	if (!isLoading && !error) {
 		content = (
 			<>
-				<HStack align='start' width='max'>
+				<HStack
+					align='start'
+					width='max'
+				>
 					<AppImage
 						className={cls.img}
 						src={article?.img}
 						alt={article?.title}
 					/>
 				</HStack>
-				<HStack justify='between' width='max'>
+				<HStack
+					justify='between'
+					width='max'
+				>
 					<HStack>
-						<Icon className={cls.logo} Svg={CalendarIcon} />
+						<Icon
+							className={cls.logo}
+							Svg={CalendarIcon}
+						/>
 						<Text text={article?.createdAt} />
 					</HStack>
 					<HStack>
-						<Icon className={cls.logo} Svg={EyeIcon} />
+						<Icon
+							className={cls.logo}
+							Svg={EyeIcon}
+						/>
 						<Text text={String(article?.views)} />
 					</HStack>
 				</HStack>
@@ -168,8 +198,15 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 	}
 
 	return (
-		<DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-			<VStack gap={16} width='max' className={cn(cls.articleDetails, {}, [className])}>
+		<DynamicModuleLoader
+			reducers={reducers}
+			removeAfterUnmount={true}
+		>
+			<VStack
+				gap={16}
+				width='max'
+				className={cn(cls.articleDetails, {}, [className])}
+			>
 				{content}
 			</VStack>
 		</DynamicModuleLoader>

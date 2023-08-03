@@ -6,9 +6,18 @@ import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { selectArticlesPageIsLoading, selectArticlesPageView } from '../../model/selectors/articlesPageSelectors';
-import { articlesPageActions, articlesPageReducer } from '../../model/slices/articlesPageSlice';
+import {
+	DynamicModuleLoader,
+	ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+	selectArticlesPageIsLoading,
+	selectArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
+import {
+	articlesPageActions,
+	articlesPageReducer,
+} from '../../model/slices/articlesPageSlice';
 import { articlesFiltersReducer } from '@/features/articlesFilters';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -72,22 +81,32 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 		debouncedFetchData();
 	}, [dispatch, debouncedFetchData]);
 
-	const onChangeView = useCallback((view: ArticleView) => {
-		dispatch(articlesPageActions.setView(view));
-		localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, view);
-	}, [dispatch]);
+	const onChangeView = useCallback(
+		(view: ArticleView) => {
+			dispatch(articlesPageActions.setView(view));
+			localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, view);
+		},
+		[dispatch]
+	);
 
 	useInitialEffect(() => {
 		dispatch(initArticlesPage(searchParams));
 	});
 
 	return (
-		<DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+		<DynamicModuleLoader
+			reducers={reducers}
+			removeAfterUnmount={false}
+		>
 			<Page
 				className={cn(cls.articlesPage, {}, [className])}
 				onScrollEnd={onLoadNextPart}
 			>
-				<VStack align='start' gap={16} width='max'>
+				<VStack
+					align='start'
+					gap={16}
+					width='max'
+				>
 					<ArticlesPageFilters
 						view={view}
 						onChangeView={onChangeView}

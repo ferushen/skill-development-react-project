@@ -11,11 +11,13 @@ export default {
 		item: {
 			id: '1',
 			description: 'Здесь описание уведомления',
-			title: 'Заголовок уведомления'
-		}
-	}
+			title: 'Заголовок уведомления',
+		},
+	},
 } as Meta<typeof NotificationItem>;
 
-const Template: StoryFn<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
+const Template: StoryFn<typeof NotificationItem> = (args) => (
+	<NotificationItem {...args} />
+);
 
 export const Normal = Template.bind({});

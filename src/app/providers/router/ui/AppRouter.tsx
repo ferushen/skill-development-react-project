@@ -11,32 +11,30 @@ import { PageLoader } from '@/widgets/pageLoader';
 
 const AppRouter = () => {
 	const renderWithWrapper = useCallback((route: AppRoutesProps) => {
-		const element = (
-			<Suspense fallback={<PageLoader />}>
-				{route.element}
-			</Suspense>
-		);
+		const element = <Suspense fallback={<PageLoader />}>{route.element}</Suspense>;
 
 		return (
 			<Route
 				key={route.path}
 				path={route.path}
 				element={
-					route.authOnly
-						? route.roles
-							? <RequireAuth><RequireRole roles={route.roles}>{element}</RequireRole></RequireAuth>
-							: <RequireAuth>{element}</RequireAuth>
-						: element
+					route.authOnly ? (
+						route.roles ? (
+							<RequireAuth>
+								<RequireRole roles={route.roles}>{element}</RequireRole>
+							</RequireAuth>
+						) : (
+							<RequireAuth>{element}</RequireAuth>
+						)
+					) : (
+						element
+					)
 				}
 			/>
 		);
 	}, []);
 
-	return (
-		<Routes>
-			{Object.values(routeConfig).map(renderWithWrapper)}
-		</Routes>
-	);
+	return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
 };
 
 export default memo(AppRouter);

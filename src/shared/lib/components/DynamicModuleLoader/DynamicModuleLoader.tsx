@@ -6,7 +6,7 @@ import { StateSchema, StateSchemaKey } from '@/app/providers/storeProvider';
 
 export type ReducersList = {
 	[name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
-}
+};
 
 interface DynamicModuleLoaderProps {
 	children?: ReactNode;
@@ -43,9 +43,5 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
 		// eslint-disable-next-line
 	}, []);
 
-	return (
-		<>
-			{children}
-		</>
-	);
+	return <>{children}</>;
 };

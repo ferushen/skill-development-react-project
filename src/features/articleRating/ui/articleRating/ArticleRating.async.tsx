@@ -5,7 +5,14 @@ import { Skeleton } from '@/shared/ui/skeleton';
 export const ArticleRatingLazy = lazy(() => import('./ArticleRating'));
 
 export const ArticleRatingAsync = (props: ArticleRatingProps) => (
-	<Suspense fallback={<Skeleton width='100%' height={90} />}>
+	<Suspense
+		fallback={
+			<Skeleton
+				width='100%'
+				height={90}
+			/>
+		}
+	>
 		<ArticleRatingLazy {...props} />
 	</Suspense>
 );

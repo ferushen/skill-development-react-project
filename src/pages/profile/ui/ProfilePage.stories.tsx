@@ -15,7 +15,7 @@ const data = {
 	country: Country.Russia,
 	city: 'Saint-Petersburg',
 	username: 'SnowOrWeak',
-	avatar: avatar
+	avatar: avatar,
 };
 
 export default {
@@ -24,20 +24,16 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-	decorators: [
-		SuspenseDecorator,
-
-	],
+	decorators: [SuspenseDecorator],
 	parameters: {
 		router: {
 			route: '/profile/1',
 			path: '/profile/:id',
-		}
+		},
 	},
 } as Meta<typeof ProfilePage>;
 
 const Template: StoryFn<typeof ProfilePage> = () => <ProfilePage />;
-
 
 export const Normal = Template.bind({});
 Normal.decorators = [
@@ -49,10 +45,10 @@ Normal.decorators = [
 		},
 		user: {
 			authData: {
-				id: '1'
-			}
-		}
-	})
+				id: '1',
+			},
+		},
+	}),
 ];
 
 export const CantEdit = Template.bind({});
@@ -65,8 +61,8 @@ CantEdit.decorators = [
 		},
 		user: {
 			authData: {
-				id: '2'
-			}
-		}
-	})
+				id: '2',
+			},
+		},
+	}),
 ];

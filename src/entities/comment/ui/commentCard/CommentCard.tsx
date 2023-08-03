@@ -36,7 +36,8 @@ export const CommentCard = memo((props: CommentCardProps) => {
 					className={cls.avatar}
 					width={46}
 					height={46}
-					border='50%' />
+					border='50%'
+				/>
 				<Skeleton
 					className={cls.commentCard}
 					width='100%'
@@ -62,7 +63,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
 				className={cls.avatar}
 				to={getRouteProfile(comment.user.id)}
 			>
-				<Avatar size={30} src={comment.user.avatar} />
+				<Avatar
+					size={30}
+					src={comment.user.avatar}
+				/>
 			</AppLink>
 
 			<VStack

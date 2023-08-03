@@ -10,7 +10,9 @@ export default {
 	},
 } as Meta<typeof ArticleDetailsComments>;
 
-const Template: StoryFn<typeof ArticleDetailsComments> = (args) => <ArticleDetailsComments {...args} />;
+const Template: StoryFn<typeof ArticleDetailsComments> = (args) => (
+	<ArticleDetailsComments {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.decorators = [
@@ -24,29 +26,29 @@ Normal.decorators = [
 						text: 'some comment',
 						user: {
 							id: '1',
-							username: 'admin'
-						}
+							username: 'admin',
+						},
 					},
 					2: {
 						id: '2',
 						text: 'some comment 2',
 						user: {
 							id: '1',
-							username: 'admin'
-						}
+							username: 'admin',
+						},
 					},
 					3: {
 						id: '3',
 						text: 'some comment 3',
 						user: {
 							id: '1',
-							username: 'admin'
-						}
+							username: 'admin',
+						},
 					},
-				}
-			}
-		}
-	})
+				},
+			},
+		},
+	}),
 ];
 
 export const Empty = Template.bind({});
@@ -55,10 +57,10 @@ Empty.decorators = [
 		articleDetailsPage: {
 			comments: {
 				ids: [],
-				entities: {}
-			}
-		}
-	})
+				entities: {},
+			},
+		},
+	}),
 ];
 
 export const Loading = Template.bind({});
@@ -68,8 +70,8 @@ Loading.decorators = [
 			comments: {
 				ids: [],
 				entities: {},
-				isLoading: true
-			}
-		}
-	})
+				isLoading: true,
+			},
+		},
+	}),
 ];

@@ -28,7 +28,9 @@ type ButtonDisabled = 'only_cursor' | 'with_opacity';
 type ButtonWidth = 'max';
 type ButtonFormat = 'square' | 'flat' | 'stretch';
 
-interface ButtonProps extends TestProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'width' | 'disabled'> {
+interface ButtonProps
+	extends TestProps,
+		Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'width' | 'disabled'> {
 	className?: string;
 	variant?: ButtonVariant;
 	format?: ButtonFormat;
@@ -39,41 +41,48 @@ interface ButtonProps extends TestProps, Omit<ButtonHTMLAttributes<HTMLButtonEle
 	children?: ReactNode;
 }
 
-export const Button = memo(forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
-	const {
-		className,
-		children,
-		variant = ButtonVariant.Outline,
-		size = ButtonSize.M,
-		format,
-		width,
-		disabled,
-		animated = true,
-		...otherProps
-	} = props;
+export const Button = memo(
+	forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+		const {
+			className,
+			children,
+			variant = ButtonVariant.Outline,
+			size = ButtonSize.M,
+			format,
+			width,
+			disabled,
+			animated = true,
+			...otherProps
+		} = props;
 
-	const mods: Mods = {
-		[cls.animated]: disabled || variant === ButtonVariant.Clear || variant === ButtonVariant.ClearInverted ? false : animated,
-	};
+		const mods: Mods = {
+			[cls.animated]:
+				disabled ||
+				variant === ButtonVariant.Clear ||
+				variant === ButtonVariant.ClearInverted
+					? false
+					: animated,
+		};
 
-	const classes: Array<string | undefined> = [
-		cls[size],
-		cls[variant],
-		format && cls[format],
-		width && cls[width],
-		disabled && cls[disabled],
-		className,
-	];
+		const classes: Array<string | undefined> = [
+			cls[size],
+			cls[variant],
+			format && cls[format],
+			width && cls[width],
+			disabled && cls[disabled],
+			className,
+		];
 
-	return (
-		<button
-			{...otherProps}
-			className={cn(cls.button, mods, classes)}
-			disabled={Boolean(disabled)}
-			ref={ref}
-			data-testid={props['data-testid'] ?? 'Button'}
-		>
-			{children}
-		</button>
-	);
-}));
+		return (
+			<button
+				{...otherProps}
+				className={cn(cls.button, mods, classes)}
+				disabled={Boolean(disabled)}
+				ref={ref}
+				data-testid={props['data-testid'] ?? 'Button'}
+			>
+				{children}
+			</button>
+		);
+	})
+);

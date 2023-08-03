@@ -6,7 +6,10 @@ import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 import { useSelector } from 'react-redux';
 import { selectCanEditArticle } from '../../model/selectors/article';
-import { selectArticleDetailsData, selectArticleDetailsIsLoading } from '@/entities/article';
+import {
+	selectArticleDetailsData,
+	selectArticleDetailsIsLoading,
+} from '@/entities/article';
 // import { selectUserAuthData } from 'entities/user';
 
 import { Button, ButtonVariant } from '@/shared/ui/button';
@@ -50,7 +53,11 @@ export const ArticleDetailsHeader = memo((props: ArticleDetailsHeaderProps) => {
 				justify='start'
 				width='max'
 			>
-				<Skeleton width={160} height={36} border='6px' />
+				<Skeleton
+					width={160}
+					height={36}
+					border='6px'
+				/>
 			</HStack>
 		);
 	}
@@ -62,7 +69,10 @@ export const ArticleDetailsHeader = memo((props: ArticleDetailsHeaderProps) => {
 			gap={20}
 			width={'max'}
 		>
-			<Button onClick={onBackToList} animated>
+			<Button
+				onClick={onBackToList}
+				animated
+			>
 				{t('back_to_article_list')}
 			</Button>
 			{canEdit && (

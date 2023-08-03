@@ -11,14 +11,13 @@ export default {
 	},
 } as Meta<typeof Sidebar>;
 
-
 const Template: StoryFn<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
 export const Light = Template.bind({});
 Light.decorators = [
 	StoreDecorator({
 		user: {
-			authData: {}
+			authData: {},
 		},
 	}),
 ];
@@ -27,19 +26,19 @@ export const Dark = Template.bind({});
 Dark.decorators = [
 	StoreDecorator({
 		user: {
-			authData: {}
-		}
+			authData: {},
+		},
 	}),
 ];
 Dark.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const NoAuth = Template.bind({});
 NoAuth.decorators = [
 	StoreDecorator({
 		user: {
-			authData: undefined
-		}
+			authData: undefined,
+		},
 	}),
 ];

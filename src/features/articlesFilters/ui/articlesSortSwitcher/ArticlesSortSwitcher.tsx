@@ -3,7 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import type { SortOrder } from '@/shared/types/sort';
 
-import { ArticleSortField, OrderOptions, SortOptions } from '../../model/types/articlesFilters';
+import {
+	ArticleSortField,
+	OrderOptions,
+	SortOptions,
+} from '../../model/types/articlesFilters';
 
 import { ListBox } from '@/shared/ui/popups';
 import { HStack } from '@/shared/ui/stack';
@@ -18,42 +22,47 @@ interface ArticlesSortSwitcherProps {
 }
 
 export const ArticlesSortSwitcher = memo((props: ArticlesSortSwitcherProps) => {
-	const {
-		order,
-		sort,
-		onChangeOrder,
-		onChangeSort,
-	} = props;
+	const { order, sort, onChangeOrder, onChangeSort } = props;
 	const { t } = useTranslation('article');
 
-	const orderOptions = useMemo<OrderOptions>(() => [
-		{
-			value: 'asc',
-			content: t('by_ascending_order')
-		},
-		{
-			value: 'desc',
-			content: t('by_descending_order')
-		}
-	], [t]);
+	const orderOptions = useMemo<OrderOptions>(
+		() => [
+			{
+				value: 'asc',
+				content: t('by_ascending_order'),
+			},
+			{
+				value: 'desc',
+				content: t('by_descending_order'),
+			},
+		],
+		[t]
+	);
 
-	const sortFieldOptions = useMemo<SortOptions>(() => [
-		{
-			value: ArticleSortField.Created,
-			content: t('by_date')
-		},
-		{
-			value: ArticleSortField.Title,
-			content: t('by_title')
-		},
-		{
-			value: ArticleSortField.Views,
-			content: t('by_views')
-		},
-	], [t]);
+	const sortFieldOptions = useMemo<SortOptions>(
+		() => [
+			{
+				value: ArticleSortField.Created,
+				content: t('by_date'),
+			},
+			{
+				value: ArticleSortField.Title,
+				content: t('by_title'),
+			},
+			{
+				value: ArticleSortField.Views,
+				content: t('by_views'),
+			},
+		],
+		[t]
+	);
 
 	return (
-		<HStack gap={8} className={cls.container} width='content'>
+		<HStack
+			gap={8}
+			className={cls.container}
+			width='content'
+		>
 			<ListBox
 				className={cls.sortField}
 				variant='stretchBgInverted'

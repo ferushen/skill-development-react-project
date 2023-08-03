@@ -20,7 +20,7 @@ const App = () => {
 		<div className={'app'}>
 			<Suspense fallback=''>
 				<Navbar />
-				<div className="content-page">
+				<div className='content-page'>
 					<Sidebar />
 					{initialized && <AppRouter />}
 				</div>

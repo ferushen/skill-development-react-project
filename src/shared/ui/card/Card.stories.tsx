@@ -9,13 +9,16 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-	decorators: [
-		Story => <div style={{ width: 'max-content' }}>{Story()}</div>
-	],
+	decorators: [(Story) => <div style={{ width: 'max-content' }}>{Story()}</div>],
 	args: {
 		// eslint-disable-next-line i18next/no-literal-string
-		children: <Text title='Card title' text='some text' />
-	}
+		children: (
+			<Text
+				title='Card title'
+				text='some text'
+			/>
+		),
+	},
 } as Meta<typeof Card>;
 
 const Template: StoryFn<typeof Card> = (args) => <Card {...args} />;
@@ -45,7 +48,7 @@ DarkColorPrimary.args = {
 	color: 'primary',
 };
 DarkColorPrimary.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const DarkColorSecondary = Template.bind({});
@@ -53,7 +56,7 @@ DarkColorSecondary.args = {
 	color: 'secondary',
 };
 DarkColorSecondary.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const DarkColorBgColor = Template.bind({});
@@ -61,7 +64,7 @@ DarkColorBgColor.args = {
 	color: 'bgColor',
 };
 DarkColorBgColor.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const DarkOutline = Template.bind({});
@@ -69,7 +72,7 @@ DarkOutline.args = {
 	variant: CardVariant.Outline,
 };
 DarkOutline.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const SizeSmall = Template.bind({});
@@ -91,5 +94,3 @@ export const SizeExtraLarge = Template.bind({});
 SizeExtraLarge.args = {
 	size: 'extraLarge',
 };
-
-

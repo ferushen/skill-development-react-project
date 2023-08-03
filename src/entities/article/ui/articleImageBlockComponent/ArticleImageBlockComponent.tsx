@@ -10,25 +10,27 @@ import cls from './ArticleImageBlockComponent.module.scss';
 
 interface ArticleImageBlockComponentProps {
 	className?: string;
-	block: ArticleImageBlock
+	block: ArticleImageBlock;
 }
 
-export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponentProps) => {
-	const { className, block } = props;
+export const ArticleImageBlockComponent = memo(
+	(props: ArticleImageBlockComponentProps) => {
+		const { className, block } = props;
 
-	return (
-		<VStack className={cn('', {}, [className])}>
-			<img
-				className={cls.img}
-				src={block.src}
-				alt={block.title}
-			/>
-			{block.title && (
-				<Text
-					align={TextAlign.Center}
-					text={block.title}
+		return (
+			<VStack className={cn('', {}, [className])}>
+				<img
+					className={cls.img}
+					src={block.src}
+					alt={block.title}
 				/>
-			)}
-		</VStack>
-	);
-});
+				{block.title && (
+					<Text
+						align={TextAlign.Center}
+						text={block.title}
+					/>
+				)}
+			</VStack>
+		);
+	}
+);

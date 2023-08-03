@@ -31,7 +31,7 @@ NormalDark.args = {
 	height: 100,
 };
 NormalDark.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const CircleDark = Template.bind({});
@@ -41,5 +41,5 @@ CircleDark.args = {
 	height: 100,
 };
 CircleDark.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };

@@ -27,16 +27,23 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
 	const comments = useSelector(selectArticleComments.selectAll);
 	const commentsIsLoading = useSelector(selectArticleCommentsIsLoading);
 
-	const onCommentSend = useCallback((text: string) => {
-		dispatch(addCommentForArticle(text));
-	}, [dispatch]);
+	const onCommentSend = useCallback(
+		(text: string) => {
+			dispatch(addCommentForArticle(text));
+		},
+		[dispatch]
+	);
 
 	useInitialEffect(() => {
 		dispatch(fetchCommentsByArticleId(id));
 	});
 
 	return (
-		<VStack className={className} gap={16} width='max'>
+		<VStack
+			className={className}
+			width='max'
+			gap={16}
+		>
 			<Text
 				size={TextSize.M}
 				title={t('comments')}

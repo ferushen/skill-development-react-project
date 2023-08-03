@@ -31,12 +31,14 @@ export default {
 						title: 'Третье уведомление',
 						description: 'Детальное описание к третьему уведомлению',
 					},
-				]
-			}
-		]
-	}
+				],
+			},
+		],
+	},
 } as Meta<typeof NotificationList>;
 
-const Template: StoryFn<typeof NotificationList> = (args) => <NotificationList {...args} />;
+const Template: StoryFn<typeof NotificationList> = (args) => (
+	<NotificationList {...args} />
+);
 
 export const Normal = Template.bind({});

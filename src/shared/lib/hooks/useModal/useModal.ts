@@ -1,10 +1,4 @@
-import {
-	MutableRefObject,
-	useCallback,
-	useEffect,
-	useRef,
-	useState,
-} from 'react';
+import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react';
 
 interface UseModalProps {
 	onClose?: () => void;
@@ -16,12 +10,8 @@ export function useModal({ isOpen, animationDelay, onClose }: UseModalProps) {
 	const [isMounted, setIsMounted] = useState(false);
 	const [isOpening, setIsOpening] = useState(false);
 
-	const timerClosingRef = useRef() as MutableRefObject<
-		ReturnType<typeof setTimeout>
-	>;
-	const timerOpeningRef = useRef() as MutableRefObject<
-		ReturnType<typeof setTimeout>
-	>;
+	const timerClosingRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+	const timerOpeningRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
 	const handleClose = useCallback(() => {
 		if (onClose) {

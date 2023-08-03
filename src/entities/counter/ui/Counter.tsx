@@ -19,15 +19,19 @@ export const Counter = () => {
 	return (
 		<div>
 			{/*eslint-disable-next-line i18next/no-literal-string*/}
-			<h1 data-testid="value-title">value = {counterValue}</h1>
+			<h1 data-testid='value-title'>value = {counterValue}</h1>
 			<Button
 				onClick={increment}
-				data-testid="increment-btn"
-			>+</Button>
+				data-testid='increment-btn'
+			>
+				{'+'}
+			</Button>
 			<Button
 				onClick={decrement}
-				data-testid="decrement-btn"
-			>-</Button>
+				data-testid='decrement-btn'
+			>
+				{'-'}
+			</Button>
 		</div>
 	);
 };

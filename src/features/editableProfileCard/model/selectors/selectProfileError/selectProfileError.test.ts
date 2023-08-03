@@ -8,9 +8,7 @@ describe('selectProfileError', () => {
 				error: 'some error message',
 			},
 		};
-		expect(selectProfileError(state as StateSchema)).toEqual(
-			'some error message'
-		);
+		expect(selectProfileError(state as StateSchema)).toEqual('some error message');
 	});
 	test('should work with empty state', () => {
 		const state: DeepPartial<StateSchema> = {};

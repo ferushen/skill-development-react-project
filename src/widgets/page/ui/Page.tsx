@@ -31,15 +31,17 @@ export const Page = (props: PageProps) => {
 
 	// useSelector умеет работать с селекторами, у которых только 1 аргумент
 	// поэтому используем здесь стрелочную функцию
-	const scrollPosition = useSelector(
-		(state: StateSchema) => getScrollSaverByPath(state, pathname)
+	const scrollPosition = useSelector((state: StateSchema) =>
+		getScrollSaverByPath(state, pathname)
 	);
 
 	const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-		dispatch(scrollSaverActions.setScrollPosition({
-			path: pathname,
-			position: e.currentTarget.scrollTop,
-		}));
+		dispatch(
+			scrollSaverActions.setScrollPosition({
+				path: pathname,
+				position: e.currentTarget.scrollTop,
+			})
+		);
 	}, 500);
 
 	useInfiniteScroll({
@@ -60,10 +62,12 @@ export const Page = (props: PageProps) => {
 			data-testid={props['data-testid'] ?? 'Page'}
 		>
 			{children}
-			{onScrollEnd
-				? <div className={cls.trigger} ref={triggerRef} />
-				: null
-			}
+			{onScrollEnd ? (
+				<div
+					className={cls.trigger}
+					ref={triggerRef}
+				/>
+			) : null}
 		</main>
 	);
 };

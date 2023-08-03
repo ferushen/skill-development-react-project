@@ -43,7 +43,7 @@ const gapClasses: Record<FlexGap, string> = {
 const widthClasses: Record<FlexWidth, string> = {
 	minMax: cls.minMax,
 	max: cls.max,
-	content: cls.fit
+	content: cls.fit,
 };
 
 type DivProps = DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
@@ -80,7 +80,10 @@ export const Flex = (props: FlexProps) => {
 	];
 
 	return (
-		<div className={cn(cls.flex, {}, classes)} {...otherProps}>
+		<div
+			className={cn(cls.flex, {}, classes)}
+			{...otherProps}
+		>
 			{children}
 		</div>
 	);

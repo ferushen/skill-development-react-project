@@ -12,10 +12,10 @@ describe('EditableProfileCard.cy.tsx', () => {
 					initialState: {
 						user: {
 							authData: {
-								id: USER_ID
-							}
-						}
-					}
+								id: USER_ID,
+							},
+						},
+					},
 				}}
 			>
 				<EditableProfileCard id={USER_ID} />

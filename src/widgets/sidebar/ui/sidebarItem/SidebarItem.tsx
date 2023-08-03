@@ -18,16 +18,13 @@ interface SidebarItemProps {
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
-	const {
-		item,
-		collapsed
-	} = props;
+	const { item, collapsed } = props;
 	const { t } = useTranslation();
 
 	const isAuth = useSelector(selectUserAuthData);
 
 	const mods: Mods = {
-		[cls.collapsed]: collapsed
+		[cls.collapsed]: collapsed,
 	};
 
 	if (item.authOnly && !isAuth) {
@@ -45,9 +42,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 				gap={16}
 			>
 				<item.Icon className={cls.icon} />
-				<span className={cls.link}>
-					{t(item.text)}
-				</span>
+				<span className={cls.link}>{t(item.text)}</span>
 			</HStack>
 		</AppLink>
 	);

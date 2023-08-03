@@ -1,2 +1,7 @@
-.eslintrc.json
+*.html
+*.scss
+*css
+.fttemplates
+build
+node_modules
 config/build/loaders/buildBabelLoader.ts

@@ -31,12 +31,7 @@ export const Card = memo((props: CardProps) => {
 		...otherProps
 	} = props;
 
-	const additionalClasses = [
-		className,
-		cls[variant],
-		size && cls[size],
-		cls[color],
-	];
+	const additionalClasses = [className, cls[variant], size && cls[size], cls[color]];
 
 	return (
 		<div

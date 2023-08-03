@@ -8,7 +8,7 @@ import cls from './Text.module.scss';
 export enum TextVariant {
 	Primary = 'primary',
 	Inverted = 'inverted',
-	Error = 'error'
+	Error = 'error',
 }
 
 export enum TextSize {
@@ -20,7 +20,7 @@ export enum TextSize {
 export enum TextAlign {
 	Center = 'center',
 	Left = 'left',
-	Right = 'right'
+	Right = 'right',
 }
 
 type TitleTagType = 'h1' | 'h2' | 'h3' | 'p';
@@ -45,15 +45,10 @@ export const Text = memo((props: TextProps) => {
 		align = TextAlign.Left,
 		title,
 		text,
-		'data-testid': dataTestId = 'Text'
+		'data-testid': dataTestId = 'Text',
 	} = props;
 
-	const additionalClasses = [
-		className,
-		cls[variant],
-		cls[size],
-		cls[align],
-	];
+	const additionalClasses = [className, cls[variant], cls[size], cls[align]];
 
 	return (
 		<div className={cn('', {}, additionalClasses)}>

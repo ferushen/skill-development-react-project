@@ -4,7 +4,10 @@ import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+	DynamicModuleLoader,
+	ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -25,7 +28,7 @@ export interface LoginFormProps {
 }
 
 const initialReducers: ReducersList = {
-	loginForm: loginReducer
+	loginForm: loginReducer,
 };
 
 const LoginForm = memo((props: LoginFormProps) => {
@@ -39,13 +42,19 @@ const LoginForm = memo((props: LoginFormProps) => {
 	const error = useSelector(getLoginError);
 
 	// колбэки, которые передаются в качестве пропсов, оборачиваем useCallback, чтобы не изменялась ссылка
-	const onChangeUsername = useCallback((value: string) => {
-		dispatch(loginActions.setUsername(value));
-	}, [dispatch]);
+	const onChangeUsername = useCallback(
+		(value: string) => {
+			dispatch(loginActions.setUsername(value));
+		},
+		[dispatch]
+	);
 
-	const onChangePassword = useCallback((value: string) => {
-		dispatch(loginActions.setPassword(value));
-	}, [dispatch]);
+	const onChangePassword = useCallback(
+		(value: string) => {
+			dispatch(loginActions.setPassword(value));
+		},
+		[dispatch]
+	);
 
 	const onLoginClick = useCallback(async () => {
 		const result = await dispatch(loginByUsername({ username, password }));
@@ -79,7 +88,13 @@ const LoginForm = memo((props: LoginFormProps) => {
 				gap={40}
 			>
 				<Text title={t('login_form')} />
-				{error && <Text className={cls.error} text={t('incorrect_login_or_password')} variant={TextVariant.Error} />}
+				{error && (
+					<Text
+						className={cls.error}
+						text={t('incorrect_login_or_password')}
+						variant={TextVariant.Error}
+					/>
+				)}
 				<VStack
 					align={'center'}
 					gap={20}

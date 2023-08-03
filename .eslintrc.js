@@ -6,12 +6,14 @@ module.exports = {
 		/*jest: true*/
 	},
 	extends: [
-		'prettier',
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
+		'plugin:storybook/recommended',
+		/*'prettier',*/
 		'plugin:react/recommended',
 		'plugin:react/jsx-runtime',
-		'plugin:storybook/recommended',
+		'plugin:prettier/recommended',
+		'plugin:react-hooks/recommended',
 	],
 	globals: {
 		__IS_DEV__: true,
@@ -20,7 +22,7 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: ['**/src/**/*.test.{ts,tsx}'],
+			files: ['**/src/**/*.test.{ts,tsx}', '**/src/**/*.stories.tsx'],
 			rules: {
 				'i18next/no-literal-string': 'off',
 			},
@@ -36,6 +38,9 @@ module.exports = {
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
+		ecmaFeatures: {
+			jsx: true,
+		},
 	},
 	plugins: [
 		'react',
@@ -46,16 +51,14 @@ module.exports = {
 		'unused-imports',
 	],
 	rules: {
-		// отвечает за правильное написание хуков
-		'react-hooks/rules-of-hooks': 'error',
-		// отвечает за массивы зависимостей в хуках
-		'react-hooks/exhaustive-deps': 'warn',
 		'@typescript-eslint/ban-ts-comment': [
 			'warn',
 			{
 				'ts-ignore': false,
 			},
 		],
+		'@typescript-eslint/no-empty-function': 1,
+		'@typescript-eslint/no-namespace': 0,
 		'@typescript-eslint/no-unused-vars': [
 			'warn',
 			{
@@ -64,6 +67,56 @@ module.exports = {
 				caughtErrorsIgnorePattern: '^_',
 			},
 		],
+		'react/display-name': 'off',
+		// отвечает за правильное написание хуков
+		'react-hooks/rules-of-hooks': 'error',
+		// отвечает за массивы зависимостей в хуках
+		'react-hooks/exhaustive-deps': 'warn',
+		'react/jsx-no-constructed-context-values': 2,
+		'correct-fsd-import-paths/layer-import': [
+			'error',
+			{
+				alias: '@',
+				ignoredImportPatterns: ['**/storeProvider', '**/testing'],
+			},
+		],
+		'correct-fsd-import-paths/public-api-outside-module': [
+			'error',
+			{
+				alias: '@',
+				testFilesPatterns: [
+					'**/*.test.{ts,tsx}',
+					'**/*.stories.tsx',
+					'**/StoreDecorator.tsx',
+				],
+			},
+		],
+		'correct-fsd-import-paths/relative-path-inside-module': ['error', { alias: '@' }],
+		'unused-imports/no-unused-imports': 'error',
+		'unused-imports/no-unused-vars': [
+			'warn',
+			{
+				vars: 'all',
+				varsIgnorePattern: '^_',
+				args: 'after-used',
+				argsIgnorePattern: '^_',
+			},
+		],
+		'react/jsx-first-prop-new-line': [1, 'multiline'],
+		'react/jsx-max-props-per-line': [
+			1,
+			{
+				maximum: {
+					single: 1,
+					multi: 1,
+				},
+			},
+		],
+		'linebreak-style': ['error', 'windows'],
+		'no-unused-vars': ['off'],
+		// 'indent': ['error', 'tab', { SwitchCase: 1 }],
+		quotes: ['error', 'single'],
+		//'semi': ['error', 'always'],
 		'i18next/no-literal-string': [
 			'error',
 			{
@@ -98,52 +151,7 @@ module.exports = {
 				},
 			},
 		],
-		indent: [
-			'error',
-			'tab',
-			{
-				SwitchCase: 1,
-			},
-		],
-		'linebreak-style': ['error', 'windows'],
-		'no-unused-vars': ['off'],
-		quotes: ['error', 'single'],
-		/*
-		'react/jsx-indent-props': [
-			'error',
-			{ identMode: 'tab', ignoreTernaryOperator: true }
-		],
-		*/
-		'react/display-name': 'off',
-		semi: ['error', 'always'],
-		'correct-fsd-import-paths/relative-path-inside-module': ['error', { alias: '@' }],
-		'correct-fsd-import-paths/public-api-outside-module': [
-			'error',
-			{
-				alias: '@',
-				testFilesPatterns: ['**/*.test.{ts,tsx}', '**/*.stories.tsx', '**/StoreDecorator.tsx']
-			}
-		],
-		'correct-fsd-import-paths/layer-import': [
-			'error',
-			{
-				alias: '@',
-				ignoredImportPatterns: ['**/storeProvider', '**/testing']
-			}
-		],
-		'react/jsx-no-constructed-context-values': 2,
-		'unused-imports/no-unused-imports': 'error',
-		'unused-imports/no-unused-vars': [
-			'warn',
-			{
-				vars: 'all',
-				varsIgnorePattern: '^_',
-				args: 'after-used',
-				argsIgnorePattern: '^_'
-			}
-		],
-		'@typescript-eslint/no-namespace': 0,
-		'@typescript-eslint/no-empty-function': 1,
+		/*'function-call-argument-newline': [2, 'consistent']*/
 	},
 	settings: {
 		react: {

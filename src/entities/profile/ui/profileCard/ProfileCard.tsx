@@ -44,14 +44,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		onChangeUsername,
 		onChangeAvatar,
 		onChangeCurrency,
-		onChangeCountry
+		onChangeCountry,
 	} = props;
 	const { t } = useTranslation('profile');
 
-	const classesError = [
-		className,
-		cls.error
-	];
+	const classesError = [className, cls.error];
 
 	if (isLoading) {
 		return (
@@ -173,7 +170,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
 						placeholderReadonly={t('not_specified')}
 						onChange={onChangeCity}
 						data-testid='ProfileCard.city'
-
 					/>
 					<Input
 						classNameWrapper={cls.inputWrapper}

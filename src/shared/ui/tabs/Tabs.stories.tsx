@@ -25,8 +25,8 @@ export default {
 			},
 		],
 		active: 'tab_1',
-		onClickTab: action('onClickTab')
-	}
+		onClickTab: action('onClickTab'),
+	},
 } as Meta<typeof Tabs>;
 
 const Template: StoryFn<typeof Tabs> = (args) => <Tabs {...args} />;
@@ -43,7 +43,7 @@ ColorSecondary.args = {
 
 export const DarkColorPrimary = Template.bind({});
 DarkColorPrimary.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const DarkColorSecondary = Template.bind({});
@@ -51,7 +51,7 @@ DarkColorSecondary.args = {
 	color: 'secondary',
 };
 DarkColorSecondary.parameters = {
-	theme: Theme.DARK
+	theme: Theme.DARK,
 };
 
 export const SizeSmall = Template.bind({});

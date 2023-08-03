@@ -19,14 +19,20 @@ export function RequireRole({ children, roles }: RequireRoleProps) {
 			return true;
 		}
 
-		return roles.some(role => {
+		return roles.some((role) => {
 			const hasRole = userRoles?.includes(role);
 			return hasRole;
 		});
 	}, [roles, userRoles]);
 
 	if (!hasRequiredRoles) {
-		return <Navigate to={getRouteForbidden()} state={{ from: location }} replace />;
+		return (
+			<Navigate
+				to={getRouteForbidden()}
+				state={{ from: location }}
+				replace
+			/>
+		);
 	}
 
 	return children;

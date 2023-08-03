@@ -1,7 +1,10 @@
 import { ReactNode, memo, useCallback, useEffect } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+	AnimationProvider,
+	useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 
 import { Overlay } from '@/shared/ui/overlay';
 import { Portal } from '@/shared/ui/portal';
@@ -50,13 +53,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 	};
 
 	const bind = Gesture.useDrag(
-		({
-			last,
-			velocity: [, vy],
-			direction: [, dy],
-			movement: [, my],
-			cancel,
-		}) => {
+		({ last, velocity: [, vy], direction: [, dy], movement: [, my], cancel }) => {
 			if (my < -70) cancel();
 
 			if (last) {
@@ -91,7 +88,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 	const contentStyle = {
 		display,
 		bottom: `calc(-100vh + ${height - 100}px)`,
-		y
+		y,
 	};
 
 	const overlayStyle = {

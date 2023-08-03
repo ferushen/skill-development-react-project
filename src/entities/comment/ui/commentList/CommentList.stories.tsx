@@ -17,19 +17,19 @@ Normal.args = {
 		{
 			id: '1',
 			text: 'Я первый!',
-			user: { id: '1', username: 'Joker' }
+			user: { id: '1', username: 'Joker' },
 		},
 		{
 			id: '2',
 			text: 'Я второй!',
-			user: { id: '2', username: 'King' }
+			user: { id: '2', username: 'King' },
 		},
 		{
 			id: '3',
 			text: 'А я еще третий!',
-			user: { id: '1', username: 'Joker' }
+			user: { id: '1', username: 'Joker' },
 		},
-	]
+	],
 };
 
 export const Loading = Template.bind({});
@@ -38,17 +38,17 @@ Loading.args = {
 		{
 			id: '1',
 			text: 'Я первый!',
-			user: { id: '1', username: 'Joker' }
+			user: { id: '1', username: 'Joker' },
 		},
 		{
 			id: '2',
 			text: 'Я второй!',
-			user: { id: '2', username: 'King' }
+			user: { id: '2', username: 'King' },
 		},
 		{
 			id: '3',
 			text: 'А я еще третий!',
-			user: { id: '1', username: 'Joker' }
+			user: { id: '1', username: 'Joker' },
 		},
 	],
 	isLoading: true,

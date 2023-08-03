@@ -12,11 +12,13 @@ export default {
 		router: {
 			path: '/article/:id',
 			route: '/article/1',
-		}
+		},
 	},
 } as Meta<typeof ArticleDetailsHeader>;
 
-const Template: StoryFn<typeof ArticleDetailsHeader> = (args) => <ArticleDetailsHeader {...args} />;
+const Template: StoryFn<typeof ArticleDetailsHeader> = (args) => (
+	<ArticleDetailsHeader {...args} />
+);
 
 export const Readonly = Template.bind({});
 Readonly.decorators = [
@@ -24,9 +26,9 @@ Readonly.decorators = [
 		articleDetails: {
 			data: {
 				id: '1',
-			}
+			},
 		},
-	})
+	}),
 ];
 
 export const Editable = Template.bind({});
@@ -45,7 +47,7 @@ Editable.decorators = [
 				id: '1',
 			},
 		},
-	})
+	}),
 ];
 
 export const Loading = Template.bind({});
@@ -54,6 +56,5 @@ Loading.decorators = [
 		articleDetails: {
 			isLoading: true,
 		},
-	})
+	}),
 ];
-

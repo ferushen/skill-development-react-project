@@ -26,16 +26,12 @@ export const Skeleton = memo((props: SkeletonProps) => {
 		height,
 		width,
 		border,
-		'data-testid': dataTestId = 'Skeleton'
+		'data-testid': dataTestId = 'Skeleton',
 	} = props;
 
 	const mods: Mods = {};
 
-	const classes = [
-		className,
-		cls[variant],
-		cls[size]
-	];
+	const classes = [className, cls[variant], cls[size]];
 
 	const styles: CSSProperties = {
 		height,

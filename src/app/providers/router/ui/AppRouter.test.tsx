@@ -1,6 +1,10 @@
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import AppRouter from './AppRouter';
-import { getRouteAbout, getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import {
+	getRouteAbout,
+	getRouteAdminPanel,
+	getRouteProfile,
+} from '@/shared/const/router';
 import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 import { UserRole } from '@/entities/user';
 import { Currency } from '@/entities/currency';
@@ -41,7 +45,7 @@ describe('app/router/AppRouter', function () {
 	test('Редирект на главную если пользователь не авторизован', async () => {
 		Object.defineProperty(window, 'matchMedia', {
 			writable: true,
-			value: jest.fn().mockImplementation(_ => ({
+			value: jest.fn().mockImplementation((_) => ({
 				matches: false,
 			})),
 		});
@@ -50,9 +54,9 @@ describe('app/router/AppRouter', function () {
 			route: getRouteProfile('1'),
 			initialState: {
 				user: {
-					authData: undefined
-				}
-			}
+					authData: undefined,
+				},
+			},
 		});
 
 		const loader = screen.queryByTestId('Loader');
@@ -72,10 +76,10 @@ describe('app/router/AppRouter', function () {
 				user: {
 					_initialized: true,
 					authData: {
-						id: '1'
-					}
-				}
-			}
+						id: '1',
+					},
+				},
+			},
 		});
 
 		const loader = screen.queryByTestId('Loader');
@@ -94,9 +98,9 @@ describe('app/router/AppRouter', function () {
 			initialState: {
 				user: {
 					_initialized: true,
-					authData: {}
-				}
-			}
+					authData: {},
+				},
+			},
 		});
 
 		const page = await screen.findByTestId('ForbiddenPage');
@@ -110,10 +114,10 @@ describe('app/router/AppRouter', function () {
 				user: {
 					_initialized: true,
 					authData: {
-						roles: [UserRole.Admin]
-					}
-				}
-			}
+						roles: [UserRole.Admin],
+					},
+				},
+			},
 		});
 
 		const page = await screen.findByTestId('AdminPanel');

@@ -49,33 +49,36 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 					variant={TextVariant.Inverted}
 					title={`🍺${t('ferushen_app')}`}
 				/>
-				<HStack justify={'end'} gap={30}>
+				<HStack
+					justify={'end'}
+					gap={30}
+				>
 					<BugButton />
-					{authData
-						? (
-							<>
-								<AppLink
-									variant={AppLinkVariant.Inverted}
-									to={getRouteArticleCreate()}
-								>
-									{t('create_article')}
-								</AppLink>
-								<NotificationButton />
-								<AvatarDropdown />
-							</>
-						)
-						: (
-							<>
-								<Button
-									onClick={onShowModal}
-									variant={ButtonVariant.ClearInverted}
-								>
-									{t('login')}
-								</Button>
-								<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-							</>
-						)
-					}
+					{authData ? (
+						<>
+							<AppLink
+								variant={AppLinkVariant.Inverted}
+								to={getRouteArticleCreate()}
+							>
+								{t('create_article')}
+							</AppLink>
+							<NotificationButton />
+							<AvatarDropdown />
+						</>
+					) : (
+						<>
+							<Button
+								onClick={onShowModal}
+								variant={ButtonVariant.ClearInverted}
+							>
+								{t('login')}
+							</Button>
+							<LoginModal
+								isOpen={isAuthModal}
+								onClose={onCloseModal}
+							/>
+						</>
+					)}
 				</HStack>
 			</HStack>
 		</header>

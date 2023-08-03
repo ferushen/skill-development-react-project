@@ -32,7 +32,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
 		feedbackTitle,
 		rate = 0,
 		onAccept,
-		onCancel
+		onCancel,
 	} = props;
 	const { t } = useTranslation();
 
@@ -43,15 +43,18 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
 	const isMobile = useDevice();
 
-	const onSelectStars = useCallback((selectedStarsCount: number) => {
-		setStarsCount(selectedStarsCount);
-		if (hasFeedback) {
-			setIsModalOpen(true);
-			setReset(false);
-		} else {
-			onAccept?.(selectedStarsCount);
-		}
-	}, [onAccept, hasFeedback]);
+	const onSelectStars = useCallback(
+		(selectedStarsCount: number) => {
+			setStarsCount(selectedStarsCount);
+			if (hasFeedback) {
+				setIsModalOpen(true);
+				setReset(false);
+			} else {
+				onAccept?.(selectedStarsCount);
+			}
+		},
+		[onAccept, hasFeedback]
+	);
 
 	const acceptHandle = useCallback(() => {
 		setIsModalOpen(false);
@@ -68,7 +71,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
 	// TODO: проработать верстку
 
 	const content = (
-		<VStack gap={30} width='max'>
+		<VStack
+			gap={30}
+			width='max'
+		>
 			<Text title={feedbackTitle} />
 			<Input
 				placeholder={t('your_feedback')}
@@ -106,8 +112,13 @@ export const RatingCard = memo((props: RatingCardProps) => {
 			className={cn(cls.ratingCard, {}, [className])}
 			data-testid='RatingCard'
 		>
-			<VStack align='center' gap={8}>
-				<Text title={starsCount && !isModalOpen ? t('thanks_for_your_rate') : title} />
+			<VStack
+				align='center'
+				gap={8}
+			>
+				<Text
+					title={starsCount && !isModalOpen ? t('thanks_for_your_rate') : title}
+				/>
 				<StarRating
 					size={40}
 					selectedStars={starsCount}
@@ -131,6 +142,6 @@ export const RatingCard = memo((props: RatingCardProps) => {
 					{content}
 				</Modal>
 			)}
-		</Card >
+		</Card>
 	);
 });

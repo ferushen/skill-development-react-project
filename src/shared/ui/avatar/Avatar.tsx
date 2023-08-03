@@ -19,22 +19,25 @@ interface AvatarProps {
 }
 
 export const Avatar = memo((props: AvatarProps) => {
-	const {
-		className,
-		src,
-		alt = '',
-		size = 100,
-		invertedFallbackColor
-	} = props;
+	const { className, src, alt = '', size = 100, invertedFallbackColor } = props;
 
 	const isEmpty = !src;
 
-	const styles = useMemo<CSSProperties>(() => ({
-		width: size,
-		height: size,
-	}), [size]);
+	const styles = useMemo<CSSProperties>(
+		() => ({
+			width: size,
+			height: size,
+		}),
+		[size]
+	);
 
-	const fallback = <Skeleton width={size} height={size} border='50%' />;
+	const fallback = (
+		<Skeleton
+			width={size}
+			height={size}
+			border='50%'
+		/>
+	);
 	const errorFallback = isEmpty ? (
 		<img
 			width={size}

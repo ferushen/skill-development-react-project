@@ -10,7 +10,9 @@ export default {
 	},
 } as Meta<typeof ArticlesSortSwitcher>;
 
-const Template: StoryFn<typeof ArticlesSortSwitcher> = (args) => <ArticlesSortSwitcher {...args} />;
+const Template: StoryFn<typeof ArticlesSortSwitcher> = (args) => (
+	<ArticlesSortSwitcher {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
